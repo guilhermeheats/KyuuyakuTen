@@ -273,3 +273,19 @@ partir do JUNKS. O 2F/1F continua sem rota validada por enquanto.
   seleção I/II; o SRAM **não** é carregado no título — o load é pelo NPC
   de save in-game. O core e o binário do snesref continuam fora do
   repositório.
+
+### BFS do 4F #1 e novo teste do snesref (2026-11-22)
+
+- BFS com savestates de slot no processo temporário: **81 estados**,
+  cobrindo `x=16..22`, `y=0..7`. A escada `(18,1)` **não foi
+  alcançada**; Leste de `(17,1)`, Sul de `(18,0)`/`(19,0)` e Sul de
+  `(18,3)` são bloqueados. A batalha disparada em `(18,3)` foi
+  encerrada e o Sul continuou parede.
+- Conclusão provável: o tile `(18,1)` é uma **subida de mão única** do
+  3F para o 4F; a rota documentada de descida pelo 4F não existe.
+- No `snesref`, o novo jogo foi levado até a cidade (`(0,0)`) com
+  nome/stats scriptados. O Elder em `(0,2)` abre apenas o menu de campo
+  em N/S/E/W; a interação de save/load do NPC ainda não foi localizada.
+- O teste do prompt NO em `(19,14)` continua pendente; a rota 2F/1F
+  precisa de um mapa/vídeo de referência ou de um trace da transição
+  de escada.
