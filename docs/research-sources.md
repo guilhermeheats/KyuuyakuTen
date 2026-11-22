@@ -15,7 +15,17 @@ mapa, imagem, ROM ou save de terceiros é versionado no repositório.
   - flag de parada do elevador do 7F = 0;
   - tabelas de encontros 8F–5F e 4F–1F;
   - estoque e preços da loja do 8F;
-  - baú do 8F: 500 Macca + 宝玉.
+  - baú do 8F: 500 Macca + 宝玉;
+  - **4F**: #1 = 49 células (Harpia, elevador `(21,5)`, descida `(18,1)`,
+    subida `(20,7)`); #2 = 15 células, só as escadas `(23,0)` (sobe) e
+    `(23,5)` (desce). O 5F `(15,8)` desce ao #2; o 5F `(12,15)` desce ao #1.
+  - **3F**: #1 = 35 células (elevador `(29,5)`, Bug `(28,5)`, descida
+    `(27,6)` ao 2F, subida `(31,5)`); #2 = 29 células (subida `(26,1)`,
+    conversas `(31,0)`, portões). O 4F `(18,1)` desce ao #2; o 4F `(23,5)`
+    desce ao #1.
+  - **2F**: um único bloco de 64 células. A descida do 3F `(27,6)` chega em
+    `(19,14)`; a descida ao 1F é `(18,14)`; elevador `(21,13)`; Nekomata
+    `(23,10)`. O pouso do 2F **não é uma seção separada**.
 - Ressalva: a tabela não lista batalhas fixas no 7F. O detonado e o mapa da
   Sion listam Basim e Gnome como encontros não aleatórios no 7F. O **Basim
   fixo foi confirmado** em 2026-11-18 a partir de WRAM `(9,3)` (andar para
@@ -35,6 +45,10 @@ mapa, imagem, ROM ou save de terceiros é versionado no repositório.
     aleatório em `(8,2)` (WRAM) e pôde ser dispensado pela opção `TALK` → `NO`.
   - Uma besta verde (provável Basim) também apareceu como encontro aleatório;
     `TALK` respondeu `グルルルルル...` e `ESCAPE` falhou duas vezes.
+  - Mapas de rota 4F/3F/3F-2/2F/1F: o 3F-2 mostra a linha verde do **pouso da
+    escada do 2F `(27,6)`** até a sala do Bug/elevador; o 3F principal liga a
+    escada do 2F, o elevador `(29,5)` e a subida `(31,5)`; o 2F sai do pouso
+    do 3F, contorna até a Nekomata e desce pela escada `(18,14)` ao 1F.
 - Ressalva: as notas são de speedrun; algumas indicações de “tile de encontro
   fixo” não têm coordenada explícita.
 
@@ -100,6 +114,24 @@ mapa, imagem, ROM ou save de terceiros é versionado no repositório.
 - Ressalva: `0x80F`/`0x811` **não** são coordenadas x/y. O modelo antigo de BFS
   que os tratava como coordenadas estava errado.
 
+## Cópias locais de consulta (não versionadas)
+
+Para não baixar tudo de novo, as referências foram salvas em
+`/tmp/opencode/ref/kmt1/` (fora do repositório):
+
+- `README.md` — índice, fontes e achados;
+- `01-01.gif` … `01-08.gif` — mapas SNES do opatil;
+- `sion-4F.png`, `sion-3F.png`, `sion-3F-2.png`, `sion-2F.png`, `sion-1F.png`
+  — mapas de rota do speedrun;
+- `pareido-daedalus.html` — página ROM-derived da torre;
+- `sioneus-kmt1.html` — notas de speedrun;
+- `aruto-dds1-map1.html` — mapa FC para topologia;
+- `gamefaqs-54063.html` — walkthrough SNES;
+- `dedalus_tower.png` — mapa NES da comunidade.
+
+Nenhum desses arquivos é commitado; o `docs/` guarda apenas URLs, coordenadas
+e conclusões.
+
 ## O que foi validado no jogo
 
 - O baú do 8F foi aberto: 500 Macca + 宝玉; o dinheiro foi confirmado em
@@ -146,3 +178,8 @@ mapa, imagem, ROM ou save de terceiros é versionado no repositório.
 2. Mapear o 7F com o auto-map `Fixed` e `0x877`/`0x878`/`0x865`.
 3. Validar o início do Megami Tensei II (CP-014) e continuar a cobertura de
    batalha/AOT no MT1.
+4. Testar a rota do **3F #1** a partir do pouso `(119,20)`: elevador
+   `(29,5)` → sala do Bug `(28,5)` → descida do 2F `(27,6)`, ou a subida
+   `(31,5)` para o 4F #2. O mapa de rota do Sion mostra essa ligação.
+5. No 2F, testar o **NO** no tile `(19,14)`; se o jogador permanecer no tile,
+   andar W para `(18,14)` e descer ao 1F.
