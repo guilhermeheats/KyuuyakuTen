@@ -86,6 +86,10 @@ target_include_directories(KyuuyakuTen PRIVATE
     ${CMAKE_SOURCE_DIR}/recomp
 )
 target_link_libraries(KyuuyakuTen PRIVATE ${SNESRECOMP_RUNNER_LIBRARIES})
+if(NOT WIN32)
+    # Keep executable symbols resolvable in crash backtraces.
+    target_link_options(KyuuyakuTen PRIVATE -rdynamic)
+endif()
 target_compile_definitions(KyuuyakuTen PRIVATE
     SNES_GAME_VERSION="${SNESRECOMP_BUILD_VERSION}"
     SNES_GAME_TITLE="Kyuuyaku Megami Tensei"

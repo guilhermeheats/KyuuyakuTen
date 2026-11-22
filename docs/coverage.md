@@ -678,6 +678,35 @@ os próximos candidatos a `indirect_dispatch`/tabela. Os caminhos com
 `brk_at_*` (`$04:BE39`, `$05:DD6D`) são candidatos a separação código/dados,
 não a promoção AOT.
 
+## Rotas validadas — JUNKS 3F
+
+Em 2026-11-21, o JUNKS da 3F 2ª seção foi alcançado caminhando (sem
+teleporte) e validado no all-AOT `d7c2043a`: saudação, menu e estoque com
+0 diff contra o guia e a referência snes9x. A rota e os dados estão em
+`docs/route-3f-junks.md` e `docs/data/daedalus-junks.json`.
+
+O crash `signal 11` de uma sessão longa está documentado à parte
+(`logs/kyuuyaku/2026-11-21-3f-battle-crash.log`); a mesma batalha em sessão
+nova, sem o cheat de HP dos inimigos, não crashou.
+
+### Crash intermitente do `ApuCommand`
+
+A causa raiz foi o frame de retorno do bounce interpretador → AOT em
+`cpu_dispatch_pc_paired`: o bridge empilha o frame clássico, mas o
+prólogo AOT amostrava o retorno no layout de tailcall. O fix PC-scoped
+(`g_aot_host_return_override`) restaura o `FrameWait`/`ApuCommand` AOT
+sem LLE e mantém os savestates. O build final
+`04f3a5e1a2ff6770199203d30a8b2fd6d10ce52ee513010d012ab0ebbe592add`
+tem **1460 variantes AOT / 0 LLE-only** e passou 72.000 frames de campo,
+28.800 frames no padrão do crash antigo e batalha, sem crash. Detalhes em
+`docs/crash-apu-command.md`.
+
+
+## Perfil de memória
+
+O build de debug agora aloca rings de gameplay (~156 MB) em vez de ~3,3 GB;
+o perfil cheio continua opt-in. Ver `docs/debug-memory.md`.
+
 ## Próximos passos
 
 1. Validar o dispatch runtime `$80AE` numa rota que use os handlers de som

@@ -12,6 +12,7 @@ Não há imagens de mapas, ROM, assets, saves ou screenshots versionados aqui.
 | `daedalus-7f.json` | Eventos do 7F, componentes desconectados, escadas, batalhas fixas |
 | `daedalus-encounters.json` | Tabelas de encontros 8F–5F e 4F–1F |
 | `daedalus-shop.json` | Estoque e preços da loja do 8F |
+| `daedalus-junks.json` | JUNKS da 3F 2ª seção: rota, menu e estoque validados no all-AOT |
 
 ## Fontes
 
@@ -37,6 +38,9 @@ Não há imagens de mapas, ROM, assets, saves ou screenshots versionados aqui.
 - Os mapas do aruto/grappli são da versão FC; a versão SNES tem uma loja única
   em vez de lojas separadas de arma/armadura. Use-os para topologia, não para
   coordenadas exatas.
+- O JUNKS é uma instalação da 3F 2ª seção. As coordenadas em
+  `daedalus-junks.json` são **WRAM** `(112,19)`, com entrada a partir de
+  `(113,19)` virado para oeste; não são coordenadas Atlas.
 - O 7F tem duas partes desconectadas. A escada do 8F cai na componente #1;
   a componente #2 só é alcançada pelo 6F em `(15,3)`.
 - A tabela derivada do ROM não lista batalhas fixas no 7F, mas o detonado e o

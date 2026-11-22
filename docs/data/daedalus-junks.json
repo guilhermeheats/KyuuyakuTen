@@ -1,0 +1,85 @@
+{
+  "source": "all-AOT validation 2026-11-21; menu/stock cross-checked against the teh_lvler guide and the prior snes9x reference",
+  "build": "d7c2043a",
+  "floor": "3F",
+  "section": "2nd section",
+  "name": "Junks",
+  "wram": {
+    "x": 112,
+    "y": 19,
+    "area": "01",
+    "note": "Enter from (113,19) facing west. The greeting triggers on entry; (112,20) and (113,20) are empty side rooms, not the counter."
+  },
+  "route_from_4f": [
+    "4F (22,4) -> 3F (119,20), area 02",
+    "S (119,21)",
+    "W (118,21)",
+    "S (118,22)",
+    "S (118,23)",
+    "W (117,23)",
+    "W (116,23)",
+    "W (115,23)",
+    "W (114,23)",
+    "W (113,23)",
+    "W (112,23)",
+    "N (112,22)",
+    "N (112,21)",
+    "E (113,21)",
+    "E (114,21)",
+    "N (114,20)",
+    "W (113,20)",
+    "N (113,19)",
+    "W (112,19) -> Junks"
+  ],
+  "menu": [
+    "何の用？",
+    "買う",
+    "売る",
+    "ステイタスを見る",
+    "外に出る"
+  ],
+  "stock": [
+    {
+      "name": "Poisonon",
+      "japanese": "ポイズノン",
+      "price": 400,
+      "description": "ポイズンの回復",
+      "effect": "cures poison"
+    },
+    {
+      "name": "Paralynon",
+      "japanese": "パララノン",
+      "price": 450,
+      "effect": "cures paralyze"
+    },
+    {
+      "name": "Petrinon",
+      "japanese": "ペトラノン",
+      "price": 1000,
+      "effect": "cures petrification"
+    },
+    {
+      "name": "Muscle Drink",
+      "japanese": "マッスルドリンコ",
+      "price": 1500,
+      "effect": "temporarily amplifies HP"
+    },
+    {
+      "name": "Magic Source",
+      "japanese": "まりょくのもと",
+      "price": 2000,
+      "description": "一時的にMPを増幅させる",
+      "effect": "temporarily amplifies MP"
+    }
+  ],
+  "validation": {
+    "greeting": "いらっしゃい・・・",
+    "menu_match": true,
+    "stock_match": true,
+    "reference": [
+      "teh_lvler GameFAQs 54063",
+      "snes9x reference in 2026-11-19-junks-bug.md addenda 15/30/31"
+    ],
+    "screenshots": "logs/kyuuyaku/junks-2026-11-21/ (outside the repository)"
+  }
+}

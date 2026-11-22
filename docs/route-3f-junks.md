@@ -1,0 +1,255 @@
+# Rota do JUNKS — Torre de Daedalus, 3F 2ª seção
+
+Validação feita em **2026-11-21** no build all-AOT `d7c2043a`, com a ROM
+japonesa `crc32 c8d286c9` / SHA-256 `ffdc7f…de3b`. Nenhum teleporte foi
+usado para chegar à loja; a rota abaixo foi caminhada com o controle.
+
+## Rota a partir da descida do 4F
+
+A descida do 4F em `(22,4)` cai no 3F em `(119,20)`, área `02`.
+
+```text
+(119,20)  S  (119,21)
+(119,21)  W  (118,21)
+(118,21)  S  (118,22)
+(118,22)  S  (118,23)
+(118,23)  W  (117,23) → (116,23) → (115,23) → (114,23)
+              → (113,23) → (112,23)
+(112,23)  N  (112,22)
+(112,22)  N  (112,21)
+(112,21)  E  (113,21)
+(113,21)  E  (114,21)
+(114,21)  N  (114,20)
+(114,20)  W  (113,20)
+(113,20)  N  (113,19)
+(113,19)  W  (112,19)  ← JUNKS
+```
+
+O quarto do Tiamat fica em `(113,22)` e é um beco; a rota acima o
+contorna. As salas `(112,20)` e `(113,20)` são quartos vazios: `A` abre o
+menu de campo, não a loja.
+
+## Entrada e menu
+
+Entrando em `(112,19)` **de `(113,19)` virado para oeste**, o jogo mostra o
+balcão e a saudação:
+
+```text
+いらっしゃい・・・
+```
+
+O menu é:
+
+```text
+何の用？
+買う
+売る
+ステイタスを見る
+外に出る
+```
+
+## Estoque
+
+| Item | Preço | Descrição |
+|---|---:|---|
+| ポイズノン | 400 | ポイズンの回復 |
+| パララノン | 450 | — |
+| ペトラノン | 1000 | — |
+| マッスルドリンコ | 1500 | — |
+| まりょくのもと | 2000 | 一時的にMPを増幅させる |
+
+Nomes, preços e descrições batem com o guia do teh_lvler (GameFAQs 54063)
+e com a referência do snes9x registrada nos Addenda 15/30/31 do log
+`2026-11-19-junks-bug.md`: **0 diff** na região de texto.
+
+## Cheats de navegação
+
+Para atravessar os encontros aleatórios foram usados, via debug server:
+
+- HP atual/máximo `999/999` nos dois personagens;
+- MP `99/99` na Yumiko;
+- stats legítimos de level-up, todos abaixo do teto `35`;
+- HP dos inimigos em `1` em `$10B2/$10B4/$10B6/$10B8` (e
+  `$10C2/$10C4/$10C6/$10C8`).
+
+O level-up continuou normal e os BONUS foram alocados sem ultrapassar 35.
+Nenhuma alteração de EXP, nível ou tabela de upgrade foi feita.
+
+## Checkpoints
+
+- `build-debug/saves/save8.sav` — menu do JUNKS.
+- `build-debug/saves/save10.sav` — lista de itens.
+- Capturas: `logs/kyuuyaku/junks-2026-11-21/` (fora do repositório).
+
+## Crash separado — instrumentação e race do screenshot
+
+Uma sessão longa teve `signal 11` em uma batalha no 3F. O log original está
+em `logs/kyuuyaku/2026-11-21-3f-battle-crash.log` e o relatório em
+`build-debug/crash_report_20261121_183909.json`. A mesma batalha, em sessão
+nova e sem o cheat de HP dos inimigos, não crashou.
+
+O crash foi instrumentado e a corrida mais provável foi corrigida:
+
+- handler POSIX com `SA_SIGINFO`: `signo`, `code`, `si_addr`, thread e
+  `backtrace()` nativo no relatório;
+- breadcrumbs de comando do debug server (`debug cmd: ...`), connect/disconnect
+  e fases de `savestate begin/done`;
+- `cmd_screenshot` agora pausa a main thread no frame boundary, copia o
+  render buffer com a thread parada e retoma; fallback com timeout para fases
+  modais.
+
+Validação: drill de crash com `signal.signo=11`, `addr=0x0` e backtrace
+simbolizado; stress de **1.800+ savestates/loadstates/screenshots** e
+reconnects, incluindo **600 screenshots pausados com 0 timeouts**, sem crash.
+O RSS estabilizou em ~1,98 GB em idle. O crash original não foi reproduzido;
+se recorrer, o novo relatório mostra o último comando e o backtrace nativo.
+
+Os deltas grandes do `stack_balance` são majoritariamente caminhos
+NLR/yield/`interp@` (falsos positivos do auditor), não a causa do `signal 11`;
+ficam como follow-up de precisão do diagnóstico.
+
+Binário validado: `build-debug/KyuuyakuTen` SHA-256
+`f44576c794c73f1a852ea9f22b5415950f0cc0d4c95e76ad132a600a7f35452a`.
+
+## Rota para 2F/1F — em andamento
+
+A escada do 2F não está no bloco do JUNKS (3F bloco #2); ela fica no 3F
+bloco #1. A rota normal encontrada até o 4F bloco #1 é:
+
+- checkpoint da 5F em `(8,11)`:
+  `E (9,11) → N (9,10) → E (10,10) → S (10,11) → S (10,12) → S (10,13)`;
+- em `(10,13)` o jogo pergunta **「階段を降りますか？」**; YES leva ao
+  **4F `(19,5)` área 01** (bloco #1);
+- a escada em `(8,12)` da 5F é **subida** para o 6F, não a descida;
+- no 4F bloco #1:
+  `(19,5) → S (19,6) → S (19,7) → W (18,7) → W (17,7) → W (16,7)
+  → N (16,6) → … → N (16,1) → E (17,1)`;
+- a descida `(18,1)` está sendo testada como tile de evento; a tabela do
+  4F diz que ela leva ao 3F `(26,1)`, que é o **bloco #2**. A escada do
+  2F (`3F 27,6 → 2F 19,14`) fica no bloco #1, alcançável pelo lado do
+  2F/1F ou pelo elevador (parado até o Minotauro).
+
+Checkpoints: `save10` no 4F bloco #1; `save8` no JUNKS; `save11` no 6F.
+
+### Tabela de escadas do ROM (fonte pública)
+
+A tabela derivada do ROM em
+<https://pareido.jp/cyber-newtown/megaten-daedalus/nam-mt-dg-0/>
+lista as escadas do Daedalus:
+
+```text
+4F (18,1) → 3F (26,1)
+4F (23,5) → 3F (31,5)
+3F (27,6) → 2F (19,14)
+2F (18,14) → 1F (26,14)
+5F (15,8) → 4F (23,0)
+5F (12,15) → 4F (20,7)
+```
+
+O 4F tem **dois componentes desconectados**: o #2 é só a sala-escada
+`(23,0)`–`(23,5)`, sem o elevador nem a batalha fixa da Harpia; o #1 tem
+o elevador `(21,5)`, a Harpia `(18,3)` e as escadas `(18,1)`/`(20,7)`.
+O 3F também tem dois componentes: o #2 tem a escada `(26,1)`, a conversa
+`(31,0)` e os dois portões; o #1 tem o elevador `(29,5)`, a batalha fixa
+do Bug `(28,5)` e a descida do 2F `(27,6)`.
+
+Consequência prática: a sala do JUNKS pertence ao 3F #2. Dá para subir
+ao 5F pela sala-escada do 4F #2 (`3F 31,5 ↔ 4F 23,5 ↔ 4F 23,0 ↔ 5F
+15,8`), atravessar o 5F e descer em `5F (12,15) → 4F (20,7)`, que cai no
+4F #1 — onde ficam o elevador e a rota para o 3F #1.
+
+Validação em jogo (2026-11-21): `3F (118,20)` subiu para `4F (22,5)`;
+`4F (23,0)` subiu para `5F (12,8)` (WRAM; offset de -3 em x em relação
+às coordenadas da tabela). O binário atual registra o `SIGPIPE` e a flag
+de batalha `$7E:0253` no Addendum 50 do log.
+
+### Resultado da tentativa 3F → 2F (2026-11-21)
+
+- `5F (10,13)` desce para `4F (19,5)` (componente #1); a volta é
+  `4F (20,5)` → `5F (10,12)`.
+- `5F (13,8)` desce para `4F (23,1)` (componente #2); a descida
+  `4F (23,5)` não abre prompt nem por A nem por passo sul. O caminho
+  até ela é `(23,1) → (22,1) → (22,2) → (22,3) → (23,3) → (23,4) →
+  (23,5)`.
+- `4F (18,1)` desce para **3F `(113,17)`**, a sala-escada do
+  componente #2 (offset local `+87,+16`). A sala só tem a escada de
+  volta ao 4F; não conecta ao corredor do JUNKS.
+- O elevador do 5F `(11,13)` (WRAM; offset -2 da tabela) e o do 4F
+  estão parados: 「邪悪な力によりエレベーターは停止している」.
+- O componente #1 do 3F (elevador `(116,21)`, Bug `(115,21)`, escada do
+  2F `(114,22)`) está separado por paredes. Chegamos a `(114,22)` pelo
+  corredor inferior, mas a célula não responde a A nem a passo sul.
+- O seam `(118,18)` não é alcançável a partir de `(118,21)`; a tabela
+  do ROM diz que ele só funciona entrando do 1F `(32,2)` para oeste.
+- Conclusão: a rota 2F/1F **não foi validada** por esta seção; a
+  hipótese anterior (elevador parado até o Minotauro) continua de pé.
+
+### Correção de mapa: JUNKS = 3F #1, escada do 2F perto
+
+A tabela do ROM divide o 3F em dois componentes:
+
+- **#1 (35 células)**: escada do 2F `(27,6)`, elevador `(29,5)`,
+  Bug `(28,5)`, conversas `(25,6)/(28,6)` e a subida `(31,5)`.
+- **#2 (29 células)**: subida `(26,1)`, conversa `(31,0)` e os dois
+  portões `(31,2)/(31,4)` (que só funcionam entrando do 1F).
+
+A seção do JUNKS (WRAM `112..119, 17..23`) é o **#1**, não o #2.
+O offset observado é ~`(+87,+15)`:
+
+| Tabela | WRAM provável |
+|---|---|
+| subida `(31,5)` | `(118,20)` (já usada para o 4F) |
+| subida `(26,1)` | `(113,17)` (a sala selada do #2; offset y=+16) |
+| Bug `(28,5)` | `(115,20)` |
+| elevador `(29,5)` | `(116,20)` |
+| escada 2F `(27,6)` | **(114,21) ou (115,21)** |
+
+Ou seja: a escada do 2F deve estar na sala a leste de `(114,21)`,
+não em `(114,22)` (a célula testada antes). Próximos testes, a partir
+do `save8`:
+
+1. `(114,20) E (115,20) E (116,20)` — sala do Bug/elevador do 3F.
+2. `(114,22) E (115,22) N (115,21)` — entrada sul da escada do 2F.
+3. Em `(115,21)`/`(116,20)`, A e passo nas quatro direções; o prompt
+   de escada/elevador deve aparecer.
+4. Se a escada do 2F abrir, descer para 2F `(19,14)` e mapear o 2F/1F.
+
+O elevador do 3F, se operacional, leva a `4F (21,5)`/`2F (21,13)`;
+o do 5F já respondeu 「邪悪な力により…停止している」. Testar o do 3F
+antes de assumir que todos estão parados.
+
+### 2F encontrado e pouso selado (2026-11-22)
+
+A escada do 2F está em **`(115,22)`**: descer de `(115,21)` abre o
+prompt 「階段を降りますか？」 e leva a **2F `(19,13)`**. O pouso
+`(19,13)` é selado (N/W/E paredes); S em `(19,14)` volta ao 3F. O
+labirinto do 2F — escada do 1F `(18,14)`, elevador `(21,13)` — não é
+acessível por esse pouso; deve ser alcançado pelo lado do 1F (subida
+`1F (26,14) → 2F (18,14)`) ou pelo elevador.
+
+O elevador do 4F #1 `(21,5)` está atrás do tile da escada do 5F
+`(20,5)`; o elevador do 3F #1 `(116,20)` está atrás de paredes a
+partir do JUNKS. O 2F/1F continua sem rota validada por enquanto.
+
+### Auditoria da rota 2F (2026-11-22)
+
+- A partir do `save8` (JUNKS, `(113,19)`), a rota até `(114,22)` foi
+  refeita: `S (113,20) → E (114,20) → S (114,21)`, depois
+  `W (113,21) → W (112,21) → S (112,22) → S (112,23) → E (113,23) →
+  E (114,23) → N (114,22)`.
+- Em `(114,22)`, Leste é parede; `S (114,23) → N (114,22)` é uma
+  passagem de mão única que entra numa área 3 (view `0x11`) sem saída
+  para a escada. `N` de `(114,22)` e `E` de `(114,20)` também são
+  bloqueados.
+- O auto-map local mostra o quarto do Bug/elevador/escada do 2F
+  (`(115,20)`, `(116,20)`, `(115,21)`, `(115,22)`) no lado isolado,
+  separado por parede do corredor do JUNKS. A única ligação visível é
+  a passagem de mão única que leva ao fundo cego.
+- Teleporte diagnóstico para `(19,13)` e `(115,21)` não carregou o
+  contexto do 2F (o HUD permaneceu 3F e a view não mudou); escrever a
+  área `0x865` para forçar a seção corrompeu o estado
+  (`(3,0)`, flag `0x03`) e foi revertido com `load_state`.
+- Conclusão: o teste do prompt NO em `(19,14)` continua **pendente**.
+  Para fazê-lo é preciso um estado real do 2F (obtido pelo 1F ou por
+  um emulador de referência) ou encontrar o evento que abre o quarto
+  do Bug/elevador a partir do 3F.
