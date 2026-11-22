@@ -289,3 +289,19 @@ partir do JUNKS. O 2F/1F continua sem rota validada por enquanto.
 - O teste do prompt NO em `(19,14)` continua pendente; a rota 2F/1F
   precisa de um mapa/vídeo de referência ou de um trace da transição
   de escada.
+
+### 5F/6F e o caminho para o 4F #2 (2026-11-22)
+
+- O prompt do 4F `(20,5)` funciona: o primeiro `A` abre
+  `階段を昇りますか？` e o segundo confirma YES → 5F `(10,12)`.
+- BFS do 5F: 36 estados no lado oeste (`x=8..11`, `y=9..13`); a escada
+  `(15,8)` não foi alcançada. O lado direito do 5F está separado por
+  paredes/batalhas fixas.
+- O 4F `(20,7)`/`(21,7)` é um corredor sem subida utilizável; a porta
+  escura em `(21,7)` leva a `(22,7)` e não ao 5F. A rota
+  `4F (20,7) → 5F (12,15)` parece ser só descida.
+- `save11` (6F `(2,11)`) carrega; HP foi elevado para 999 no processo
+  temporário. A rota `E,E,S,S` para em `(5,11)`; o caminho
+  `W,S,S,E` chega a `(5,13)`, onde há um **NPC azul** com a mensagem
+  sobre as 4 raças de demônios, não o elevador. O elevador do 6F
+  `(5,13)` ainda não foi acionado; testar as células/direções ao redor.
