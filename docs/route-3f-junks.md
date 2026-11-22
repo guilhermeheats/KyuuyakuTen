@@ -249,6 +249,12 @@ partir do JUNKS. O 2F/1F continua sem rota validada por enquanto.
   contexto do 2F (o HUD permaneceu 3F e a view não mudou); escrever a
   área `0x865` para forçar a seção corrompeu o estado
   (`(3,0)`, flag `0x03`) e foi revertido com `load_state`.
+- Teste de controle no 4F `(20,5)` (escada do 5F): o prompt abre e
+  `B`, `down+A` ou esperar mantêm a posição em `(20,5)`. Leste continua
+  parede, então o elevador `(21,5)` não é alcançável por esse lado. Isso
+  confirma que o NO deixa o jogador no tile de escada; o mesmo pode
+  valer para o tile `(19,14)` do 2F, mas o teste ainda depende de um
+  estado real do 2F.
 - Conclusão: o teste do prompt NO em `(19,14)` continua **pendente**.
   Para fazê-lo é preciso um estado real do 2F (obtido pelo 1F ou por
   um emulador de referência) ou encontrar o evento que abre o quarto
