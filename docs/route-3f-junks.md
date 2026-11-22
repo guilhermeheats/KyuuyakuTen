@@ -259,3 +259,17 @@ partir do JUNKS. O 2F/1F continua sem rota validada por enquanto.
   Para fazê-lo é preciso um estado real do 2F (obtido pelo 1F ou por
   um emulador de referência) ou encontrar o evento que abre o quarto
   do Bug/elevador a partir do 3F.
+
+### Tentativa 4F `(18,1)` e emulador de referência (2026-11-22)
+
+- A rota documentada até a escada do 4F `(18,1)` para em `(17,1)`:
+  Leste é bloqueado; Norte leva a `(17,0)` e o loop do auto-map mostra
+  seções/áreas sobrepostas. Sul de `(18,0)` e de `(19,0)` também é
+  bloqueado. A escada não foi alcançada pelo lado oeste/norte testado.
+- Uma batalha aleatória em `(16,3)` foi encerrada sem crash; o `save10`
+  foi restaurado em `(19,5)`.
+- O `snesref` foi montado em `/tmp/opencode/snesref` com o core
+  Snes9x 1.63 (não versionado) e o `save.srm` do recomp. O título é a
+  seleção I/II; o SRAM **não** é carregado no título — o load é pelo NPC
+  de save in-game. O core e o binário do snesref continuam fora do
+  repositório.
