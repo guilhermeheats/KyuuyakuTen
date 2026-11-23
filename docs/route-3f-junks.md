@@ -405,3 +405,23 @@ partir do JUNKS. O 2F/1F continua sem rota validada por enquanto.
   `W (24,11) → N,N (24,9) → ...`; validação em andamento.
 - O `save6` permanece intacto; o estado de 1F é mantido só no processo
   temporário (porta `4415`), sem tocar nos saves do usuário.
+
+### 1F — layout real e rota ao Minotauro (em andamento)
+
+- O pouso do 2F em **`(25,9)`** não é um grid simples: o primeiro
+  movimento pode exigir limpar o estado de menu (B/Start/Select). A partir
+  dele, `S` leva a `(25,10)`; `E` a `(26,10)`; `N` de `(25,10)` volta ao
+  pouso.
+- Becos sem saída já validados: coluna oeste `(24,8)–(24,11)` (N até
+  `(24,8)`, E/W bloqueados), `(27,10)` (E/N bloqueados; S leva a
+  `(27,11)`, que é beco), e `(26,11)`/`(24,11)` para S.
+- O 1F também tem **arestas de mão única/estado**: `(26,11) → (27,11)`
+  abre, mas `(27,11) → (26,11)` é parede; `(24,10) → (24,11)` abre, mas
+  `(24,10) → E/W` não.
+- A rota que está funcionando segue o corredor superior:
+  `(25,9) E → (26,9) → (27,9) → N (27,8) → E` em direção a `x=31`
+  (em validação). A linha azul do BFS do Sion pela coluna oeste não
+  corresponde ao collision real do SNES; use a exploração empírica.
+- O Minotauro ainda não foi acionado; a célula-alvo do Pareido é
+  `(31,10)`, mas o offset SNES é local. O processo temporário segue no
+  1F; o principal continua pausado no `save10`.
