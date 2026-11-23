@@ -359,3 +359,19 @@ partir do JUNKS. O 2F/1F continua sem rota validada por enquanto.
   pelo 4F #2/5F, não pelo pouso do 2F.
 - A batalha fixa do Bug **não** disparou por esse lado. O elevador do
   3F #1 continua sem confirmação; a rota do 1F segue aberta.
+
+### Tentativas 4F (20,7) e 5F leste (2026-11-23)
+
+- `4F (20,7)`: o **A** abre o menu de campo (COMP); **N/E/S/W** não
+  abrem escada. O `5F (12,15) → 4F (20,7)` é uma **descida de mão
+  única** (5F→4F); não serve para entrar no 5F pelo 4F.
+- `5F (10,12) E` é **parede**; o lado direito do 5F não é alcançável
+  pelo oeste/elevador do 5F. O lado direito continua ligado ao ciclo
+  **4F #2 (23,0) ↔ 5F (12,8) ↔ 4F (23,5) ↔ 3F (31,5)**, e os elevadores
+  seguem parados.
+- No 3F #1 pelo pouso do 2F, o **E** de `(115,20)`/`(115,21)` é parede;
+  a frente é a escada do 4F `(31,5)`/WRAM `118,20`, e a descida
+  `4F (23,5) → 3F (31,5)` não abre (a escada é subida 3F→4F).
+- A rota do **1F** continua aberta. Próximo passo recomendado: vídeo/guia
+  de referência do Daedalus (2F/1F/5F) ou BFS completo de estados com
+  savestates de slot, incluindo as batalhas fixas e o Minotauro.
