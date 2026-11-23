@@ -344,3 +344,18 @@ partir do JUNKS. O 2F/1F continua sem rota validada por enquanto.
   estática do SVG não basta. Continuam como próximos alvos a escada
   do 1F `(18,14)`, o elevador `(21,13)` e, como alternativa, o
   elevador do 3F #1 `(116,20)` ou a entrada pelo lado do 1F.
+
+### 3F #1 — acesso pelo pouso do 2F (2026-11-23)
+
+- O `save6` no 2F `(19,13)` desce pelo prompt S com **YES** para
+  **3F `(115,21)`**, o pouso de trás do 3F #1.
+- **N → `(115,20)`** (célula do Bug) abre; **E → `(116,20)`** é parede.
+  O **A** em `(115,20)`/`(115,21)` abre o menu de campo (COMP), não o
+  Bug nem o elevador. **S** volta a `(115,21)`; **E** em `(115,21)`
+  também é parede.
+- A escada do 2F fica em **`(115,22)`**. O elevador `(116,20)` está
+  **atrás da parede leste** quando se vem do pouso do 2F: a frente do
+  ～3F #1 é o lado da escada do 4F (`31,5` / WRAM `118,20`), alcançável
+  pelo 4F #2/5F, não pelo pouso do 2F.
+- A batalha fixa do Bug **não** disparou por esse lado. O elevador do
+  3F #1 continua sem confirmação; a rota do 1F segue aberta.
