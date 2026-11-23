@@ -447,3 +447,25 @@ partir do JUNKS. O 2F/1F continua sem rota validada por enquanto.
   slot a partir do checkpoint 1F, incluindo as células pretas a
   leste/sul do mapa, ou usar o auto-map para localizar a escada/
   elevador antes de tentar `(31,10)`.
+
+### 4F → 3F #2 e portões (2026-11-23)
+
+- **Rota alternativa que evita o labirinto do 1F:** a partir do `save10`
+  em 4F `(19,5)`, o BFS de slot encontrou o caminho até `(18,4)`/`(17,3)`
+  (trail registrado no log do BFS: `S S W N W W N N N N E`). O trecho
+  final foi validado andando:
+  - `(17,3) E → (18,3)` dispara a **Harpy fixa** (`何かが潜んでいた！`);
+  - após a batalha, `N → (18,2)`, `N → (18,1)`;
+  - em `(18,1)`, o prompt da escada abre com `028c=1`; **Right+A**
+    desce para **3F #2 `(113,17)`** (HUD 3F, area 1, view 209).
+- Checkpoint local do 3F #2: `savestate 7` em `(113,17)`; o arquivo
+  `/tmp/opencode/route5/saves/save7.sav` restaura o estado.
+- O 3F #2 é o componente selado de 29 células. O BFS de slot está
+  explorando a partir de `(112,17)`/`(113,16)` em direção aos portões:
+  `継1 (118,18) → 1F (31,10)` e `継2 (118,20) → 1F (31,12)`. O BFS já
+  chegou a `(117,16)`.
+- Quando o portão abrir, o passo oeste deve warpar para a célula do
+  **Minotauro** no 1F. O próximo marco é o しず玉 e a rota leste para
+  Valhalla.
+- O `save9` do 1F `(24,6)` e o `save10` do 4F continuam intactos; o
+  processo principal segue pausado no `save10`.
