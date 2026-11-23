@@ -61,3 +61,11 @@ Com o perfil low-memory default, o processo iniciado no `save10` ficou em
 (bloco 30) e permaneceu em **678 MB** depois de 28.800 frames de turn
 stress e de uma batalha. Não houve crescimento monotônico depois do
 bloco 30 nem OOM.
+
+## Stress all-AOT `6be3aacf` (2026-11-23)
+
+Campo de **192.000 frames** (320 blocos, `646.630 → 838.630`) no
+`save10` (4F `(19,5)`): RSS **506 MB** (518.172 kB), estável entre
+17 e 54 min de execução; **59,66 FPS**; zero `crash_report`.
+6F **60/60 batalhas** (235.669 frames, 3.630,5 s): RSS **510 MB**
+(522.412 kB), zero `crash_report`. Sem crescimento monotônico.

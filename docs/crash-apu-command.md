@@ -162,3 +162,40 @@ Binário `build-debug/KyuuyakuTen` SHA-256
 - Screenshot 256×224 de campo e de batalha limpos; HP 999/999
   preservado. Último `crash_report` continua sendo o anterior ao fix
   (`20261122_043727`).
+
+## Addendum 64 — causa raiz dos crashes de 669k/827k: wrap do block trace (2026-11-23)
+
+- O crash de campo **não** era o `FrameWait`/`ApuCommand`. O AOT de
+  `$ACDF`/`$9397` e a tabela de host-return estavam coerentes no
+  relatório (`top_pc=$9397`, `top_value=$ACE9`, `entry_s=8162`,
+  `hrv=3`).
+- O store que falha é `debug_server_record_frame`:
+  `r->frame_number = frame` em
+  `s_frame_history + idx*sizeof(FrameRecord)`. O ponteiro
+  `s_frame_history` havia sido sobrescrito por uma entrada do
+  `s_block_trace`, cujo `write_idx` era `int`.
+- Após 2^31 blocos o índice fica negativo; `-118.275` entradas × 80
+  bytes = `0x9060f0`, exatamente o delta até `s_frame_history`
+  (`0xb79b7b0` no binário `f93a543e`). A entrada gravada tem
+  `frame=669353`, `depth=1`, formando o ponteiro `0x1_000A36A9`; no
+  frame seguinte o `record_frame` grava em `0x100000000+frame` e falha.
+- O 6F 60/60 passou e o campo caiu depois porque o overflow depende do
+  **uptime do processo** (~3.200 blocos/frame; 2^31 + 143.869 blocos ≈
+  frame 669k), não do caminho de batalha nem do BGM.
+- Correção em `runner/src/debug_server.c`: `write_idx` dos rings
+  `block`, `wram`, `call`, `reg`, `addr` e `range` passou a `uint64_t`;
+  o índice é `(int)(write_idx % CAP)` (sem sinal). As consultas usam o
+  mesmo módulo.
+- Teste dirigido (gdb): com `s_block_trace.write_idx = 2^64-118.275`,
+  um frame depois `s_frame_history` permaneceu `0x7f...`, o watchpoint
+  não disparou e a entrada foi para `log[143.869]`.
+- Revalidação no binário `6be3aacf...`:
+  - campo **192.000 frames** (`646.630 → 838.630`, 320 blocos):
+    **59,66 FPS**, RSS **506 MB** estável, zero `crash_report`;
+    passou pelos frames dos crashes antigos (**669.353** e
+    **827.261**) com posição `(19,5)` e sem batalha;
+  - **6F 60/60 batalhas** (235.669 frames, 3.630,5 s): RSS
+    **510 MB**, zero `crash_report`.
+- O caminho `FrameWait`/`ApuCommand` e a tabela de host-return
+  permanecem cobertos; o crash de campo era exclusivamente o wrap do
+  ring de debug.
