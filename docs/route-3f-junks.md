@@ -425,3 +425,25 @@ partir do JUNKS. O 2F/1F continua sem rota validada por enquanto.
 - O Minotauro ainda não foi acionado; a célula-alvo do Pareido é
   `(31,10)`, mas o offset SNES é local. O processo temporário segue no
   1F; o principal continua pausado no `save10`.
+
+### 1F — auto-map e componente noroeste (2026-11-23)
+
+- O auto-map do COMP é aberto com **A → A → Down×4 → A**
+  (`COMP → オートマッピング`). A tela do mapa aparece mesmo com
+  `0x1800 = 0`; use screenshot, não o flag de UI.
+- O mapa local confirma que o pouso `(25,9)` e o corredor superior são
+  um componente fechado. Rota explorada até o noroeste:
+  `(25,9) E (26,9) E (27,9) N (27,8) N (27,7) W (26,7) W (25,7)
+  N (25,6) N (25,5) W (24,5) S (24,6) S (24,7)`.
+- Becos: `(27,7)` N/E; `(24,6)` W/E; `(24,5)` N/W; `(25,6)` W;
+  `(25,5)` E; `(24,7)` W? (não fechado). O componente tem arestas
+  dependentes de **view/area** e de mão única; o BFS de slot é o
+  método correto.
+- Checkpoint local do 1F: `savestate 9` em `(24,6)` restaura
+  corretamente (`/tmp/opencode/route5/saves/save9.sav`, fora do repo).
+  O processo temporário pode ser encerrado; o principal segue pausado
+  no `save10` (4F `19,5`).
+- **Minotauro e Valhalla continuam pendentes.** Próximo passo: BFS de
+  slot a partir do checkpoint 1F, incluindo as células pretas a
+  leste/sul do mapa, ou usar o auto-map para localizar a escada/
+  elevador antes de tentar `(31,10)`.
