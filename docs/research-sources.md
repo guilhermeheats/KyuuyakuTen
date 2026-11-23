@@ -183,3 +183,31 @@ e conclusões.
    `(31,5)` para o 4F #2. O mapa de rota do Sion mostra essa ligação.
 5. No 2F, testar o **NO** no tile `(19,14)`; se o jogador permanecer no tile,
    andar W para `(18,14)` e descer ao 1F.
+
+## Rodada 2026-11-23 — mapas de todas as dungeons
+
+- Relatório local consolidado: `/tmp/opencode/ref/kmt1/RESEARCH-ALL.md`
+  (não versionado; contém links, tabelas e ressalvas).
+- Foram baixados 35 mapas de rota do Sion (`daedalus1F`–`8F`,
+  `daedalus3F-2`, Valhalla 1F/B1F, Bien, Infini, Red Tower, Rotting Sea),
+  50 auto-maps do Opatil e as páginas do Pareido para Daedalus, Bien,
+  Valhalla, Mazurka, Rotting Sea e Infini/Red Tower. Tudo fica apenas em
+  `/tmp/opencode/ref/kmt1/`; nenhum mapa/HTML de terceiros é versionado.
+- **Pareido é FC-like nas estatísticas e em parte das coordenadas.**
+  Minotauro, Nekomata e Bug têm HP/EXP/Macca do NES, não do KMT SNES.
+  Use o Pareido para topologia/eventos e o Opatil/Sion para o desenho SNES;
+  calibre as coordenadas contra a WRAM.
+- **W1/W2 no SNES:** segundo o DDS-DORK, `W1 = Micon` e
+  `W2 = Valhalla Corridor` (exige `おうしのKEY`/Taurus Key). O Pareido
+  chama de W1 o warp para Valhalla (FC). Antes de Medusa, a rota para
+  Valhalla é pelas **duas saídas do lado leste do 1F**; depois de Medusa,
+  o W2 vira atalho.
+- O `sion-3F-2.png` é um **zoom da sala do Bug/elevador (3F #1)**, não o
+  componente ROM “3F #2” (`26,1`, `31,0`, gates `31,2`/`31,4`).
+- **Calibração SNES validada nesta rodada:** a descida do 2F para o 1F
+  fica em `(17,12)` (WRAM) e leva a `1F (25,9)`, enquanto o Pareido/FC
+  indica `(18,14) → (26,14)`. O offset muda por seção; não use conversão
+  fixa Atlas↔WRAM.
+- O save/estado de 1F foi obtido no processo temporário (porta `4415`),
+  sem tocar nos saves do usuário. O processo principal segue pausado no
+  `save10` (4F `19,5`).

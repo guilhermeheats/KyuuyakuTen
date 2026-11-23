@@ -375,3 +375,33 @@ partir do JUNKS. O 2F/1F continua sem rota validada por enquanto.
 - A rota do **1F** continua aberta. Próximo passo recomendado: vídeo/guia
   de referência do Daedalus (2F/1F/5F) ou BFS completo de estados com
   savestates de slot, incluindo as batalhas fixas e o Minotauro.
+
+### 2F → 1F validado (2026-11-23)
+
+- Rota completa a partir do `save6` (2F `19,13`):
+  `N,N,N,E,N,E,N,E,E,S` → `(23,9)`;
+  `S,S,S` → `(23,12)`;
+  `W,W,W` → `(20,12)`;
+  `S,S,S` → `(20,15)`;
+  `W,W,W,W` → `(16,15)`;
+  `N,N` → `(16,13)`;
+  `E,E` → `(18,13)`;
+  `W` → `(17,13)`;
+  `N` → `(17,12)` (prompt 「階段を降りますか？」).
+- O corredor leste `x=23` (`y=9→12`) é a passagem correta: `(23,9) S`,
+  `(23,10) S` e `(23,11) S` abrem no jogo, embora o SVG do Pareido
+  marque parede nesses trechos. A tentativa antiga de `(22,11) E` é
+  beco sem saída e não é necessária.
+- A descida para o 1F é em **`(17,12)`**, não em `(18,14)` como no
+  Pareido/FC. No prompt, **A sozinho / Up+A / Down+A / B** escolhem
+  **NO** e voltam a `(17,13)`; **Right+A** (ou Left+A, Up+Up+A,
+  Down+Down+A) escolhe **YES** e desce para **1F `(25,9)`**.
+- O pouso do 1F é **`(25,9)`**, HUD `1F`, view `241`. O primeiro
+  movimento pode parecer travado: pressione **B** (abre o COMP),
+  **Start/Select** e então **Up**; o primeiro passo vai para `(25,11)`
+  (segure pouco para não andar duas células).
+- Em `(25,11)`: `N→(25,10)`, `E→(26,11)`, `W→(24,11)`; `S` é parede.
+  A rota ao Minotauro segue o corredor oeste/topo do mapa Sion:
+  `W (24,11) → N,N (24,9) → ...`; validação em andamento.
+- O `save6` permanece intacto; o estado de 1F é mantido só no processo
+  temporário (porta `4415`), sem tocar nos saves do usuário.
