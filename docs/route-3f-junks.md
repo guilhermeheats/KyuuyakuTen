@@ -305,3 +305,24 @@ partir do JUNKS. O 2F/1F continua sem rota validada por enquanto.
   `W,S,S,E` chega a `(5,13)`, onde há um **NPC azul** com a mensagem
   sobre as 4 raças de demônios, não o elevador. O elevador do 6F
   `(5,13)` ainda não foi acionado; testar as células/direções ao redor.
+
+### 2F — pouso (19,13) não é selado e NO em (19,14) (2026-11-23)
+
+- O `save6` carrega no **2F `(19,13)`** área `01`, view `209`,
+  facing N. **N → `(19,12)`** é aberto: o pouso **não** é selado; a
+  rota do 2F começa por N, não pela escada S.
+- **S → `(19,14)`** abre o prompt da escada para o 3F. **B** ou
+  **Down+A (NO)** cancelam e voltam a `(19,13)`; **A (YES)** desce
+  para **3F `(115,21)`**. O NO não abre caminho alternativo.
+- Mapa do 2F (SVG Pareido): escada do 1F **`(18,14) → 1F (26,14)`**,
+  escada do 3F `(19,14)`, elevador `(21,13)`, batalha fixa Nekomata
+  `(23,10)`, baú `(18,11)`, conversas `(18,12)`/`(20,14)`.
+- O 2F é um labirinto dependente de **área/view/facing**, não um grid
+  simples. A rota estática do mapa (a mesma do `2f_path`) falha em
+  `(23,9)` W (parede na área 3). O BFS com snapshots L3 não restaura o
+  cursor do beam driver; o BFS com **savestate de slot** restaura, mas
+  ainda não fechou a rota do 1F (muitos estados view/facing).
+- Conclusão: o pouso do 2F é acessível e o NO está validado; a rota
+  `2F (18,14) → 1F (26,14)` continua aberta. Próximo passo: BFS de slot
+  com mais estados (ou referência em vídeo) a partir do `save6`, ou
+  entrar no 2F pelo lado do 1F.
