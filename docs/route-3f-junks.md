@@ -326,3 +326,21 @@ partir do JUNKS. O 2F/1F continua sem rota validada por enquanto.
   `2F (18,14) → 1F (26,14)` continua aberta. Próximo passo: BFS de slot
   com mais estados (ou referência em vídeo) a partir do `save6`, ou
   entrar no 2F pelo lado do 1F.
+
+### 2F — detour da rota estática e limites (2026-11-23)
+
+- A partir do `save6` (`19,13`), a rota do mapa vai por
+  `N,N,N,E,N,E,N,E,E,S` até `(23,9)`. O **W** em `(23,9)` é parede
+  (área 3), como já observado.
+- O desvio **S `(23,10)` → W `(22,10)` → W `(21,10)` → S `(21,11)` →
+  E `(22,11)`** funciona; as batalhas no caminho (incluindo a célula
+  `(22,11)`) foram vencidas com HP inimigo 1.
+- Em `(22,11)`, o **E para `(23,11)` continua bloqueado** (também
+  depois da batalha). O **W para `(21,11)`** abre (área 2), mas o
+  **S em `(21,11)`** é parede. Com isso, o trecho
+  `(23,11) → S (23,12) → W ...` do mapa não é alcançável por esse
+  lado, e a rota do 1F não fechou.
+- O 2F depende de **área/view/facing e das batalhas**; a rota
+  estática do SVG não basta. Continuam como próximos alvos a escada
+  do 1F `(18,14)`, o elevador `(21,13)` e, como alternativa, o
+  elevador do 3F #1 `(116,20)` ou a entrada pelo lado do 1F.
