@@ -469,3 +469,21 @@ partir do JUNKS. O 2F/1F continua sem rota validada por enquanto.
   Valhalla.
 - O `save9` do 1F `(24,6)` e o `save10` do 4F continuam intactos; o
   processo principal segue pausado no `save10`.
+
+### 3F #2 — portões fechados e calibração do mapa Sion (2026-11-24)
+
+- O 3F #2 foi novamente alcançado via 4F `(19,5) → (18,4)` (BFS de slot,
+  trail `S S W W W N N N E E`), Harpy `(18,3)` derrotada e escada
+  `(18,1)` → **3F #2 `(113,17)`**.
+- **継1 `(118,18)`:** andar W não warpa; **継2 `(118,20)`:** inacessível
+  a partir de `(118,19)` S, `(117,20)` E e `(119,19)` S. Os dois portões
+  são **atalhos 1F → 3F #2**, não saídas do 3F #2. O desvio não leva ao
+  Minotauro.
+- **Correção do mapa Sion 1F:** a imagem tem **24 colunas** (`x=24..47`,
+  células de ~19,3 px), não 32. O bloco oeste é `x=24..31`; o Minotauro
+  fica em `(31,10)`, na borda leste; a escada do 2F em `(26,13/14)`.
+  A rota vermelha usa a coluna esquerda `x=24`, a linha inferior `y=15`
+  e a borda direita `x=31`.
+- A parede do 1F em `x=26/27` (WRAM) continua bloqueando o componente
+  oeste; a rota do Sion não fecha com a colisão real. O próximo passo
+  confiável é a wall table do ROM, não outro BFS cego.
