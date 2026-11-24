@@ -487,3 +487,80 @@ partir do JUNKS. O 2F/1F continua sem rota validada por enquanto.
 - A parede do 1F em `x=26/27` (WRAM) continua bloqueando o componente
   oeste; a rota do Sion não fecha com a colisão real. O próximo passo
   confiável é a wall table do ROM, não outro BFS cego.
+
+### 1F — mapa global, bloco leste e o “継1” (2026-11-24)
+
+O mapa dos andares está no **banco `$20` do ROM**, não na WRAM: uma
+grade global **128 × 128** de células de 16 bits, com
+`endereço = $20:8000 + y*$100 + x*2`. A célula `$1c00` é vazio; bit 15
+alto marca sala escura/evento; o byte baixo é o gráfico do tile. O
+renderer `$00:AC63` e o auto-map leem essa tabela.
+
+O 1F é composto por **três blocos 8×8** no mapa de exibição Pareido
+(`x=24..47`, `y=8..15`). A conversão validada para a WRAM é
+**`WRAM y = Pareido y - 4`**, com `x` igual:
+
+| Bloco Pareido | WRAM | Uso |
+|---|---|---|
+| oeste `x=24..31` | `x=24..31, y=4..11` | pouso do 2F, elevador, W1, escadas |
+| leste `x=32..39` | `x=32..39, y=4..11` | sala escura 2×2, conversas, 継1/継4 |
+| terceiro `x=40..47` | `x=40..47, y=4..11` | corredor para Valhalla/Bien, 継3 |
+
+Calibração: as conversas Pareido `(37,11)` e `(47,11)` caem em
+`(37,7)` e `(47,7)`, ambas células `$0357` (evento `$03`) no ROM; a
+sala escura 2×2 Pareido `(32..33,14..15)` cai em `(32..33,10..11)`,
+as quatro células `$80c1/$80f0/$8005/$8034` (bit 15 alto).
+
+Células-chave no WRAM:
+
+- `(25,8)` — escada para o 2F (prompt; B cancela e desce para `(25,9)`);
+- `(29,9)` — **elevador**: 「邪悪な力により エレベーターは停止している」;
+  A apenas devolve o jogador para `(29,8)`;
+- `(28,8)` — candidato ao warp W1; ficar parado não teleporta;
+- `(29,4)`–`(31,4)` — sala escura do 1F oeste; `(29,4)` dispara a
+  batalha fixa **邪鬼オーク** (Ogre). Depois dela a fileira fica
+  caminhável, mas `(31,4) → E` continua parede;
+- `(31,6)` — célula do **継1** (Pareido `31,10`), marcada no SVG com a
+  espada vermelha; `(32,6)` é o lado leste do mesmo seam;
+- `(31,8)` — **継2**; `(31,11)` — **継5**;
+- `(31,10)` — parede oeste da sala escura 2×2; A abre o COMP, B não faz
+  nada; `E` é bloqueado;
+- `(37,7)` e `(47,7)` — conversas (`$0357`), inalcançadas até agora;
+- `(39,11)` — **継4**; `(47,9)` — **継3** (saída leste/Valhalla).
+
+Rota validada saindo do pouso `(25,9)` até o bloco leste (andando com
+pressões curtas de 9–14 frames; o jogo só lê o controle a cada ~12
+frames):
+
+```text
+(25,9) S→(25,10) E→(26,10) E→(27,10)
+(27,10) W→(26,10) W→(25,10) N→(25,9)
+(25,9) E→(26,9) E→(27,9) N→(27,8) N→(27,7)
+(27,7) W→(26,7) W→(25,7) N→(25,6) N→(25,5) N→(25,4)
+(25,4) E→(26,4) S→(26,5) S→(26,6) E→(27,6) E→(28,6) E→(29,6)
+(29,6) S→(29,7) E→(30,7) S→(30,8) S→(30,9) S→(30,10)
+(30,10) E→(31,10) N→(31,9) N→(31,8) N→(31,7)
+(31,7) E→(32,7) N→(32,6)
+(32,6) W→(31,6)   ← seam 継1; no save atual não dispara batalha
+```
+
+Observações de método:
+
+- `save_state`/`load_state` (snapshot L3) **corrompem** o estado do
+  jogo (posição/facing viram lixo); usar **slot savestate** (`savestate
+  N` + `step 12`, copiar `saves/saveN.sav`) e `loadstate N`. O slot 5
+  foi usado como rascunho no processo temporário; os saves do usuário
+  (`save6/8/10`) ficaram intactos.
+- O `savestate` é assíncrono: sem o `step` seguinte, o `loadstate`
+  imediato lê o arquivo antigo (foi o que aconteceu com o slot 0/4F).
+- A sala escura tem view preta; a navegação precisa ser feita por
+  coordenadas/auto-map, não pela imagem.
+- `$1800` não é flag confiável de menu; o COMP abre com **A** e fecha
+  com **B**. O A em células de evento abre o COMP; X/Y/L/R/Start/Select
+  não acionaram o Minotauro nas células testadas.
+
+Pendências: (1) descobrir se o Minotauro já foi derrotado neste save
+(a emenda 継1 está aberta e não dispara batalha) ou qual é o gatilho
+real; (2) alcançar o miolo leste `x=34..39` e o bloco `x=40..47` pelos
+seams 継4/継3; (3) usar as duas saídas leste para Valhalla. Estados
+salvos em `logs/kyuuyaku/route6-1f-2026-11-24/states/` (fora do repo).
