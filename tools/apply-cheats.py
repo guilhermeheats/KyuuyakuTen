@@ -2,9 +2,9 @@
 """Apply the validated KyuuyakuTen navigation cheats to a running game.
 
 The values below are the ones used during the Daedalus/JUNKS exploration:
-HP 999/999, MP 99/99, Macca 9,999,999, Magnetite 9,999, stats at the
-agreed cap of 30 (force on both characters; intelligence and luck on
-Yumiko), plus the enemy-HP slots for battles.
+HP 999/999, MP 99/99, Macca 999,999, Magnetite 9,999, stats at the
+game's displayed cap of 35 (force on both characters; intelligence and
+luck on Yumiko), plus the enemy-HP slots for battles.
 
 Usage:
     python3 tools/apply-cheats.py --port 4377
@@ -25,8 +25,9 @@ sys.path.insert(0, str(REPO / "snesrecomp" / "tools"))
 
 from sneslib.client import DebugClient  # noqa: E402
 
-# $7E0C72-$7E0C74: Macca (3 bytes, little-endian)
-MACCA = ("0c72", "7f9698")  # 9,999,999
+# $7E0C72-$7E0C74: Macca (3 bytes, little-endian).  The status screen
+# shows six digits; 999,999 is the display max (9,999,999 overflows).
+MACCA = ("0c72", "3f420f")  # 999,999
 # $7E0C75-$7E0C76: Magnetite (2 bytes, little-endian)
 MAGNETITE = ("0c75", "0f27")  # 9,999
 
@@ -38,14 +39,16 @@ HP_MP = [
     ("0d06", "6363"), ("0d16", "6363"),
 ]
 
-# Stats are six bytes at $0D08 (P1) and $0D18 (P2), in the order
-# 力, 知, 攻, 速, 防, 運.  The agreed cap is 30 (0x1e).
-# Requested: force 30 on both; intelligence 30 and luck 30 on Yumiko.
+# $0D08/$0D18 is the LEVEL, not a stat.  The five stats are at
+# $0D09-$0D0D (P1) and $0D19-$0D1D (P2): 体, 知, 力, 速, 運.
+# The status screen clamps the displayed value at 35 (99 shows as 35),
+# so 0x23 is the max.  Requested: force on both; intelligence and luck
+# on Yumiko.
 STATS = [
-    ("0d08", "1e"),  # P1 力
-    ("0d18", "1e"),  # P2 力
-    ("0d19", "1e"),  # P2 知
-    ("0d1d", "1e"),  # P2 運
+    ("0d0b", "23"),  # P1 力
+    ("0d1a", "23"),  # P2 知
+    ("0d1b", "23"),  # P2 力
+    ("0d1d", "23"),  # P2 運
 ]
 
 # Enemy HP: the first slot is $10B0/$10C0.  The old list started at
@@ -87,7 +90,7 @@ def main() -> int:
 
         print(f"port {args.port}: macca={read('0c72', 3)} "
               f"magnetite={read('0c75', 2)}")
-        print(f"P1 stats={read('0d08', 6)} P2 stats={read('0d18', 6)}")
+        print(f"P1 lv+stats={read('0d08', 6)} P2 lv+stats={read('0d18', 6)}")
         print(f"P1 HP={read('0d02', 4)} P2 HP={read('0d12', 4)}")
     finally:
         c.close()

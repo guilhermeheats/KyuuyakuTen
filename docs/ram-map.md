@@ -20,22 +20,28 @@ estes (leitura direta na WRAM dos processos de 1F/4F/6F):
 
 | Faixa | Uso |
 |---|---|
-| `$7E0C72`–`$7E0C74` | Macca (3 bytes, little-endian) |
-| `$7E0C75`–`$7E0C76` | Magnetita (2 bytes, little-endian) |
+| `$7E0C72`–`$7E0C74` | Macca (3 bytes, little-endian); a tela mostra 6 dígitos, então o máximo útil é **999.999** |
+| `$7E0C75`–`$7E0C76` | Magnetita (2 bytes, little-endian); máximo **9.999** |
 | `$7E0D02`–`$7E0D03` | P1 HP atual (16-bit) |
 | `$7E0D04`–`$7E0D05` | P1 HP máximo (16-bit) |
 | `$7E0D06`–`$7E0D07` | P1 MP atual/máximo (bytes) |
-| `$7E0D08`–`$7E0D0D` | P1 stats: **力, 知, 攻, 速, 防, 運** |
+| `$7E0D08` | **P1 LV** (nível, não é stat) |
+| `$7E0D09`–`$7E0D0D` | P1 stats: **体, 知, 力, 速, 運** |
 | `$7E0D12`–`$7E0D13` | P2 HP atual (16-bit) |
 | `$7E0D14`–`$7E0D15` | P2 HP máximo (16-bit) |
 | `$7E0D16`–`$7E0D17` | P2 MP atual/máximo (bytes) |
-| `$7E0D18`–`$7E0D1D` | P2 stats: **力, 知, 攻, 速, 防, 運** |
+| `$7E0D18` | **P2 LV** (nível, não é stat) |
+| `$7E0D19`–`$7E0D1D` | P2 stats: **体, 知, 力, 速, 運** |
 
-O chefe/party usa **seis** stats; o gerador de password do Pareido só
-codifica cinco (強,知,攻,速,防) e o sexto (`運`) fica no último byte.
-O cheat `P1/P2 Max Stats` do GameHacking.org lista só
-`$0D09–$0D0D`/`$0D19–$0D1D` (cinco bytes) e **não inclui a força em
-`$0D08`/`$0D18`**.
+Os stats pedidos ficam em:
+
+- **força**: P1 `$0D0B`, P2 `$0D1B`;
+- **inteligência**: P1 `$0D0A`, P2 `$0D1A`;
+- **sorte/運**: P1 `$0D0D`, P2 `$0D1D`.
+
+A tela STATUS **limita a exibição em 35**: gravar 99 (`0x63`) mostra
+35. O cheat salvo usa **35 (`0x23`)**. O `$0D08`/`$0D18` é o **LV**;
+não grave stats ali (gravar 30 ali faz o LV virar 30).
 
 ### HP dos inimigos
 
