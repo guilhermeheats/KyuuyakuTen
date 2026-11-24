@@ -69,8 +69,10 @@ Para atravessar os encontros aleatórios foram usados, via debug server:
 - HP atual/máximo `999/999` nos dois personagens;
 - MP `99/99` na Yumiko;
 - stats legítimos de level-up, todos abaixo do teto `35`;
-- HP dos inimigos em `1` em `$10B2/$10B4/$10B6/$10B8` (e
-  `$10C2/$10C4/$10C6/$10C8`).
+- HP dos inimigos em `1` em `$10B0/$10B2/$10B4/$10B6/$10B8` e
+  `$10C0/$10C2/$10C4/$10C6/$10C8`. O slot `$10B0`/`$10C0` é o
+  **primeiro inimigo**; a lista antiga começava em `$10B2`/`$10C2` e
+  deixava o primeiro com HP cheio.
 
 O level-up continuou normal e os BONUS foram alocados sem ultrapassar 35.
 Nenhuma alteração de EXP, nível ou tabela de upgrade foi feita.
