@@ -34,6 +34,23 @@ Saídas (ignoradas pelo git):
   Exemplos atuais: `{69}{46}{4D}` (provável texto ASCII/`iFM`) e
   `{76}{41}{52}`.
 
+## Aplicar um nome traduzido
+
+Os nomes usam a página ASCII da fonte 8x8 (`font_code = ASCII - 0x1F`,
+maiúsculas), não ASCII puro. Use `--encoding font`:
+
+```json
+[{"offset": "8D6C6", "length": 7, "text": "PINK"}]
+```
+
+```bash
+python3 tools/replace_text.py --translations name.json \
+  --encoding font --out build/rom/names.sfc --patch build/rom/names.bps
+```
+
+O slot tem no máximo 8 códigos de fonte; o padding vira `0x01` (espaço da
+fonte). Nomes maiores precisam de abreviação.
+
 ## Estado
 
 - T1: 253 entradas (demônios/personagens).

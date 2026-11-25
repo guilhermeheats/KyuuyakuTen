@@ -273,6 +273,13 @@ python3 tools/replace_text.py \
 [{"offset": "8024A", "length": 30, "text": "After a while, sleep..."}]
 ```
 
+Para nomes da fonte 8x8, use `--encoding font` (ASCII → código de fonte,
+maiúsculas; padding `0x01`):
+
+```json
+[{"offset": "8D6C6", "length": 7, "text": "PINK"}]
+```
+
 O tool valida o slot, codifica em ASCII ou Shift-JIS, preenche com espaços e
 gera BPS com CRC. O self-test é `python3 tools/replace_text.py --selftest`.
 

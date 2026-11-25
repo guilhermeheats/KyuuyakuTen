@@ -13,7 +13,8 @@ Input JSON (a list, or {"entries": [...]}):
 `offset` is the ROM file offset in hex. `length` is optional but strongly
 recommended: when present the tool verifies the original slot size. With
 --encoding sjis the replacement is encoded as Shift-JIS; with ascii (the
-default) it must be plain ASCII.
+default) it must be plain ASCII; with font it is encoded for the 8x8 name
+font page (`font_code = ASCII - 0x1F`, uppercase only).
 
 The original ROM is never modified. Outputs are ROM-derived and live under
 decomp/build/ unless the caller chooses another path.
@@ -30,6 +31,7 @@ if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
 from bps import create as bps_create  # noqa: E402
+from font_codec import encode as font_encode  # noqa: E402
 
 DEFAULT_ROOT = HERE.parents[1]
 
@@ -83,7 +85,7 @@ def apply_entries(
             if start <= offset < end:
                 raise ValueError(f"overlapping entries at {offset:#x}")
         declared = entry.get("length")
-        encoded = text.encode(encoding)
+        encoded = font_encode(text) if encoding == "font" else text.encode(encoding)
         length = int(declared) if declared is not None else len(encoded)
         if length <= 0:
             raise ValueError(f"bad length at {offset:#x}")
@@ -118,7 +120,15 @@ def selftest() -> int:
     if len(report) != 1 or report[0]["length"] != 16:
         print("FAIL selftest: report mismatch", file=sys.stderr)
         return 1
+    # Font-code page: COMP -> 24 30 2E 31 (see font_codec.py).
+    font_rom = bytearray(b"\x00" * 0x100)
+    font_entries = [{"offset": "10", "length": 4, "text": "COMP"}]
+    font_out, _ = apply_entries(bytes(font_rom), font_entries, encoding="font")
+    if font_out[0x10:0x14] != bytes((0x24, 0x30, 0x2E, 0x31)):
+        print("FAIL selftest: font encoding mismatch", file=sys.stderr)
+        return 1
     print("ok selftest: in-place ASCII replacement and padding")
+    print("ok selftest: font-code name replacement (COMP)")
     return 0
 
 
@@ -129,8 +139,8 @@ def main() -> int:
     ap.add_argument("--translations", help="JSON file with replacement entries")
     ap.add_argument("--out", help="output ROM (default: decomp/build/rom/translated.sfc)")
     ap.add_argument("--patch", help="optional BPS patch output path")
-    ap.add_argument("--encoding", choices=("ascii", "sjis"), default="ascii")
-    ap.add_argument("--fill", default="20", help="padding byte in hex (default 20 space)")
+    ap.add_argument("--encoding", choices=("ascii", "sjis", "font"), default="ascii")
+    ap.add_argument("--fill", default=None, help="padding byte in hex (default 20, or 01 for font)")
     ap.add_argument("--report", help="optional JSON report path")
     ap.add_argument("--selftest", action="store_true")
     args = ap.parse_args()
@@ -147,9 +157,10 @@ def main() -> int:
         return 1
     entries = load_entries(pathlib.Path(args.translations))
     original = rom_path.read_bytes()
+    fill = int(args.fill, 16) if args.fill is not None else (0x01 if args.encoding == "font" else 0x20)
     try:
         translated, report = apply_entries(
-            original, entries, encoding=args.encoding, fill=int(args.fill, 16)
+            original, entries, encoding=args.encoding, fill=fill
         )
     except (ValueError, UnicodeEncodeError) as exc:
         print(f"error: {exc}", file=sys.stderr)
