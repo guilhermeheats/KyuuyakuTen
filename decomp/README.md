@@ -40,7 +40,9 @@ make toolchain-test
 ```bash
 make baseline       # verifica a ROM japonesa contra rom_identity.txt
 make symbols        # exporta símbolos do recomp para build/symbols/
-make text           # dump inicial das tabelas de texto (build/text/)
+make text           # dump inicial das tabelas de nomes (build/text/)
+make text-extract   # dump inicial do script Shift-JIS (build/text/)
+make replace-test   # self-test da substituição de texto
 make bps-test       # self-test do BPS
 make toolchain-test # monta 65816 + SPC700 de teste
 make all
@@ -71,10 +73,12 @@ M0 em andamento:
 - [x] verificador de ROM/full-ROM matching;
 - [x] exportador de símbolos do recomp;
 - [x] ferramenta BPS com self-test;
-- [x] dump inicial de tabelas de texto;
+- [x] dump inicial de tabelas de nomes e do script Shift-JIS;
+- [x] extrator/substituidor de texto com BPS;
 - [x] auditoria do mod loader;
+- [ ] validação da fonte ASCII da caixa de diálogo (M1);
+- [ ] agrupamento de mensagens pelo bytecode do script (M1);
 - [ ] primeiro build mínimo do decomp (M1);
-- [ ] extração/inserção completa de texto/fonte (M1);
 - [ ] matching 65816/SPC700 (M3).
 
 ## Regras

@@ -4,9 +4,9 @@ BUILD ?= build
 WLA_BIN ?= $(CURDIR)/.toolchain/wla-dx/build/binaries
 export WLA_BIN
 
-.PHONY: all baseline symbols text bps-test toolchain-test clean
+.PHONY: all baseline symbols text text-extract replace-test bps-test toolchain-test clean
 
-all: baseline symbols text bps-test toolchain-test
+all: baseline symbols text text-extract replace-test bps-test toolchain-test
 
 baseline:
 	$(PYTHON) tools/verify_rom.py --identity "$(ROOT)/rom_identity.txt"
@@ -16,6 +16,12 @@ symbols:
 
 text:
 	$(PYTHON) tools/scan_text.py --out "$(BUILD)/text/item_ptrs.json"
+
+text-extract:
+	$(PYTHON) tools/extract_text.py --out "$(BUILD)/text/script_jp.json" --jsonl
+
+replace-test:
+	$(PYTHON) tools/replace_text.py --selftest
 
 bps-test:
 	$(PYTHON) tools/bps.py selftest

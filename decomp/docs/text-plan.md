@@ -1,37 +1,32 @@
-# Texto e fonte — plano inicial
+# Texto e fonte — plano
 
-## O que já sabemos
+O detalhamento do que já foi decodificado está em
+[`text-encoding.md`](text-encoding.md). Este arquivo guarda o plano de
+execução.
 
-O recomp documenta o item-name builder em `$02:C87B` e as tabelas ROM em
-`$11:CDFD`, `$11:D5A8` e `$11:C000` (ver o comentário removido do HLE em
-`git show a068a25^:src/gen_stubs.c`).
+## Estado
 
-O `tools/scan_text.py` já faz o dump inicial:
-
-- tabela de ponteiros `$11:CDFD` (63 entradas);
-- tabela de ponteiros `$11:D5A8` (63 entradas);
-- strings brutas terminadas em `$00`, em `decomp/build/text/item_ptrs.json`.
-
-Os bytes são **códigos de fonte**, não UTF-8/Shift-JIS. O próximo trabalho é
-descobrir o mapa código → glifo/caractere e o layout dos menus.
+- Script principal localizado no banco **$10**, em Shift-JIS com códigos de
+  controle; extrator inicial em `tools/extract_text.py`.
+- Pool de mensagens de sistema no banco **$11** (`$8000` → 21 ponteiros).
+- Tabelas de nomes em `$11:$CDFD` (253) e `$11:$D5A8` (143), com fonte 8x8
+  em `$0F:AF6B`.
+- Buffer/tilemap da janela de texto em `$7E:38E0`; base VRAM `0xF800`.
+- Ferramenta de substituição in-place + BPS em `tools/replace_text.py`.
 
 ## Próximos passos
 
-1. Relacionar as strings das tabelas com os nomes conhecidos da fan
-   translation (apenas referência; não copiar o texto).
-2. Mapear os códigos de fonte por frequência/posição e pelas telas de
-   menu/ITEM/STATUS.
-3. Identificar a fonte (tiles) e os limites de largura por linha.
-4. Criar extração/inserção de texto:
-   - `extract_text` → JSON/CSV com offsets e códigos;
-   - `insert_text` → rebuild com validação de tamanho;
-   - glossary EN/PT-BR.
-5. Validar no emulador/recomp e comparar com `snesref`.
-6. Só então gerar o primeiro BPS patch EN.
+1. Mapear a fonte principal (16x16): base VRAM e código→glifo.
+2. Validar ASCII no recomp com um patch de uma linha e diff de framebuffer.
+3. Interpretar o bytecode do script (comandos `04`-`08`) para agrupar
+   mensagens e evitar operandos no dump.
+4. Extrair o script completo e montar o glossário EN.
+5. Gerar o primeiro BPS EN de uma cena curta.
+6. PT-BR direto do japonês, com o inglês como referência.
 
 ## Regras
 
 - Texto extraído do jogo **não** é commitado; fica em `decomp/build/text/`.
-- A tradução EN é referência; PT-BR é traduzido do japonês.
+- A tradução EN da cena é referência de termos, não texto a copiar.
 - Nomes próprios seguem o estilo da fan translation.
 - Nenhuma ROM traduzida é distribuída; só o patch BPS.
