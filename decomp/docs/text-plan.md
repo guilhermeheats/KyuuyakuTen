@@ -15,15 +15,16 @@ execução.
 - Fonte da janela: base VRAM **palavra `0x6000`**, 2bpp, 8x8; o dump de
   VRAM do recomp é row-interleaved (palavra = plano 0 no byte baixo,
   plano 1 no byte alto).
+- **ASCII de menu verificado**: `font_code = ASCII - 0x1F`; labels
+  `COMP/MAGIC/ITEM/STATUS/ARMOR` vêm de ASCII puro em `$01:A940`.
 - Ferramenta de inspeção de tiles: `tools/vram_tiles.py`.
 - Ferramenta de substituição in-place + BPS em `tools/replace_text.py`.
 
 ## Próximos passos
 
-1. Mapear a **tabela Shift-JIS → código de fonte** do renderizador da
-   caixa de diálogo (é o que falta para saber se ASCII direto funciona).
-2. Validar ASCII no recomp com um save state limpo dentro de uma cena com
-   diálogo e diff de framebuffer.
+1. Confirmar se o **renderizador do script Shift-JIS** aceita ASCII direto
+   (teste com um diálogo limpo; o menu já usa a mesma janela).
+2. Mapear a **tabela Shift-JIS → código de fonte** para kana/kanji.
 3. Interpretar o bytecode do script (comandos `04`-`08`) para agrupar
    mensagens e evitar operandos no dump.
 4. Extrair o script completo e montar o glossário EN.

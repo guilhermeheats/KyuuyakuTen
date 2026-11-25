@@ -77,8 +77,9 @@ M0 em andamento:
 - [x] extrator/substituidor de texto com BPS;
 - [x] base VRAM da fonte da janela (`$6000` palavras) e ferramenta de
   inspeção de tiles;
+- [x] ASCII de menu verificado (`font_code = ASCII - 0x1F`);
 - [x] auditoria do mod loader;
-- [ ] mapeamento Shift-JIS → código de fonte da caixa de diálogo (M1);
+- [ ] confirmação de ASCII no renderizador do script (M1);
 - [ ] agrupamento de mensagens pelo bytecode do script (M1);
 - [ ] primeiro build mínimo do decomp (M1);
 - [ ] matching 65816/SPC700 (M3).

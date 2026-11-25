@@ -71,6 +71,39 @@ python3 tools/vram_tiles.py --vram state.vram.bin --base 6000 \
   --bpp 2 --count 0x100 --bmp build/text/font_6000.bmp --scale 4
 ```
 
+### ASCII verificado nos menus
+
+A tabela de labels do menu em `$01:A940` (arquivo `0xA940`) guarda
+**ASCII puro**: `COMP`, `MAGIC`, `ITEM`, `STATUS`, `ARMOR`, `WEAPON`.
+O renderizador da janela converte ASCII para código de fonte com:
+
+```text
+font_code = ASCII - 0x1F
+```
+
+Exemplos confirmados no recomp:
+
+| ASCII | Código | Tile |
+|---|---|---|
+| `C` 0x43 | 0x24 | C |
+| `O` 0x4F | 0x30 | O |
+| `M` 0x4D | 0x2E | M |
+| `P` 0x50 | 0x31 | P |
+| `T` 0x54 | 0x35 | T |
+| `E` 0x45 | 0x26 | E |
+| `S` 0x53 | 0x34 | S |
+| espaço 0x20 | 0x01 | vazio |
+
+Teste: trocar `COMP` por `TEST` em `0xA940` mudou o tilemap da janela de
+`24 30 2E 31` para `35 26 34 35`. O menu principal (`COMP/MAGIC/ITEM/
+STATUS`) e o label da loja de armaduras (`ARMOR`) usam o mesmo caminho.
+Letras minúsculas **não** estão nessa página (0x61 → 0x42 cai na página de
+kana), então a primeira tradução usa **maiúsculas**.
+
+Falta confirmar se o **renderizador do script Shift-JIS** usa a mesma
+conversão para bytes ASCII. O menu usa uma tabela de labels separada; o
+script ainda precisa de um diálogo limpo para o teste definitivo.
+
 O teste de patch da cena de abertura (`$10:$824A-$8395`, 15 linhas) gerou
 um BPS de 423 bytes, mas o script de input do recomp não chegou a exibir
 essas linhas (a tela de título/entrada de nome consome os botões). O
