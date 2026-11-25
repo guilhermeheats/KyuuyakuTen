@@ -4,9 +4,9 @@ BUILD ?= build
 WLA_BIN ?= $(CURDIR)/.toolchain/wla-dx/build/binaries
 export WLA_BIN
 
-.PHONY: all baseline symbols text text-extract names replace-test font-test bps-test toolchain-test clean
+.PHONY: all baseline symbols text text-extract names replace-test font-test fullwidth-test bps-test toolchain-test clean
 
-all: baseline symbols text text-extract names replace-test font-test bps-test toolchain-test
+all: baseline symbols text text-extract names replace-test font-test fullwidth-test bps-test toolchain-test
 
 baseline:
 	$(PYTHON) tools/verify_rom.py --identity "$(ROOT)/rom_identity.txt"
@@ -28,6 +28,9 @@ replace-test:
 
 font-test:
 	$(PYTHON) tools/font_codec.py selftest
+
+fullwidth-test:
+	$(PYTHON) tools/fullwidth.py selftest
 
 bps-test:
 	$(PYTHON) tools/bps.py selftest

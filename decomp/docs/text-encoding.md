@@ -265,45 +265,60 @@ nomes originais e texto próprio.
 
 ## 5. Estratégia de tradução
 
-Caminho inicial: **substituição ASCII no lugar**, no próprio script japonês.
+### 5.1 Full-width Shift-JIS no script (validado)
 
-- Shift-JIS usa 2 bytes por caractere full-width; ASCII usa 1 byte. Uma
-  linha de 16 kanji (32 bytes) cabe ~30 letras ASCII.
-- O slot original é preservado; o resto é preenchido com espaços (`0x20`).
-- Os códigos de controle (`0x0F`, `0x01 0x03` etc.) não são tocados.
-- Falta validar que a **fonte principal** tem glifos ASCII. O teste planejado
-  é aplicar um patch em uma linha do script (ex.: `$10:$824A`) e comparar o
-  framebuffer do recomp antes/depois no mesmo frame.
+O renderizador do script lê **2 bytes por caractere** e decodifica
+Shift-JIS. ASCII puro **não funciona**: `WHICH` vira os pares `0x57 0x48`
+etc. e é interpretado como kanji (teste ao vivo no recomp).
 
-Ferramenta:
+A fonte 16x16 contém o bloco Latin full-width (Ａ-Ｚ, ａ-ｚ, dígitos) e a
+pontuação japonesa. A tradução EN usa **caracteres full-width**:
+
+- cada letra ocupa 2 bytes, igual ao japonês;
+- o slot original é preservado byte-a-byte;
+- o resto é preenchido com `U+3000` (full-width space, `81 40`);
+- o terminador `01 01` da mensagem não é tocado.
+
+Exemplo validado: `$11:$A187` (26 bytes, 13 chars)
+`どのアイテムを使いますか？` → `Which item?` + 2 espaços full-width,
+renderizado no recomp como "Which item?".
+
+Ferramenta: `--encoding fullwidth` converte ASCII para full-width, valida o
+orçamento de caracteres e preenche com `U+3000`.
 
 ```bash
-python3 tools/replace_text.py \
-  --translations sample.json \
-  --out build/rom/translated.sfc \
-  --patch build/rom/translated.bps
+python3 tools/replace_text.py --translations menu.json \
+  --encoding fullwidth --out build/rom/menu.sfc --patch build/rom/menu.bps
 ```
-
-`sample.json`:
 
 ```json
-[{"offset": "8024A", "length": 30, "text": "After a while, sleep..."}]
+[{"offset": "8A187", "length": 26, "text": "Which item?"}]
 ```
 
-Para nomes da fonte 8x8, use `--encoding font` (ASCII → código de fonte,
-maiúsculas; padding `0x01`):
+Orçamento: `length / 2` caracteres full-width. Mensagens com controles
+(`01 04` = nome de demônio, `01 05` = item, `0F` = quebra) precisam manter
+os controles e serão tratadas por um extrator de mensagens.
+
+### 5.2 Nomes e menus (fonte 8x8)
+
+Os nomes de demônios/itens e as opções do submenu COMP usam **códigos de
+fonte de 1 byte**, não Shift-JIS. Para esses casos use `--encoding font`
+(ASCII → código de fonte, maiúsculas; padding `0x01`):
 
 ```json
 [{"offset": "8D6C6", "length": 7, "text": "PINK"}]
 ```
 
-O tool valida o slot, codifica em ASCII ou Shift-JIS, preenche com espaços e
-gera BPS com CRC. O self-test é `python3 tools/replace_text.py --selftest`.
+O tool valida o slot, codifica e gera BPS com CRC. O self-test é
+`python3 tools/replace_text.py --selftest`.
 
 ## 6. Próximos passos do M1
 
-1. Fechar a base VRAM e o mapa código→glifo da fonte principal (16x16).
-2. Validar ASCII no recomp com um patch de uma linha e diff de framebuffer.
-3. Interpretar os comandos do script para agrupar linhas em mensagens.
-4. Extrair o script completo para JSON e montar o glossário EN.
-5. Primeiro protótipo BPS EN em uma cena curta.
+1. Extrair as mensagens do pool `$11` com os controles preservados
+   (tabela de ponteiros em `$11:$97C0`; 66 entradas conhecidas).
+2. Traduzir prompts/menus e nomes; gerar o primeiro BPS EN completo.
+3. Resolver o evento do save 8 ou obter um save anterior para validar um
+   diálogo de história traduzido.
+4. Interpretar os comandos do script (`04`-`08`) e agrupar o script
+   completo em mensagens.
+5. Fechar o glossário EN e depois o PT-BR.

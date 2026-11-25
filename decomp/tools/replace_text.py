@@ -14,7 +14,9 @@ Input JSON (a list, or {"entries": [...]}):
 recommended: when present the tool verifies the original slot size. With
 --encoding sjis the replacement is encoded as Shift-JIS; with ascii (the
 default) it must be plain ASCII; with font it is encoded for the 8x8 name
-font page (`font_code = ASCII - 0x1F`, uppercase only).
+font page (`font_code = ASCII - 0x1F`, uppercase only); with fullwidth the
+text is converted to full-width Shift-JIS (two bytes per character) and
+padded with U+3000, which is what the dialogue renderer expects.
 
 The original ROM is never modified. Outputs are ROM-derived and live under
 decomp/build/ unless the caller chooses another path.
@@ -32,6 +34,7 @@ if str(HERE) not in sys.path:
 
 from bps import create as bps_create  # noqa: E402
 from font_codec import encode as font_encode  # noqa: E402
+import fullwidth  # noqa: E402
 
 DEFAULT_ROOT = HERE.parents[1]
 
@@ -85,16 +88,28 @@ def apply_entries(
             if start <= offset < end:
                 raise ValueError(f"overlapping entries at {offset:#x}")
         declared = entry.get("length")
-        encoded = font_encode(text) if encoding == "font" else text.encode(encoding)
-        length = int(declared) if declared is not None else len(encoded)
+        if encoding == "fullwidth":
+            if declared is not None:
+                length = int(declared)
+                encoded = fullwidth.encode(text, length)
+            else:
+                encoded = fullwidth.encode(text)
+                length = len(encoded)
+        else:
+            encoded = font_encode(text) if encoding == "font" else text.encode(encoding)
+            length = int(declared) if declared is not None else len(encoded)
         if length <= 0:
             raise ValueError(f"bad length at {offset:#x}")
-        if encoded.__len__() > length:
+        if len(encoded) > length:
             raise ValueError(
                 f"text too long at {offset:#x}: {len(encoded)} bytes > {length} slot"
             )
         old = bytes(out[offset : offset + length])
-        out[offset : offset + length] = encoded + bytes([fill]) * (length - len(encoded))
+        if encoding == "fullwidth":
+            new = encoded
+        else:
+            new = encoded + bytes([fill]) * (length - len(encoded))
+        out[offset : offset + length] = new
         used.append((offset, offset + length))
         report.append(
             {
@@ -127,8 +142,16 @@ def selftest() -> int:
     if font_out[0x10:0x14] != bytes((0x24, 0x30, 0x2E, 0x31)):
         print("FAIL selftest: font encoding mismatch", file=sys.stderr)
         return 1
+    # Full-width dialogue page: 26-byte slot, padded with U+3000.
+    fw_rom = bytearray(b"\x00" * 0x100)
+    fw_entries = [{"offset": "20", "length": 26, "text": "Which item?"}]
+    fw_out, _ = apply_entries(bytes(fw_rom), fw_entries, encoding="fullwidth")
+    if fw_out[0x20:0x3A] != fullwidth.encode("Which item?", 26):
+        print("FAIL selftest: full-width encoding mismatch", file=sys.stderr)
+        return 1
     print("ok selftest: in-place ASCII replacement and padding")
     print("ok selftest: font-code name replacement (COMP)")
+    print("ok selftest: full-width dialogue replacement")
     return 0
 
 
@@ -139,7 +162,7 @@ def main() -> int:
     ap.add_argument("--translations", help="JSON file with replacement entries")
     ap.add_argument("--out", help="output ROM (default: decomp/build/rom/translated.sfc)")
     ap.add_argument("--patch", help="optional BPS patch output path")
-    ap.add_argument("--encoding", choices=("ascii", "sjis", "font"), default="ascii")
+    ap.add_argument("--encoding", choices=("ascii", "sjis", "font", "fullwidth"), default="ascii")
     ap.add_argument("--fill", default=None, help="padding byte in hex (default 20, or 01 for font)")
     ap.add_argument("--report", help="optional JSON report path")
     ap.add_argument("--selftest", action="store_true")
@@ -157,7 +180,7 @@ def main() -> int:
         return 1
     entries = load_entries(pathlib.Path(args.translations))
     original = rom_path.read_bytes()
-    fill = int(args.fill, 16) if args.fill is not None else (0x01 if args.encoding == "font" else 0x20)
+    fill = int(args.fill, 16) if args.fill is not None else (0x01 if args.encoding in ("font", "fullwidth") else 0x20)
     try:
         translated, report = apply_entries(
             original, entries, encoding=args.encoding, fill=fill

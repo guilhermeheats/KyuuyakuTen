@@ -45,6 +45,7 @@ make text-extract   # dump inicial do script Shift-JIS (build/text/)
 make names          # decodifica nomes de demônios/itens para kana + CSV
 make replace-test   # self-test da substituição de texto
 make font-test      # self-test do mapa ASCII -> código de fonte
+make fullwidth-test # self-test do codec full-width do diálogo
 make bps-test       # self-test do BPS
 make toolchain-test # monta 65816 + SPC700 de teste
 make all
