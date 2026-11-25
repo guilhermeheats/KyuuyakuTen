@@ -16,7 +16,7 @@ execução.
   VRAM do recomp é row-interleaved (palavra = plano 0 no byte baixo,
   plano 1 no byte alto).
 - **ASCII de menu verificado**: `font_code = ASCII - 0x1F`; labels
-  `COMP/MAGIC/ITEM/STATUS/ARMOR` vêm de ASCII puro em `$01:A940`.
+  `COMP/MAGIC/ITEM/STATUS/ARMORS` vêm de ASCII puro em `$01:A940`.
 - Ferramenta de inspeção de tiles: `tools/vram_tiles.py`.
 - Ferramenta de substituição in-place + BPS em `tools/replace_text.py`.
 

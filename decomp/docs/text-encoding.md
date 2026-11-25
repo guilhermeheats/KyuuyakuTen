@@ -74,7 +74,7 @@ python3 tools/vram_tiles.py --vram state.vram.bin --base 6000 \
 ### ASCII verificado nos menus
 
 A tabela de labels do menu em `$01:A940` (arquivo `0xA940`) guarda
-**ASCII puro**: `COMP`, `MAGIC`, `ITEM`, `STATUS`, `ARMOR`, `WEAPON`.
+**ASCII puro**: `COMP`, `MAGIC`, `ITEM`, `STATUS`, `ARMORS`, `WEAPON`.
 O renderizador da janela converte ASCII para código de fonte com:
 
 ```text
@@ -96,7 +96,7 @@ Exemplos confirmados no recomp:
 
 Teste: trocar `COMP` por `TEST` em `0xA940` mudou o tilemap da janela de
 `24 30 2E 31` para `35 26 34 35`. O menu principal (`COMP/MAGIC/ITEM/
-STATUS`) e o label da loja de armaduras (`ARMOR`) usam o mesmo caminho.
+STATUS`) e o label da loja de armaduras (`ARMORS`) usam o mesmo caminho.
 Letras minúsculas **não** estão nessa página (0x61 → 0x42 cai na página de
 kana), então a primeira tradução usa **maiúsculas**.
 
