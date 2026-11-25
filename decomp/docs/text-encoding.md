@@ -104,6 +104,31 @@ Falta confirmar se o **renderizador do script Shift-JIS** usa a mesma
 conversão para bytes ASCII. O menu usa uma tabela de labels separada; o
 script ainda precisa de um diálogo limpo para o teste definitivo.
 
+### Diálogo real e fonte 16x16 (save 8)
+
+O save de debug `build-debug/saves/save8.sav` abre uma janela de diálogo
+em `$7E:3B00-$7E:3EFF` (primeira pessoa, 3F). A janela tem uma linha de
+texto em **fonte 16x16** composta por 4 tiles 8x8:
+
+```text
+topo-esquerda = 0x160   topo-direita = 0x161
+baixo-esquerda = 0x1C0  baixo-direita = 0x1C1
+```
+
+A fonte 8x8 correspondente está na VRAM em **palavra `0x1000`**, 2bpp.
+Lendo os tiles esquerdos (`0x160`, `0x162`, ...) chega-se a
+`ありがとうござ`; a string correspondente no script é
+`$10:$AD34` = `ありがとうございました`. A mensagem seguinte é
+`$10:$AD59` = `お礼といってはなんじゃが` e
+`$10:$AD72` = `「塔のカギ」を差し上げましょう`.
+
+Teste importante: patchar `$10:$AD59/$AD72` para ASCII e recarregar o
+save 8 **não** alterou o tilemap. O estado salvo já tem o texto do
+diálogo em WRAM (cache); o motor não relê a ROM ao avançar. Para validar
+ASCII no script é preciso um save **antes** do diálogo, ou fechar e
+reengajar o NPC do zero. O save 8 está no meio da conversa e os botões
+B/A movem o jogador, então o teste ficou pendente.
+
 O teste de patch da cena de abertura (`$10:$824A-$8395`, 15 linhas) gerou
 um BPS de 423 bytes, mas o script de input do recomp não chegou a exibir
 essas linhas (a tela de título/entrada de nome consome os botões). O

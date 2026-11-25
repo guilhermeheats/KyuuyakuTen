@@ -17,6 +17,10 @@ execução.
   plano 1 no byte alto).
 - **ASCII de menu verificado**: `font_code = ASCII - 0x1F`; labels
   `COMP/MAGIC/ITEM/STATUS/ARMORS` vêm de ASCII puro em `$01:A940`.
+- **Diálogo real decodificado**: save 8 abre `ありがとうございました`
+  (`$10:$AD34`) numa janela 16x16; fonte 8x8 na VRAM base `0x1000`.
+  Patch da mensagem seguinte não mudou a tela porque o save tem o texto
+  em cache na WRAM; falta um save antes do diálogo.
 - Ferramenta de inspeção de tiles: `tools/vram_tiles.py`.
 - Ferramenta de substituição in-place + BPS em `tools/replace_text.py`.
 

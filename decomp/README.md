@@ -79,6 +79,7 @@ M0 em andamento:
 - [x] base VRAM da fonte da janela (`$6000` palavras) e ferramenta de
   inspeção de tiles;
 - [x] ASCII de menu verificado (`font_code = ASCII - 0x1F`);
+- [x] janela de diálogo 16x16 localizada e primeira fala decodificada;
 - [x] auditoria do mod loader;
 - [ ] confirmação de ASCII no renderizador do script (M1);
 - [ ] agrupamento de mensagens pelo bytecode do script (M1);
