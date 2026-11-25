@@ -13,6 +13,13 @@
 /dist/
 /saves/
 
+# Decomp workspace: generated/ROM-derived artifacts, never source
+/decomp/build/
+/decomp/.toolchain/
+/decomp/rom/
+/decomp/assets/
+/decomp/out/
+
 # Local probe output that names paths on one machine
 /rom_probe.json
 

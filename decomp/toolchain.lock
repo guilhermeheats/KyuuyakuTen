@@ -1,0 +1,7 @@
+name = WLA-DX
+version = 10.9a
+commit = 86fe2067d6f99cf7b4a765fb8a07d37180ecac92
+url = https://github.com/vhelin/wla-dx.git
+build = cmake -S . -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build -j
+binaries = build/binaries/wla-65816, build/binaries/wla-spc700, build/binaries/wlalink
+notes = pinned for reproducible 65816 and SPC700 assembly; toolchain itself is not committed.
