@@ -129,6 +129,29 @@ ASCII no script é preciso um save **antes** do diálogo, ou fechar e
 reengajar o NPC do zero. O save 8 está no meio da conversa e os botões
 B/A movem o jogador, então o teste ficou pendente.
 
+### Varredura de saves e teleporte
+
+Varri 29 saves únicos de `build*/saves`. Só os saves em
+`(112,19) view=117` (save8 do build-debug e duplicata do build) têm a
+janela de diálogo aberta. Não há save **antes** dessa conversa.
+
+Teleportar o save de `(5,13) view=117` para `(112,19) view=117` via
+`pokefor $0877/$0878/$080F` funcionou (a posição mudou), mas o A não
+reabriu o diálogo: o flag de evento dessa conversa já estava avançado.
+O caminho para o teste definitivo é achar/limpar esse flag ou usar um
+save anterior ao evento.
+
+### Fonte dinâmica do diálogo
+
+Os códigos `0x160`, `0x162`, ... na tilemap **não são uma página fixa de
+fonte**: são slots de tile preenchidos em ordem para a mensagem atual.
+Cada caractere 16x16 usa 4 tiles (N, N+1, N+0x60, N+0x61), e o glyph 8x8
+é composto a partir da fonte. Isso significa que a conversão
+Shift-JIS→código é dinâmica; o que importa para ASCII é o **lookup de
+glyph** da fonte de origem, não uma tabela fixa de códigos. A fonte 8x8
+conhecida (`$0F:AF6B`) tem ASCII em `0x22-0x3B` (A-Z), então há chance
+real de o renderizador aceitar ASCII direto.
+
 O teste de patch da cena de abertura (`$10:$824A-$8395`, 15 linhas) gerou
 um BPS de 423 bytes, mas o script de input do recomp não chegou a exibir
 essas linhas (a tela de título/entrada de nome consome os botões). O
