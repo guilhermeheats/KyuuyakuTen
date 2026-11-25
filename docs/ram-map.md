@@ -63,9 +63,27 @@ todos os slots durante a batalha mata a todos em um golpe.
 3. Faça a mesma leitura no recomp (via debugger ou log).
 4. Se os valores não baterem, o problema está antes da variável: banco, ponteiro, DMA ou rotina de menu.
 
+## Confirmado em 2026-11-25
+
+- **P1/P2**: P1 começa em `$7E0D00` (HP `$0D02/$0D04`, MP `$0D06/$0D07`,
+  nível `$0D08`, stats `$0D09–$0D0D`); P2 em `$7E0D10` (HP `$0D12/$0D14`,
+  MP `$0D16/$0D17`, nível `$0D18`, stats `$0D19–$0D1D`).
+- **Jogador**: x `$7E0877`, y `$7E0878`, direção `$7E080F`
+  (0=N, 1=L, 2=S, 3=O), área/view em `$7E0865`/`$7E0867`
+  (layout exato ainda a confirmar).
+- **Batalha**: `$7E0253` diferente de zero durante a batalha; zero no campo.
+- **Inventário**: `$7E0C80` em diante; o formato de 1/2 bytes por item ainda
+  precisa ser fechado antes de escrever direto.
+- **Equipamento**: candidato em `$7E0E15–$7E0E1B` (7 slots). Trocar o BODY
+  de Breastplate para Chainmail alterou `$7E0E16/$0E17`; **não escrever**
+  nesses bytes até mapear cada slot.
+- **Texto/ITEM**: rotinas AOT; nomes e descrições validados no build limpo
+  de 2026-11-25.
+
 ## TODO
 
-- Confirmar quais endereços são de fato P1/P2 (os rótulos dos cheats podem estar trocados).
-- Mapear coordenadas do jogador, direção, mapa atual e estado de encontro.
-- Mapear ponteiros de party, inventário e demônios.
-- Mapear o buffer de texto e o estado da caixa de diálogo.
+- [x] Confirmar quais endereços são de fato P1/P2.
+- [x] Mapear coordenadas, direção e estado de batalha/encontro.
+- [ ] Mapear ponteiros de party, inventário e demônios (party e inventário
+  parciais; demônios pendente).
+- [ ] Mapear o buffer de texto e o estado da caixa de diálogo.

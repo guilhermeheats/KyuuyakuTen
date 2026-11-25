@@ -12,6 +12,20 @@ indiretos e separar código de dados. Gameplay, save states e comparação com
 emulador continuam como **regressão**, não como objetivo principal. Ver
 `docs/coverage.md`.
 
+## Estado em 2026-11-25
+
+O caminho de texto/ITEM do gameplay está **sem HLE**: a regeneração limpa
+emite 1460 variantes AOT / 0 LLE-only e o `src/gen` é reprodutível. O build
+de validação (`build-aot`, SHA-256 `5b8da5f5…`) passou boot/intro, menus,
+equipamento, loja, STATUS, savestates e uma batalha de 6F sem crash; no
+campo/menus o runtime ficou em **98,6–99,8% AOT**.
+
+O foco continua a cobertura estática dos caminhos que ainda caem no
+interpretador: `$00:9300` em espera/idle, dispatches de som `$80AE`/
+`$02:ED4F`, placeholders `Coverage_*` e separação código/dados. O
+playthrough de regressão está em **Valhalla 1F**, com Nakajima e Yumiko
+equipados.
+
 ## Escopo do MVP
 
 - Megami Tensei I do início ao fim.

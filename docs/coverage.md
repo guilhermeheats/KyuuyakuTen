@@ -707,6 +707,43 @@ tem **1460 variantes AOT / 0 LLE-only** e passou 72.000 frames de campo,
 O build de debug agora aloca rings de gameplay (~156 MB) em vez de ~3,3 GB;
 o perfil cheio continua opt-in. Ver `docs/debug-memory.md`.
 
+## Marco: HLE de texto/ITEM removido (2026-11-25)
+
+O caminho de texto/ITEM do gameplay não usa mais HLE. `src/gen_stubs.c`
+ficou sem os corpos `HleText*`/`HleItem*`, `recomp/bank02.cfg` não declara
+mais `hle_func 2c87b HleItemNameBuild`, e uma busca em `src/`/`recomp/`
+não encontra referências `Hle*`.
+
+A regeneração limpa a partir da ROM verificada produziu **84 roots,
+1460 variantes AOT exatas e 0 variantes LLE-only**; o `src/gen` gerado
+ficou byte-idêntico ao anterior (0 diff). O build de validação foi feito
+em `build-aot` com `RelWithDebInfo` e as mesmas opções de observabilidade
+do `build-debug`:
+
+```text
+build-aot/KyuuyakuTen
+SHA-256 5b8da5f5fbe481b3e209d42e8831810ff935964a9a27b09984f37306769cc83d
+```
+
+Validação feita neste build:
+
+- boot, logo ATLUS e intro com texto renderizado;
+- save de Valhalla carregado (`save11`): campo, HUD, ITEM, EQUIP,
+  STATUS e loja com nomes/descrições de itens corretos;
+- Nakajima com Kevlar Helmet/Breastplate/Nameless Katana/Steel Shield
+  e Yumiko com Kevlar Helmet/Combat Suit/Platinum Tanken;
+- `savestate 5` + `loadstate 5` e `save3` de 6F carregados;
+- batalha aleatória no 6F disparada e encerrada sem crash;
+- nenhum `crash_report` novo em `build-aot`;
+- `interp_stats` no campo/menus: **AOT 99,82%** logo após o load e
+  **98,61%** após menus/loja, com `found0=0` e `tier_hits=0`.
+
+Ressalva importante: os 1460 variantes/0 LLE-only são cobertura
+**estática**. O runtime ainda passa pelo interpretador em caminhos
+quentes como `$00:9300` (espera/idle); o teste de batalha/espera do 6F
+confirmou esse caminho. Isso é o próximo item da lista abaixo, não uma
+regressão da remoção dos HLE.
+
 ## Próximos passos
 
 1. Validar o dispatch runtime `$80AE` numa rota que use os handlers de som
