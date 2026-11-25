@@ -1,0 +1,224 @@
+[
+  {
+    "offset": "08A177",
+    "length": 14,
+    "text": "What?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A187",
+    "length": 26,
+    "text": "Which item?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A1A3",
+    "length": 26,
+    "text": "Drop which?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A1BF",
+    "length": 16,
+    "text": "On whom?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A1D1",
+    "length": 20,
+    "text": "No spells",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A1EB",
+    "length": 18,
+    "text": "No MP!",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A2E9",
+    "length": 20,
+    "text": "No effect",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A2FF",
+    "length": 20,
+    "text": "No COMP",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A317",
+    "length": 16,
+    "text": "COMP on",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A329",
+    "length": 24,
+    "text": "Press A: OK",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A343",
+    "length": 20,
+    "text": "Not here",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A36F",
+    "length": 22,
+    "text": "No demons",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A38B",
+    "length": 18,
+    "text": "No return",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A3A3",
+    "length": 18,
+    "text": "No drops",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A3BB",
+    "length": 24,
+    "text": "No items",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A3D9",
+    "length": 28,
+    "text": "No drop items",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A3FB",
+    "length": 22,
+    "text": "No items",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A417",
+    "length": 22,
+    "text": "No program",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A43F",
+    "length": 10,
+    "text": "Can't",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A4CF",
+    "length": 16,
+    "text": "No magic",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A4E3",
+    "length": 14,
+    "text": "No need",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A4F5",
+    "length": 20,
+    "text": "Sacrificed",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A50B",
+    "length": 16,
+    "text": "Where?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A520",
+    "length": 26,
+    "text": "Shield faded",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A53C",
+    "length": 26,
+    "text": "Elixir faded",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A57A",
+    "length": 10,
+    "text": "Flee",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A588",
+    "length": 22,
+    "text": "No casters",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "01B10F",
+    "length": 9,
+    "text": "USE ITEM",
+    "encoding": "font"
+  },
+  {
+    "offset": "01B118",
+    "length": 9,
+    "text": "STORE",
+    "encoding": "font"
+  },
+  {
+    "offset": "01B121",
+    "length": 9,
+    "text": "DROP",
+    "encoding": "font"
+  },
+  {
+    "offset": "01B12A",
+    "length": 9,
+    "text": "EQ: ",
+    "encoding": "font"
+  },
+  {
+    "offset": "01B133",
+    "length": 9,
+    "text": "EQ: ",
+    "encoding": "font"
+  },
+  {
+    "offset": "03716E",
+    "length": 5,
+    "text": "JEWEL",
+    "encoding": "font"
+  },
+  {
+    "offset": "03717A",
+    "length": 5,
+    "text": "PARA",
+    "encoding": "font"
+  },
+  {
+    "offset": "037180",
+    "length": 5,
+    "text": "PETRA",
+    "encoding": "font"
+  },
+  {
+    "offset": "037216",
+    "length": 8,
+    "text": "MUSCLE",
+    "encoding": "font"
+  },
+  {
+    "offset": "03721F",
+    "length": 7,
+    "text": "MANA",
+    "encoding": "font"
+  }
+]

@@ -16,7 +16,9 @@ recommended: when present the tool verifies the original slot size. With
 default) it must be plain ASCII; with font it is encoded for the 8x8 name
 font page (`font_code = ASCII - 0x1F`, uppercase only); with fullwidth the
 text is converted to full-width Shift-JIS (two bytes per character) and
-padded with U+3000, which is what the dialogue renderer expects.
+padded with U+3000, which is what the dialogue renderer expects. Each entry
+may override the global encoding with an `"encoding"` field, so one JSON can
+mix dialogue text and 8x8 font names.
 
 The original ROM is never modified. Outputs are ROM-derived and live under
 decomp/build/ unless the caller chooses another path.
@@ -82,13 +84,17 @@ def apply_entries(
     for entry in entries:
         offset = int(str(entry["offset"]), 16)
         text = str(entry["text"])
+        enc = str(entry.get("encoding", encoding))
+        if enc not in ("ascii", "sjis", "font", "fullwidth"):
+            raise ValueError(f"bad encoding at {offset:#x}: {enc}")
+        entry_fill = 0x01 if enc in ("font", "fullwidth") else fill
         if offset < 0 or offset >= len(out):
             raise ValueError(f"offset out of range: {offset:#x}")
         for start, end in used:
             if start <= offset < end:
                 raise ValueError(f"overlapping entries at {offset:#x}")
         declared = entry.get("length")
-        if encoding == "fullwidth":
+        if enc == "fullwidth":
             if declared is not None:
                 length = int(declared)
                 encoded = fullwidth.encode(text, length)
@@ -96,7 +102,7 @@ def apply_entries(
                 encoded = fullwidth.encode(text)
                 length = len(encoded)
         else:
-            encoded = font_encode(text) if encoding == "font" else text.encode(encoding)
+            encoded = font_encode(text) if enc == "font" else text.encode(enc)
             length = int(declared) if declared is not None else len(encoded)
         if length <= 0:
             raise ValueError(f"bad length at {offset:#x}")
@@ -105,16 +111,17 @@ def apply_entries(
                 f"text too long at {offset:#x}: {len(encoded)} bytes > {length} slot"
             )
         old = bytes(out[offset : offset + length])
-        if encoding == "fullwidth":
+        if enc == "fullwidth":
             new = encoded
         else:
-            new = encoded + bytes([fill]) * (length - len(encoded))
+            new = encoded + bytes([entry_fill]) * (length - len(encoded))
         out[offset : offset + length] = new
         used.append((offset, offset + length))
         report.append(
             {
                 "offset": f"{offset:06X}",
                 "length": length,
+                "encoding": enc,
                 "old_hex": old.hex(),
                 "new_hex": bytes(out[offset : offset + length]).hex(),
                 "text": text,
@@ -149,9 +156,26 @@ def selftest() -> int:
     if fw_out[0x20:0x3A] != fullwidth.encode("Which item?", 26):
         print("FAIL selftest: full-width encoding mismatch", file=sys.stderr)
         return 1
+    # Per-entry encoding override: dialogue + font name in the same pass.
+    mixed_rom = bytearray(b"\x00" * 0x100)
+    mixed_entries = [
+        {"offset": "30", "length": 26, "text": "Which item?", "encoding": "fullwidth"},
+        {"offset": "60", "length": 9, "text": "USE ITEM", "encoding": "font"},
+    ]
+    mixed_out, mixed_report = apply_entries(bytes(mixed_rom), mixed_entries)
+    if mixed_out[0x30:0x4A] != fullwidth.encode("Which item?", 26):
+        print("FAIL selftest: mixed full-width entry", file=sys.stderr)
+        return 1
+    if mixed_out[0x60:0x69] != font_encode("USE ITEM") + b"\x01":
+        print("FAIL selftest: mixed font entry", file=sys.stderr)
+        return 1
+    if [r["encoding"] for r in mixed_report] != ["fullwidth", "font"]:
+        print("FAIL selftest: mixed report", file=sys.stderr)
+        return 1
     print("ok selftest: in-place ASCII replacement and padding")
     print("ok selftest: font-code name replacement (COMP)")
     print("ok selftest: full-width dialogue replacement")
+    print("ok selftest: mixed per-entry encodings")
     return 0
 
 

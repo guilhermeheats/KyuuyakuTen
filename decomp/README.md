@@ -47,6 +47,7 @@ make replace-test   # self-test da substituição de texto
 make font-test      # self-test do mapa ASCII -> código de fonte
 make fullwidth-test # self-test do codec full-width do diálogo
 make bps-test       # self-test do BPS
+make menu-en        # gera ROM+BPS do primeiro patch EN de menu
 make toolchain-test # monta 65816 + SPC700 de teste
 make all
 ```

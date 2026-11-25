@@ -4,7 +4,7 @@ BUILD ?= build
 WLA_BIN ?= $(CURDIR)/.toolchain/wla-dx/build/binaries
 export WLA_BIN
 
-.PHONY: all baseline symbols text text-extract names replace-test font-test fullwidth-test bps-test toolchain-test clean
+.PHONY: all baseline symbols text text-extract names replace-test font-test fullwidth-test bps-test toolchain-test menu-en clean
 
 all: baseline symbols text text-extract names replace-test font-test fullwidth-test bps-test toolchain-test
 
@@ -37,6 +37,12 @@ bps-test:
 
 toolchain-test:
 	$(MAKE) -C tests/toolchain WLA_BIN="$(WLA_BIN)" BUILD="$(abspath $(BUILD))/toolchain"
+
+menu-en:
+	$(PYTHON) tools/replace_text.py --translations translations/menu_en.json \
+		--out "$(BUILD)/rom/menu_en.sfc" \
+		--patch "$(BUILD)/rom/menu_en.bps" \
+		--report "$(BUILD)/rom/menu_en_report.json"
 
 clean:
 	rm -rf "$(BUILD)"
