@@ -42,6 +42,7 @@ make baseline       # verifica a ROM japonesa contra rom_identity.txt
 make symbols        # exporta símbolos do recomp para build/symbols/
 make text           # dump inicial das tabelas de nomes (build/text/)
 make text-extract   # dump inicial do script Shift-JIS (build/text/)
+make names          # decodifica nomes de demônios/itens para kana + CSV
 make replace-test   # self-test da substituição de texto
 make font-test      # self-test do mapa ASCII -> código de fonte
 make bps-test       # self-test do BPS
