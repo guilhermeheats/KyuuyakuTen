@@ -43,8 +43,39 @@ de WRAM mostra:
   `0xF800`.
 
 Os índices de tile da mensagem (`0x24`, `0x30`, `0x2E`, `0x31`) são
-**códigos da fonte principal**, não Shift-JIS. A base VRAM da fonte e o
-mapeamento código→glifo ainda não foram fechados; é o item seguinte do M1.
+**códigos da fonte principal**, não Shift-JIS. A base VRAM da fonte foi
+fechada em `0x6000` **em palavras** (word address), 2bpp:
+
+- o dump `*.vram.bin` do recomp é uma lista de palavras de 16 bits; cada
+  linha de tile é uma palavra, com **byte baixo = plano 0** e
+  **byte alto = plano 1** (formato interno do PPU, não o layout bruto
+  byte-a-byte da VRAM);
+- tile `N` começa na palavra `base + N*8` (2bpp) ou `base + N*16` (4bpp);
+- nessa base, `0x24` = `C`, `0x30` = `O`, `0x2E` = `W`, `0x31` = `P`.
+  O save state usado no teste tem uma **janela de teste "COWP"**, então
+  ele não serve como diálogo limpo para validar a tradução.
+
+A fonte 8x8 de `$0F:AF6B` também contém ASCII nos códigos baixos:
+`0x24 C`, `0x30 O`, `0x2E W`, `0x31 P`, `0x96 A`, `0x8A B` (confirmado
+renderizando os tiles). O que falta é a **tabela Shift-JIS → código de
+fonte** usada pelo renderizador da caixa de diálogo; é ela que dirá se
+podemos escrever ASCII direto no script ou se precisamos reencodar para
+os códigos baixos da fonte.
+
+Para inspecionar tiles de um dump:
+
+```bash
+python3 tools/vram_tiles.py --vram state.vram.bin --base 6000 \
+  --bpp 2 --start 0x24 --count 1
+python3 tools/vram_tiles.py --vram state.vram.bin --base 6000 \
+  --bpp 2 --count 0x100 --bmp build/text/font_6000.bmp --scale 4
+```
+
+O teste de patch da cena de abertura (`$10:$824A-$8395`, 15 linhas) gerou
+um BPS de 423 bytes, mas o script de input do recomp não chegou a exibir
+essas linhas (a tela de título/entrada de nome consome os botões). O
+próximo teste precisa de um save state limpo dentro de uma cena com
+diálogo.
 
 ## 2. Pool de mensagens de sistema (banco $11)
 

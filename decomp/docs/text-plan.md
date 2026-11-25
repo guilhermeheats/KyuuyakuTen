@@ -12,12 +12,18 @@ execução.
 - Tabelas de nomes em `$11:$CDFD` (253) e `$11:$D5A8` (143), com fonte 8x8
   em `$0F:AF6B`.
 - Buffer/tilemap da janela de texto em `$7E:38E0`; base VRAM `0xF800`.
+- Fonte da janela: base VRAM **palavra `0x6000`**, 2bpp, 8x8; o dump de
+  VRAM do recomp é row-interleaved (palavra = plano 0 no byte baixo,
+  plano 1 no byte alto).
+- Ferramenta de inspeção de tiles: `tools/vram_tiles.py`.
 - Ferramenta de substituição in-place + BPS em `tools/replace_text.py`.
 
 ## Próximos passos
 
-1. Mapear a fonte principal (16x16): base VRAM e código→glifo.
-2. Validar ASCII no recomp com um patch de uma linha e diff de framebuffer.
+1. Mapear a **tabela Shift-JIS → código de fonte** do renderizador da
+   caixa de diálogo (é o que falta para saber se ASCII direto funciona).
+2. Validar ASCII no recomp com um save state limpo dentro de uma cena com
+   diálogo e diff de framebuffer.
 3. Interpretar o bytecode do script (comandos `04`-`08`) para agrupar
    mensagens e evitar operandos no dump.
 4. Extrair o script completo e montar o glossário EN.

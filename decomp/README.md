@@ -75,8 +75,10 @@ M0 em andamento:
 - [x] ferramenta BPS com self-test;
 - [x] dump inicial de tabelas de nomes e do script Shift-JIS;
 - [x] extrator/substituidor de texto com BPS;
+- [x] base VRAM da fonte da janela (`$6000` palavras) e ferramenta de
+  inspeção de tiles;
 - [x] auditoria do mod loader;
-- [ ] validação da fonte ASCII da caixa de diálogo (M1);
+- [ ] mapeamento Shift-JIS → código de fonte da caixa de diálogo (M1);
 - [ ] agrupamento de mensagens pelo bytecode do script (M1);
 - [ ] primeiro build mínimo do decomp (M1);
 - [ ] matching 65816/SPC700 (M3).
