@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Decode the bank-$11 name tables into kana and emit a glossary template.
+"""Decode the bank-$11 demon tables and the bank-$06 item table.
 
 Tables:
   T1 $11:CDFD, 253 entries, strings $CFF7-$D5A7
   T2 $11:D5A8, 143 entries, strings $D6C6-$D9E3
+  T3 $06:EAFE, 299 entries, strings $ED54-$F59E (items/equipment)
 
 Each byte is an 8x8 font code, not Shift-JIS. The katakana page and the
 ASCII page are known; unknown codes are emitted as `{XX}` for review.
@@ -23,6 +24,9 @@ import sys
 DEFAULT_ROOT = pathlib.Path(__file__).resolve().parents[2]
 T1 = (0xCDFD, 253)
 T2 = (0xD5A8, 143)
+# Item names live in bank $06: a 299-entry pointer table at $EAFE pointing
+# to null-terminated font-code strings at $ED54-$F59E.
+T3 = (0xEAFE, 299)
 
 KATAKANA = {
     0x8C: "ァ", 0x8D: "ア", 0x8E: "ィ", 0x8F: "イ", 0x90: "ゥ", 0x91: "ウ",
@@ -90,12 +94,12 @@ def decode_name(raw: bytes) -> str:
     return "".join(out)
 
 
-def table_strings(data: bytes, base: int, count: int) -> list[dict]:
+def table_strings(data: bytes, base: int, count: int, bank: int = 0x11) -> list[dict]:
     entries = []
     for index in range(count):
-        off = lorom_offset(0x11, base + index * 2)
+        off = lorom_offset(bank, base + index * 2)
         target = data[off] | (data[off + 1] << 8)
-        start = lorom_offset(0x11, target)
+        start = lorom_offset(bank, target)
         end = start
         while end < len(data) and data[end] != 0:
             end += 1
@@ -127,24 +131,25 @@ def main() -> int:
     data = rom.read_bytes()
     t1 = table_strings(data, *T1)
     t2 = table_strings(data, *T2)
+    t3 = table_strings(data, *T3, bank=0x06)
 
     out = pathlib.Path(args.out) if args.out else root / "decomp" / "build" / "text" / "names.json"
     out.parent.mkdir(parents=True, exist_ok=True)
-    payload = {"rom": str(rom), "tables": {"t1": t1, "t2": t2}}
+    payload = {"rom": str(rom), "tables": {"t1": t1, "t2": t2, "t3": t3}}
     out.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     csv_path = out.with_suffix(".csv")
     with csv_path.open("w", newline="", encoding="utf-8") as fh:
         writer = csv.writer(fh)
         writer.writerow(["table", "index", "file_offset", "jp", "en", "pt_br", "notes"])
-        for table, entries in (("t1", t1), ("t2", t2)):
+        for table, entries in (("t1", t1), ("t2", t2), ("t3", t3)):
             for entry in entries:
                 writer.writerow([table, entry["index"], entry["file_offset"], entry["jp"], "", "", ""])
 
     print(f"wrote {out}")
     print(f"wrote {csv_path}")
-    print(f"t1={len(t1)} t2={len(t2)}")
-    for table, entries in (("t1", t1[:5]), ("t2", t2[:5])):
+    print(f"t1={len(t1)} t2={len(t2)} t3={len(t3)}")
+    for table, entries in (("t1", t1[:5]), ("t2", t2[:5]), ("t3", t3[:5])):
         print(f"{table}:", ", ".join(e["jp"] for e in entries))
     return 0
 

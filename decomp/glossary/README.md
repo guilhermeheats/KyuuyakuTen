@@ -15,7 +15,7 @@ Saídas (ignoradas pelo git):
 
 | Coluna | Uso |
 |---|---|
-| `table` | `t1` = demônios/personagens; `t2` = itens/equipamentos |
+| `table` | `t1`/`t2` = demônios; `t3` = itens/equipamentos |
 | `index` | índice na tabela |
 | `file_offset` | offset da string na ROM |
 | `jp` | leitura em kana (não é o texto oficial; é a decodificação dos códigos de fonte) |
@@ -54,7 +54,9 @@ fonte). Nomes maiores precisam de abreviação.
 ## Estado
 
 - T1: 253 entradas (demônios/personagens).
-- T2: 143 entradas (itens/equipamentos).
+- T2: 143 entradas (demônios/personagens).
+- T3: 299 entradas (itens/equipamentos, banco `$06`; tabela de ponteiros
+  em `$EAFE`, strings em `$ED54-$F59E`).
 - A página de katakana `0x8C-0xDF`, `0x0E` (ー) e `0x0F` (゛) está
   mapeada; a página ASCII baixa (`0x01` espaço, `0x11-0x1A` dígitos,
   `0x22-0x3B` A-Z) também.

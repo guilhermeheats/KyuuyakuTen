@@ -180,7 +180,9 @@ diálogo.
 
 O pool vai até `$11:$CDFD`, onde começam as tabelas de nomes.
 
-## 3. Nomes de itens/demônios (banco $11)
+## 3. Nomes de demônios (banco $11) e itens (banco $06)
+
+### 3.1 Demônios — duas tabelas no banco `$11`
 
 Duas tabelas de ponteiros de 16 bits:
 
@@ -218,6 +220,21 @@ As strings são **códigos de fonte de 1 byte**, não Shift-JIS. A fonte é
 Exemplos que fecham o mapa: `ダークヒーロー` (T1 0), `サタン` (2),
 `ルシファー` (3), `ベルゼブブ` (4), `アスタロート` (5), `モロク` (7),
 `アスモダイ` (9), `パズス` (11), `アシュラ` (12).
+
+## 3.2 Itens — tabela no banco `$06`
+
+Os nomes de **itens/equipamentos** ficam no banco `$06`:
+
+- tabela de **299 ponteiros** de 16 bits em `$06:$EAFE-$ED54`;
+- strings nulas-terminadas em `$06:$ED54-$F59E`;
+- entrada 0 vazia; 1 = `ワルサーPPK`, 2 = `ガバメント`, ...
+- exemplos: 52 `ケブラーベスト`, 143 `ポイズンダート`, 150
+  `マッスルドリンコ`, 279 `ブレストプレート`, 293
+  `ケブラーヘルメット`.
+
+Os nomes usam a mesma fonte 8x8 de códigos de 1 byte; alguns itens
+especiais usam uma página de kanji/ASCII ainda não mapeada (`{XX}`).
+`tools/dump_names.py` gera `t1`, `t2` e `t3` no JSON/CSV do glossário.
 
 ## 4. O que a fan translation EN fez (referência)
 
