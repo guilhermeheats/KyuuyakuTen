@@ -566,3 +566,18 @@ Pendências: (1) descobrir se o Minotauro já foi derrotado neste save
 real; (2) alcançar o miolo leste `x=34..39` e o bloco `x=40..47` pelos
 seams 継4/継3; (3) usar as duas saídas leste para Valhalla. Estados
 salvos em `logs/kyuuyaku/route6-1f-2026-11-24/states/` (fora do repo).
+
+### 2026-11-25 — Valhalla alcançada e equipamentos
+
+- O **Minotauro foi derrotado** e o **しず玉** apareceu no TREASURE; o
+  elevador do 1F foi liberado (1F ↔ 8F).
+- O usuário alcançou **Valhalla** pelo item de quest/castelo da Medusa;
+  a rota leste do 1F deixou de ser o bloqueio atual.
+- Em Valhalla 1F: loja de armas em `(51,5)` e loja de armaduras em
+  `(51,6)`.
+- Comprados/equipados: 2× Kevlar Helmet, Breastplate e Steel Shield;
+  Nakajima com Kevlar/Breastplate/Nameless Katana/Steel Shield e Yumiko
+  com Kevlar/Combat Suit/Platinum Tanken.
+- Checkpoint local no slot 11 da instância `/tmp/opencode/view`; saves do
+  usuário intactos. As pendências antigas de Minotauro/Valhalla ficam
+  cumpridas.
