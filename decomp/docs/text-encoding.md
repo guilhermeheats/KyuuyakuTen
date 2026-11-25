@@ -71,6 +71,14 @@ python3 tools/vram_tiles.py --vram state.vram.bin --base 6000 \
   --bpp 2 --count 0x100 --bmp build/text/font_6000.bmp --scale 4
 ```
 
+Para renderizar a janela inteira (tilemap de `$7E:3800`) de um estado:
+
+```bash
+python3 tools/window_dump.py --wram state.wram.bin --vram state.vram.bin \
+  --tilemap-base 3800 --font-base 1000 --bpp 2 \
+  --out build/text/window.bmp --scale 2
+```
+
 ### ASCII verificado nos menus
 
 A tabela de labels do menu em `$01:A940` (arquivo `0xA940`) guarda
