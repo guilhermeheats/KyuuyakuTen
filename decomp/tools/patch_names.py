@@ -38,7 +38,7 @@ if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
 from bps import create as bps_create  # noqa: E402
-from font_codec import encode as font_encode  # noqa: E402
+from font_codec import decode as font_decode, encode as font_encode  # noqa: E402
 from replace_text import resolve_rom  # noqa: E402
 
 DEFAULT_ROOT = HERE.parents[1]
@@ -120,11 +120,76 @@ def build_tables(entries: list[dict]) -> tuple[bytes, bytes, bytes, list[dict]]:
     return pointer_blob("t1", T1_COUNT), pointer_blob("t2", T2_COUNT), bytes(names), report
 
 
+def load_slots(path: pathlib.Path) -> dict[tuple[str, int], tuple[int, int]]:
+    data = json.loads(path.read_text(encoding="utf-8"))
+    tables = data.get("tables", {})
+    slots: dict[tuple[str, int], tuple[int, int]] = {}
+    for table in ("t1", "t2"):
+        for entry in tables.get(table, []):
+            offset = int(entry["file_offset"], 16)
+            length = len(entry["codes"]) // 2
+            slots[(table, int(entry["index"]))] = (offset, length)
+    return slots
+
+
+def apply_in_place(
+    rom: bytes,
+    entries: list[dict],
+    slots: dict[tuple[str, int], tuple[int, int]],
+) -> tuple[bytes, list[dict], list[dict]]:
+    out = bytearray(rom)
+    report: list[dict] = []
+    conflicts: list[dict] = []
+    seen: dict[int, tuple[str, int]] = {}
+    by_key = {(str(e["table"]).lower(), int(e["index"])): e for e in entries}
+    for key, (offset, slot) in sorted(slots.items(), key=lambda item: item[1][0]):
+        if key not in by_key:
+            raise ValueError(f"missing translation for {key[0]}[{key[1]}]")
+        entry = by_key[key]
+        if offset + slot >= len(out):
+            raise ValueError(f"{key} out of ROM range")
+        if out[offset + slot] != 0:
+            raise ValueError(f"{key} slot at {offset:#x} is not NUL-terminated")
+        text = str(entry["name"]).strip().upper()
+        if not text:
+            raise ValueError(f"empty {key[0]}[{key[1]}]")
+        encoded = font_encode(text)
+        limit = min(slot, 8)
+        truncated = len(encoded) > limit
+        if truncated:
+            encoded = encoded[:limit]
+        if not encoded:
+            raise ValueError(f"{key[0]}[{key[1]}] has no encodable characters")
+        if offset in seen and seen[offset] != key:
+            conflicts.append({"offset": f"{offset:06X}", "kept": seen[offset], "also": key})
+        seen[offset] = key
+        old = bytes(out[offset : offset + slot])
+        out[offset : offset + len(encoded)] = encoded
+        out[offset + len(encoded)] = 0
+        report.append(
+            {
+                "table": key[0],
+                "index": key[1],
+                "name": font_decode(encoded),
+                "slot": slot,
+                "pointer": f"{offset:06X}",
+                "old_hex": old.hex(),
+                "new_hex": bytes(out[offset : offset + slot]).hex(),
+                "truncated": truncated,
+                "jp": entry.get("jp", ""),
+                "en": entry.get("en", ""),
+            }
+        )
+    return bytes(out), report, conflicts
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--rom", help="base ROM; defaults to SNESRECOMP_ROM/rom.cfg")
     ap.add_argument("--root", default=str(DEFAULT_ROOT))
     ap.add_argument("--translations", default="translations/names_en.json")
+    ap.add_argument("--in-place", action="store_true", help="rewrite the original T1/T2 strings instead of relocating")
+    ap.add_argument("--original-names", default="build/text/names.json", help="names.json with T1/T2 slot offsets")
     ap.add_argument("--out", help="output ROM (default: build/rom/names_en.sfc)")
     ap.add_argument("--patch", help="optional BPS patch output path")
     ap.add_argument("--patch-name", default="Kyuuyaku Megami Tensei English names")
@@ -137,9 +202,46 @@ def main() -> int:
         print("no ROM found; pass --rom or set SNESRECOMP_ROM", file=sys.stderr)
         return 1
     entries = load_entries(pathlib.Path(args.translations))
-    t1_ptr, t2_ptr, names, report = build_tables(entries)
-
     original = rom_path.read_bytes()
+
+    if args.in_place:
+        names_path = pathlib.Path(args.original_names)
+        if not names_path.exists():
+            names_path = root / "decomp" / args.original_names
+        slots = load_slots(names_path)
+        try:
+            out, report, conflicts = apply_in_place(original, entries, slots)
+        except ValueError as exc:
+            print(f"error: {exc}", file=sys.stderr)
+            return 1
+        out_path = pathlib.Path(args.out) if args.out else root / "decomp" / "build" / "rom" / "names_inplace.sfc"
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        out_path.write_bytes(out)
+        print(f"wrote {out_path} ({len(out)} bytes)")
+        if args.report:
+            report_path = pathlib.Path(args.report)
+            report_path.parent.mkdir(parents=True, exist_ok=True)
+            payload = {
+                "source": str(rom_path),
+                "mode": "in-place",
+                "entries": report,
+                "conflicts": conflicts,
+            }
+            report_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+            print(f"wrote {report_path}")
+        if args.patch:
+            patch_path = pathlib.Path(args.patch)
+            patch_path.parent.mkdir(parents=True, exist_ok=True)
+            metadata = json.dumps(
+                {"name": args.patch_name, "encoding": "8x8-font/inplace"},
+                ensure_ascii=False,
+            ).encode("utf-8")
+            patch = bps_create(original, out, metadata)
+            patch_path.write_bytes(patch)
+            print(f"wrote {patch_path} ({len(patch)} bytes)")
+        return 0
+
+    t1_ptr, t2_ptr, names, report = build_tables(entries)
     out = bytearray(original)
     if len(out) < NAMES_FILE + len(names):
         print("ROM is too small for the relocated name table", file=sys.stderr)

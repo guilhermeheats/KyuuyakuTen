@@ -120,6 +120,9 @@ cp "$FUNCS_H_TMP" recomp/funcs.h
 echo "== Patching AOT window-text branches =="
 "$PYTHON" "$ROOT/tools/patch-window-text.py"
 
+echo "== Redirecting AOT name tables to the relocated English table =="
+"$PYTHON" "$ROOT/tools/patch-name-tables.py"
+
 echo
 echo "Done. Build with:"
 echo "  cmake -S . -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build -j"

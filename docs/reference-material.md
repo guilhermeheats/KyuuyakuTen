@@ -53,6 +53,20 @@ As demais árvores de build são reproduzíveis.
 - `reference/logs/crash/` — relatórios de crash.
 - `reference/` está no `.gitignore` e não vai para o GitHub.
 
+## Patches de build AOT
+
+`tools/regen.sh` aplica dois ajustes depois de gerar `src/gen`:
+
+- `tools/patch-window-text.py` — força o caminho de glyph style-0 do texto
+  da janela;
+- `tools/patch-name-tables.py` — redireciona o copy AOT de nomes de
+  `$11:CDFD/$11:D5A8/$11:0000` para as tabelas T1/T2 em
+  `$2E:B820/$2E:BA1A/$2E:0000`.
+
+O segundo é necessário porque o recomp executa `bank_02_C87B` como código
+nativo e não enxerga o patch 65816 do BPS. Depois do regen, rebuilde o
+recomp para aplicar.
+
 ## Patches locais de submódulo
 
 - `patches/snesrecomp-noreturn-jsl.patch` — correção de retorno/JSL.

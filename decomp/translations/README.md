@@ -157,11 +157,17 @@ abreviações (`BEELZEBU`, `MEGAPLAN`, `9TAILFOX` etc.).
 O espaço usado era zero no ROM original e foi verificado pelo tool. O BPS
 faz round-trip contra a ROM japonesa.
 
-**Limitação de batalha:** um boot novo ainda mostrou o nome do inimigo em
-japonês (`マッドスラッグ`). O caminho que exibe o nome no encontro usa
-outra rotina (a região `$014898`/`$0C40`), não o copy T1/T2 que foi
-redirecionado para `$2E`. A tabela/patch T1/T2 está correta para os usos
-que passam pelo copy; falta mapear/patchear o caminho de batalha.
+`make names-inplace` gera uma variante que reescreve as strings originais
+em `$11` (BPS de 2769 bytes), compatível com o recomp sem patch de código,
+mas **335 dos 396 nomes ficam truncados** pelo tamanho do slot original.
+
+**Caminho de batalha:** o write em `$0022` vem de `bank_02_C87B`
+(`$02:C8D9`) — código AOT nativo. O patch 65816 do BPS funciona em
+emulador, mas o recomp não executa essas instruções; ele lê a tabela
+original em `$11`. Para o recomp, `tools/regen.sh` chama
+`tools/patch-name-tables.py`, que redireciona o C gerado de
+`$11:CDFD/$11:D5A8/$11:0000` para `$2E:B820/$2E:BA1A/$2E:0000`.
+É necessário regerar e rebuildar o recomp para ver os nomes completos.
 
 ## Créditos e licença
 

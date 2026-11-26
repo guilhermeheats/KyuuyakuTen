@@ -78,11 +78,17 @@ execução.
 - **Nomes T1/T2 traduzidos**: `translations/names_en.json` tem 396
   entradas (253 T1 + 143 T2), em romaji, conferidas contra a fan
   translation EN. `make names-en` gera um BPS de 4242 bytes que repacka
-  as tabelas em `$2E` e redireciona o copy de nome. Limite de 8 caracteres
-  por nome; nomes longos usam abreviações. Um boot novo ainda mostrou o
-  nome do inimigo em japonês; o caminho de batalha usa outra rotina
-  (`$014898`/`$0C40`), não o copy T1/T2 redirecionado. Falta mapear esse
-  caminho.
+  as tabelas em `$2E` e redireciona o copy de nome; `make names-inplace`
+  gera um BPS de 2769 bytes que reescreve as strings originais (fallback
+  para o recomp, mas com 335 nomes truncados pelo slot).
+- **Caminho do nome de batalha identificado**: o write em `$0022` vem de
+  `bank_02_C87B` (`$02:C8D9`, parent `bank_02_BAD4`) — código AOT nativo,
+  não das instruções 65816 que o BPS redireciona para `$2E`. O patch de
+  código funciona em emulador, mas o recomp lê a tabela original em
+  `$11`; por isso o nome continua em japonês no build nativo.
+- Próximo: redirecionar o `bank_02_C87B` gerado para `$2E` (script de
+  pós-regen, como o `patch-window-text.py`) ou regerar o recomp a partir
+  da ROM já patchada, e então validar o nome em batalha.
 - **Página 8x8 não é ASCII puro na pontuação**: `0x1B` (seria `:`) renderiza
   um glifo parecido com "10"; o label de equipamento usa `EQ` + espaços.
   Letras e dígitos seguem `ASCII - 0x1F`.
