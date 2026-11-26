@@ -36,6 +36,11 @@ As demais árvores de build são reproduzíveis.
 > (ROMs/BPS/dumps) também foram removidos; regenere com `tools/regen.sh` e
 > com os alvos `make` conforme necessário. `build-debug/` foi mantida por ser
 > a build jogável e guardar os saves.
+>
+> Também foram removidos **2.805 BMPs de teste** da raiz de `build-debug/`
+> (~687 MB). Uma seleção de 16 capturas de rota/comparação foi preservada em
+> `reference/screenshots/debug/`; a árvore jogável ficou com o binário,
+> assets, configs e saves.
 
 ## Referência local (não versionada)
 
