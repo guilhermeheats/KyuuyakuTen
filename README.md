@@ -113,9 +113,16 @@ than mis-executing ten frames in.
 | `src/` | Host code you own: `main.c`, `game_rtl.c` |
 | `src/gen/` | Generated C. Never committed — regenerate locally |
 | `snesrecomp/` | Framework submodule (owns `lib/recomp-net`, `lib/retcomm-rbengine`) |
-| `tools/` | `regen.sh` — the ROM → C pipeline |
+| `decomp/` | Decompilation tools, text/translation data, tests and docs |
+| `docs/` | Research notes, routes, checkpoints and reference sources |
+| `patches/` | Local submodule/build patches |
+| `tools/` | `regen.sh`, `patch-window-text.py` and the ROM → C pipeline |
 | `scripts/` | `package_release.sh` — player-facing zip |
+| `reference/` | Local-only saves/screenshots/logs; ignored by git |
 | `framework_pins.txt` | Exact framework commits this project was scaffolded against |
+
+See [`docs/reference-material.md`](docs/reference-material.md) for the
+source/generated/reference split and safe cleanup commands.
 
 ## Porting from here
 

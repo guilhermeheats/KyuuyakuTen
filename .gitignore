@@ -6,6 +6,8 @@
 *.sfc
 *.smc
 *.srm
+*.sav
+*.state
 
 # Build trees and packaged output
 /build/
@@ -33,6 +35,13 @@
 /last_run_report.json
 
 .DS_Store
+
+# Local reference material: save states, screenshots, crash logs, fan
+# translations. See docs/reference-material.md. Never commit.
+/reference/
+/3f_junks*.png
+/moldura_jogo_*.png
+*.log
 
 # Python bytecode from local tools
 __pycache__/

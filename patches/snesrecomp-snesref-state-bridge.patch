@@ -1,0 +1,85 @@
+diff --git a/tools/snesref/frontend.cpp b/tools/snesref/frontend.cpp
+index 77e27b7a..92baf10d 100644
+--- a/tools/snesref/frontend.cpp
++++ b/tools/snesref/frontend.cpp
+@@ -115,6 +115,9 @@ static size_t   (*p_dbg_ppuw_capacity)(void);
+ static uint64_t (*p_dbg_ppuw_head)(void);
+ static size_t   (*p_dbg_ppuw_read)(uint64_t, size_t, void*, uint64_t*);
+ 
++// Optional recomp-state bridge export from the patched snes9x core.
++static int      (*p_apply_recomp)(const char*);
++
+ template<class T> static void bind_opt(T& fn, const char* name) {
+     fn = reinterpret_cast<T>(core_symbol(g_core, name));
+ }
+@@ -1221,6 +1224,37 @@ static void load_state(int slot) {
+     printf("[slot %d %s]\n",slot, ok?"LOADED":"unserialize returned FALSE"); fflush(stdout);
+ }
+ 
++static bool load_state_file(const char* path) {
++    FILE* f = fopen(path, "rb");
++    if (!f) { fprintf(stderr, "SNESREF_STATE_IN: cannot open %s\n", path); return false; }
++    fseek(f, 0, SEEK_END); long fn = ftell(f); fseek(f, 0, SEEK_SET);
++    size_t need = p_retro_serialize_size();
++    if (fn <= 0 || need == 0) { fclose(f); fprintf(stderr, "SNESREF_STATE_IN: bad sizes file=%ld need=%zu\n", fn, need); return false; }
++    size_t bn = ((size_t)fn > need) ? (size_t)fn : need;
++    std::vector<uint8_t> buf(bn, 0);
++    size_t got = fread(buf.data(), 1, (size_t)fn, f);
++    fclose(f);
++    printf("[state-in %s file=%ld coreNeeds=%zu read=%zu]\n", path, fn, need, got); fflush(stdout);
++    if ((size_t)fn != need)
++        printf("[warn state-in: size mismatch file=%ld need=%zu]\n", fn, need);
++    bool ok = p_retro_unserialize(buf.data(), need);
++    printf("[state-in %s]\n", ok ? "LOADED" : "unserialize returned FALSE"); fflush(stdout);
++    return ok;
++}
++
++static bool save_state_file(const char* path) {
++    size_t n = p_retro_serialize_size();
++    if (!n) return false;
++    std::vector<uint8_t> buf(n);
++    if (!p_retro_serialize(buf.data(), n)) return false;
++    FILE* f = fopen(path, "wb");
++    if (!f) return false;
++    size_t got = fwrite(buf.data(), 1, n, f);
++    fclose(f);
++    printf("[state-out %s %zu bytes]\n", path, got); fflush(stdout);
++    return got == n;
++}
++
+ int main(int argc, char** argv) {
+     if (argc < 3) {
+         fprintf(stderr, "usage: snesref <libretro-core> <rom.sfc>\n");
+@@ -1274,6 +1308,7 @@ int main(int argc, char** argv) {
+     bind_opt(p_dbg_ppuw_capacity,"snesref_dbg_ppuw_capacity");
+     bind_opt(p_dbg_ppuw_head,"snesref_dbg_ppuw_head");
+     bind_opt(p_dbg_ppuw_read,"snesref_dbg_ppuw_read");
++    bind_opt(p_apply_recomp,"snesref_apply_recomp");
+     if (p_dbg_version)
+         printf("snesref debug exports: v%u, ppuw ring %zu entries\n", p_dbg_version(),
+                p_dbg_ppuw_capacity ? p_dbg_ppuw_capacity() : (size_t)0);
+@@ -1310,6 +1345,24 @@ int main(int argc, char** argv) {
+     if (!p_retro_load_game(&gi)) { fprintf(stderr,"retro_load_game failed\n"); return 4; }
+     if (!initialize_system_ram()) return 7;
+     if (!load_sram_in()) return 7;
++    { const char* state = getenv("SNESREF_STATE_IN");
++      if (state && state[0] && !load_state_file(state)) return 7; }
++    { const char* dir = getenv("SNESREF_RECOMP_IN");
++      if (dir && dir[0]) {
++          if (!p_apply_recomp) {
++              fprintf(stderr, "SNESREF_RECOMP_IN: core has no snesref_apply_recomp export\n");
++              return 7;
++          }
++          if (!p_apply_recomp(dir)) {
++              fprintf(stderr, "SNESREF_RECOMP_IN: snesref_apply_recomp failed\n");
++              return 7;
++          }
++      } }
++    { const char* out = getenv("SNESREF_STATE_OUT");
++      if (out && out[0] && !save_state_file(out)) {
++          fprintf(stderr, "SNESREF_STATE_OUT: failed to write %s\n", out);
++          return 7;
++      } }
+     { size_t sn = p_retro_get_memory_size(RETRO_MEMORY_SAVE_RAM);
+       printf("memory: wram=%zu vram=%zu sram=%zu\n",
+              p_retro_get_memory_size(RETRO_MEMORY_SYSTEM_RAM),

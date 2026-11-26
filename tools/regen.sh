@@ -115,6 +115,11 @@ rm -f recomp/funcs.h
 "$PYTHON" "$CLI" generate "${GEN_ARGS[@]}"
 cp "$FUNCS_H_TMP" recomp/funcs.h
 
+# AOT window-text style fix, applied after generation. The script is a no-op
+# for HLE/LLE builds and fails loudly if the generated branch shape changes.
+echo "== Patching AOT window-text branches =="
+"$PYTHON" "$ROOT/tools/patch-window-text.py"
+
 echo
 echo "Done. Build with:"
 echo "  cmake -S . -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build -j"
