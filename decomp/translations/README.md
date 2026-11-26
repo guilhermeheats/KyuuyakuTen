@@ -214,21 +214,24 @@ nome. O alvo `make full-names` instala um caminho **só para a batalha** que
 mostra a raça completa e o nome completo na mesma linha:
 
 ```text
-Foul GREEN SLIME
+Foul Green Slime
 ```
 
-A raça usa a fonte 16x16 (com capitalização) e o nome a fonte 8x8
-(maiúscula); a linha cabe na janela de batalha. Os menus e o status
-continuam usando os nomes de oito caracteres, para não quebrar o layout.
-Validado ao vivo no recomp: `Earth GNOME` (raça Earth + nome Gnome).
+A raça é um prefixo compacto de **duas letras maiúsculas** em 8x8
+(`FO` para Foul, `TY` para Tyrant, ...), e o nome completo em 16x16 usa a
+fonte de diálogo, que já tem minúsculas. Uma tabela em `$2E:DD08` converte
+os códigos 8x8 do nome para Shift-JIS full-width antes de chamar o
+renderizador 16x16. Os menus e o status continuam usando os nomes de oito
+caracteres em maiúsculas. Validado ao vivo no recomp: `FO Pink Worm`.
 
 O patch instala:
 
 - tabelas de ponteiros de nome completo em `$2E:BB38` (T1) e `$2E:BD32`
   (T2);
 - strings de nome completo nos espaços livres de `$2F`;
-- tabela e strings de raça completa em `$2E:BE50`/`$2E:DE00`;
-- rotinas 65816 em `$2E:BE90` (raça) e `$2E:BF40` (nome), montadas de
+- tabela e prefixos de raça (8x8, 2 letras) em `$2E:BE50`/`$2E:DF08`;
+- tabela de conversão 8x8 -> Shift-JIS full-width em `$2E:DD08`;
+- rotinas 65816 em `$2E:BE90` (raça) e `$2E:BF00` (nome), montadas de
   `tools/full-race.s`/`tools/full-name.s`;
 - o buffer direto `$57` e o loop de exibição `$02:BADE` redirecionado;
 - a flag `$7E:1FF0`, que faz o copy de nome usar a tabela completa apenas

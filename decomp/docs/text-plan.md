@@ -108,11 +108,11 @@ execução.
   tradução usa 2674; novas mensagens exigem relocação/expansão.
   `make battle-en` gera um BPS contra a ROM japonesa.
 - **Nomes completos na mesma linha**: o alvo `make full-names` instala
-  tabelas completas de raça/nome em `$2E`/`$2F` e rotinas 65816 em
-  `$2E:BE90`/`$2E:BF40`. A introdução de batalha passa a mostrar, por
-  exemplo, `Foul GREEN SLIME` — raça 16x16 com capitalização e nome 8x8
-  maiúsculo; validado ao vivo com `Earth GNOME`. Os menus continuam com
-  os nomes de 8 caracteres. Como as
+  tabelas completas de raça/nome em `$2E`/`$2F`, a tabela de conversão
+  `$2E:DD08` e rotinas 65816 em `$2E:BE90`/`$2E:BF00`. A introdução de
+  batalha passa a mostrar, por exemplo, `FO Pink Worm` — prefixo de raça
+  de 2 letras em 8x8 e nome completo em 16x16 pela fonte de diálogo. Os
+  menus continuam com os nomes de 8 caracteres. Como as
   rotinas são código, o recomp precisa ser regerado de `full_names.sfc`
   com `tools/regen.sh --rom ... --no-verify`; o BPS `full_names.bps`
   contra a ROM japonesa tem ~15 KB.

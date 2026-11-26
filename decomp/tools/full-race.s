@@ -1,4 +1,4 @@
-; Full race-name display for the battle intro.
+; Full race prefix for the battle intro: 8x8 font, mixed case.
 ; Assembled at $2E:BE90; called from the text renderer's 01 0C handler.
 .MEMORYMAP
   DEFAULTSLOT 0
@@ -31,12 +31,11 @@ FullRace:
   rep #$10
   tax
 RaceLoop:
+  sep #$20
   lda.l $2E0000,x
   beq RaceDone
-  xba
-  sta $00
   phx
-  jsl $01DFAD
+  jsl $01E311
   plx
   sep #$20
   lda $0289
@@ -52,12 +51,9 @@ RaceWait:
   dec a
   bne RaceWait
 RaceNoWait:
-  rep #$20
-  inx
   inx
   bra RaceLoop
 RaceDone:
-  sep #$20
   plb
   plp
   rtl

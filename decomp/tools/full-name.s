@@ -1,9 +1,8 @@
-; Full demon-name copy for the battle intro.
-; Assembled at $2E:BF40; replaces the JSL $02C87B inside $02:BAD4.
-; Writes to the direct-page scratch buffer at $57 and lets the patched
-; display loop render it. The race routine sets $7E:1FF0, so only the
-; race+name intro uses the full table; other <04> messages keep the
-; eight-character T1/T2 names.
+; Full demon name for the battle intro: 16x16 dialogue font, mixed case.
+; Assembled at $2E:BF00; replaces the JSL $02C87B inside $02:BAD4.
+; The 8x8 name codes are mapped through a 256-entry Shift-JIS table at
+; $2E:DD08 and drawn with $01DFAD, so the dialogue font's lowercase Latin
+; block is used. The race prefix was already drawn in 8x8.
 .MEMORYMAP
   DEFAULTSLOT 0
   SLOTSIZE $8000
@@ -14,7 +13,7 @@
 .ROMBANKS 1
 
 .BANK 0 SLOT 0
-.ORG $3F40
+.ORG $3F00
 .SECTION "FullName" FORCE
 FullName:
   php
@@ -58,18 +57,40 @@ T2ok:
   tax
 CopyFull:
   sep #$20
-  ldy #$0000
-CopyLoop:
+NameLoop:
   lda.l $2F0000,x
-  beq CopyDone
-  sta $0057,y
+  beq NameDone
+  rep #$20
+  and #$00FF
+  asl a
+  tay
+  lda $DD08,y
+  beq NameSkip
+  xba
+  sta $00
+  phx
+  jsl $01DFAD
+  plx
+  sep #$20
+  lda $0289
+  beq NameNoWait
+  and #$7F
+  pha
+NameWait:
+  lda $022F
+  ora #$10
+  sta $022F
+  jsl $009397
+  pla
+  dec a
+  bne NameWait
+NameNoWait:
+NameSkip:
   inx
-  iny
-  cpy #$0010
-  bne CopyLoop
-CopyDone:
+  bra NameLoop
+NameDone:
   lda #$00
-  sta $0057,y
+  sta $0057
   bra Epilogue
 NotFull:
   rep #$30
