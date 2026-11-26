@@ -67,6 +67,11 @@ O segundo é necessário porque o recomp executa `bank_02_C87B` como código
 nativo e não enxerga o patch 65816 do BPS. Depois do regen, rebuilde o
 recomp para aplicar.
 
+As mensagens de batalha (`$11`) e os prefixos de raça (`$02:BC8E`) são
+dados lidos diretamente da ROM pelo recomp. Os alvos `battle-en` e
+`races-en` não precisam de patch no C gerado; o único redirecionamento de
+código para texto é o das tabelas T1/T2 em `$2E`.
+
 ## Patches locais de submódulo
 
 - `patches/snesrecomp-noreturn-jsl.patch` — correção de retorno/JSL.

@@ -71,10 +71,13 @@ execução.
 - **Script principal iniciado**: `translations/script_en.json` tem 41
   entradas (cena inicial, restaurante, baú, batalha e eventos do 7F),
   `make script-en` gera um BPS separado de 1149 bytes.
-- **Mensagens de batalha validadas ao vivo**: no 7F, um encontro aleatório
-  mostrou `外道ピンクルーパー  came`, o prompt `What?` e o turno
-  `ナカジマ  acts?` / `ユミコ  acts?`. Os nomes dinâmicos ainda vêm das
-  tabelas T1/T2 em japonês; as linhas de ataque/dano também faltam.
+- **Mensagens de batalha validadas ao vivo**: no 7F, os encontros
+  mostraram `O GREENSLM came` e `B BASMU came` — prefixo de raça + nome
+  T1/T2 em inglês + ` came` —, o prompt `What?`, `Is this okay?`,
+  `Foe atk`, `dodged!`, `No damage!`, `ナカジマ's atk` e
+  `ナカジマ takes 3 dmg`. A primeira versão do dano
+  (`takes 1 damage`) foi cortada na janela de 16 colunas; a tradução foi
+  encurtada para `takes N dmg`.
 - **Nomes T1/T2 traduzidos**: `translations/names_en.json` tem 396
   entradas (253 T1 + 143 T2), em romaji, conferidas contra a fan
   translation EN. `make names-en` gera um BPS de 4242 bytes que repacka
@@ -88,8 +91,20 @@ execução.
   redireciona o C gerado de `$11:CDFD/$11:D5A8/$11:0000` para
   `$2E:B820/$2E:BA1A/$2E:0000`. Depois de regerar/rebuilde, a batalha no
   recomp gravou `ZOMBIE` em `$0022` — nomes completos em inglês.
-- O prefixo de raça (`外道` etc.) ainda está em japonês; ele vem de outra
-  tabela. O fallback `names-inplace` não é necessário para o recomp agora.
+- **Tabela de batalha mapeada e repackada**: `$11:$A5A4` tem 144
+  ponteiros para `$A6C6-$B13D`. `tools/patch_battle.py` separa os runs de
+  texto dos controles, substitui só os runs, deduplica blobs e atualiza a
+  tabela. `translations/battle_en.json` cobre 10-22 e 40-50/94-106
+  (ataque/dano/defesa/crítica). O pool original tem 2679 bytes e a
+  tradução usa 2674; novas mensagens exigem relocação/expansão.
+  `make battle-en` gera um BPS contra a ROM japonesa.
+- **Prefixos de raça traduzidos**: o controle `01 0C` chama `$02:BCFA`,
+  que lê dois caracteres full-width de `$02:BC8E` (26 entradas de 4
+  bytes). Como o slot é fixo em 2 caracteres, `translations/races_en.json`
+  usa uma letra + espaço (`T `, `D `, ...), com legenda no README de
+  traduções. `tools/patch_races.py` grava a tabela; é data-only e vale
+  para o recomp. Validado ao vivo: `O GREENSLM came` e `B BASMU came`.
+- O fallback `names-inplace` não é necessário para o recomp agora.
 - **Página 8x8 não é ASCII puro na pontuação**: `0x1B` (seria `:`) renderiza
   um glifo parecido com "10"; o label de equipamento usa `EQ` + espaços.
   Letras e dígitos seguem `ASCII - 0x1F`.
@@ -100,16 +115,17 @@ execução.
 
 ## Próximos passos
 
-1. Validar as tabelas T1/T2 em um boot novo e ajustar o que o cache de
-   nomes da WRAM ainda mostrar em japonês.
-2. Traduzir as linhas de ataque/dano e defesa da batalha
-   (`ナカジマの攻撃`, `ナカジマは３ダメージ` etc.).
-3. Continuar o script principal: cena inicial, restaurante e eventos do
+1. Traduzir o restante das 144 mensagens de batalha. O pool está quase
+   cheio (5 bytes livres); planejar relocação para o banco `$2E` ou
+   compressão antes de continuar.
+2. Continuar o script principal: cena inicial, restaurante e eventos do
    8F; validar cada novo texto em jogo.
-4. Traduzir a narração da abertura (tabela separada do banco `$10`).
-5. Interpretar o bytecode do script (comandos `04`-`08`) para agrupar
+3. Traduzir a narração da abertura (tabela separada do banco `$10`).
+4. Interpretar o bytecode do script (comandos `04`-`08`) para agrupar
    mensagens e evitar operandos no dump.
-6. Extrair o script completo e montar o glossário EN.
+5. Extrair o script completo e montar o glossário EN.
+6. Decidir se o patch traduz os nomes padrão dos personagens
+   (`ナカジマ`/`ユミコ`); hoje eles vêm do save.
 7. PT-BR direto do japonês, com o inglês como referência.
 
 ## Regras

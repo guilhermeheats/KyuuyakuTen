@@ -108,8 +108,8 @@ COMP, as lojas JUNKS e ARMORS e os prompts de escada:
 As mensagens com nomes dinâmicos preservam os controles `01 04` (demônio),
 `01 05` (item), `01 0D` (magia) e `0F` (quebra de linha); só o segmento de
 texto é substituído. Mensagens de batalha que concatenam nome + verbo
-(`$A433`, `$A4E3`, `$A558`) ficam para a passada de batalha, porque o slot
-não comporta o espaço separador.
+(`$A433`, `$A4E3`, `$A558`) são tratadas pela passada de batalha
+(`battle_en.json`), que repacka o pool e preserva os controles.
 
 O diálogo de história continua bloqueado no save 8: o texto está em cache
 na WRAM e o flag do evento não foi encontrado.
@@ -131,13 +131,17 @@ mensagens de batalha:
 - `Ambush!`, `Looked around`, `Nothing` — eventos de encontro fixo do 7F
   (traduzidos; validação ao vivo pendente).
 
-Os nomes de demônios e personagens continuam em japonês porque vêm das
-tabelas T1/T2, ainda não traduzidas. Linhas de ataque/dano
-(`ナカジマの攻撃`, `ナカジマは３ダメージ`) também continuam em japonês.
+Os nomes de demônios agora vêm das tabelas T1/T2 em inglês (patch de
+nomes); os nomes dos personagens (`ナカジマ`/`ユミコ`) ainda vêm do save.
+As linhas de ataque/dano são tratadas pelo passe de batalha
+(`battle_en.json`), não por este arquivo.
 
 O alvo `make script-en` gera `script_en.sfc` e `script_en.bps` separados do
-patch de UI. As validações usaram um save state criado **depois** do patch,
-com o jogo começado do zero, para evitar o cache de texto da WRAM.
+patch de UI. `make battle-en` aplica o passe de batalha em cima; `make
+races-en` adiciona os prefixos de raça; `make full-en` combina script,
+batalha, raças e nomes e gera `full_en.bps` contra a ROM japonesa. As
+validações usaram um save state criado **depois** do patch, com o jogo
+começado do zero, para evitar o cache de texto da WRAM.
 
 ## Nomes T1/T2 (`names_en.json`)
 
@@ -168,7 +172,60 @@ original em `$11`. Para o recomp, `tools/regen.sh` chama
 `tools/patch-name-tables.py`, que redireciona o C gerado de
 `$11:CDFD/$11:D5A8/$11:0000` para `$2E:B820/$2E:BA1A/$2E:0000`.
 Depois de regerar e rebuildar, o teste no 7F gravou `ZOMBIE` em `$0022`
-— o nome completo em inglês. O prefixo de raça ainda é japonês.
+— o nome completo em inglês. O prefixo de raça é tratado pelo passe
+`races_en.json`.
+
+## Batalha (`battle_en.json`)
+
+A tabela de mensagens de batalha fica em `$11:$A5A4` (144 ponteiros) e o
+pool em `$11:$A6C6-$B13D`. Cada mensagem mistura Shift-JIS com controles
+`01 xx` e bytes de 1 byte. O `battle_en.json` usa:
+
+```json
+{"index": 11, "runs": ["'s attack"], "jp": "の攻撃", "en": "'s attack"}
+```
+
+`runs` substitui, em ordem, só os trechos de texto; os controles são
+copiados byte a byte. O `tools/patch_battle.py` repacka o pool, deduplica
+blobs idênticos e atualiza a tabela. O BPS é gerado contra a ROM japonesa.
+
+Cobertura atual: 10-22 e 40-50/94-106 (ataque, dano, defesa, crítico e
+prompt de confirmação). O pool original tem 2679 bytes e a tradução usa
+2674, então novas mensagens precisam de relocação/expansão.
+
+Validação ao vivo no recomp: `Foe atk`, `dodged!`, `No damage!`,
+`Is this okay?`, `What?`, `acts?`, `ナカジマ's atk`,
+`ナカジマ takes 3 dmg`, `O GREENSLM came` e `B BASMU came`.
+
+## Raças (`races_en.json`)
+
+O controle `01 0C` chama `$02:BCFA`, que lê dois caracteres full-width da
+tabela `$02:BC8E` (26 entradas de 4 bytes). O slot é fixo em dois
+caracteres, então a tradução usa **uma letra + espaço**:
+
+| Código | Raça | Código | Raça |
+|---|---|---|---|
+| `T ` | Tyrant (魔王) | `N ` | Night (夜魔) |
+| `D ` | Deity (邪神) | `S ` | Spirit (幽鬼) |
+| `B ` | Beast (怪獣) | `W ` | Wilder (妖獣) |
+| `F ` | Femme (鬼女) | `J ` | Jaki (邪鬼) |
+| `M ` | Machine (機械) | `H ` | Haunt (悪霊) |
+| `A ` | Madman (狂人) | `O ` | Foul (外道) |
+| `Y ` | Fairy (妖精) | `E ` | Earth (地霊) |
+| `Q ` | Yoma (妖鬼) | `V ` | Vile (魔獣) |
+| `U ` | Yoma (妖魔) | `L ` | Element (精霊) |
+| `C ` | Holy (聖獣) | `P ` | Phantom (幻魔) |
+| `I ` | Divine (天使) | `K ` | Kishin (鬼神) |
+| `R ` | Avatar (神獣) | `G ` | God (魔神) |
+
+`tools/patch_races.py` grava a tabela. É data-only e o recomp lê a ROM,
+então não precisa de patch no C gerado. `make races-en` gera o BPS contra
+a ROM japonesa. Validado ao vivo: `O GREENSLM came` (Foul + Green Slime)
+e `B BASMU came` (Beast + Basmu).
+
+A limitação de uma letra é consequência do slot de 2 caracteres; se o
+prefixo precisar de mais espaço, será necessário patchar `$02:BCFA` para
+ler uma tabela maior (e refazer o redirect no AOT).
 
 ## Créditos e licença
 

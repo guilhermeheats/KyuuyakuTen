@@ -185,7 +185,8 @@ def apply_in_place(
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--rom", help="base ROM; defaults to SNESRECOMP_ROM/rom.cfg")
+    ap.add_argument("--rom", help="input ROM; defaults to SNESRECOMP_ROM/rom.cfg")
+    ap.add_argument("--base-rom", help="ROM for the BPS diff; defaults to --rom")
     ap.add_argument("--root", default=str(DEFAULT_ROOT))
     ap.add_argument("--translations", default="translations/names_en.json")
     ap.add_argument("--in-place", action="store_true", help="rewrite the original T1/T2 strings instead of relocating")
@@ -203,6 +204,10 @@ def main() -> int:
         return 1
     entries = load_entries(pathlib.Path(args.translations))
     original = rom_path.read_bytes()
+    base_rom = pathlib.Path(args.base_rom).read_bytes() if args.base_rom else original
+    if len(base_rom) != len(original):
+        print("input and base ROM sizes differ", file=sys.stderr)
+        return 1
 
     if args.in_place:
         names_path = pathlib.Path(args.original_names)
@@ -236,7 +241,7 @@ def main() -> int:
                 {"name": args.patch_name, "encoding": "8x8-font/inplace"},
                 ensure_ascii=False,
             ).encode("utf-8")
-            patch = bps_create(original, out, metadata)
+            patch = bps_create(base_rom, out, metadata)
             patch_path.write_bytes(patch)
             print(f"wrote {patch_path} ({len(patch)} bytes)")
         return 0
@@ -290,7 +295,7 @@ def main() -> int:
             {"name": args.patch_name, "encoding": "8x8-font/relocated"},
             ensure_ascii=False,
         ).encode("utf-8")
-        patch = bps_create(original, bytes(out), metadata)
+        patch = bps_create(base_rom, bytes(out), metadata)
         patch_path.write_bytes(patch)
         print(f"wrote {patch_path} ({len(patch)} bytes)")
     return 0

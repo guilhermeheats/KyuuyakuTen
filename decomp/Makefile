@@ -1,10 +1,12 @@
 PYTHON ?= python3
 ROOT := $(abspath ..)
 BUILD ?= build
+ROM ?= $(shell cat "$(ROOT)/rom.cfg" 2>/dev/null)
+BASE_ROM_ARG := $(if $(ROM),--base-rom "$(ROM)")
 WLA_BIN ?= $(CURDIR)/.toolchain/wla-dx/build/binaries
 export WLA_BIN
 
-.PHONY: all baseline symbols text text-extract messages names names-en names-inplace replace-test font-test fullwidth-test bps-test toolchain-test menu-en script-en clean
+.PHONY: all baseline symbols text text-extract messages names names-en names-inplace replace-test font-test fullwidth-test bps-test toolchain-test menu-en script-en battle-en races-en full-en clean
 
 all: baseline symbols text text-extract messages names replace-test font-test fullwidth-test bps-test toolchain-test
 
@@ -69,6 +71,30 @@ names-inplace:
 		--out "$(BUILD)/rom/names_inplace.sfc" \
 		--patch "$(BUILD)/rom/names_inplace.bps" \
 		--report "$(BUILD)/rom/names_inplace_report.json"
+
+battle-en: script-en
+	$(PYTHON) tools/patch_battle.py --rom "$(BUILD)/rom/script_en.sfc" \
+		--translations translations/battle_en.json \
+		--patch-name "Kyuuyaku Megami Tensei English battle text" \
+		--out "$(BUILD)/rom/script_battle_en.sfc" \
+		--patch "$(BUILD)/rom/script_battle_en.bps" \
+		--report "$(BUILD)/rom/script_battle_en_report.json"
+
+races-en: battle-en
+	$(PYTHON) tools/patch_races.py --rom "$(BUILD)/rom/script_battle_en.sfc" \
+		--translations translations/races_en.json \
+		--patch-name "Kyuuyaku Megami Tensei English battle races" \
+		--out "$(BUILD)/rom/script_battle_races.sfc" \
+		--patch "$(BUILD)/rom/races_en.bps" \
+		--report "$(BUILD)/rom/races_en_report.json"
+
+full-en: races-en
+	$(PYTHON) tools/patch_names.py --rom "$(BUILD)/rom/script_battle_races.sfc" \
+		$(BASE_ROM_ARG) --translations translations/names_en.json \
+		--patch-name "Kyuuyaku Megami Tensei English full text" \
+		--out "$(BUILD)/rom/full_en.sfc" \
+		--patch "$(BUILD)/rom/full_en.bps" \
+		--report "$(BUILD)/rom/full_en_names_report.json"
 
 clean:
 	rm -rf "$(BUILD)"

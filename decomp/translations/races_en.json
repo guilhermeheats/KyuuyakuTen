@@ -1,0 +1,146 @@
+[
+  {
+    "index": 2,
+    "name": "T",
+    "jp": "魔王",
+    "en": "Tyrant"
+  },
+  {
+    "index": 3,
+    "name": "D",
+    "jp": "邪神",
+    "en": "Deity"
+  },
+  {
+    "index": 4,
+    "name": "B",
+    "jp": "怪獣",
+    "en": "Beast"
+  },
+  {
+    "index": 5,
+    "name": "F",
+    "jp": "鬼女",
+    "en": "Femme"
+  },
+  {
+    "index": 6,
+    "name": "N",
+    "jp": "夜魔",
+    "en": "Night"
+  },
+  {
+    "index": 7,
+    "name": "S",
+    "jp": "幽鬼",
+    "en": "Spirit"
+  },
+  {
+    "index": 8,
+    "name": "W",
+    "jp": "妖獣",
+    "en": "Wilder"
+  },
+  {
+    "index": 9,
+    "name": "J",
+    "jp": "邪鬼",
+    "en": "Jaki"
+  },
+  {
+    "index": 10,
+    "name": "M",
+    "jp": "機械",
+    "en": "Machine"
+  },
+  {
+    "index": 11,
+    "name": "H",
+    "jp": "悪霊",
+    "en": "Haunt"
+  },
+  {
+    "index": 12,
+    "name": "A",
+    "jp": "狂人",
+    "en": "Madman"
+  },
+  {
+    "index": 13,
+    "name": "O",
+    "jp": "外道",
+    "en": "Foul"
+  },
+  {
+    "index": 14,
+    "name": "Y",
+    "jp": "妖精",
+    "en": "Fairy"
+  },
+  {
+    "index": 15,
+    "name": "E",
+    "jp": "地霊",
+    "en": "Earth"
+  },
+  {
+    "index": 16,
+    "name": "Q",
+    "jp": "妖鬼",
+    "en": "Yoma"
+  },
+  {
+    "index": 17,
+    "name": "V",
+    "jp": "魔獣",
+    "en": "Vile"
+  },
+  {
+    "index": 18,
+    "name": "U",
+    "jp": "妖魔",
+    "en": "Yoma"
+  },
+  {
+    "index": 19,
+    "name": "L",
+    "jp": "精霊",
+    "en": "Element"
+  },
+  {
+    "index": 20,
+    "name": "C",
+    "jp": "聖獣",
+    "en": "Holy"
+  },
+  {
+    "index": 21,
+    "name": "P",
+    "jp": "幻魔",
+    "en": "Phantom"
+  },
+  {
+    "index": 22,
+    "name": "I",
+    "jp": "天使",
+    "en": "Divine"
+  },
+  {
+    "index": 23,
+    "name": "K",
+    "jp": "鬼神",
+    "en": "Kishin"
+  },
+  {
+    "index": 24,
+    "name": "R",
+    "jp": "神獣",
+    "en": "Avatar"
+  },
+  {
+    "index": 25,
+    "name": "G",
+    "jp": "魔神",
+    "en": "God"
+  }
+]

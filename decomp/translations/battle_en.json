@@ -1,0 +1,280 @@
+[
+  {
+    "index": 10,
+    "runs": [
+      "Is this okay?"
+    ],
+    "jp": "これでいいですか？",
+    "en": "Is this okay?"
+  },
+  {
+    "index": 11,
+    "runs": [
+      "'s attack"
+    ],
+    "jp": "の攻撃",
+    "en": "'s attack"
+  },
+  {
+    "index": 12,
+    "runs": [
+      "Foe ",
+      " dmg dealt",
+      "'s blow"
+    ],
+    "jp": "悪魔に / のダメージを与えた / のの一撃",
+    "en": "Foe / dmg dealt / 's blow"
+  },
+  {
+    "index": 13,
+    "runs": [
+      "CRIT! Foe ",
+      " dmg"
+    ],
+    "jp": "会心！悪魔は / のダメージ",
+    "en": "CRIT! Foe / dmg"
+  },
+  {
+    "index": 14,
+    "runs": [
+      "KILL! Foe ",
+      " dmg"
+    ],
+    "jp": "必殺！悪魔は / のダメージ",
+    "en": "KILL! Foe / dmg"
+  },
+  {
+    "index": 15,
+    "runs": [
+      "No damage!"
+    ],
+    "jp": "ダメージを与えられない！",
+    "en": "No damage!"
+  },
+  {
+    "index": 16,
+    "runs": [
+      "Dodged!"
+    ],
+    "jp": "かわされた！",
+    "en": "Dodged!"
+  },
+  {
+    "index": 17,
+    "runs": [
+      "Foe ",
+      " defeated"
+    ],
+    "jp": "悪魔 / 体にとどめをさした",
+    "en": "Foe / defeated"
+  },
+  {
+    "index": 18,
+    "runs": [
+      "Foe atk"
+    ],
+    "jp": "悪魔の攻撃",
+    "en": "Foe atk"
+  },
+  {
+    "index": 19,
+    "runs": [
+      "Fierce blow"
+    ],
+    "jp": "悪魔の痛烈な一撃",
+    "en": "Fierce blow"
+  },
+  {
+    "index": 20,
+    "runs": [
+      " takes ",
+      " dmg"
+    ],
+    "jp": "は / ダメージ",
+    "en": " takes / dmg"
+  },
+  {
+    "index": 21,
+    "runs": [
+      " dodged!"
+    ],
+    "jp": "は寸前でかわした",
+    "en": " dodged!"
+  },
+  {
+    "index": 22,
+    "runs": [
+      "You lost"
+    ],
+    "jp": "戦いに敗れた",
+    "en": "You lost"
+  },
+  {
+    "index": 40,
+    "runs": [
+      " cut"
+    ],
+    "jp": "は切りかかった",
+    "en": " cut"
+  },
+  {
+    "index": 41,
+    "runs": [
+      "'s gun"
+    ],
+    "jp": "の銃が火を吹いた",
+    "en": "'s gun"
+  },
+  {
+    "index": 42,
+    "runs": [
+      "'s gun"
+    ],
+    "jp": "の銃が火を吹いた",
+    "en": "'s gun"
+  },
+  {
+    "index": 43,
+    "runs": [
+      " danced"
+    ],
+    "jp": "は踊りかかった",
+    "en": " danced"
+  },
+  {
+    "index": 44,
+    "runs": [
+      " slam"
+    ],
+    "jp": "の体当たり",
+    "en": " slam"
+  },
+  {
+    "index": 45,
+    "runs": [
+      " slam"
+    ],
+    "jp": "の体当たり",
+    "en": " slam"
+  },
+  {
+    "index": 46,
+    "runs": [
+      "'s fangs"
+    ],
+    "jp": "の牙が襲いかかる",
+    "en": "'s fangs"
+  },
+  {
+    "index": 47,
+    "runs": [
+      "'s bite"
+    ],
+    "jp": "の噛みつき攻撃",
+    "en": "'s bite"
+  },
+  {
+    "index": 48,
+    "runs": [
+      "'s atk"
+    ],
+    "jp": "の攻撃",
+    "en": "'s atk"
+  },
+  {
+    "index": 49,
+    "runs": [
+      "'s eerie atk"
+    ],
+    "jp": "の不気味な攻撃",
+    "en": "'s eerie atk"
+  },
+  {
+    "index": 50,
+    "runs": [
+      "'s fierce atk"
+    ],
+    "jp": "のきびしい攻撃",
+    "en": "'s fierce atk"
+  },
+  {
+    "index": 68,
+    "runs": [
+      "Is this okay?"
+    ],
+    "jp": "これでいいですか？",
+    "en": "Is this okay?"
+  },
+  {
+    "index": 94,
+    "runs": [
+      " clawed"
+    ],
+    "jp": "はひっかいた",
+    "en": " clawed"
+  },
+  {
+    "index": 99,
+    "runs": [
+      " howled"
+    ],
+    "jp": "は吠えた",
+    "en": " howled"
+  },
+  {
+    "index": 100,
+    "runs": [
+      " danced"
+    ],
+    "jp": "は踊った",
+    "en": " danced"
+  },
+  {
+    "index": 101,
+    "runs": [
+      " bites"
+    ],
+    "jp": "は噛みつき攻撃",
+    "en": " bites"
+  },
+  {
+    "index": 102,
+    "runs": [
+      " glared"
+    ],
+    "jp": "は鋭くにらんだ",
+    "en": " glared"
+  },
+  {
+    "index": 103,
+    "runs": [
+      " poison"
+    ],
+    "jp": "の毒針攻撃",
+    "en": " poison"
+  },
+  {
+    "index": 104,
+    "runs": [
+      " poison gas"
+    ],
+    "jp": "の毒ガス攻撃",
+    "en": " poison gas"
+  },
+  {
+    "index": 105,
+    "runs": [
+      " flame"
+    ],
+    "jp": "の火炎ブレス",
+    "en": " flame"
+  },
+  {
+    "index": 106,
+    "runs": [
+      " ice"
+    ],
+    "jp": "の氷結ブレス",
+    "en": " ice"
+  }
+]
