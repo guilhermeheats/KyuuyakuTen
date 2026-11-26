@@ -4,7 +4,7 @@ BUILD ?= build
 WLA_BIN ?= $(CURDIR)/.toolchain/wla-dx/build/binaries
 export WLA_BIN
 
-.PHONY: all baseline symbols text text-extract messages names replace-test font-test fullwidth-test bps-test toolchain-test menu-en clean
+.PHONY: all baseline symbols text text-extract messages names replace-test font-test fullwidth-test bps-test toolchain-test menu-en script-en clean
 
 all: baseline symbols text text-extract messages names replace-test font-test fullwidth-test bps-test toolchain-test
 
@@ -48,6 +48,13 @@ menu-en:
 		--out "$(BUILD)/rom/menu_en.sfc" \
 		--patch "$(BUILD)/rom/menu_en.bps" \
 		--report "$(BUILD)/rom/menu_en_report.json"
+
+script-en:
+	$(PYTHON) tools/replace_text.py --translations translations/script_en.json \
+		--patch-name "Kyuuyaku Megami Tensei English script" \
+		--out "$(BUILD)/rom/script_en.sfc" \
+		--patch "$(BUILD)/rom/script_en.bps" \
+		--report "$(BUILD)/rom/script_en_report.json"
 
 clean:
 	rm -rf "$(BUILD)"

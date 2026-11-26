@@ -1,0 +1,177 @@
+[
+  {
+    "offset": "080208",
+    "length": 26,
+    "text": "Enter shelter",
+    "encoding": "fullwidth",
+    "note": "$10:8208"
+  },
+  {
+    "offset": "08024A",
+    "length": 30,
+    "text": "You feel sleepy",
+    "encoding": "fullwidth",
+    "note": "$10:824A"
+  },
+  {
+    "offset": "080269",
+    "length": 22,
+    "text": "Can't move!",
+    "encoding": "fullwidth",
+    "note": "$10:8269"
+  },
+  {
+    "offset": "080286",
+    "length": 18,
+    "text": "Sleepy...",
+    "encoding": "fullwidth",
+    "note": "$10:8286"
+  },
+  {
+    "offset": "080299",
+    "length": 18,
+    "text": "Zzz...",
+    "encoding": "fullwidth",
+    "note": "$10:8299"
+  },
+  {
+    "offset": "0802B3",
+    "length": 10,
+    "text": "Damn!",
+    "encoding": "fullwidth",
+    "note": "$10:82B3"
+  },
+  {
+    "offset": "0802BE",
+    "length": 12,
+    "text": "I wake",
+    "encoding": "fullwidth",
+    "note": "$10:82BE"
+  },
+  {
+    "offset": "0802CF",
+    "length": 26,
+    "text": "Taken away!",
+    "encoding": "fullwidth",
+    "note": "$10:82CF"
+  },
+  {
+    "offset": "0802F1",
+    "length": 16,
+    "text": "Ho ho ho",
+    "encoding": "fullwidth",
+    "note": "$10:82F1"
+  },
+  {
+    "offset": "080302",
+    "length": 30,
+    "text": "Should've slept",
+    "encoding": "fullwidth",
+    "note": "$10:8302"
+  },
+  {
+    "offset": "080324",
+    "length": 28,
+    "text": "Can't follow",
+    "encoding": "fullwidth",
+    "note": "$10:8324"
+  },
+  {
+    "offset": "080341",
+    "length": 10,
+    "text": "Never",
+    "encoding": "fullwidth",
+    "note": "$10:8341"
+  },
+  {
+    "offset": "08034F",
+    "length": 20,
+    "text": "I take her",
+    "encoding": "fullwidth",
+    "note": "$10:834F"
+  },
+  {
+    "offset": "080364",
+    "length": 10,
+    "text": "Bye!",
+    "encoding": "fullwidth",
+    "note": "$10:8364"
+  },
+  {
+    "offset": "08037F",
+    "length": 18,
+    "text": "Save...",
+    "encoding": "fullwidth",
+    "note": "$10:837F"
+  },
+  {
+    "offset": "080395",
+    "length": 28,
+    "text": "Astaroth ahead",
+    "encoding": "fullwidth",
+    "note": "$10:8395"
+  },
+  {
+    "offset": "0803B7",
+    "length": 18,
+    "text": "Welcome!",
+    "encoding": "fullwidth",
+    "note": "$10:83B7"
+  },
+  {
+    "offset": "0803CA",
+    "length": 30,
+    "text": "Bistro Angry!",
+    "encoding": "fullwidth",
+    "note": "$10:83CA"
+  },
+  {
+    "offset": "0803ED",
+    "length": 32,
+    "text": "We have dishes",
+    "encoding": "fullwidth",
+    "note": "$10:83ED"
+  },
+  {
+    "offset": "08040E",
+    "length": 32,
+    "text": "to satisfy you.",
+    "encoding": "fullwidth",
+    "note": "$10:840E"
+  },
+  {
+    "offset": "080436",
+    "length": 24,
+    "text": "Here's menu",
+    "encoding": "fullwidth",
+    "note": "$10:8436"
+  },
+  {
+    "offset": "082507",
+    "length": 8,
+    "text": "Box!",
+    "encoding": "fullwidth",
+    "note": "$10:A507 chest"
+  },
+  {
+    "offset": "082512",
+    "length": 12,
+    "text": "Open?",
+    "encoding": "fullwidth",
+    "note": "$10:A512 chest prompt"
+  },
+  {
+    "offset": "088A1D",
+    "length": 8,
+    "text": "Box!",
+    "encoding": "fullwidth",
+    "note": "$11:8A1D chest copy"
+  },
+  {
+    "offset": "088A28",
+    "length": 12,
+    "text": "Open?",
+    "encoding": "fullwidth",
+    "note": "$11:8A28 chest prompt copy"
+  }
+]

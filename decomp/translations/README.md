@@ -69,14 +69,14 @@ em `$11:8ECB`.
 Com a ROM japonesa configurada (`rom.cfg` ou `SNESRECOMP_ROM`):
 
 ```bash
-make menu-en
+make menu-en    # UI, menus e lojas
+make script-en  # script principal (banco $10)
 ```
 
 Saídas em `decomp/build/rom/` (ignoradas pelo git):
 
-- `menu_en.sfc` — ROM traduzida para teste local;
-- `menu_en.bps` — patch contra a ROM japonesa;
-- `menu_en_report.json` — offsets, bytes antigos/novos e encoding.
+- `menu_en.sfc` / `menu_en.bps` / `menu_en_report.json`;
+- `script_en.sfc` / `script_en.bps` / `script_en_report.json`.
 
 ## Escopo atual
 
@@ -113,6 +113,21 @@ não comporta o espaço separador.
 
 O diálogo de história continua bloqueado no save 8: o texto está em cache
 na WRAM e o flag do evento não foi encontrado.
+
+## Script principal (`script_en.json`)
+
+`script_en.json` usa o mesmo formato de entradas, mas endereça o script do
+banco `$10` e algumas cópias no banco `$11`. Ele começa pela cena inicial
+(entrada no abrigo, sonho, sequência da Astaroth) e pelo restaurante, e
+inclui o prompt de baú:
+
+- `Box!` / `Open?` — validado ao vivo em um jogo novo, no baú do 8F.
+- Linhas da cena inicial e do restaurante estão traduzidas, mas ainda não
+  foram validadas ao vivo; a narração da abertura fica em outra tabela.
+
+O alvo `make script-en` gera `script_en.sfc` e `script_en.bps` separados do
+patch de UI. A validação do baú usou um save state criado **depois** do
+patch, com o jogo começado do zero, para evitar o cache de texto da WRAM.
 
 ## Créditos e licença
 
