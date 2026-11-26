@@ -285,5 +285,348 @@
     "text": "Hopeless!",
     "encoding": "fullwidth",
     "note": "battle talk failure"
+  },
+  {
+    "offset": "081C82",
+    "length": 28,
+    "text": "Born of fire",
+    "encoding": "fullwidth",
+    "note": "opening $10:9C82"
+  },
+  {
+    "offset": "081C9F",
+    "length": 24,
+    "text": "Pazuzu...",
+    "encoding": "fullwidth",
+    "note": "opening $10:9C9F"
+  },
+  {
+    "offset": "081CC4",
+    "length": 24,
+    "text": "Free at last",
+    "encoding": "fullwidth",
+    "note": "opening $10:9CC4"
+  },
+  {
+    "offset": "081CDD",
+    "length": 26,
+    "text": "In light",
+    "encoding": "fullwidth",
+    "note": "opening $10:9CDD"
+  },
+  {
+    "offset": "081D0C",
+    "length": 22,
+    "text": "My savior",
+    "encoding": "fullwidth",
+    "note": "opening $10:9D0C"
+  },
+  {
+    "offset": "081D23",
+    "length": 24,
+    "text": "I am Pazuzu",
+    "encoding": "fullwidth",
+    "note": "opening $10:9D23"
+  },
+  {
+    "offset": "081D3C",
+    "length": 28,
+    "text": "God's mission",
+    "encoding": "fullwidth",
+    "note": "opening $10:9D3C"
+  },
+  {
+    "offset": "081D59",
+    "length": 20,
+    "text": "I bring it",
+    "encoding": "fullwidth",
+    "note": "opening $10:9D59"
+  },
+  {
+    "offset": "081D76",
+    "length": 30,
+    "text": "In 1999, war",
+    "encoding": "fullwidth",
+    "note": "opening $10:9D76"
+  },
+  {
+    "offset": "081D95",
+    "length": 28,
+    "text": "Ruined world",
+    "encoding": "fullwidth",
+    "note": "opening $10:9D95"
+  },
+  {
+    "offset": "081DB8",
+    "length": 30,
+    "text": "35 years later",
+    "encoding": "fullwidth",
+    "note": "opening $10:9DB8"
+  },
+  {
+    "offset": "081DD7",
+    "length": 28,
+    "text": "Foe threatens",
+    "encoding": "fullwidth",
+    "note": "opening $10:9DD7"
+  },
+  {
+    "offset": "081DFC",
+    "length": 24,
+    "text": "Rift of war",
+    "encoding": "fullwidth",
+    "note": "opening $10:9DFC"
+  },
+  {
+    "offset": "081E15",
+    "length": 28,
+    "text": "Demons emerge",
+    "encoding": "fullwidth",
+    "note": "opening $10:9E15"
+  },
+  {
+    "offset": "081E32",
+    "length": 30,
+    "text": "Into this world",
+    "encoding": "fullwidth",
+    "note": "opening $10:9E32"
+  },
+  {
+    "offset": "081E57",
+    "length": 32,
+    "text": "The rift: Tokyo",
+    "encoding": "fullwidth",
+    "note": "opening $10:9E57"
+  },
+  {
+    "offset": "081E84",
+    "length": 32,
+    "text": "God's envoy came",
+    "encoding": "fullwidth",
+    "note": "opening $10:9E84"
+  },
+  {
+    "offset": "081EA5",
+    "length": 32,
+    "text": "Tokyo's ruler",
+    "encoding": "fullwidth",
+    "note": "opening $10:9EA5"
+  },
+  {
+    "offset": "081EC6",
+    "length": 32,
+    "text": "Demon King Bael",
+    "encoding": "fullwidth",
+    "note": "opening $10:9EC6"
+  },
+  {
+    "offset": "081EE7",
+    "length": 32,
+    "text": "sealed me inside",
+    "encoding": "fullwidth",
+    "note": "opening $10:9EE7"
+  },
+  {
+    "offset": "081F12",
+    "length": 32,
+    "text": "You rescued me",
+    "encoding": "fullwidth",
+    "note": "opening $10:9F12"
+  },
+  {
+    "offset": "081F33",
+    "length": 32,
+    "text": "Savior, not only",
+    "encoding": "fullwidth",
+    "note": "opening $10:9F33"
+  },
+  {
+    "offset": "081F54",
+    "length": 20,
+    "text": "Not alone",
+    "encoding": "fullwidth",
+    "note": "opening $10:9F54"
+  },
+  {
+    "offset": "081F6F",
+    "length": 32,
+    "text": "You are the hope",
+    "encoding": "fullwidth",
+    "note": "opening $10:9F6F"
+  },
+  {
+    "offset": "081F90",
+    "length": 26,
+    "text": "God's chosen",
+    "encoding": "fullwidth",
+    "note": "opening $10:9F90"
+  },
+  {
+    "offset": "081FB1",
+    "length": 30,
+    "text": "I guide you",
+    "encoding": "fullwidth",
+    "note": "opening $10:9FB1"
+  },
+  {
+    "offset": "081FD0",
+    "length": 28,
+    "text": "to your goal",
+    "encoding": "fullwidth",
+    "note": "opening $10:9FD0"
+  },
+  {
+    "offset": "081FED",
+    "length": 16,
+    "text": "To guide",
+    "encoding": "fullwidth",
+    "note": "opening $10:9FED"
+  },
+  {
+    "offset": "08200B",
+    "length": 6,
+    "text": "got",
+    "encoding": "fullwidth",
+    "note": "opening $10:A00B"
+  },
+  {
+    "offset": "082012",
+    "length": 32,
+    "text": "Demon Summoning",
+    "encoding": "fullwidth",
+    "note": "opening $10:A012"
+  },
+  {
+    "offset": "082033",
+    "length": 32,
+    "text": "Use the computer",
+    "encoding": "fullwidth",
+    "note": "opening $10:A033"
+  },
+  {
+    "offset": "082054",
+    "length": 28,
+    "text": "summon demons",
+    "encoding": "fullwidth",
+    "note": "opening $10:A054"
+  },
+  {
+    "offset": "082075",
+    "length": 32,
+    "text": "Demons you tame",
+    "encoding": "fullwidth",
+    "note": "opening $10:A075"
+  },
+  {
+    "offset": "082096",
+    "length": 26,
+    "text": "I store them",
+    "encoding": "fullwidth",
+    "note": "opening $10:A096"
+  },
+  {
+    "offset": "0820B1",
+    "length": 8,
+    "text": "here",
+    "encoding": "fullwidth",
+    "note": "opening $10:A0B1"
+  },
+  {
+    "offset": "0820BD",
+    "length": 28,
+    "text": "Auto-map too",
+    "encoding": "fullwidth",
+    "note": "opening $10:A0BD"
+  },
+  {
+    "offset": "0820DA",
+    "length": 16,
+    "text": "I grant",
+    "encoding": "fullwidth",
+    "note": "opening $10:A0DA"
+  },
+  {
+    "offset": "0820EE",
+    "length": 26,
+    "text": "Walked places",
+    "encoding": "fullwidth",
+    "note": "opening $10:A0EE"
+  },
+  {
+    "offset": "082109",
+    "length": 26,
+    "text": "are mapped",
+    "encoding": "fullwidth",
+    "note": "opening $10:A109"
+  },
+  {
+    "offset": "08212B",
+    "length": 6,
+    "text": "got",
+    "encoding": "fullwidth",
+    "note": "opening $10:A12B"
+  },
+  {
+    "offset": "082132",
+    "length": 26,
+    "text": "D and Mapper",
+    "encoding": "fullwidth",
+    "note": "opening $10:A132"
+  },
+  {
+    "offset": "08214D",
+    "length": 18,
+    "text": "spells",
+    "encoding": "fullwidth",
+    "note": "opening $10:A14D"
+  },
+  {
+    "offset": "082165",
+    "length": 24,
+    "text": "Seal broken",
+    "encoding": "fullwidth",
+    "note": "opening $10:A165"
+  },
+  {
+    "offset": "08217E",
+    "length": 30,
+    "text": "In the shelter",
+    "encoding": "fullwidth",
+    "note": "opening $10:A17E"
+  },
+  {
+    "offset": "08219D",
+    "length": 28,
+    "text": "demons invade",
+    "encoding": "fullwidth",
+    "note": "opening $10:A19D"
+  },
+  {
+    "offset": "0821BA",
+    "length": 8,
+    "text": "now",
+    "encoding": "fullwidth",
+    "note": "opening $10:A1BA"
+  },
+  {
+    "offset": "0821C7",
+    "length": 28,
+    "text": "The B1F fiend",
+    "encoding": "fullwidth",
+    "note": "opening $10:A1C7"
+  },
+  {
+    "offset": "0821E4",
+    "length": 32,
+    "text": "Defeat Nebiros",
+    "encoding": "fullwidth",
+    "note": "opening $10:A1E4"
+  },
+  {
+    "offset": "082209",
+    "length": 18,
+    "text": "Take care",
+    "encoding": "fullwidth",
+    "note": "opening $10:A209"
   }
 ]

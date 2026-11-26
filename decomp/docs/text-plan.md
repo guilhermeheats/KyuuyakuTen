@@ -68,9 +68,13 @@ execução.
   `(10,12) -> (10,11) -> (10,10) -> (9,10) -> (8,10)`. A batalha ainda
   não foi encontrada nessa janela; o 5F é o próximo ponto para validar as
   mensagens de batalha.
-- **Script principal iniciado**: `translations/script_en.json` tem 41
-  entradas (cena inicial, restaurante, baú, batalha e eventos do 7F),
-  `make script-en` gera um BPS separado de 1149 bytes.
+- **Script principal iniciado**: `translations/script_en.json` tem 90
+  entradas (cena inicial, restaurante, baú, batalha, eventos do 7F e a
+  narração de Pazuzu em `$10:$9C82-$A209`), `make script-en` gera um BPS
+  separado de 2718 bytes. A narração inicial em tela preta
+  (`古き言い伝えに曰く…`) é um tilemap pré-renderizado (BG1 em VRAM
+  `0x7000`, tiles `0x147F+`), não texto codificado; fica para uma passada
+  gráfica.
 - **Mensagens de batalha validadas ao vivo**: no 7F, os encontros
   mostraram `O GREENSLM came` e `B BASMU came` — prefixo de raça + nome
   T1/T2 em inglês + ` came` —, o prompt `What?`, `Is this okay?`,
@@ -120,7 +124,9 @@ execução.
    compressão antes de continuar.
 2. Continuar o script principal: cena inicial, restaurante e eventos do
    8F; validar cada novo texto em jogo.
-3. Traduzir a narração da abertura (tabela separada do banco `$10`).
+3. Traduzir a narração inicial em tela preta (`古き言い伝えに曰く…`).
+   Ela é um tilemap pré-renderizado (BG1 em VRAM `0x7000`), então exige
+   edição gráfica, não o pipeline de texto.
 4. Interpretar o bytecode do script (comandos `04`-`08`) para agrupar
    mensagens e evitar operandos no dump.
 5. Extrair o script completo e montar o glossário EN.

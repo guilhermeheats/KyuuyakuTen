@@ -116,11 +116,11 @@ na WRAM e o flag do evento não foi encontrado.
 
 ## Script principal (`script_en.json`)
 
-`script_en.json` tem 41 entradas e usa o mesmo formato, mas endereça o
+`script_en.json` tem 90 entradas e usa o mesmo formato, mas endereça o
 script do banco `$10`, cópias no banco `$11` e mensagens de batalha/evento
 no banco `$13`. Ele cobre a cena inicial (entrada no abrigo, sonho,
-sequência da Astaroth), o restaurante, o prompt de baú e as primeiras
-mensagens de batalha:
+sequência da Astaroth), o restaurante, a narração de Pazuzu
+(`$10:$9C82-$A209`), o prompt de baú e as primeiras mensagens de batalha:
 
 - `Box!` / `Open?` — validado ao vivo em um jogo novo, no baú do 8F.
 - ` came` — validado ao vivo em um encontro aleatório no 7F
@@ -135,6 +135,10 @@ Os nomes de demônios agora vêm das tabelas T1/T2 em inglês (patch de
 nomes); os nomes dos personagens (`ナカジマ`/`ユミコ`) ainda vêm do save.
 As linhas de ataque/dano são tratadas pelo passe de batalha
 (`battle_en.json`), não por este arquivo.
+
+A narração inicial em tela preta (`古き言い伝えに曰く…`) não está em
+Shift-JIS: é um tilemap pré-renderizado (BG1 em VRAM `0x7000`, tiles
+`0x147F+`), que exigirá edição gráfica em vez deste pipeline de texto.
 
 O alvo `make script-en` gera `script_en.sfc` e `script_en.bps` separados do
 patch de UI. `make battle-en` aplica o passe de batalha em cima; `make
