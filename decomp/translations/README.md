@@ -37,6 +37,12 @@ Nomes de itens/demônios e labels do submenu COMP usam códigos de fonte de
 1 byte (`font_code = ASCII - 0x1F`, maiúsculas), preenchidos com `0x01`.
 O orçamento é `length` caracteres.
 
+A página 8x8 em VRAM `0x6000` tem glifos próprios: letras e dígitos seguem
+`ASCII - 0x1F`, mas a pontuação não é toda igual ao ASCII. O código `0x1B`
+(que seria `:`) renderiza um glifo parecido com "10"; por isso o label de
+equipamento usa `EQ` + espaços em vez de `EQ:`. Valide qualquer pontuação
+nova ao vivo antes de commitar.
+
 ## Build
 
 Com a ROM japonesa configurada (`rom.cfg` ou `SNESRECOMP_ROM`):
@@ -53,12 +59,21 @@ Saídas em `decomp/build/rom/` (ignoradas pelo git):
 
 ## Escopo atual
 
-`menu_en.json` cobre o fluxo de item do save 11:
+`menu_en.json` cobre o pool de mensagens de sistema `$11` (63 ponteiros,
+55 mensagens limpas) e o submenu COMP:
 
-- prompts de usar/descartar item, falta de MP, alvo, etc.;
-- opções do submenu COMP (`USE ITEM`, `STORE`, `DROP`, `EQ:`);
+- prompts de save/load, arquivo, confirmação e cancelamento;
+- prompts de magia, item, alvo, retorno/chamada/remoção de demônio;
+- mensagens de erro e de estado (MP, Macca, COMP, itens, programas);
+- opções do submenu COMP (`USE ITEM`, `STORE`, `DROP`, `EQ`);
 - nomes de cinco itens visíveis (`JEWEL`, `PARA`, `PETRA`, `MUSCLE`,
   `MANA`).
+
+As mensagens com nomes dinâmicos preservam os controles `01 04` (demônio),
+`01 05` (item), `01 0D` (magia) e `0F` (quebra de linha); só o segmento de
+texto é substituído. Mensagens de batalha que concatenam nome + verbo
+(`$A433`, `$A4E3`, `$A558`) ficam para a passada de batalha, porque o slot
+não comporta o espaço separador.
 
 Ainda não há diálogo de história traduzido; o save 8 tem o texto em cache
 na WRAM e o evento precisa ser reaberto.

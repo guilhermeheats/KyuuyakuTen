@@ -1,5 +1,65 @@
 [
   {
+    "offset": "08A023",
+    "length": 30,
+    "text": "Which file?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A046",
+    "length": 14,
+    "text": "Saved",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A059",
+    "length": 22,
+    "text": "Cancelled",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A072",
+    "length": 32,
+    "text": "Save?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A0A6",
+    "length": 30,
+    "text": "Load file?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A0DB",
+    "length": 32,
+    "text": "Load?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A10F",
+    "length": 30,
+    "text": "No save data",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A131",
+    "length": 22,
+    "text": "Whose magic",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A149",
+    "length": 22,
+    "text": "Which magic",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A163",
+    "length": 18,
+    "text": " on whom?",
+    "encoding": "fullwidth"
+  },
+  {
     "offset": "08A177",
     "length": 14,
     "text": "What?",
@@ -25,7 +85,7 @@
   },
   {
     "offset": "08A1D1",
-    "length": 20,
+    "length": 22,
     "text": "No spells",
     "encoding": "fullwidth"
   },
@@ -33,6 +93,66 @@
     "offset": "08A1EB",
     "length": 18,
     "text": "No MP!",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A201",
+    "length": 28,
+    "text": "Press A: swap",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A21F",
+    "length": 26,
+    "text": "Return who?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A23D",
+    "length": 14,
+    "text": " back?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A24D",
+    "length": 20,
+    "text": "Call who?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A265",
+    "length": 14,
+    "text": " call?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A275",
+    "length": 18,
+    "text": "No Macca",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A28B",
+    "length": 22,
+    "text": "Analyzer on",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A2A3",
+    "length": 28,
+    "text": "Remove who?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A2C3",
+    "length": 14,
+    "text": " remove",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A2D5",
+    "length": 18,
+    "text": " on whom?",
     "encoding": "fullwidth"
   },
   {
@@ -44,7 +164,7 @@
   {
     "offset": "08A2FF",
     "length": 20,
-    "text": "No COMP",
+    "text": "COMP dead",
     "encoding": "fullwidth"
   },
   {
@@ -61,49 +181,55 @@
   },
   {
     "offset": "08A343",
-    "length": 20,
+    "length": 22,
     "text": "Not here",
     "encoding": "fullwidth"
   },
   {
+    "offset": "08A35D",
+    "length": 16,
+    "text": "COMP on",
+    "encoding": "fullwidth"
+  },
+  {
     "offset": "08A36F",
-    "length": 22,
+    "length": 24,
     "text": "No demons",
     "encoding": "fullwidth"
   },
   {
     "offset": "08A38B",
-    "length": 18,
+    "length": 20,
     "text": "No return",
     "encoding": "fullwidth"
   },
   {
     "offset": "08A3A3",
-    "length": 18,
-    "text": "No drops",
+    "length": 20,
+    "text": "No release",
     "encoding": "fullwidth"
   },
   {
     "offset": "08A3BB",
-    "length": 24,
+    "length": 26,
     "text": "No items",
     "encoding": "fullwidth"
   },
   {
     "offset": "08A3D9",
-    "length": 28,
+    "length": 30,
     "text": "No drop items",
     "encoding": "fullwidth"
   },
   {
     "offset": "08A3FB",
-    "length": 22,
+    "length": 24,
     "text": "No items",
     "encoding": "fullwidth"
   },
   {
     "offset": "08A417",
-    "length": 22,
+    "length": 24,
     "text": "No program",
     "encoding": "fullwidth"
   },
@@ -114,27 +240,51 @@
     "encoding": "fullwidth"
   },
   {
+    "offset": "08A44D",
+    "length": 14,
+    "text": " Drop?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A45F",
+    "length": 12,
+    "text": " Gone",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A473",
+    "length": 22,
+    "text": "COMP full",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A4A3",
+    "length": 24,
+    "text": "No data",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A4C3",
+    "length": 10,
+    "text": " fell",
+    "encoding": "fullwidth"
+  },
+  {
     "offset": "08A4CF",
     "length": 16,
     "text": "No magic",
     "encoding": "fullwidth"
   },
   {
-    "offset": "08A4E3",
-    "length": 14,
-    "text": "No need",
-    "encoding": "fullwidth"
-  },
-  {
     "offset": "08A4F5",
     "length": 20,
-    "text": "Sacrificed",
+    "text": "Fell early",
     "encoding": "fullwidth"
   },
   {
     "offset": "08A50B",
-    "length": 16,
-    "text": "Where?",
+    "length": 18,
+    "text": "Where to?",
     "encoding": "fullwidth"
   },
   {
@@ -150,6 +300,12 @@
     "encoding": "fullwidth"
   },
   {
+    "offset": "08A56C",
+    "length": 10,
+    "text": " fell",
+    "encoding": "fullwidth"
+  },
+  {
     "offset": "08A57A",
     "length": 10,
     "text": "Flee",
@@ -157,7 +313,7 @@
   },
   {
     "offset": "08A588",
-    "length": 22,
+    "length": 24,
     "text": "No casters",
     "encoding": "fullwidth"
   },
@@ -182,13 +338,13 @@
   {
     "offset": "01B12A",
     "length": 9,
-    "text": "EQ: ",
+    "text": "EQ  ",
     "encoding": "font"
   },
   {
     "offset": "01B133",
     "length": 9,
-    "text": "EQ: ",
+    "text": "EQ  ",
     "encoding": "font"
   },
   {

@@ -186,6 +186,7 @@ def main() -> int:
     ap.add_argument("--translations", help="JSON file with replacement entries")
     ap.add_argument("--out", help="output ROM (default: decomp/build/rom/translated.sfc)")
     ap.add_argument("--patch", help="optional BPS patch output path")
+    ap.add_argument("--patch-name", default="Kyuuyaku Megami Tensei text test")
     ap.add_argument("--encoding", choices=("ascii", "sjis", "font", "fullwidth"), default="ascii")
     ap.add_argument("--fill", default=None, help="padding byte in hex (default 20, or 01 for font)")
     ap.add_argument("--report", help="optional JSON report path")
@@ -227,8 +228,13 @@ def main() -> int:
     if args.patch:
         patch_path = pathlib.Path(args.patch)
         patch_path.parent.mkdir(parents=True, exist_ok=True)
+        used_encodings = {str(entry.get("encoding", args.encoding)) for entry in entries}
+        if used_encodings & {"fullwidth", "sjis", "font"}:
+            patch_encoding = "shift-jis/font"
+        else:
+            patch_encoding = args.encoding
         metadata = json.dumps(
-            {"name": "Kyuuyaku Megami Tensei text test", "encoding": args.encoding},
+            {"name": args.patch_name, "encoding": patch_encoding},
             ensure_ascii=False,
         ).encode("utf-8")
         patch = bps_create(original, translated, metadata)

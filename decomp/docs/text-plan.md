@@ -33,23 +33,35 @@ execução.
 - **Nome de item validado ao vivo**: `$06:$37216`
   (`マッスルドリンコ`, 8 bytes) → `MUSCLE` com `--encoding font` apareceu
   no menu ITEM do save 11.
+- **Pool `$11` extraído com controles**: `tools/extract_messages.py` lê a
+  tabela `$11:$97C0` (66 ponteiros, 63 alvos únicos, 55 mensagens limpas),
+  separa texto/controle/raw e grava `build/text/messages.json`. As mensagens
+  vão de `$A021` (save) a `$A5A4`; os dois primeiros alvos (`$9844`,
+  `$9BFE`) são scripts de evento com bytecode.
+- **Primeiro BPS EN de UI validado ao vivo**: `translations/menu_en.json`
+  tem 63 entradas (53 fullwidth + 10 font) cobrindo save/load, magia,
+  itens, COMP, erros e nomes de cinco itens. Validado no recomp: menu ITEM,
+  prompt "Which item?", submenu `USE ITEM/STORE/DROP/EQ`, prompt "Whose
+  magic" e nomes `JEWEL/PARA/PETRA/MUSCLE/MANA`.
+- **Página 8x8 não é ASCII puro na pontuação**: `0x1B` (seria `:`) renderiza
+  um glifo parecido com "10"; o label de equipamento usa `EQ` + espaços.
+  Letras e dígitos seguem `ASCII - 0x1F`.
 - Ferramentas: `tools/vram_tiles.py`, `tools/window_dump.py`,
   `tools/replace_text.py` (ASCII/SJIS/font/fullwidth + BPS),
-  `tools/fullwidth.py`, `tools/dump_names.py`.
+  `tools/fullwidth.py`, `tools/extract_messages.py`,
+  `tools/dump_names.py`.
 
 ## Próximos passos
 
-1. Extrair as mensagens do pool `$11` com os controles preservados
-   (`01 04` = nome de demônio, `01 05` = item, `0F` = quebra) e montar um
-   JSON/CSV de tradução por slot.
-2. Traduzir os prompts/menus visíveis no save 11 e gerar o primeiro BPS EN
-   de menu.
-3. Resolver o evento do save 8 ou obter um save anterior para validar um
+1. Traduzir as mensagens de batalha que concatenam nome + verbo
+   (`$A433`, `$A4E3`, `$A558`) — o slot não comporta o espaço separador;
+   validar ao vivo se o controle `01 0D`/`01 05` insere espaço.
+2. Resolver o evento do save 8 ou obter um save anterior para validar um
    diálogo de história traduzido.
-4. Interpretar o bytecode do script (comandos `04`-`08`) para agrupar
+3. Interpretar o bytecode do script (comandos `04`-`08`) para agrupar
    mensagens e evitar operandos no dump.
-5. Extrair o script completo e montar o glossário EN.
-6. PT-BR direto do japonês, com o inglês como referência.
+4. Extrair o script completo e montar o glossário EN.
+5. PT-BR direto do japonês, com o inglês como referência.
 
 ## Regras
 
