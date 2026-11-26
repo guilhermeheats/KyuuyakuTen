@@ -167,7 +167,8 @@ emulador, mas o recomp não executa essas instruções; ele lê a tabela
 original em `$11`. Para o recomp, `tools/regen.sh` chama
 `tools/patch-name-tables.py`, que redireciona o C gerado de
 `$11:CDFD/$11:D5A8/$11:0000` para `$2E:B820/$2E:BA1A/$2E:0000`.
-É necessário regerar e rebuildar o recomp para ver os nomes completos.
+Depois de regerar e rebuildar, o teste no 7F gravou `ZOMBIE` em `$0022`
+— o nome completo em inglês. O prefixo de raça ainda é japonês.
 
 ## Créditos e licença
 

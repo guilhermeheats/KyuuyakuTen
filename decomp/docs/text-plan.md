@@ -81,14 +81,15 @@ execução.
   as tabelas em `$2E` e redireciona o copy de nome; `make names-inplace`
   gera um BPS de 2769 bytes que reescreve as strings originais (fallback
   para o recomp, mas com 335 nomes truncados pelo slot).
-- **Caminho do nome de batalha identificado**: o write em `$0022` vem de
-  `bank_02_C87B` (`$02:C8D9`, parent `bank_02_BAD4`) — código AOT nativo,
-  não das instruções 65816 que o BPS redireciona para `$2E`. O patch de
-  código funciona em emulador, mas o recomp lê a tabela original em
-  `$11`; por isso o nome continua em japonês no build nativo.
-- Próximo: redirecionar o `bank_02_C87B` gerado para `$2E` (script de
-  pós-regen, como o `patch-window-text.py`) ou regerar o recomp a partir
-  da ROM já patchada, e então validar o nome em batalha.
+- **Caminho do nome de batalha identificado e corrigido**: o write em
+  `$0022` vem de `bank_02_C87B` (`$02:C8D9`, parent `bank_02_BAD4`) —
+  código AOT nativo, não das instruções 65816 que o BPS redireciona para
+  `$2E`. O `tools/patch-name-tables.py`, chamado pelo `tools/regen.sh`,
+  redireciona o C gerado de `$11:CDFD/$11:D5A8/$11:0000` para
+  `$2E:B820/$2E:BA1A/$2E:0000`. Depois de regerar/rebuilde, a batalha no
+  recomp gravou `ZOMBIE` em `$0022` — nomes completos em inglês.
+- O prefixo de raça (`外道` etc.) ainda está em japonês; ele vem de outra
+  tabela. O fallback `names-inplace` não é necessário para o recomp agora.
 - **Página 8x8 não é ASCII puro na pontuação**: `0x1B` (seria `:`) renderiza
   um glifo parecido com "10"; o label de equipamento usa `EQ` + espaços.
   Letras e dígitos seguem `ASCII - 0x1F`.
