@@ -14,7 +14,9 @@ Input JSON is a list of entries::
 ``runs`` replaces the text runs of the message in order. Control and raw
 bytes are kept byte-for-byte; only the text between them is replaced. The
 number of runs must match the original message. Messages without an entry
-keep the bytes from ``--rom``.
+keep the bytes from ``--rom``. An optional ``insert`` object inserts raw
+control bytes at a byte offset after the runs are rebuilt, e.g.
+``{"at": 2, "bytes": "0F"}`` to put a line break after the race command.
 
 Apply this after ``script_en.json`` so the existing in-place battle
 translations are carried into the repacked pool. The output BPS is built
@@ -105,6 +107,13 @@ def apply_entry(index: int, raw: bytes, entry: dict) -> bytes:
         encoded = fullwidth.encode(text)
         out += encoded
         text_index += 1
+    insert = entry.get("insert")
+    if insert:
+        at = int(insert["at"])
+        data = bytes.fromhex(str(insert["bytes"]))
+        if not (0 <= at <= len(out)):
+            raise ValueError(f"battle[{index}] insert offset out of range: {at}")
+        out[at:at] = data
     return bytes(out)
 
 

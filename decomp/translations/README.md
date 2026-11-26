@@ -207,6 +207,46 @@ Validação ao vivo no recomp: `Foe atk`, `dodged!`, `No damage!`,
 `Is this okay?`, `What?`, `acts?`, `ナカジマ's atk`,
 `ナカジマ takes 3 dmg`, `O GREENSLM came` e `B BASMU came`.
 
+## Nomes completos na batalha (`full_names.sfc`)
+
+A linha de batalha original tem dois caracteres de raça e até oito de
+nome. O alvo `make full-names` instala um caminho **só para a batalha** que
+mostra a raça completa e o nome completo na mesma linha:
+
+```text
+Foul GREEN SLIME
+```
+
+A raça usa a fonte 16x16 (com capitalização) e o nome a fonte 8x8
+(maiúscula); a linha cabe na janela de batalha. Os menus e o status
+continuam usando os nomes de oito caracteres, para não quebrar o layout.
+Validado ao vivo no recomp: `Earth GNOME` (raça Earth + nome Gnome).
+
+O patch instala:
+
+- tabelas de ponteiros de nome completo em `$2E:BB38` (T1) e `$2E:BD32`
+  (T2);
+- strings de nome completo nos espaços livres de `$2F`;
+- tabela e strings de raça completa em `$2E:BE50`/`$2E:DE00`;
+- rotinas 65816 em `$2E:BE90` (raça) e `$2E:BF40` (nome), montadas de
+  `tools/full-race.s`/`tools/full-name.s`;
+- o buffer direto `$57` e o loop de exibição `$02:BADE` redirecionado;
+- a flag `$7E:1FF0`, que faz o copy de nome usar a tabela completa apenas
+  depois do controle de raça `01 0C`.
+
+O BPS `full_names.bps` é diffado contra a ROM japonesa e inclui todos os
+passes anteriores. Como as rotinas novas são código 65816, o recomp deve
+ser gerado a partir de `full_names.sfc`:
+
+```sh
+make -C decomp full-names
+tools/regen.sh --rom decomp/build/rom/full_names.sfc --no-verify
+cmake --build build-debug
+```
+
+O `--no-verify` é necessário porque o ROM de entrada já contém o patch de
+código; a identidade japonesa continua sendo verificada pelo baseline.
+
 ## Raças (`races_en.json`)
 
 O controle `01 0C` chama `$02:BCFA`, que lê dois caracteres full-width da

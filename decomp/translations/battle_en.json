@@ -1,5 +1,21 @@
 [
   {
+    "index": 0,
+    "runs": [
+      ""
+    ],
+    "jp": "が現れた！",
+    "en": "full race/name line (no suffix)"
+  },
+  {
+    "index": 5,
+    "runs": [
+      ""
+    ],
+    "jp": "を倒した！",
+    "en": "full race/name line (no suffix)"
+  },
+  {
     "index": 10,
     "runs": [
       "Is this okay?"
@@ -108,6 +124,14 @@
     ],
     "jp": "戦いに敗れた",
     "en": "You lost"
+  },
+  {
+    "index": 30,
+    "runs": [
+      ""
+    ],
+    "jp": "を倒した！",
+    "en": "full race/name line (no suffix)"
   },
   {
     "index": 40,

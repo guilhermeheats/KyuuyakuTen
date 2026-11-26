@@ -6,7 +6,7 @@ BASE_ROM_ARG := $(if $(ROM),--base-rom "$(ROM)")
 WLA_BIN ?= $(CURDIR)/.toolchain/wla-dx/build/binaries
 export WLA_BIN
 
-.PHONY: all baseline symbols text text-extract messages names names-en names-inplace replace-test font-test fullwidth-test bps-test toolchain-test menu-en script-en battle-en races-en full-en clean
+.PHONY: all baseline symbols text text-extract messages names names-en names-inplace replace-test font-test fullwidth-test bps-test toolchain-test menu-en script-en battle-en races-en full-en full-names clean
 
 all: baseline symbols text text-extract messages names replace-test font-test fullwidth-test bps-test toolchain-test
 
@@ -95,6 +95,14 @@ full-en: races-en
 		--out "$(BUILD)/rom/full_en.sfc" \
 		--patch "$(BUILD)/rom/full_en.bps" \
 		--report "$(BUILD)/rom/full_en_names_report.json"
+
+full-names: full-en
+	$(PYTHON) tools/patch_full_names.py --rom "$(BUILD)/rom/full_en.sfc" \
+		$(BASE_ROM_ARG) --names translations/names_en.json --races translations/races_en.json \
+		--patch-name "Kyuuyaku Megami Tensei English full battle names" \
+		--out "$(BUILD)/rom/full_names.sfc" \
+		--patch "$(BUILD)/rom/full_names.bps" \
+		--report "$(BUILD)/rom/full_names_report.json"
 
 clean:
 	rm -rf "$(BUILD)"

@@ -72,6 +72,13 @@ dados lidos diretamente da ROM pelo recomp. Os alvos `battle-en` e
 `races-en` não precisam de patch no C gerado; o único redirecionamento de
 código para texto é o das tabelas T1/T2 em `$2E`.
 
+O alvo `full-names` vai além: adiciona rotinas 65816 novas em `$2E` para
+mostrar raça e nome completos na mesma linha. Nesse caso o `src/gen` deve
+ser gerado a partir de `decomp/build/rom/full_names.sfc`, que já contém o
+patch de código, usando `tools/regen.sh --rom ... --no-verify`. O baseline
+japonês continua sendo verificado separadamente; o BPS final é diffado
+contra a ROM original.
+
 ## Patches locais de submódulo
 
 - `patches/snesrecomp-noreturn-jsl.patch` — correção de retorno/JSL.
