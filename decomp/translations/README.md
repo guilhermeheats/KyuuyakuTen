@@ -80,8 +80,9 @@ Saídas em `decomp/build/rom/` (ignoradas pelo git):
 
 ## Escopo atual
 
-`menu_en.json` cobre o pool de mensagens de sistema `$11` (63 ponteiros,
-55 mensagens limpas), o submenu COMP e o fluxo da loja JUNKS:
+`menu_en.json` tem 83 entradas (72 fullwidth + 11 font) e cobre o pool de
+mensagens de sistema `$11` (63 ponteiros, 55 mensagens limpas), o submenu
+COMP e o fluxo completo da loja JUNKS:
 
 - prompts de save/load, arquivo, confirmação e cancelamento;
 - prompts de magia, item, alvo, retorno/chamada/remoção de demônio;
@@ -91,6 +92,10 @@ Saídas em `decomp/build/rom/` (ignoradas pelo git):
   `MANA`);
 - saudação, pergunta e opções da loja (`Welcome`, `WHAT`, `BUY`, `SELL`,
   `STATUS`, `EXIT`) e a despedida (`Later`);
+- lista de compra (`CURE`, `PARA`, `PETRA`, `MUSCLE`) com descrições
+  (`Cure`, `Cure par`, `Cure`, `Temp HP up`);
+- confirmação compartilhada (`Okay`), rótulo de venda (`Sell`) e erros
+  (`No cash`, `No items`);
 - três falas de história do resgate da fada (`Thank you!`, `Take this`,
   `Take Tower Key`), ainda sem validação ao vivo.
 

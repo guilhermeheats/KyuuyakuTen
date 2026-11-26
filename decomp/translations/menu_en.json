@@ -30,6 +30,36 @@
     "encoding": "font"
   },
   {
+    "offset": "01F552",
+    "length": 8,
+    "text": "Okay",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "01F5C4",
+    "length": 18,
+    "text": "No items",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "01F5DB",
+    "length": 8,
+    "text": "Sell",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "01F5EE",
+    "length": 8,
+    "text": "Sell",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "01F68A",
+    "length": 14,
+    "text": "No cash",
+    "encoding": "fullwidth"
+  },
+  {
     "offset": "01F722",
     "length": 18,
     "text": "Welcome",
@@ -51,6 +81,12 @@
     "offset": "03716E",
     "length": 5,
     "text": "JEWEL",
+    "encoding": "font"
+  },
+  {
+    "offset": "037174",
+    "length": 5,
+    "text": "CURE",
     "encoding": "font"
   },
   {
@@ -435,6 +471,30 @@
     "offset": "08A588",
     "length": 24,
     "text": "No casters",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C20F",
+    "length": 14,
+    "text": "Cure",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C21F",
+    "length": 16,
+    "text": "Cure par",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C231",
+    "length": 14,
+    "text": "Cure",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C3DD",
+    "length": 24,
+    "text": "Temp HP up",
     "encoding": "fullwidth"
   }
 ]
