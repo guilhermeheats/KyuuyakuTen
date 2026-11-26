@@ -38,9 +38,10 @@ execução.
   separa texto/controle/raw e grava `build/text/messages.json`. As mensagens
   vão de `$A021` (save) a `$A5A4`; os dois primeiros alvos (`$9844`,
   `$9BFE`) são scripts de evento com bytecode.
-- **BPS EN de UI validado ao vivo**: `translations/menu_en.json` tem 83
-  entradas (72 fullwidth + 11 font) cobrindo save/load, magia, itens,
-  COMP, erros, nomes de cinco itens e o fluxo completo da loja JUNKS.
+- **BPS EN de UI validado ao vivo**: `translations/menu_en.json` tem 85
+  entradas (74 fullwidth + 11 font) cobrindo save/load, magia, itens,
+  COMP, erros, nomes de cinco itens, o fluxo completo da loja JUNKS e os
+  prompts de escada.
 - **Loja JUNKS validada ao vivo**: `Welcome`, `WHAT`, `BUY`, `SELL`,
   `STATUS`, `EXIT` e `Later` aparecem no recomp. As opções da loja são
   strings NUL-terminated em `$11:$8FEB`; para caber `SELL` e `STATUS` foi
@@ -52,6 +53,15 @@ execução.
   `Okay`, o rótulo de venda virou `Sell` e os erros viram `No cash` e
   `No items`. Compra e venda foram testadas ao vivo (Macca 1090 -> 690 ->
   890).
+- **Prompts de escada validados**: `$11:$9846` (`Upstairs?`) e
+  `$11:$985A` (`Go down?`) aparecem ao usar as escadas do 4F/5F. O save
+  10 (4F `(19,5)`) sobe para o 5F `(10,12)` com `Upstairs?`; a escada de
+  descida do 5F `(10,13)` mostra `Go down?`.
+- **Rota do 5F**: o checkpoint `save10` + escada do 4F leva ao 5F; a
+  exploração com o servidor de debug confirmou o corredor
+  `(10,12) -> (10,11) -> (10,10) -> (9,10) -> (8,10)`. A batalha ainda
+  não foi encontrada nessa janela; o 5F é o próximo ponto para validar as
+  mensagens de batalha.
 - **Página 8x8 não é ASCII puro na pontuação**: `0x1B` (seria `:`) renderiza
   um glifo parecido com "10"; o label de equipamento usa `EQ` + espaços.
   Letras e dígitos seguem `ASCII - 0x1F`.

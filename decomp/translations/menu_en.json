@@ -156,6 +156,18 @@
     "encoding": "fullwidth"
   },
   {
+    "offset": "089846",
+    "length": 18,
+    "text": "Upstairs?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08985A",
+    "length": 18,
+    "text": "Go down?",
+    "encoding": "fullwidth"
+  },
+  {
     "offset": "08A023",
     "length": 30,
     "text": "Which file?",
