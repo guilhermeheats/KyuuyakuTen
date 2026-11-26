@@ -80,9 +80,9 @@ Saídas em `decomp/build/rom/` (ignoradas pelo git):
 
 ## Escopo atual
 
-`menu_en.json` tem 85 entradas (74 fullwidth + 11 font) e cobre o pool de
+`menu_en.json` tem 93 entradas (82 fullwidth + 11 font) e cobre o pool de
 mensagens de sistema `$11` (63 ponteiros, 55 mensagens limpas), o submenu
-COMP, o fluxo completo da loja JUNKS e os prompts de escada:
+COMP, as lojas JUNKS e ARMORS e os prompts de escada:
 
 - prompts de save/load, arquivo, confirmação e cancelamento;
 - prompts de magia, item, alvo, retorno/chamada/remoção de demônio;
@@ -97,6 +97,11 @@ COMP, o fluxo completo da loja JUNKS e os prompts de escada:
 - confirmação compartilhada (`Okay`), rótulo de venda (`Sell`) e erros
   (`No cash`, `No items`);
 - prompts de escada (`Upstairs?`, `Go down?`);
+- saudação e prompts da loja ARMORS (`Armor, gear`, `Fair armor shop`,
+  `Need help`, `May I?`);
+- nomes de armadura do banco `$0F` (`CHAIN`, `BREAST`, `IRON`,
+  `HELMET`); no save 11 a lista ainda mostra o japonês porque os nomes
+  estão em cache na WRAM, não por falha do patch;
 - três falas de história do resgate da fada (`Thank you!`, `Take this`,
   `Take Tower Key`), ainda sem validação ao vivo.
 

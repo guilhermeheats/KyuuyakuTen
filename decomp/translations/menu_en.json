@@ -78,6 +78,30 @@
     "encoding": "fullwidth"
   },
   {
+    "offset": "01F7D6",
+    "length": 22,
+    "text": "Armor, gear",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "01F7ED",
+    "length": 30,
+    "text": "Fair armor shop",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "01F80F",
+    "length": 18,
+    "text": "Need help",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "01F893",
+    "length": 16,
+    "text": "May I?",
+    "encoding": "fullwidth"
+  },
+  {
     "offset": "03716E",
     "length": 5,
     "text": "JEWEL",
@@ -112,6 +136,30 @@
     "length": 7,
     "text": "MANA",
     "encoding": "font"
+  },
+  {
+    "offset": "078F26",
+    "length": 10,
+    "text": "CHAIN",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "078F31",
+    "length": 16,
+    "text": "BREAST",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "078F8A",
+    "length": 8,
+    "text": "IRON",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "078FDF",
+    "length": 18,
+    "text": "HELMET",
+    "encoding": "fullwidth"
   },
   {
     "offset": "082D34",

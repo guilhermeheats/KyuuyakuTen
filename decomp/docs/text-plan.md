@@ -38,10 +38,10 @@ execução.
   separa texto/controle/raw e grava `build/text/messages.json`. As mensagens
   vão de `$A021` (save) a `$A5A4`; os dois primeiros alvos (`$9844`,
   `$9BFE`) são scripts de evento com bytecode.
-- **BPS EN de UI validado ao vivo**: `translations/menu_en.json` tem 85
-  entradas (74 fullwidth + 11 font) cobrindo save/load, magia, itens,
-  COMP, erros, nomes de cinco itens, o fluxo completo da loja JUNKS e os
-  prompts de escada.
+- **BPS EN de UI validado ao vivo**: `translations/menu_en.json` tem 93
+  entradas (82 fullwidth + 11 font) cobrindo save/load, magia, itens,
+  COMP, erros, nomes de cinco itens, as lojas JUNKS e ARMORS e os prompts
+  de escada.
 - **Loja JUNKS validada ao vivo**: `Welcome`, `WHAT`, `BUY`, `SELL`,
   `STATUS`, `EXIT` e `Later` aparecem no recomp. As opções da loja são
   strings NUL-terminated em `$11:$8FEB`; para caber `SELL` e `STATUS` foi
@@ -57,6 +57,12 @@ execução.
   `$11:$985A` (`Go down?`) aparecem ao usar as escadas do 4F/5F. O save
   10 (4F `(19,5)`) sobe para o 5F `(10,12)` com `Upstairs?`; a escada de
   descida do 5F `(10,13)` mostra `Go down?`.
+- **Loja ARMORS (1F) validada**: a saudação virou `Armor, gear` /
+  `Fair armor shop`, e os prompts `Need help` e `May I?` aparecem ao
+  abrir/voltar ao menu. Os nomes de armadura do banco `$0F` foram
+  traduzidos (`CHAIN`, `BREAST`, `IRON`, `HELMET`), mas a lista da loja
+  ainda mostra o japonês porque o save 11 tem a tabela de nomes em cache
+  na WRAM; o patch da ROM está correto.
 - **Rota do 5F**: o checkpoint `save10` + escada do 4F leva ao 5F; a
   exploração com o servidor de debug confirmou o corredor
   `(10,12) -> (10,11) -> (10,10) -> (9,10) -> (8,10)`. A batalha ainda
