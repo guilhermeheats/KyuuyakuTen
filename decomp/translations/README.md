@@ -139,6 +139,30 @@ O alvo `make script-en` gera `script_en.sfc` e `script_en.bps` separados do
 patch de UI. As validações usaram um save state criado **depois** do patch,
 com o jogo começado do zero, para evitar o cache de texto da WRAM.
 
+## Nomes T1/T2 (`names_en.json`)
+
+`names_en.json` cobre as **396** entradas das tabelas T1 (253 demônios) e
+T2 (143 demônios). Os nomes em romaji foram conferidos contra a fan
+translation EN local, que é referência de grafia, não texto a copiar. Como
+o copy de nome do jogo copia no máximo 8 caracteres, nomes longos usam
+abreviações (`BEELZEBU`, `MEGAPLAN`, `9TAILFOX` etc.).
+
+`make names-en` gera `names_en.sfc`, `names_en.bps` (4242 bytes) e
+`names_en_report.json`. O patch:
+
+- grava as tabelas de ponteiros T1/T2 em `$2E:B820`/`$2E:BA1A`;
+- empacota os nomes NUL-terminated em `$2E:D1A0`;
+- redireciona as três leituras longas do copy de nome de `$11` para `$2E`.
+
+O espaço usado era zero no ROM original e foi verificado pelo tool. O BPS
+faz round-trip contra a ROM japonesa.
+
+**Limitação de batalha:** um boot novo ainda mostrou o nome do inimigo em
+japonês (`マッドスラッグ`). O caminho que exibe o nome no encontro usa
+outra rotina (a região `$014898`/`$0C40`), não o copy T1/T2 que foi
+redirecionado para `$2E`. A tabela/patch T1/T2 está correta para os usos
+que passam pelo copy; falta mapear/patchear o caminho de batalha.
+
 ## Créditos e licença
 
 - O texto em inglês é original deste projeto.

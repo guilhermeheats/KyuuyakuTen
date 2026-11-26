@@ -75,6 +75,14 @@ execução.
   mostrou `外道ピンクルーパー  came`, o prompt `What?` e o turno
   `ナカジマ  acts?` / `ユミコ  acts?`. Os nomes dinâmicos ainda vêm das
   tabelas T1/T2 em japonês; as linhas de ataque/dano também faltam.
+- **Nomes T1/T2 traduzidos**: `translations/names_en.json` tem 396
+  entradas (253 T1 + 143 T2), em romaji, conferidas contra a fan
+  translation EN. `make names-en` gera um BPS de 4242 bytes que repacka
+  as tabelas em `$2E` e redireciona o copy de nome. Limite de 8 caracteres
+  por nome; nomes longos usam abreviações. Um boot novo ainda mostrou o
+  nome do inimigo em japonês; o caminho de batalha usa outra rotina
+  (`$014898`/`$0C40`), não o copy T1/T2 redirecionado. Falta mapear esse
+  caminho.
 - **Página 8x8 não é ASCII puro na pontuação**: `0x1B` (seria `:`) renderiza
   um glifo parecido com "10"; o label de equipamento usa `EQ` + espaços.
   Letras e dígitos seguem `ASCII - 0x1F`.
@@ -85,8 +93,8 @@ execução.
 
 ## Próximos passos
 
-1. Traduzir as tabelas de nomes T1/T2 (demônios e personagens) para que
-   as mensagens de batalha fiquem inteiras em inglês.
+1. Validar as tabelas T1/T2 em um boot novo e ajustar o que o cache de
+   nomes da WRAM ainda mostrar em japonês.
 2. Traduzir as linhas de ataque/dano e defesa da batalha
    (`ナカジマの攻撃`, `ナカジマは３ダメージ` etc.).
 3. Continuar o script principal: cena inicial, restaurante e eventos do

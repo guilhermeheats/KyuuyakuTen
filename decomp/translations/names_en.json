@@ -1,0 +1,3170 @@
+[
+  {
+    "table": "t1",
+    "index": 0,
+    "jp": "ダークヒーロー",
+    "en": "Dark Hero",
+    "name": "DarkHero",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 1,
+    "jp": "YヵHヵVヵH",
+    "en": "Y.H.V.H",
+    "name": "Y.H.V.H",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 2,
+    "jp": "サタン",
+    "en": "Satan",
+    "name": "Satan",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 3,
+    "jp": "ルシファー",
+    "en": "Lucifer",
+    "name": "Lucifer",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 4,
+    "jp": "ベルゼブブ",
+    "en": "Beelzebub",
+    "name": "Beelzebu",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 5,
+    "jp": "アスタロート",
+    "en": "Astaroth",
+    "name": "Astaroth",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 6,
+    "jp": "ミトラ",
+    "en": "Mitra",
+    "name": "Mitra",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 7,
+    "jp": "モロク",
+    "en": "Moloch",
+    "name": "Moloch",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 8,
+    "jp": "ベリアル",
+    "en": "Belial",
+    "name": "Belial",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 9,
+    "jp": "アスモダイ",
+    "en": "Asmodai",
+    "name": "Asmodai",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 10,
+    "jp": "バエル",
+    "en": "Bael",
+    "name": "Bael",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 11,
+    "jp": "パズス",
+    "en": "Pazuzu",
+    "name": "Pazuzu",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 12,
+    "jp": "アシュラ",
+    "en": "Asura",
+    "name": "Asura",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 13,
+    "jp": "ベルフェゴール",
+    "en": "Belphegor",
+    "name": "Belphego",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 14,
+    "jp": "ゲーリュオン",
+    "en": "Geryon",
+    "name": "Geryon",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 15,
+    "jp": "セト",
+    "en": "Set",
+    "name": "Set",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 16,
+    "jp": "ロキ",
+    "en": "Loki",
+    "name": "Loki",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 17,
+    "jp": "クロノス",
+    "en": "Kronos",
+    "name": "Kronos",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 18,
+    "jp": "エキドナ",
+    "en": "Echidna",
+    "name": "Echidna",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 19,
+    "jp": "マンモン",
+    "en": "Mammon",
+    "name": "Mammon",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 20,
+    "jp": "アリオク",
+    "en": "Arioch",
+    "name": "Arioch",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 21,
+    "jp": "ゼウス",
+    "en": "Zeus",
+    "name": "Zeus",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 22,
+    "jp": "バラム",
+    "en": "Balaam",
+    "name": "Balaam",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 23,
+    "jp": "サルガタナス",
+    "en": "Sargatanas",
+    "name": "Sargatan",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 24,
+    "jp": "ティアマット",
+    "en": "Tiamat",
+    "name": "Tiamat",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 25,
+    "jp": "レヴィアサン",
+    "en": "Leviathan",
+    "name": "Leviatha",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 26,
+    "jp": "ニトホッグ",
+    "en": "Nidhogg",
+    "name": "Nidhogg",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 27,
+    "jp": "ヴリトラ",
+    "en": "Vritra",
+    "name": "Vritra",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 28,
+    "jp": "ヒドラ",
+    "en": "Hydra",
+    "name": "Hydra",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 29,
+    "jp": "フェンリル",
+    "en": "Fenrir",
+    "name": "Fenrir",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 30,
+    "jp": "ティホン",
+    "en": "Typhon",
+    "name": "Typhon",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 31,
+    "jp": "アポリオン",
+    "en": "Apollyon",
+    "name": "Apollyon",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 32,
+    "jp": "スキュラ",
+    "en": "Scylla",
+    "name": "Scylla",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 33,
+    "jp": "バジリスク",
+    "en": "Basilisk",
+    "name": "Basilisk",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 34,
+    "jp": "マンティコア",
+    "en": "Manticore",
+    "name": "Manticor",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 35,
+    "jp": "ワイバーン",
+    "en": "Wyvern",
+    "name": "Wyvern",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 36,
+    "jp": "ランダ",
+    "en": "Rangda",
+    "name": "Rangda",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 37,
+    "jp": "タマモノマエ",
+    "en": "Tamamo no Mae",
+    "name": "Tamamono",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 38,
+    "jp": "ボルボ",
+    "en": "Volva",
+    "name": "Volva",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 39,
+    "jp": "メデューサ",
+    "en": "Medusa",
+    "name": "Medusa",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 40,
+    "jp": "ラルン",
+    "en": "Rarung",
+    "name": "Rarung",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 41,
+    "jp": "ナアス",
+    "en": "Nasu",
+    "name": "Nasu",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 42,
+    "jp": "キヨヒメ",
+    "en": "Kiyohime",
+    "name": "Kiyohime",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 43,
+    "jp": "アルケニー",
+    "en": "Arachne",
+    "name": "Arachne",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 44,
+    "jp": "ターラガ",
+    "en": "Taraka",
+    "name": "Taraka",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 45,
+    "jp": "セイレーン",
+    "en": "Siren",
+    "name": "Siren",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 46,
+    "jp": "フリアイ",
+    "en": "Furiae",
+    "name": "Furiae",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 47,
+    "jp": "サウォバク",
+    "en": "Sawo Bhaku",
+    "name": "SawoBhak",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 48,
+    "jp": "チュルルック",
+    "en": "Celuluk",
+    "name": "Celuluk",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 49,
+    "jp": "サキュバス",
+    "en": "Succubus",
+    "name": "Succubus",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 50,
+    "jp": "アムドゥシアス",
+    "en": "Amdusias",
+    "name": "Amdusias",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 51,
+    "jp": "ファントム",
+    "en": "Phantom",
+    "name": "Phantom",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 52,
+    "jp": "レオナルド",
+    "en": "Leonard",
+    "name": "Leonard",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 53,
+    "jp": "ラルウァイ",
+    "en": "Larvae",
+    "name": "Larvae",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 54,
+    "jp": "ネビロス",
+    "en": "Nebiros",
+    "name": "Nebiros",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 55,
+    "jp": "レムルース",
+    "en": "Lemures",
+    "name": "Lemures",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 56,
+    "jp": "ギリメカラ",
+    "en": "Girimehkala",
+    "name": "Girimehk",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 57,
+    "jp": "ウトウク",
+    "en": "Utukku",
+    "name": "Utukku",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 58,
+    "jp": "ハクマヵブドー",
+    "en": "Hakuma Bhuta",
+    "name": "HAKUMA",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 59,
+    "jp": "デュラハーン",
+    "en": "Dullahan",
+    "name": "Dullahan",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 60,
+    "jp": "ヴェータラ",
+    "en": "Vetala",
+    "name": "Vetala",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 61,
+    "jp": "リッチ",
+    "en": "Lich",
+    "name": "Lich",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 62,
+    "jp": "ビワ{76}{41}{52}",
+    "en": "Biwa Hoshi",
+    "name": "BiwaHosh",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 63,
+    "jp": "マッドマン",
+    "en": "Mudman",
+    "name": "Mudman",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 64,
+    "jp": "ノスフェラトゥ",
+    "en": "Nosferatu",
+    "name": "Nosferat",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 65,
+    "jp": "ワイト",
+    "en": "Wight",
+    "name": "Wight",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 66,
+    "jp": "ファフニール",
+    "en": "Fafnir",
+    "name": "Fafnir",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 67,
+    "jp": "ウルム",
+    "en": "Worm",
+    "name": "Worm",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 68,
+    "jp": "ヴォラク",
+    "en": "Volac",
+    "name": "Volac",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 69,
+    "jp": "ドドンゴー",
+    "en": "Dodongo",
+    "name": "Dodongo",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 70,
+    "jp": "ラドン",
+    "en": "Ladon",
+    "name": "Ladon",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 71,
+    "jp": "ヌエ",
+    "en": "Nue",
+    "name": "Nue",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 72,
+    "jp": "ハンババ",
+    "en": "Humbaba",
+    "name": "Humbaba",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 73,
+    "jp": "コカトライス",
+    "en": "Cockatrice",
+    "name": "Cockatri",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 74,
+    "jp": "オロバス",
+    "en": "Orobas",
+    "name": "Orobas",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 75,
+    "jp": "ガルム",
+    "en": "Garm",
+    "name": "Garm",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 76,
+    "jp": "ジャバウォーク",
+    "en": "Jabberwock",
+    "name": "Jabberwo",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 77,
+    "jp": "ワイアーム",
+    "en": "Wyrm",
+    "name": "Wyrm",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 78,
+    "jp": "デッドロブスター",
+    "en": "Dead Lobster",
+    "name": "LOBSTER",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 79,
+    "jp": "アゼザル",
+    "en": "Azazel",
+    "name": "Azazel",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 80,
+    "jp": "エキンム",
+    "en": "Ekimmu",
+    "name": "Ekimmu",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 81,
+    "jp": "ベリス",
+    "en": "Berith",
+    "name": "Berith",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 82,
+    "jp": "フルーレティ",
+    "en": "Fleurety",
+    "name": "Fleurety",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 83,
+    "jp": "ストーンゴーレム",
+    "en": "Stone Golem",
+    "name": "StoneGol",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 84,
+    "jp": "サイクロプス",
+    "en": "Cyclops",
+    "name": "Cyclops",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 85,
+    "jp": "アイン",
+    "en": "Aim",
+    "name": "Aim",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 86,
+    "jp": "クレイゴーレム",
+    "en": "Clay Golem",
+    "name": "ClayGole",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 87,
+    "jp": "ミノタウロス",
+    "en": "Minotaur",
+    "name": "Minotaur",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 88,
+    "jp": "バグベア",
+    "en": "Bugbear",
+    "name": "Bugbear",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 89,
+    "jp": "ウェンディゴ",
+    "en": "Wendigo",
+    "name": "Wendigo",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 90,
+    "jp": "オーク",
+    "en": "Orc",
+    "name": "Orc",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 91,
+    "jp": "タロス",
+    "en": "Talos",
+    "name": "Talos",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 92,
+    "jp": "GDR1000",
+    "en": "GDR????",
+    "name": "GDR????",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 93,
+    "jp": "LBー501A",
+    "en": "LB????A",
+    "name": "LB????A",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 94,
+    "jp": "スパルチ",
+    "en": "Spartoi",
+    "name": "Spartoi",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 95,
+    "jp": "スペクター",
+    "en": "Spectre",
+    "name": "Spectre",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 96,
+    "jp": "ウィプリ",
+    "en": "Upyr",
+    "name": "Upyr",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 97,
+    "jp": "ピシャーチャ",
+    "en": "Pishacha",
+    "name": "Pishacha",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 98,
+    "jp": "チョンチョン",
+    "en": "Chonchon",
+    "name": "Chonchon",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 99,
+    "jp": "サカサクビ",
+    "en": "Inverted Head",
+    "name": "INVERTHD",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 100,
+    "jp": "ボディコニアン",
+    "en": "Body?Conian",
+    "name": "BODYCON",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 101,
+    "jp": "コープス",
+    "en": "Corpse",
+    "name": "Corpse",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 102,
+    "jp": "グール",
+    "en": "Ghoul",
+    "name": "Ghoul",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 103,
+    "jp": "ゾンビ",
+    "en": "Zombie",
+    "name": "Zombie",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 104,
+    "jp": "インテリペリ",
+    "en": "Imtteripelli",
+    "name": "Imtterip",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 105,
+    "jp": "レッドラム",
+    "en": "Redrum",
+    "name": "Redrum",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 106,
+    "jp": "ビーメ",
+    "en": "Heavy Metal",
+    "name": "HeavyMet",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 107,
+    "jp": "アルテミス",
+    "en": "Artemis",
+    "name": "Artemis",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 108,
+    "jp": "ジャンキー",
+    "en": "Junkie",
+    "name": "Junkie",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 109,
+    "jp": "アサシン",
+    "en": "Assassin",
+    "name": "Assassin",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 110,
+    "jp": "ミュータント",
+    "en": "Mutant",
+    "name": "Mutant",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 111,
+    "jp": "ハカイソウ",
+    "en": "Sinful Priest",
+    "name": "SinfulPr",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 112,
+    "jp": "フライデイ",
+    "en": "Friday",
+    "name": "Friday",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 113,
+    "jp": "ハイウェイスター",
+    "en": "Highway Star",
+    "name": "HighwayS",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 114,
+    "jp": "メタル",
+    "en": "Metal",
+    "name": "Metal",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 115,
+    "jp": "レト",
+    "en": "Leto",
+    "name": "Leto",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 116,
+    "jp": "パンクス",
+    "en": "Punk",
+    "name": "Punk",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 117,
+    "jp": "ドリームキッス",
+    "en": "Dream Kiss",
+    "name": "DreamKis",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 118,
+    "jp": "ジャックランタン",
+    "en": "Jack o'Lantern",
+    "name": "JackoLan",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 119,
+    "jp": "アポロン",
+    "en": "Apollo",
+    "name": "Apollo",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 120,
+    "jp": "ボーンゴーレム",
+    "en": "Bone Golem",
+    "name": "BoneGole",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 121,
+    "jp": "ゴールドスライム",
+    "en": "Gold Slime",
+    "name": "GoldSlim",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 122,
+    "jp": "マンイーター",
+    "en": "Maneater",
+    "name": "Maneater",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 123,
+    "jp": "クラベビ",
+    "en": "Kurabebi",
+    "name": "Kurabebi",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 124,
+    "jp": "アスコモイド",
+    "en": "Ascomoid",
+    "name": "Ascomoid",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 125,
+    "jp": "クラップスライム",
+    "en": "Crap Slime",
+    "name": "CrapSlim",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 126,
+    "jp": "ウィルオウィスプ",
+    "en": "Will o'Wisp",
+    "name": "WILLWISP",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 127,
+    "jp": "グリーンスライム",
+    "en": "Green Slime",
+    "name": "GREENSLM",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 128,
+    "jp": "トロール",
+    "en": "Troll",
+    "name": "Troll",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 129,
+    "jp": "レグバ",
+    "en": "Legba",
+    "name": "Legba",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 130,
+    "jp": "ボーグル",
+    "en": "Bogle",
+    "name": "Bogle",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 131,
+    "jp": "ルサールカ",
+    "en": "Rusalka",
+    "name": "Rusalka",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 132,
+    "jp": "ケライノ",
+    "en": "Celaeno",
+    "name": "Celaeno",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 133,
+    "jp": "アエロー",
+    "en": "Aello",
+    "name": "Aello",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 134,
+    "jp": "オキュペテ",
+    "en": "Ocypete",
+    "name": "Ocypete",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 135,
+    "jp": "アプサラス",
+    "en": "Apsaras",
+    "name": "Apsaras",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 136,
+    "jp": "ケルピー",
+    "en": "Kelpie",
+    "name": "Kelpie",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 137,
+    "jp": "メロウ",
+    "en": "Merrow",
+    "name": "Merrow",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 138,
+    "jp": "エルフ",
+    "en": "Elf",
+    "name": "Elf",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 139,
+    "jp": "ゴブリン",
+    "en": "Goblin",
+    "name": "Goblin",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 140,
+    "jp": "ハーピー",
+    "en": "Harpy",
+    "name": "Harpy",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 141,
+    "jp": "ピクシー",
+    "en": "Pixie",
+    "name": "Pixie",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 142,
+    "jp": "ウペルリ",
+    "en": "Upelluri",
+    "name": "Upelluri",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 143,
+    "jp": "ジャイアント",
+    "en": "Giant",
+    "name": "Giant",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 144,
+    "jp": "サレオス",
+    "en": "Saleos",
+    "name": "Saleos",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 145,
+    "jp": "アトラス",
+    "en": "Atlas",
+    "name": "Atlas",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 146,
+    "jp": "ツチグモ",
+    "en": "Tsuchigumo",
+    "name": "Tsuchigu",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 147,
+    "jp": "タンキ",
+    "en": "Dan Gui",
+    "name": "Dan Gui",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 148,
+    "jp": "ブッカブー",
+    "en": "Buccaboo",
+    "name": "Buccaboo",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 149,
+    "jp": "ドワーフ",
+    "en": "Dwarf",
+    "name": "Dwarf",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 150,
+    "jp": "コボルト",
+    "en": "Kobold",
+    "name": "Kobold",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 151,
+    "jp": "コロンゾン",
+    "en": "Choronzon",
+    "name": "Choronzo",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 152,
+    "jp": "オニ",
+    "en": "Oni",
+    "name": "Oni",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 153,
+    "jp": "メフィスト",
+    "en": "Mephisto",
+    "name": "Mephisto",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 154,
+    "jp": "プルシキ",
+    "en": "Purski",
+    "name": "Purski",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 155,
+    "jp": "メズキ",
+    "en": "Mezuki",
+    "name": "Mezuki",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 156,
+    "jp": "ジン",
+    "en": "Djinn",
+    "name": "Djinn",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 157,
+    "jp": "ゴズキ",
+    "en": "Gozuki",
+    "name": "Gozuki",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 158,
+    "jp": "アラハバキ",
+    "en": "Arahabaki",
+    "name": "Arahabak",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 159,
+    "jp": "シトリー",
+    "en": "Sitri",
+    "name": "Sitri",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 160,
+    "jp": "モムノフ",
+    "en": "Momunofu",
+    "name": "Momunofu",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 161,
+    "jp": "ガープ",
+    "en": "Gaap",
+    "name": "Gaap",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 162,
+    "jp": "カワンチャ",
+    "en": "Kwancha",
+    "name": "Kwancha",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 163,
+    "jp": "フォルネウス",
+    "en": "Forneus",
+    "name": "Forneus",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 164,
+    "jp": "キマリス",
+    "en": "Kimaris",
+    "name": "Kimaris",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 165,
+    "jp": "カーバンクル",
+    "en": "Carbuncle",
+    "name": "Carbuncl",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 166,
+    "jp": "パイロン",
+    "en": "Bai Long",
+    "name": "Bai Long",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 167,
+    "jp": "キマイラ",
+    "en": "Chimera",
+    "name": "Chimera",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 168,
+    "jp": "9ビノキツネ",
+    "en": "??Tailed Fox",
+    "name": "9TAILFOX",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 169,
+    "jp": "ケルベロス",
+    "en": "Cerberus",
+    "name": "Cerberus",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 170,
+    "jp": "グリフォン",
+    "en": "Gryphon",
+    "name": "Gryphon",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 171,
+    "jp": "ヤタガラス",
+    "en": "Yatagarasu",
+    "name": "Yatagara",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 172,
+    "jp": "タムズ",
+    "en": "Tammuz",
+    "name": "Tammuz",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 173,
+    "jp": "ストーンカ",
+    "en": "Stonka",
+    "name": "Stonka",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 174,
+    "jp": "オルトロス",
+    "en": "Orthrus",
+    "name": "Orthrus",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 175,
+    "jp": "ペガサス",
+    "en": "Pegasus",
+    "name": "Pegasus",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 176,
+    "jp": "ソードナイト",
+    "en": "Sword Knight",
+    "name": "SwordKni",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 177,
+    "jp": "ワンドナイト",
+    "en": "Wand Knight",
+    "name": "WandKnig",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 178,
+    "jp": "グレモリー",
+    "en": "Gremory",
+    "name": "Gremory",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 179,
+    "jp": "ヴァルキリー",
+    "en": "Valkyrie",
+    "name": "Valkyrie",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 180,
+    "jp": "フーリー",
+    "en": "Houri",
+    "name": "Houri",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 181,
+    "jp": "ハンジャ",
+    "en": "Hannya",
+    "name": "Hannya",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 182,
+    "jp": "アミイ",
+    "en": "Amy",
+    "name": "Amy",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 183,
+    "jp": "オオナムチ",
+    "en": "Oonamuchi",
+    "name": "Oonamuch",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 184,
+    "jp": "カップナイト",
+    "en": "Cup Knight",
+    "name": "CupKnigh",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 185,
+    "jp": "モルガン",
+    "en": "Morgan",
+    "name": "Morgan",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 186,
+    "jp": "クシナダヒメ",
+    "en": "Kushinadahime",
+    "name": "Kushinad",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 187,
+    "jp": "ジャックフロスト",
+    "en": "Jack Frost",
+    "name": "JackFros",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 188,
+    "jp": "ディスクナイト",
+    "en": "Disk Knight",
+    "name": "DiskKnig",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 189,
+    "jp": "ネコマタ",
+    "en": "Nekomata",
+    "name": "Nekomata",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 190,
+    "jp": "ケンタウロス",
+    "en": "Centaur",
+    "name": "Centaur",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 191,
+    "jp": "コワトリクエ",
+    "en": "Coatlicue",
+    "name": "Coatlicu",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 192,
+    "jp": "サラマンダー",
+    "en": "Salamander",
+    "name": "Salamand",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 193,
+    "jp": "ラケー",
+    "en": "Lakhe",
+    "name": "Lakhe",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 194,
+    "jp": "ヴェパール",
+    "en": "Vepar",
+    "name": "Vepar",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 195,
+    "jp": "ウンディーネ",
+    "en": "Undine",
+    "name": "Undine",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 196,
+    "jp": "シルフ",
+    "en": "Sylph",
+    "name": "Sylph",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 197,
+    "jp": "ノーム",
+    "en": "Gnome",
+    "name": "Gnome",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 198,
+    "jp": "フレイミスライム",
+    "en": "Flamey Slime",
+    "name": "FlameySl",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 199,
+    "jp": "アクワンスライム",
+    "en": "Aquan Slime",
+    "name": "AquanSli",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 200,
+    "jp": "エアリースライム",
+    "en": "Airy Slime",
+    "name": "AirySlim",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 201,
+    "jp": "アーシースライム",
+    "en": "Earthy Slime",
+    "name": "EarthySl",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 202,
+    "jp": "フェニックス",
+    "en": "Phoenix",
+    "name": "Phoenix",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 203,
+    "jp": "ラクチャランゴ",
+    "en": "Rakcharango",
+    "name": "Rakchara",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 204,
+    "jp": "パビルサグ",
+    "en": "Pabilsag",
+    "name": "Pabilsag",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 205,
+    "jp": "ケツアルカトル",
+    "en": "Quetzalcoatl",
+    "name": "Quetzalc",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 206,
+    "jp": "ゲンブ",
+    "en": "Genbu",
+    "name": "Genbu",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 207,
+    "jp": "ユニコーン",
+    "en": "Unicorn",
+    "name": "Unicorn",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 208,
+    "jp": "ガンダルバ",
+    "en": "Gandharva",
+    "name": "Gandharv",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 209,
+    "jp": "キリン",
+    "en": "Qilin",
+    "name": "Qilin",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 210,
+    "jp": "ハヌマーン",
+    "en": "Hanuman",
+    "name": "Hanuman",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 211,
+    "jp": "フルカロス",
+    "en": "Focalor",
+    "name": "Focalor",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 212,
+    "jp": "アガレス",
+    "en": "Agares",
+    "name": "Agares",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 213,
+    "jp": "キクリヒメ",
+    "en": "Kikurihime",
+    "name": "Kikurihi",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 214,
+    "jp": "ラクシュミ",
+    "en": "Lakshmi",
+    "name": "Lakshmi",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 215,
+    "jp": "ラミア",
+    "en": "Lamia",
+    "name": "Lamia",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 216,
+    "jp": "ダンバラ",
+    "en": "Damballah",
+    "name": "Damballa",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 217,
+    "jp": "バフォメット",
+    "en": "Baphomet",
+    "name": "Baphomet",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 218,
+    "jp": "クーフーリン",
+    "en": "Cu Chulainn",
+    "name": "CuChulai",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 219,
+    "jp": "キンナラ",
+    "en": "Kinnara",
+    "name": "Kinnara",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 220,
+    "jp": "エリゴール",
+    "en": "Eligor",
+    "name": "Eligor",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 221,
+    "jp": "エイワス",
+    "en": "Aiwass",
+    "name": "Aiwass",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 222,
+    "jp": "ウコバチ",
+    "en": "Ukobach",
+    "name": "Ukobach",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 223,
+    "jp": "アルラウネ",
+    "en": "Alraune",
+    "name": "Alraune",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 224,
+    "jp": "ミカエル",
+    "en": "Michael",
+    "name": "Michael",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 225,
+    "jp": "ガブリエル",
+    "en": "Gabriel",
+    "name": "Gabriel",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 226,
+    "jp": "ニケー",
+    "en": "Nike",
+    "name": "Nike",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 227,
+    "jp": "ケルビム",
+    "en": "Cherubim",
+    "name": "Cherubim",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 228,
+    "jp": "ラファエル",
+    "en": "Raphael",
+    "name": "Raphael",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 229,
+    "jp": "ウリエル",
+    "en": "Uriel",
+    "name": "Uriel",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 230,
+    "jp": "カーリー",
+    "en": "Kali",
+    "name": "Kali",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 231,
+    "jp": "アモン",
+    "en": "Amon",
+    "name": "Amon",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 232,
+    "jp": "トール",
+    "en": "Thor",
+    "name": "Thor",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 233,
+    "jp": "ガネーシャ",
+    "en": "Ganesha",
+    "name": "Ganesha",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 234,
+    "jp": "タモンテン",
+    "en": "Tamonten",
+    "name": "Tamonten",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 235,
+    "jp": "スサノオ",
+    "en": "Susanoo",
+    "name": "Susanoo",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 236,
+    "jp": "イフリート",
+    "en": "Ifrit",
+    "name": "Ifrit",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 237,
+    "jp": "ジコクテン",
+    "en": "Jikokuten",
+    "name": "Jikokute",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 238,
+    "jp": "ラクシャーサ",
+    "en": "Rakshasa",
+    "name": "Rakshasa",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 239,
+    "jp": "コウモクテン",
+    "en": "Koumokuten",
+    "name": "Koumokut",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 240,
+    "jp": "ゾウチョウテン",
+    "en": "Zouchouten",
+    "name": "Zouchout",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 241,
+    "jp": "チィンロン",
+    "en": "Qing Long",
+    "name": "QingLong",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 242,
+    "jp": "ガルーダ",
+    "en": "Garuda",
+    "name": "Garuda",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 243,
+    "jp": "バロン",
+    "en": "Barong",
+    "name": "Barong",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 244,
+    "jp": "スフィンクス",
+    "en": "Sphinx",
+    "name": "Sphinx",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 245,
+    "jp": "ナーガ",
+    "en": "Naga",
+    "name": "Naga",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 246,
+    "jp": "ルシファー",
+    "en": "Lucifer",
+    "name": "Lucifer",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 247,
+    "jp": "シヴァ",
+    "en": "Shiva",
+    "name": "Shiva",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 248,
+    "jp": "アフラマズダ",
+    "en": "Ahura Mazda",
+    "name": "AhuraMaz",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 249,
+    "jp": "バアル",
+    "en": "Baal",
+    "name": "Baal",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 250,
+    "jp": "ヴィシュヌ",
+    "en": "Vishnu",
+    "name": "Vishnu",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 251,
+    "jp": "オーディン",
+    "en": "Odin",
+    "name": "Odin",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t1",
+    "index": 252,
+    "jp": "ブラフマー",
+    "en": "Brahma",
+    "name": "Brahma",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 0,
+    "jp": "ピンクルーパー",
+    "en": "Pink Worm",
+    "name": "PinkWorm",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 1,
+    "jp": "グリーンスライム",
+    "en": "Green Slime",
+    "name": "GREENSLM",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 2,
+    "jp": "マッドスラッグ",
+    "en": "Mud Slug",
+    "name": "Mud Slug",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 3,
+    "jp": "ブロブ",
+    "en": "Blob",
+    "name": "Blob",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 4,
+    "jp": "ウィルオウィスプ",
+    "en": "Will o'Wisp",
+    "name": "WILLWISP",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 5,
+    "jp": "ウィルオウィスプ",
+    "en": "Will o'Wisp",
+    "name": "WILLWISP",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 6,
+    "jp": "スライムヘドロ",
+    "en": "Sludge",
+    "name": "Sludge",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 7,
+    "jp": "メガプラナリア",
+    "en": "Megaplanaria",
+    "name": "Megaplan",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 8,
+    "jp": "メデューサ{69}{46}{4D}",
+    "en": "Medusa Shadow",
+    "name": "MedusaSh",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 9,
+    "jp": "サンドルーパー",
+    "en": "Sand Worm",
+    "name": "SandWorm",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 10,
+    "jp": "アヵバオアヵクー",
+    "en": "A Bao A Qu",
+    "name": "ABaoAQu",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 11,
+    "jp": "ポルターガイスト",
+    "en": "Poltergeist",
+    "name": "Polterge",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 12,
+    "jp": "マイコニドロ",
+    "en": "Myconid",
+    "name": "Myconid",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 13,
+    "jp": "\\{4A}{79}{69}{76}{52}{4A}{6E}",
+    "en": "Shrunken Head",
+    "name": "SHRUNKHD",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 14,
+    "jp": "フォッグ",
+    "en": "Fog",
+    "name": "Fog",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 15,
+    "jp": "ゾンビ",
+    "en": "Zombie",
+    "name": "Zombie",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 16,
+    "jp": "ゴースト",
+    "en": "Ghost",
+    "name": "Ghost",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 17,
+    "jp": "スケルトン",
+    "en": "Skeleton",
+    "name": "Skeleton",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 18,
+    "jp": "グール",
+    "en": "Ghoul",
+    "name": "Ghoul",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 19,
+    "jp": "ゴーストヵイスマ",
+    "en": "Isma's Ghost",
+    "name": "IsmasGho",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 20,
+    "jp": "ミイラ",
+    "en": "Mummy",
+    "name": "Mummy",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 21,
+    "jp": "ラフィンヵスカル",
+    "en": "Laughing Skull",
+    "name": "LAUGHSKL",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 22,
+    "jp": "バシム",
+    "en": "Basmu",
+    "name": "Basmu",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 23,
+    "jp": "バグ",
+    "en": "BUG",
+    "name": "BUG",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 24,
+    "jp": "アピペ",
+    "en": "Apep",
+    "name": "Apep",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 25,
+    "jp": "タランテラ",
+    "en": "Tarantula",
+    "name": "Tarantul",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 26,
+    "jp": "タムズ",
+    "en": "Tammuz",
+    "name": "Tammuz",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 27,
+    "jp": "サーペント",
+    "en": "Serpent",
+    "name": "Serpent",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 28,
+    "jp": "コカトライス",
+    "en": "Cockatrice",
+    "name": "Cockatri",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 29,
+    "jp": "スキュラ",
+    "en": "Scylla",
+    "name": "Scylla",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 30,
+    "jp": "オーク",
+    "en": "Orc",
+    "name": "Orc",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 31,
+    "jp": "ガーゴイル",
+    "en": "Gargoyle",
+    "name": "Gargoyle",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 32,
+    "jp": "オーガ",
+    "en": "Ogre",
+    "name": "Ogre",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 33,
+    "jp": "エキンム",
+    "en": "Ekimmu",
+    "name": "Ekimmu",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 34,
+    "jp": "サイクロプス",
+    "en": "Cyclops",
+    "name": "Cyclops",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 35,
+    "jp": "オニ",
+    "en": "Oni",
+    "name": "Oni",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 36,
+    "jp": "キングトロール",
+    "en": "King Troll",
+    "name": "KingTrol",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 37,
+    "jp": "カイム",
+    "en": "Caim",
+    "name": "Caim",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 38,
+    "jp": "インキュバス",
+    "en": "Incubus",
+    "name": "Incubus",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 39,
+    "jp": "サキュバス",
+    "en": "Succubus",
+    "name": "Succubus",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 40,
+    "jp": "ロア",
+    "en": "Loa",
+    "name": "Loa",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 41,
+    "jp": "メフィスト",
+    "en": "Mephisto",
+    "name": "Mephisto",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 42,
+    "jp": "シャドウ",
+    "en": "Shadow",
+    "name": "Shadow",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 43,
+    "jp": "ハーピー",
+    "en": "Harpy",
+    "name": "Harpy",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 44,
+    "jp": "ファライ",
+    "en": "Furiae",
+    "name": "Furiae",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 45,
+    "jp": "アルケニー",
+    "en": "Arachne",
+    "name": "Arachne",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 46,
+    "jp": "ナアス",
+    "en": "Nasu",
+    "name": "Nasu",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 47,
+    "jp": "ターラガ",
+    "en": "Taraka",
+    "name": "Taraka",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 48,
+    "jp": "ランダ",
+    "en": "Rangda",
+    "name": "Rangda",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 49,
+    "jp": "ファラオ",
+    "en": "Pharaoh",
+    "name": "Pharaoh",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 50,
+    "jp": "バンパイヤ",
+    "en": "Vampire",
+    "name": "Vampire",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 51,
+    "jp": "ブラックナイト",
+    "en": "Black Knight",
+    "name": "BlackKni",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 52,
+    "jp": "アクカル",
+    "en": "Akhkharu",
+    "name": "Akhkharu",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 53,
+    "jp": "デュラハーン",
+    "en": "Dullahan",
+    "name": "Dullahan",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 54,
+    "jp": "ハクマヵブドー",
+    "en": "Hakuma Bhuta",
+    "name": "HAKUMA",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 55,
+    "jp": "ディーバ",
+    "en": "Deva",
+    "name": "Deva",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 56,
+    "jp": "ヌエ",
+    "en": "Nue",
+    "name": "Nue",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 57,
+    "jp": "フェンリル",
+    "en": "Fenrir",
+    "name": "Fenrir",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 58,
+    "jp": "マンティコア",
+    "en": "Manticore",
+    "name": "Manticor",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 59,
+    "jp": "バレフール",
+    "en": "Balaur",
+    "name": "Balaur",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 60,
+    "jp": "ヒドラ",
+    "en": "Hydra",
+    "name": "Hydra",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 61,
+    "jp": "ゴーゴン",
+    "en": "Gorgon",
+    "name": "Gorgon",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 62,
+    "jp": "ティホン",
+    "en": "Typhon",
+    "name": "Typhon",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 63,
+    "jp": "オルトロス",
+    "en": "Orthrus",
+    "name": "Orthrus",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 64,
+    "jp": "ティアマット",
+    "en": "Tiamat",
+    "name": "Tiamat",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 65,
+    "jp": "バアル",
+    "en": "Baal",
+    "name": "Baal",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 66,
+    "jp": "ベヘモス",
+    "en": "Behemoth",
+    "name": "Behemoth",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 67,
+    "jp": "ゾマ",
+    "en": "Zoma",
+    "name": "Zoma",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 68,
+    "jp": "アシュラ",
+    "en": "Asura",
+    "name": "Asura",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 69,
+    "jp": "アスタロート",
+    "en": "Astaroth",
+    "name": "Astaroth",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 70,
+    "jp": "ベルゼブブ",
+    "en": "Beelzebub",
+    "name": "Beelzebu",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 71,
+    "jp": "ケルベロス",
+    "en": "Cerberus",
+    "name": "Cerberus",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 72,
+    "jp": "キャンサー",
+    "en": "Cancer",
+    "name": "Cancer",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 73,
+    "jp": "ネコマタ",
+    "en": "Nekomata",
+    "name": "Nekomata",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 74,
+    "jp": "バンダー",
+    "en": "Bander",
+    "name": "Bander",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 75,
+    "jp": "バハラ",
+    "en": "Varaha",
+    "name": "Varaha",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 76,
+    "jp": "ストーンカ",
+    "en": "Stonka",
+    "name": "Stonka",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 77,
+    "jp": "バジリスク",
+    "en": "Basilisk",
+    "name": "Basilisk",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 78,
+    "jp": "ケツアルカトル",
+    "en": "Quetzalcoatl",
+    "name": "Quetzalc",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 79,
+    "jp": "ワイバーン",
+    "en": "Wyvern",
+    "name": "Wyvern",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 80,
+    "jp": "プルシキ",
+    "en": "Purski",
+    "name": "Purski",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 81,
+    "jp": "ドドンゴー",
+    "en": "Dodongo",
+    "name": "Dodongo",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 82,
+    "jp": "ヘケット",
+    "en": "Heqet",
+    "name": "Heqet",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 83,
+    "jp": "ソラス",
+    "en": "Stolas",
+    "name": "Stolas",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 84,
+    "jp": "レムリアン",
+    "en": "Lemurian",
+    "name": "Lemurian",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 85,
+    "jp": "セイレーン",
+    "en": "Siren",
+    "name": "Siren",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 86,
+    "jp": "ウェアキャット",
+    "en": "Werecat",
+    "name": "Werecat",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 87,
+    "jp": "オリアス",
+    "en": "Orias",
+    "name": "Orias",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 88,
+    "jp": "ギルタブ",
+    "en": "Girtab",
+    "name": "Girtab",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 89,
+    "jp": "ラミア",
+    "en": "Lamia",
+    "name": "Lamia",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 90,
+    "jp": "ウェアウルフ",
+    "en": "Werewolf",
+    "name": "Werewolf",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 91,
+    "jp": "ノーム",
+    "en": "Gnome",
+    "name": "Gnome",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 92,
+    "jp": "ヨモツシコメ",
+    "en": "YomotuShikome",
+    "name": "YomotuSh",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 93,
+    "jp": "ヴィー",
+    "en": "Viy",
+    "name": "Viy",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 94,
+    "jp": "ファンガス",
+    "en": "Fungus",
+    "name": "Fungus",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 95,
+    "jp": "ドワーフ",
+    "en": "Dwarf",
+    "name": "Dwarf",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 96,
+    "jp": "ラケー",
+    "en": "Lakhe",
+    "name": "Lakhe",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 97,
+    "jp": "ジャイアント",
+    "en": "Giant",
+    "name": "Giant",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 98,
+    "jp": "ドリアード",
+    "en": "Dryad",
+    "name": "Dryad",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 99,
+    "jp": "ゴブリン",
+    "en": "Goblin",
+    "name": "Goblin",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 100,
+    "jp": "ボーグル",
+    "en": "Bogle",
+    "name": "Bogle",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 101,
+    "jp": "トロール",
+    "en": "Troll",
+    "name": "Troll",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 102,
+    "jp": "プーカ",
+    "en": "Pooka",
+    "name": "Pooka",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 103,
+    "jp": "エルフ",
+    "en": "Elf",
+    "name": "Elf",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 104,
+    "jp": "フォーモリア",
+    "en": "Fomorian",
+    "name": "Fomorian",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 105,
+    "jp": "トレント",
+    "en": "Treant",
+    "name": "Treant",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 106,
+    "jp": "クタム",
+    "en": "Ketam",
+    "name": "Ketam",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 107,
+    "jp": "ケルピー",
+    "en": "Kelpie",
+    "name": "Kelpie",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 108,
+    "jp": "カワンチャ",
+    "en": "Kwancha",
+    "name": "Kwancha",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 109,
+    "jp": "パズス",
+    "en": "Pazuzu",
+    "name": "Pazuzu",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 110,
+    "jp": "サラマンダー",
+    "en": "Salamander",
+    "name": "Salamand",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 111,
+    "jp": "バク",
+    "en": "Baku",
+    "name": "Baku",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 112,
+    "jp": "ラゴーン",
+    "en": "Lagoon",
+    "name": "Lagoon",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 113,
+    "jp": "アピス",
+    "en": "Apis",
+    "name": "Apis",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 114,
+    "jp": "バステト",
+    "en": "Bastet",
+    "name": "Bastet",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 115,
+    "jp": "セベク",
+    "en": "Sebek",
+    "name": "Sebek",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 116,
+    "jp": "ドーン",
+    "en": "Dawon",
+    "name": "Dawon",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 117,
+    "jp": "アルラウネ",
+    "en": "Alraune",
+    "name": "Alraune",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 118,
+    "jp": "ラクシュミ",
+    "en": "Lakshmi",
+    "name": "Lakshmi",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 119,
+    "jp": "ツクヨミ",
+    "en": "Tsukuyomi",
+    "name": "Tsukuyom",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 120,
+    "jp": "クーフーリン",
+    "en": "Cu Chulainn",
+    "name": "CuChulai",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 121,
+    "jp": "ジン",
+    "en": "Djinn",
+    "name": "Djinn",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 122,
+    "jp": "ハヌマーン",
+    "en": "Hanuman",
+    "name": "Hanuman",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 123,
+    "jp": "ナーガ",
+    "en": "Naga",
+    "name": "Naga",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 124,
+    "jp": "スサノオ",
+    "en": "Susanoo",
+    "name": "Susanoo",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 125,
+    "jp": "ヤシャ",
+    "en": "Yaksha",
+    "name": "Yaksha",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 126,
+    "jp": "トール",
+    "en": "Thor",
+    "name": "Thor",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 127,
+    "jp": "カーリー",
+    "en": "Kali",
+    "name": "Kali",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 128,
+    "jp": "キマイラ",
+    "en": "Chimera",
+    "name": "Chimera",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 129,
+    "jp": "アヌビス",
+    "en": "Anubis",
+    "name": "Anubis",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 130,
+    "jp": "スフィンクス",
+    "en": "Sphinx",
+    "name": "Sphinx",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 131,
+    "jp": "バロン",
+    "en": "Barong",
+    "name": "Barong",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 132,
+    "jp": "ウォンロン",
+    "en": "Huang Long",
+    "name": "HuangLon",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 133,
+    "jp": "ガネーシャ",
+    "en": "Ganesha",
+    "name": "Ganesha",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 134,
+    "jp": "オーディン",
+    "en": "Odin",
+    "name": "Odin",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 135,
+    "jp": "クリシュナ",
+    "en": "Krishna",
+    "name": "Krishna",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 136,
+    "jp": "ミノタウロス",
+    "en": "Minotaur",
+    "name": "Minotaur",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 137,
+    "jp": "メデューサ",
+    "en": "Medusa",
+    "name": "Medusa",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 138,
+    "jp": "ロキ",
+    "en": "Loki",
+    "name": "Loki",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 139,
+    "jp": "ヘカーテ",
+    "en": "Hecate",
+    "name": "Hecate",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 140,
+    "jp": "セト",
+    "en": "Set",
+    "name": "Set",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 141,
+    "jp": "ルシファー",
+    "en": "Lucifer",
+    "name": "Lucifer",
+    "source": "fan-translation EN (reference)"
+  },
+  {
+    "table": "t2",
+    "index": 142,
+    "jp": "ピンクルーパー",
+    "en": "Pink Worm",
+    "name": "PinkWorm",
+    "source": "fan-translation EN (reference)"
+  }
+]

@@ -48,7 +48,9 @@ make replace-test   # self-test da substituição de texto
 make font-test      # self-test do mapa ASCII -> código de fonte
 make fullwidth-test # self-test do codec full-width do diálogo
 make bps-test       # self-test do BPS
-make menu-en        # gera ROM+BPS do primeiro patch EN de menu
+make menu-en        # gera ROM+BPS do patch EN de menu/UI
+make script-en      # gera ROM+BPS do script principal
+make names-en       # gera ROM+BPS dos nomes T1/T2 em romaji
 make toolchain-test # monta 65816 + SPC700 de teste
 make all
 ```
