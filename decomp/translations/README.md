@@ -140,6 +140,12 @@ A narração inicial em tela preta (`古き言い伝えに曰く…`) não está
 Shift-JIS: é um tilemap pré-renderizado (BG1 em VRAM `0x7000`, tiles
 `0x147F+`), que exigirá edição gráfica em vez deste pipeline de texto.
 
+A história de abertura de Nakajima/Lucifer/Izanami está no banco `$05`
+(`$D917-$DCE5`), não no `$10`. O extrator acha 28 runs, mas alguns começam
+no meio de palavras porque há controles que inserem kanji inline (ex.:
+`0x89 94 FC` insere 美 antes de `しい天使`). Esse bloco ainda não foi
+traduzido; primeiro é preciso interpretar os controles.
+
 O alvo `make script-en` gera `script_en.sfc` e `script_en.bps` separados do
 patch de UI. `make battle-en` aplica o passe de batalha em cima; `make
 races-en` adiciona os prefixos de raça; `make full-en` combina script,
