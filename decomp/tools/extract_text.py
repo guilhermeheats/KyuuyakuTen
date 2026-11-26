@@ -2,10 +2,11 @@
 """Extract Japanese text runs from the Kyuuyaku Megami Tensei ROM.
 
 The main script lives in bank $10 (and a system-message pool in bank $11) as
-Shift-JIS text interleaved with one-byte control codes. This tool is a first
-pass: it finds decodable Shift-JIS runs and records their ROM offsets so the
-translation pipeline can address them. It does not yet interpret the script
-bytecode or group lines into messages.
+Shift-JIS text interleaved with one-byte control codes. Shop and event text
+also appears in bank $03. This tool is a first pass: it finds decodable
+Shift-JIS runs and records their ROM offsets so the translation pipeline can
+address them. It does not yet interpret the script bytecode or group lines
+into messages.
 
 Outputs are ROM-derived and must stay under decomp/build/ (ignored by git).
 """

@@ -1,5 +1,125 @@
 [
   {
+    "offset": "01B10F",
+    "length": 9,
+    "text": "USE ITEM",
+    "encoding": "font"
+  },
+  {
+    "offset": "01B118",
+    "length": 9,
+    "text": "STORE",
+    "encoding": "font"
+  },
+  {
+    "offset": "01B121",
+    "length": 9,
+    "text": "DROP",
+    "encoding": "font"
+  },
+  {
+    "offset": "01B12A",
+    "length": 9,
+    "text": "EQ  ",
+    "encoding": "font"
+  },
+  {
+    "offset": "01B133",
+    "length": 9,
+    "text": "EQ  ",
+    "encoding": "font"
+  },
+  {
+    "offset": "01F722",
+    "length": 18,
+    "text": "Welcome",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "01F739",
+    "length": 8,
+    "text": "WHAT",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "01F751",
+    "length": 12,
+    "text": "Later",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "03716E",
+    "length": 5,
+    "text": "JEWEL",
+    "encoding": "font"
+  },
+  {
+    "offset": "03717A",
+    "length": 5,
+    "text": "PARA",
+    "encoding": "font"
+  },
+  {
+    "offset": "037180",
+    "length": 5,
+    "text": "PETRA",
+    "encoding": "font"
+  },
+  {
+    "offset": "037216",
+    "length": 8,
+    "text": "MUSCLE",
+    "encoding": "font"
+  },
+  {
+    "offset": "03721F",
+    "length": 7,
+    "text": "MANA",
+    "encoding": "font"
+  },
+  {
+    "offset": "082D34",
+    "length": 22,
+    "text": "Thank you!",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "082D59",
+    "length": 24,
+    "text": "Take this",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "082D72",
+    "length": 30,
+    "text": "Take Tower Key",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "088FEB",
+    "length": 6,
+    "text": "BUY",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "088FF2",
+    "length": 8,
+    "text": "SELL",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "088FFB",
+    "length": 12,
+    "text": "STATUS",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "089008",
+    "length": 8,
+    "text": "EXIT",
+    "encoding": "fullwidth"
+  },
+  {
     "offset": "08A023",
     "length": 30,
     "text": "Which file?",
@@ -316,65 +436,5 @@
     "length": 24,
     "text": "No casters",
     "encoding": "fullwidth"
-  },
-  {
-    "offset": "01B10F",
-    "length": 9,
-    "text": "USE ITEM",
-    "encoding": "font"
-  },
-  {
-    "offset": "01B118",
-    "length": 9,
-    "text": "STORE",
-    "encoding": "font"
-  },
-  {
-    "offset": "01B121",
-    "length": 9,
-    "text": "DROP",
-    "encoding": "font"
-  },
-  {
-    "offset": "01B12A",
-    "length": 9,
-    "text": "EQ  ",
-    "encoding": "font"
-  },
-  {
-    "offset": "01B133",
-    "length": 9,
-    "text": "EQ  ",
-    "encoding": "font"
-  },
-  {
-    "offset": "03716E",
-    "length": 5,
-    "text": "JEWEL",
-    "encoding": "font"
-  },
-  {
-    "offset": "03717A",
-    "length": 5,
-    "text": "PARA",
-    "encoding": "font"
-  },
-  {
-    "offset": "037180",
-    "length": 5,
-    "text": "PETRA",
-    "encoding": "font"
-  },
-  {
-    "offset": "037216",
-    "length": 8,
-    "text": "MUSCLE",
-    "encoding": "font"
-  },
-  {
-    "offset": "03721F",
-    "length": 7,
-    "text": "MANA",
-    "encoding": "font"
   }
 ]

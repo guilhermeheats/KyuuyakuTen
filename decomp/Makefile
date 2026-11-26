@@ -43,6 +43,7 @@ toolchain-test:
 
 menu-en:
 	$(PYTHON) tools/replace_text.py --translations translations/menu_en.json \
+		--raw-patches translations/raw_en.json \
 		--patch-name "Kyuuyaku Megami Tensei English UI" \
 		--out "$(BUILD)/rom/menu_en.sfc" \
 		--patch "$(BUILD)/rom/menu_en.bps" \

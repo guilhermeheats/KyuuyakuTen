@@ -1,0 +1,27 @@
+[
+  {
+    "offset": "088ECF",
+    "bytes": "FB8F",
+    "note": "shop menu option 2 (STATUS): $8FF9 -> $8FFB"
+  },
+  {
+    "offset": "088ED1",
+    "bytes": "0890",
+    "note": "shop menu option 3 (EXIT): $900C -> $9008"
+  },
+  {
+    "offset": "088FFA",
+    "bytes": "00",
+    "note": "NUL terminator after SELL"
+  },
+  {
+    "offset": "089007",
+    "bytes": "00",
+    "note": "NUL terminator after STATUS"
+  },
+  {
+    "offset": "089010",
+    "bytes": "00",
+    "note": "NUL terminator after EXIT"
+  }
+]

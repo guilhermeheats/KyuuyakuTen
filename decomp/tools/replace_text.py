@@ -130,6 +130,50 @@ def apply_entries(
     return bytes(out), report
 
 
+def load_raw_patches(path: pathlib.Path) -> list[dict]:
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if isinstance(data, dict):
+        data = data.get("patches", [])
+    if not isinstance(data, list):
+        raise ValueError("raw patch JSON must be a list or {'patches': [...]}")
+    return data
+
+
+def apply_raw_patches(
+    rom: bytes,
+    patches: list[dict],
+    used: list[tuple[int, int]] | None = None,
+) -> tuple[bytes, list[dict]]:
+    out = bytearray(rom)
+    report: list[dict] = []
+    used = list(used or [])
+    for patch in patches:
+        offset = int(str(patch["offset"]), 16)
+        raw_hex = str(patch["bytes"]).replace(" ", "")
+        data = bytes.fromhex(raw_hex)
+        if not data:
+            raise ValueError(f"empty raw patch at {offset:#x}")
+        if offset < 0 or offset + len(data) > len(out):
+            raise ValueError(f"raw patch out of range: {offset:#x}+{len(data)}")
+        for start, end in used:
+            if start < offset + len(data) and offset < end:
+                raise ValueError(f"raw patch overlaps at {offset:#x}")
+        old = bytes(out[offset : offset + len(data)])
+        out[offset : offset + len(data)] = data
+        used.append((offset, offset + len(data)))
+        report.append(
+            {
+                "offset": f"{offset:06X}",
+                "length": len(data),
+                "encoding": "raw",
+                "old_hex": old.hex(),
+                "new_hex": data.hex(),
+                "note": str(patch.get("note", "")),
+            }
+        )
+    return bytes(out), report
+
+
 def selftest() -> int:
     rom = bytearray(b"\xff" * 0x1000)
     rom[0x100:0x110] = b"\x82\xb1\x82\xb1\x82\xcd\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
@@ -172,10 +216,29 @@ def selftest() -> int:
     if [r["encoding"] for r in mixed_report] != ["fullwidth", "font"]:
         print("FAIL selftest: mixed report", file=sys.stderr)
         return 1
+    # Raw byte patches (pointer tables and terminators).
+    raw_rom = bytearray(b"\x00" * 0x100)
+    raw_out, raw_report = apply_raw_patches(
+        bytes(raw_rom), [{"offset": "40", "bytes": "DE AD BE EF", "note": "test"}]
+    )
+    if raw_out[0x40:0x44] != bytes.fromhex("DEADBEEF"):
+        print("FAIL selftest: raw patch bytes", file=sys.stderr)
+        return 1
+    if raw_report[0]["encoding"] != "raw" or raw_report[0]["note"] != "test":
+        print("FAIL selftest: raw patch report", file=sys.stderr)
+        return 1
+    try:
+        apply_raw_patches(bytes(raw_rom), [{"offset": "41", "bytes": "00"}], [(0x40, 0x44)])
+    except ValueError:
+        pass
+    else:
+        print("FAIL selftest: raw patch overlap not rejected", file=sys.stderr)
+        return 1
     print("ok selftest: in-place ASCII replacement and padding")
     print("ok selftest: font-code name replacement (COMP)")
     print("ok selftest: full-width dialogue replacement")
     print("ok selftest: mixed per-entry encodings")
+    print("ok selftest: raw byte patches")
     return 0
 
 
@@ -184,6 +247,7 @@ def main() -> int:
     ap.add_argument("--rom", help="ROM path; defaults to SNESRECOMP_ROM/rom.cfg")
     ap.add_argument("--root", default=str(DEFAULT_ROOT))
     ap.add_argument("--translations", help="JSON file with replacement entries")
+    ap.add_argument("--raw-patches", help="JSON file with raw byte patches (pointers, terminators)")
     ap.add_argument("--out", help="output ROM (default: decomp/build/rom/translated.sfc)")
     ap.add_argument("--patch", help="optional BPS patch output path")
     ap.add_argument("--patch-name", default="Kyuuyaku Megami Tensei text test")
@@ -204,12 +268,22 @@ def main() -> int:
         print("no ROM found; pass --rom or set SNESRECOMP_ROM", file=sys.stderr)
         return 1
     entries = load_entries(pathlib.Path(args.translations))
+    raw_patches = (
+        load_raw_patches(pathlib.Path(args.raw_patches)) if args.raw_patches else []
+    )
     original = rom_path.read_bytes()
     fill = int(args.fill, 16) if args.fill is not None else (0x01 if args.encoding in ("font", "fullwidth") else 0x20)
     try:
         translated, report = apply_entries(
             original, entries, encoding=args.encoding, fill=fill
         )
+        if raw_patches:
+            used = [
+                (int(item["offset"], 16), int(item["offset"], 16) + int(item["length"]))
+                for item in report
+            ]
+            translated, raw_report = apply_raw_patches(translated, raw_patches, used)
+            report.extend(raw_report)
     except (ValueError, UnicodeEncodeError) as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 1

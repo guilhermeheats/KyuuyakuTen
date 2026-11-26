@@ -43,6 +43,27 @@ A página 8x8 em VRAM `0x6000` tem glifos próprios: letras e dígitos seguem
 equipamento usa `EQ` + espaços em vez de `EQ:`. Valide qualquer pontuação
 nova ao vivo antes de commitar.
 
+### Patches crus (`raw_en.json`)
+
+Algumas traduções precisam mexer em ponteiros ou terminadores NUL, não só
+em texto. `raw_en.json` é uma lista separada:
+
+```json
+[
+  {
+    "offset": "088ECF",
+    "bytes": "FB8F",
+    "note": "shop menu option 2: $8FF9 -> $8FFB"
+  }
+]
+```
+
+`bytes` é hexadecimal e pode ter espaços. O `replace_text.py` aplica os
+patches crus depois do texto, valida limites e recusa sobreposição com as
+entradas de texto. Use só quando o layout do texto exigir: por exemplo, ao
+remanejar strings NUL-terminated da loja e atualizar a tabela de ponteiros
+em `$11:8ECB`.
+
 ## Build
 
 Com a ROM japonesa configurada (`rom.cfg` ou `SNESRECOMP_ROM`):
@@ -60,14 +81,18 @@ Saídas em `decomp/build/rom/` (ignoradas pelo git):
 ## Escopo atual
 
 `menu_en.json` cobre o pool de mensagens de sistema `$11` (63 ponteiros,
-55 mensagens limpas) e o submenu COMP:
+55 mensagens limpas), o submenu COMP e o fluxo da loja JUNKS:
 
 - prompts de save/load, arquivo, confirmação e cancelamento;
 - prompts de magia, item, alvo, retorno/chamada/remoção de demônio;
 - mensagens de erro e de estado (MP, Macca, COMP, itens, programas);
 - opções do submenu COMP (`USE ITEM`, `STORE`, `DROP`, `EQ`);
 - nomes de cinco itens visíveis (`JEWEL`, `PARA`, `PETRA`, `MUSCLE`,
-  `MANA`).
+  `MANA`);
+- saudação, pergunta e opções da loja (`Welcome`, `WHAT`, `BUY`, `SELL`,
+  `STATUS`, `EXIT`) e a despedida (`Later`);
+- três falas de história do resgate da fada (`Thank you!`, `Take this`,
+  `Take Tower Key`), ainda sem validação ao vivo.
 
 As mensagens com nomes dinâmicos preservam os controles `01 04` (demônio),
 `01 05` (item), `01 0D` (magia) e `0F` (quebra de linha); só o segmento de
@@ -75,8 +100,8 @@ texto é substituído. Mensagens de batalha que concatenam nome + verbo
 (`$A433`, `$A4E3`, `$A558`) ficam para a passada de batalha, porque o slot
 não comporta o espaço separador.
 
-Ainda não há diálogo de história traduzido; o save 8 tem o texto em cache
-na WRAM e o evento precisa ser reaberto.
+O diálogo de história continua bloqueado no save 8: o texto está em cache
+na WRAM e o flag do evento não foi encontrado.
 
 ## Créditos e licença
 
