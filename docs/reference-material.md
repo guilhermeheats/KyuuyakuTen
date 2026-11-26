@@ -31,6 +31,11 @@ capturas ficam fora do git.
 ignorada, mas **não deve ser apagada sem antes copiar `build-debug/saves/`**.
 As demais árvores de build são reproduzíveis.
 
+> Limpeza de 2026-11-26: `build/`, `build-aot/` e `build-clang/` foram
+> removidas para liberar ~875 MB. `build-debug/` foi mantida por ser a build
+> jogável e guardar os saves; `src/gen/` e `decomp/build/` continuam locais e
+> podem ser regenerados.
+
 ## Referência local (não versionada)
 
 - `/home/heats-guilherme/roms/kyuuyaku.sfc` — ROM japonesa.
