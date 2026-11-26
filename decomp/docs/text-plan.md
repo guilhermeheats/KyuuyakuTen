@@ -68,11 +68,13 @@ execução.
   `(10,12) -> (10,11) -> (10,10) -> (9,10) -> (8,10)`. A batalha ainda
   não foi encontrada nessa janela; o 5F é o próximo ponto para validar as
   mensagens de batalha.
-- **Script principal iniciado**: `translations/script_en.json` tem 25
-  entradas (cena inicial, restaurante e baú), `make script-en` gera um
-  BPS separado de 765 bytes. O prompt `Box!` / `Open?` foi validado ao
-  vivo em um jogo novo, no baú do 8F. As demais linhas ainda não foram
-  vistas em jogo; a narração da abertura fica em outra tabela.
+- **Script principal iniciado**: `translations/script_en.json` tem 41
+  entradas (cena inicial, restaurante, baú, batalha e eventos do 7F),
+  `make script-en` gera um BPS separado de 1149 bytes.
+- **Mensagens de batalha validadas ao vivo**: no 7F, um encontro aleatório
+  mostrou `外道ピンクルーパー  came`, o prompt `What?` e o turno
+  `ナカジマ  acts?` / `ユミコ  acts?`. Os nomes dinâmicos ainda vêm das
+  tabelas T1/T2 em japonês; as linhas de ataque/dano também faltam.
 - **Página 8x8 não é ASCII puro na pontuação**: `0x1B` (seria `:`) renderiza
   um glifo parecido com "10"; o label de equipamento usa `EQ` + espaços.
   Letras e dígitos seguem `ASCII - 0x1F`.
@@ -83,16 +85,17 @@ execução.
 
 ## Próximos passos
 
-1. Continuar o script principal: traduzir a cena inicial, o restaurante e
-   os eventos do 8F; validar cada novo texto em jogo.
-2. Traduzir a narração da abertura (tabela separada do banco `$10`) e
-   integrá-la ao `script_en.json`.
-3. Traduzir as mensagens de batalha (`$A433`, `$A4E3`, `$A558`) quando
-   houver um save state de batalha ou um encontro acessível.
-4. Interpretar o bytecode do script (comandos `04`-`08`) para agrupar
+1. Traduzir as tabelas de nomes T1/T2 (demônios e personagens) para que
+   as mensagens de batalha fiquem inteiras em inglês.
+2. Traduzir as linhas de ataque/dano e defesa da batalha
+   (`ナカジマの攻撃`, `ナカジマは３ダメージ` etc.).
+3. Continuar o script principal: cena inicial, restaurante e eventos do
+   8F; validar cada novo texto em jogo.
+4. Traduzir a narração da abertura (tabela separada do banco `$10`).
+5. Interpretar o bytecode do script (comandos `04`-`08`) para agrupar
    mensagens e evitar operandos no dump.
-5. Extrair o script completo e montar o glossário EN.
-6. PT-BR direto do japonês, com o inglês como referência.
+6. Extrair o script completo e montar o glossário EN.
+7. PT-BR direto do japonês, com o inglês como referência.
 
 ## Regras
 

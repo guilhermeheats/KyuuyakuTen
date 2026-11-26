@@ -173,5 +173,117 @@
     "text": "Open?",
     "encoding": "fullwidth",
     "note": "$11:8A28 chest prompt copy"
+  },
+  {
+    "offset": "08A6CA",
+    "length": 10,
+    "text": " came",
+    "encoding": "fullwidth",
+    "note": "battle: dynamic demon name + appeared"
+  },
+  {
+    "offset": "08A6D8",
+    "length": 14,
+    "text": "What?",
+    "encoding": "fullwidth",
+    "note": "battle prompt"
+  },
+  {
+    "offset": "08A6EA",
+    "length": 16,
+    "text": " acts?",
+    "encoding": "fullwidth",
+    "note": "battle: dynamic character name + what do"
+  },
+  {
+    "offset": "08A730",
+    "length": 10,
+    "text": " down",
+    "encoding": "fullwidth",
+    "note": "battle: dynamic name + defeated"
+  },
+  {
+    "offset": "08A951",
+    "length": 10,
+    "text": " down",
+    "encoding": "fullwidth",
+    "note": "battle: dynamic name + defeated (copy)"
+  },
+  {
+    "offset": "08ADED",
+    "length": 18,
+    "text": "New demon",
+    "encoding": "fullwidth",
+    "note": "battle: new demon appeared"
+  },
+  {
+    "offset": "09B5BE",
+    "length": 18,
+    "text": "Ambush!",
+    "encoding": "fullwidth",
+    "note": "fixed encounter"
+  },
+  {
+    "offset": "09B5E2",
+    "length": 26,
+    "text": "Looked around",
+    "encoding": "fullwidth",
+    "note": "fixed encounter search"
+  },
+  {
+    "offset": "09B604",
+    "length": 16,
+    "text": "Nothing",
+    "encoding": "fullwidth",
+    "note": "fixed encounter result"
+  },
+  {
+    "offset": "09B632",
+    "length": 18,
+    "text": "Ambush!",
+    "encoding": "fullwidth",
+    "note": "fixed encounter copy"
+  },
+  {
+    "offset": "09B653",
+    "length": 26,
+    "text": "Looked around",
+    "encoding": "fullwidth",
+    "note": "fixed encounter search copy"
+  },
+  {
+    "offset": "09B675",
+    "length": 16,
+    "text": "Nothing",
+    "encoding": "fullwidth",
+    "note": "fixed encounter result copy"
+  },
+  {
+    "offset": "09B689",
+    "length": 18,
+    "text": "Ambush!",
+    "encoding": "fullwidth",
+    "note": "fixed encounter copy"
+  },
+  {
+    "offset": "09B6AA",
+    "length": 26,
+    "text": "Looked around",
+    "encoding": "fullwidth",
+    "note": "fixed encounter search copy"
+  },
+  {
+    "offset": "09B6CC",
+    "length": 16,
+    "text": "Nothing",
+    "encoding": "fullwidth",
+    "note": "fixed encounter result copy"
+  },
+  {
+    "offset": "09F224",
+    "length": 20,
+    "text": "Hopeless!",
+    "encoding": "fullwidth",
+    "note": "battle talk failure"
   }
 ]

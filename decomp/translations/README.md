@@ -116,18 +116,28 @@ na WRAM e o flag do evento não foi encontrado.
 
 ## Script principal (`script_en.json`)
 
-`script_en.json` usa o mesmo formato de entradas, mas endereça o script do
-banco `$10` e algumas cópias no banco `$11`. Ele começa pela cena inicial
-(entrada no abrigo, sonho, sequência da Astaroth) e pelo restaurante, e
-inclui o prompt de baú:
+`script_en.json` tem 41 entradas e usa o mesmo formato, mas endereça o
+script do banco `$10`, cópias no banco `$11` e mensagens de batalha/evento
+no banco `$13`. Ele cobre a cena inicial (entrada no abrigo, sonho,
+sequência da Astaroth), o restaurante, o prompt de baú e as primeiras
+mensagens de batalha:
 
 - `Box!` / `Open?` — validado ao vivo em um jogo novo, no baú do 8F.
-- Linhas da cena inicial e do restaurante estão traduzidas, mas ainda não
-  foram validadas ao vivo; a narração da abertura fica em outra tabela.
+- ` came` — validado ao vivo em um encontro aleatório no 7F
+  (`外道ピンクルーパー  came`).
+- `What?` — prompt de batalha validado ao vivo.
+- ` acts?` — validado ao vivo com o nome dinâmico
+  (`ナカジマ  acts?`, `ユミコ  acts?`).
+- `Ambush!`, `Looked around`, `Nothing` — eventos de encontro fixo do 7F
+  (traduzidos; validação ao vivo pendente).
+
+Os nomes de demônios e personagens continuam em japonês porque vêm das
+tabelas T1/T2, ainda não traduzidas. Linhas de ataque/dano
+(`ナカジマの攻撃`, `ナカジマは３ダメージ`) também continuam em japonês.
 
 O alvo `make script-en` gera `script_en.sfc` e `script_en.bps` separados do
-patch de UI. A validação do baú usou um save state criado **depois** do
-patch, com o jogo começado do zero, para evitar o cache de texto da WRAM.
+patch de UI. As validações usaram um save state criado **depois** do patch,
+com o jogo começado do zero, para evitar o cache de texto da WRAM.
 
 ## Créditos e licença
 
