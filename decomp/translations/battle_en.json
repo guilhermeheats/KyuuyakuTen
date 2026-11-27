@@ -2,18 +2,97 @@
   {
     "index": 0,
     "runs": [
-      ""
+      " appeared!"
     ],
     "jp": "が現れた！",
-    "en": "full race/name line (no suffix)"
+    "en": " appeared!"
+  },
+  {
+    "index": 1,
+    "runs": [
+      "Command?"
+    ],
+    "jp": "どうしますか？",
+    "en": "Command?"
+  },
+  {
+    "index": 2,
+    "runs": [
+      " acts?"
+    ],
+    "jp": "はどうしますか？",
+    "en": " acts?"
+  },
+  {
+    "index": 3,
+    "runs": [
+      "Fighting!"
+    ],
+    "jp": "パーティーは懸命に戦っている",
+    "en": "Fighting!"
+  },
+  {
+    "index": 4,
+    "runs": [
+      " is down."
+    ],
+    "jp": "は力尽きた",
+    "en": " is down."
   },
   {
     "index": 5,
     "runs": [
-      ""
+      " defeated!"
     ],
     "jp": "を倒した！",
-    "en": "full race/name line (no suffix)"
+    "en": " defeated!"
+  },
+  {
+    "index": 6,
+    "runs": [
+      " EXP gained."
+    ],
+    "jp": "の経験値を得た",
+    "en": " EXP gained."
+  },
+  {
+    "index": 7,
+    "runs": [
+      "Got $",
+      ""
+    ],
+    "jp": "＄ / を手に入れた",
+    "en": "Got $ / "
+  },
+  {
+    "index": 8,
+    "runs": [
+      "Escaping",
+      ".",
+      ".",
+      ".",
+      ".",
+      ".",
+      "Escaped!",
+      "."
+    ],
+    "jp": "脱出を試みた / ・ / ・ / ・ / ・ / ・ / 逃げ切った / `",
+    "en": "Escaping / . / . / . / . / . / Escaped! / ."
+  },
+  {
+    "index": 9,
+    "runs": [
+      "Escaping",
+      ".",
+      ".",
+      ".",
+      ".",
+      ".",
+      "Failed!",
+      "."
+    ],
+    "jp": "脱出を試みた / ・ / ・ / ・ / ・ / ・ / 失敗！ / `",
+    "en": "Escaping / . / . / . / . / . / Failed! / ."
   },
   {
     "index": 10,
@@ -35,29 +114,29 @@
     "index": 12,
     "runs": [
       "Foe ",
-      " dmg dealt",
+      " dmg. ",
       "'s blow"
     ],
     "jp": "悪魔に / のダメージを与えた / のの一撃",
-    "en": "Foe / dmg dealt / 's blow"
+    "en": "Foe  /  dmg.  / 's blow"
   },
   {
     "index": 13,
     "runs": [
-      "CRIT! Foe ",
+      "CRIT! Foe takes ",
       " dmg"
     ],
     "jp": "会心！悪魔は / のダメージ",
-    "en": "CRIT! Foe / dmg"
+    "en": "CRIT! Foe takes  /  dmg"
   },
   {
     "index": 14,
     "runs": [
-      "KILL! Foe ",
+      "KILL! Foe takes ",
       " dmg"
     ],
     "jp": "必殺！悪魔は / のダメージ",
-    "en": "KILL! Foe / dmg"
+    "en": "KILL! Foe takes  /  dmg"
   },
   {
     "index": 15,
@@ -82,15 +161,15 @@
       " defeated"
     ],
     "jp": "悪魔 / 体にとどめをさした",
-    "en": "Foe / defeated"
+    "en": "Foe  /  defeated"
   },
   {
     "index": 18,
     "runs": [
-      "Foe atk"
+      "Foe attack"
     ],
     "jp": "悪魔の攻撃",
-    "en": "Foe atk"
+    "en": "Foe attack"
   },
   {
     "index": 19,
@@ -126,100 +205,355 @@
     "en": "You lost"
   },
   {
+    "index": 23,
+    "runs": [
+      " summoned."
+    ],
+    "jp": "を呼び出した",
+    "en": " summoned."
+  },
+  {
+    "index": 24,
+    "runs": [
+      " returned."
+    ],
+    "jp": "が戻った",
+    "en": " returned."
+  },
+  {
+    "index": 25,
+    "runs": [
+      "Reflected!"
+    ],
+    "jp": "しまった！はね返された！",
+    "en": "Reflected!"
+  },
+  {
+    "index": 26,
+    "runs": [
+      "No effect!"
+    ],
+    "jp": "ぜんぜん効いていない！",
+    "en": "No effect!"
+  },
+  {
+    "index": 27,
+    "runs": [
+      "No Macca."
+    ],
+    "jp": "魔貨が足りません",
+    "en": "No Macca."
+  },
+  {
+    "index": 28,
+    "runs": [
+      "Not needed."
+    ],
+    "jp": "必要ありません",
+    "en": "Not needed."
+  },
+  {
+    "index": 29,
+    "runs": [
+      "No effect."
+    ],
+    "jp": "効かなかった",
+    "en": "No effect."
+  },
+  {
     "index": 30,
     "runs": [
-      ""
+      " defeated!"
     ],
     "jp": "を倒した！",
-    "en": "full race/name line (no suffix)"
+    "en": " defeated!"
+  },
+  {
+    "index": 31,
+    "runs": [
+      " EXP gained."
+    ],
+    "jp": "の経験値を得た",
+    "en": " EXP gained."
+  },
+  {
+    "index": 32,
+    "runs": [
+      "Got $",
+      ""
+    ],
+    "jp": "＄ / を手に入れた",
+    "en": "Got $ / "
+  },
+  {
+    "index": 33,
+    "runs": [
+      "Got MAG."
+    ],
+    "jp": "ＭＡＧを手に入れた",
+    "en": "Got MAG."
+  },
+  {
+    "index": 34,
+    "runs": [
+      "Got ",
+      " jewels."
+    ],
+    "jp": "「宝玉」を / 個手に入れた",
+    "en": "Got  /  jewels."
+  },
+  {
+    "index": 35,
+    "runs": [
+      "Got \"",
+      "\"."
+    ],
+    "jp": "「 / 」を手に入れた",
+    "en": "Got \" / \"."
+  },
+  {
+    "index": 37,
+    "runs": [
+      "Level up:",
+      " ",
+      "Add stat bonus"
+    ],
+    "jp": "レベルアップ： / 　 / ボーナスを基本値に追加して下さい",
+    "en": "Level up: /   / Add stat bonus"
+  },
+  {
+    "index": 38,
+    "runs": [
+      " learned a spell."
+    ],
+    "jp": "は魔法を憶えた",
+    "en": " learned a spell."
+  },
+  {
+    "index": 39,
+    "runs": [
+      "Magic sealed!"
+    ],
+    "jp": "魔法を封じられている！",
+    "en": "Magic sealed!"
   },
   {
     "index": 40,
     "runs": [
-      " cut"
+      " slashed."
     ],
     "jp": "は切りかかった",
-    "en": " cut"
+    "en": " slashed."
   },
   {
     "index": 41,
     "runs": [
-      "'s gun"
+      "'s gun fired."
     ],
     "jp": "の銃が火を吹いた",
-    "en": "'s gun"
+    "en": "'s gun fired."
   },
   {
     "index": 42,
     "runs": [
-      "'s gun"
+      "'s gun fired."
     ],
     "jp": "の銃が火を吹いた",
-    "en": "'s gun"
+    "en": "'s gun fired."
   },
   {
     "index": 43,
     "runs": [
-      " danced"
+      " danced."
     ],
     "jp": "は踊りかかった",
-    "en": " danced"
+    "en": " danced."
   },
   {
     "index": 44,
     "runs": [
-      " slam"
+      "'s body slam."
     ],
     "jp": "の体当たり",
-    "en": " slam"
+    "en": "'s body slam."
   },
   {
     "index": 45,
     "runs": [
-      " slam"
+      "'s body slam."
     ],
     "jp": "の体当たり",
-    "en": " slam"
+    "en": "'s body slam."
   },
   {
     "index": 46,
     "runs": [
-      "'s fangs"
+      "'s fangs strike."
     ],
     "jp": "の牙が襲いかかる",
-    "en": "'s fangs"
+    "en": "'s fangs strike."
   },
   {
     "index": 47,
     "runs": [
-      "'s bite"
+      "'s bite attack."
     ],
     "jp": "の噛みつき攻撃",
-    "en": "'s bite"
+    "en": "'s bite attack."
   },
   {
     "index": 48,
     "runs": [
-      "'s atk"
+      "'s attack."
     ],
     "jp": "の攻撃",
-    "en": "'s atk"
+    "en": "'s attack."
   },
   {
     "index": 49,
     "runs": [
-      "'s eerie atk"
+      "'s eerie attack."
     ],
     "jp": "の不気味な攻撃",
-    "en": "'s eerie atk"
+    "en": "'s eerie attack."
   },
   {
     "index": 50,
     "runs": [
-      "'s fierce atk"
+      "'s fierce attack."
     ],
     "jp": "のきびしい攻撃",
-    "en": "'s fierce atk"
+    "en": "'s fierce attack."
+  },
+  {
+    "index": 52,
+    "runs": [
+      "Summon who?"
+    ],
+    "jp": "誰を呼びますか？",
+    "en": "Summon who?"
+  },
+  {
+    "index": 53,
+    "runs": [
+      "No effect."
+    ],
+    "jp": "しかし効果はなかった",
+    "en": "No effect."
+  },
+  {
+    "index": 54,
+    "runs": [
+      "Revive who?"
+    ],
+    "jp": "誰を生き返らせますか？",
+    "en": "Revive who?"
+  },
+  {
+    "index": 55,
+    "runs": [
+      "Can't use here!"
+    ],
+    "jp": "ここでは使えない！",
+    "en": "Can't use here!"
+  },
+  {
+    "index": 56,
+    "runs": [
+      "No items."
+    ],
+    "jp": "使えるアイテムはありません",
+    "en": "No items."
+  },
+  {
+    "index": 57,
+    "runs": [
+      " healed!"
+    ],
+    "jp": "体に効いた！",
+    "en": " healed!"
+  },
+  {
+    "index": 58,
+    "runs": [
+      "Foe cast ",
+      "."
+    ],
+    "jp": "悪魔は / を唱えた",
+    "en": "Foe cast  / ."
+  },
+  {
+    "index": 59,
+    "runs": [
+      "Foe's ",
+      " attack"
+    ],
+    "jp": "悪魔の / 攻撃",
+    "en": "Foe's  /  attack"
+  },
+  {
+    "index": 60,
+    "runs": [
+      "Choose item."
+    ],
+    "jp": "アイテムを選択して下さい",
+    "en": "Choose item."
+  },
+  {
+    "index": 61,
+    "runs": [
+      "Choose spell."
+    ],
+    "jp": "魔法を選択して下さい",
+    "en": "Choose spell."
+  },
+  {
+    "index": 62,
+    "runs": [
+      "Choose target."
+    ],
+    "jp": "対象を選んで下さい",
+    "en": "Choose target."
+  },
+  {
+    "index": 63,
+    "runs": [
+      " used it."
+    ],
+    "jp": "を使った",
+    "en": " used it."
+  },
+  {
+    "index": 64,
+    "runs": [
+      " cast a spell."
+    ],
+    "jp": "を唱えた",
+    "en": " cast a spell."
+  },
+  {
+    "index": 65,
+    "runs": [
+      "No MP."
+    ],
+    "jp": "ＭＰが足りない",
+    "en": "No MP."
+  },
+  {
+    "index": 66,
+    "runs": [
+      "Can't talk."
+    ],
+    "jp": "話せる状態ではない",
+    "en": "Can't talk."
+  },
+  {
+    "index": 67,
+    "runs": [
+      " left."
+    ],
+    "jp": "は去っていった",
+    "en": " left."
   },
   {
     "index": 68,
@@ -230,75 +564,499 @@
     "en": "Is this okay?"
   },
   {
+    "index": 69,
+    "runs": [
+      "No spells."
+    ],
+    "jp": "使える魔法はありません",
+    "en": "No spells."
+  },
+  {
+    "index": 70,
+    "runs": [
+      "Foe calls ally."
+    ],
+    "jp": "悪魔はナカマを呼んだ",
+    "en": "Foe calls ally."
+  },
+  {
+    "index": 71,
+    "runs": [
+      "Foe defends."
+    ],
+    "jp": "悪魔は身を守っている",
+    "en": "Foe defends."
+  },
+  {
+    "index": 72,
+    "runs": [
+      "Foe fled."
+    ],
+    "jp": "悪魔は逃げ出した",
+    "en": "Foe fled."
+  },
+  {
+    "index": 73,
+    "runs": [
+      "Foe exploded!"
+    ],
+    "jp": "悪魔は自爆した！",
+    "en": "Foe exploded!"
+  },
+  {
+    "index": 74,
+    "runs": [
+      "Foe clawed."
+    ],
+    "jp": "悪魔はひっかいてきた",
+    "en": "Foe clawed."
+  },
+  {
+    "index": 75,
+    "runs": [
+      "Foe's cold hand touched."
+    ],
+    "jp": "悪魔の冷たい手が触れた",
+    "en": "Foe's cold hand touched."
+  },
+  {
+    "index": 76,
+    "runs": [
+      "Foe is cursing."
+    ],
+    "jp": "悪魔はこちらを呪っている",
+    "en": "Foe is cursing."
+  },
+  {
+    "index": 77,
+    "runs": [
+      "Foe grinned."
+    ],
+    "jp": "悪魔はにやりと笑った！",
+    "en": "Foe grinned."
+  },
+  {
+    "index": 78,
+    "runs": [
+      "Foe's eerie song."
+    ],
+    "jp": "悪魔の不気味な歌",
+    "en": "Foe's eerie song."
+  },
+  {
+    "index": 79,
+    "runs": [
+      "Foe shrieked."
+    ],
+    "jp": "悪魔は凄まじい声を上げた",
+    "en": "Foe shrieked."
+  },
+  {
+    "index": 80,
+    "runs": [
+      "Foe danced."
+    ],
+    "jp": "悪魔の妙な踊りが始まった",
+    "en": "Foe danced."
+  },
+  {
+    "index": 81,
+    "runs": [
+      "Foe bit."
+    ],
+    "jp": "悪魔は噛みついてきた",
+    "en": "Foe bit."
+  },
+  {
+    "index": 82,
+    "runs": [
+      "Foe glared."
+    ],
+    "jp": "悪魔は鋭くにらんだ",
+    "en": "Foe glared."
+  },
+  {
+    "index": 83,
+    "runs": [
+      "Foe's poison needle."
+    ],
+    "jp": "悪魔の毒針攻撃",
+    "en": "Foe's poison needle."
+  },
+  {
+    "index": 84,
+    "runs": [
+      "Foe spewed poison gas."
+    ],
+    "jp": "悪魔は毒ガスを吹き出した",
+    "en": "Foe spewed poison gas."
+  },
+  {
+    "index": 85,
+    "runs": [
+      "Foe's flame breath."
+    ],
+    "jp": "悪魔の火炎ブレス",
+    "en": "Foe's flame breath."
+  },
+  {
+    "index": 86,
+    "runs": [
+      "Foe's ice breath."
+    ],
+    "jp": "悪魔の氷結ブレス",
+    "en": "Foe's ice breath."
+  },
+  {
+    "index": 87,
+    "runs": [
+      "No one came."
+    ],
+    "jp": "だが誰も来なかった",
+    "en": "No one came."
+  },
+  {
+    "index": 88,
+    "runs": [
+      "New foe!"
+    ],
+    "jp": "新たな悪魔が現れた",
+    "en": "New foe!"
+  },
+  {
     "index": 94,
     "runs": [
-      " clawed"
+      " clawed."
     ],
     "jp": "はひっかいた",
-    "en": " clawed"
+    "en": " clawed."
   },
   {
     "index": 99,
     "runs": [
-      " howled"
+      " howled."
     ],
     "jp": "は吠えた",
-    "en": " howled"
+    "en": " howled."
   },
   {
     "index": 100,
     "runs": [
-      " danced"
+      " danced."
     ],
     "jp": "は踊った",
-    "en": " danced"
+    "en": " danced."
   },
   {
     "index": 101,
     "runs": [
-      " bites"
+      " bites."
     ],
     "jp": "は噛みつき攻撃",
-    "en": " bites"
+    "en": " bites."
   },
   {
     "index": 102,
     "runs": [
-      " glared"
+      " glared."
     ],
     "jp": "は鋭くにらんだ",
-    "en": " glared"
+    "en": " glared."
   },
   {
     "index": 103,
     "runs": [
-      " poison"
+      "'s poison needle."
     ],
     "jp": "の毒針攻撃",
-    "en": " poison"
+    "en": "'s poison needle."
   },
   {
     "index": 104,
     "runs": [
-      " poison gas"
+      "'s poison gas."
     ],
     "jp": "の毒ガス攻撃",
-    "en": " poison gas"
+    "en": "'s poison gas."
   },
   {
     "index": 105,
     "runs": [
-      " flame"
+      "'s flame breath."
     ],
     "jp": "の火炎ブレス",
-    "en": " flame"
+    "en": "'s flame breath."
   },
   {
     "index": 106,
     "runs": [
-      " ice"
+      "'s ice breath."
     ],
     "jp": "の氷結ブレス",
-    "en": " ice"
+    "en": "'s ice breath."
+  },
+  {
+    "index": 110,
+    "runs": [
+      "HP +1!"
+    ],
+    "jp": "体力が１上がった！",
+    "en": "HP +1!"
+  },
+  {
+    "index": 111,
+    "runs": [
+      "INT +1!"
+    ],
+    "jp": "知力が１上がった！",
+    "en": "INT +1!"
+  },
+  {
+    "index": 112,
+    "runs": [
+      "STR +1!"
+    ],
+    "jp": "強さが１上がった！",
+    "en": "STR +1!"
+  },
+  {
+    "index": 113,
+    "runs": [
+      "AGI +1!"
+    ],
+    "jp": "速さが１上がった！",
+    "en": "AGI +1!"
+  },
+  {
+    "index": 114,
+    "runs": [
+      "LUK +1!"
+    ],
+    "jp": "運が１上がった！",
+    "en": "LUK +1!"
+  },
+  {
+    "index": 115,
+    "runs": [
+      "No effect."
+    ],
+    "jp": "効果がありません",
+    "en": "No effect."
+  },
+  {
+    "index": 116,
+    "runs": [
+      "Seto suffers."
+    ],
+    "jp": "セトは苦しんでいる",
+    "en": "Seto suffers."
+  },
+  {
+    "index": 117,
+    "runs": [
+      "Can't use."
+    ],
+    "jp": "使えません",
+    "en": "Can't use."
+  },
+  {
+    "index": 118,
+    "runs": [
+      "No MP."
+    ],
+    "jp": "ＭＰが足りません",
+    "en": "No MP."
+  },
+  {
+    "index": 119,
+    "runs": [
+      " is affected!"
+    ],
+    "jp": "は影響を受けた！",
+    "en": " is affected!"
+  },
+  {
+    "index": 120,
+    "runs": [
+      " recovered."
+    ],
+    "jp": "は回復した",
+    "en": " recovered."
+  },
+  {
+    "index": 121,
+    "runs": [
+      " revived!"
+    ],
+    "jp": "は生き返った！",
+    "en": " revived!"
+  },
+  {
+    "index": 122,
+    "runs": [
+      "Already active."
+    ],
+    "jp": "既に効いている",
+    "en": "Already active."
+  },
+  {
+    "index": 123,
+    "runs": [
+      "Can't now!"
+    ],
+    "jp": "今は使えない！",
+    "en": "Can't now!"
+  },
+  {
+    "index": 124,
+    "runs": [
+      "Lightning hits party!"
+    ],
+    "jp": "パーティーの頭上に雷が落ちた！",
+    "en": "Lightning hits party!"
+  },
+  {
+    "index": 126,
+    "runs": [
+      "Delicious!"
+    ],
+    "jp": "なかなか美味だった！",
+    "en": "Delicious!"
+  },
+  {
+    "index": 127,
+    "runs": [
+      "Found a bell too."
+    ],
+    "jp": "オマケにみあれの鈴が入っていた",
+    "en": "Found a bell too."
+  },
+  {
+    "index": 128,
+    "runs": [
+      "The demon is happy."
+    ],
+    "jp": "悪魔はシアワセだ",
+    "en": "The demon is happy."
+  },
+  {
+    "index": 129,
+    "runs": [
+      " is happy."
+    ],
+    "jp": "はシアワセだ",
+    "en": " is happy."
+  },
+  {
+    "index": 130,
+    "runs": [
+      "A mind wall was built."
+    ],
+    "jp": "精神の壁を築いた",
+    "en": "A mind wall was built."
+  },
+  {
+    "index": 131,
+    "runs": [
+      "The wall blocked it."
+    ],
+    "jp": "精神の壁が攻撃を防いだ",
+    "en": "The wall blocked it."
+  },
+  {
+    "index": 132,
+    "runs": [
+      " lost a level."
+    ],
+    "jp": "はレベルダウン",
+    "en": " lost a level."
+  },
+  {
+    "index": 133,
+    "runs": [
+      "Foe's magic is sealed."
+    ],
+    "jp": "悪魔の魔法は封じられている",
+    "en": "Foe's magic is sealed."
+  },
+  {
+    "index": 134,
+    "runs": [
+      "Tetraja protects."
+    ],
+    "jp": "テトラジャマーに守られている",
+    "en": "Tetraja protects."
+  },
+  {
+    "index": 135,
+    "runs": [
+      "Foe is frozen."
+    ],
+    "jp": "悪魔は凍っている",
+    "en": "Foe is frozen."
+  },
+  {
+    "index": 136,
+    "runs": [
+      "Foe is asleep."
+    ],
+    "jp": "悪魔は眠っている",
+    "en": "Foe is asleep."
+  },
+  {
+    "index": 137,
+    "runs": [
+      "Foe can't move."
+    ],
+    "jp": "悪魔は動けない",
+    "en": "Foe can't move."
+  },
+  {
+    "index": 138,
+    "runs": [
+      "Foe is confused."
+    ],
+    "jp": "悪魔は混乱している",
+    "en": "Foe is confused."
+  },
+  {
+    "index": 139,
+    "runs": [
+      "Foe is petrified."
+    ],
+    "jp": "悪魔は石になっている",
+    "en": "Foe is petrified."
+  },
+  {
+    "index": 140,
+    "runs": [
+      "Foe is paralyzed."
+    ],
+    "jp": "悪魔はしびれている",
+    "en": "Foe is paralyzed."
+  },
+  {
+    "index": 141,
+    "runs": [
+      "Can't summon."
+    ],
+    "jp": "呼び出せません",
+    "en": "Can't summon."
+  },
+  {
+    "index": 142,
+    "runs": [
+      " has no effect."
+    ],
+    "jp": "の効果はありません",
+    "en": " has no effect."
+  },
+  {
+    "index": 143,
+    "runs": [
+      "Reflected!"
+    ],
+    "jp": "はねかえした！",
+    "en": "Reflected!"
   }
 ]

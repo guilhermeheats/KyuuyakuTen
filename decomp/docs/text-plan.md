@@ -103,9 +103,15 @@ execução.
 - **Tabela de batalha mapeada e repackada**: `$11:$A5A4` tem 144
   ponteiros para `$A6C6-$B13D`. `tools/patch_battle.py` separa os runs de
   texto dos controles, substitui só os runs, deduplica blobs e atualiza a
-  tabela. `translations/battle_en.json` cobre 10-22 e 40-50/94-106
-  (ataque/dano/defesa/crítica). O pool original tem 2679 bytes e a
-  tradução usa 2674; novas mensagens exigem relocação/expansão.
+  tabela. O pool original tem 2679 bytes e ficou cheio; a tabela e as
+  mensagens foram realocadas para `$29:B820` (tabela) e para os buracos
+  livres `$29:B940-$BFFF` e `$29:F820-$FFFF` (3744 bytes). Dois leitores
+  de tabela em `$01` são redirecionados (`$01:A9B0/$01:A9C0` e
+  `$01:A9E5/$01:A9F3`), o segundo através de um wrapper em `$2E:C000` que
+  define `$44 = $29` e volta para `$01:A9EC`. `translations/battle_en.json`
+  cobre 129 entradas (3213 bytes), incluindo ataque/dano/defesa/crítica,
+  comandos, ações dos demônios, status e aflições. As 15 entradas restantes
+  são vazias ou só têm controles, então não há mais texto japonês no pool.
   `make battle-en` gera um BPS contra a ROM japonesa.
 - **Nomes completos na mesma linha**: o alvo `make full-names` instala
   tabelas completas de raça/nome em `$2E`/`$2F` e rotinas 65816 em
@@ -118,7 +124,7 @@ execução.
   exigiriam redesenhar a janela e ficam para depois. Como as rotinas são
   código, o recomp precisa ser regerado de `full_names.sfc` com
   `tools/regen.sh --rom ... --no-verify`; o BPS `full_names.bps` contra a
-  ROM japonesa tem 15.168 bytes.
+  ROM japonesa tem 15.843 bytes com o pool de batalha realocado.
 - **Prefixos de raça traduzidos**: o controle `01 0C` chama `$02:BCFA`,
   que lê dois caracteres full-width de `$02:BC8E` (26 entradas de 4
   bytes). Como o slot é fixo em 2 caracteres, `translations/races_en.json`
@@ -136,9 +142,8 @@ execução.
 
 ## Próximos passos
 
-1. Traduzir o restante das 144 mensagens de batalha. O pool está quase
-   cheio (5 bytes livres); planejar relocação para o banco `$2E` ou
-   compressão antes de continuar.
+1. Fechar a validação do pool de batalha realocado em `$29` no recomp e
+   no snes9x; o texto restante é PT-BR/qualidade, não extração.
 2. Continuar o script principal: cena inicial, restaurante e eventos do
    8F; validar cada novo texto em jogo.
 3. Interpretar os controles do banco `$05` (`0x89` + kanji inline) e

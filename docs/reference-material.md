@@ -67,10 +67,15 @@ O segundo é necessário porque o recomp executa `bank_02_C87B` como código
 nativo e não enxerga o patch 65816 do BPS. Depois do regen, rebuilde o
 recomp para aplicar.
 
-As mensagens de batalha (`$11`) e os prefixos de raça (`$02:BC8E`) são
-dados lidos diretamente da ROM pelo recomp. Os alvos `battle-en` e
-`races-en` não precisam de patch no C gerado; o único redirecionamento de
-código para texto é o das tabelas T1/T2 em `$2E`.
+As mensagens de batalha foram realocadas de `$11` para `$29` porque o pool
+original de 2679 bytes ficou cheio. A tabela nova fica em `$29:B820`, as
+mensagens em `$29:B940-$BFFF` e `$29:F820-$FFFF`, e dois leitores em `$01`
+são redirecionados (`$01:A9B0/$01:A9C0` e `$01:A9E5/$01:A9F3`, este último
+com um wrapper em `$2E:C000` que define `$44 = $29`). Isso é um patch de
+código no ROM, então o `src/gen` precisa ser gerado de `full_names.sfc`;
+os dados em si continuam sendo lidos da ROM pelo recomp. Os prefixos de raça
+(`$02:BC8E`) são data-only e não precisam de patch no C gerado. O alvo
+`full-names` encadeia tudo isso.
 
 O alvo `full-names` vai além: adiciona rotinas 65816 novas em `$2E` para
 mostrar a raça completa e o nome completo na mesma linha, ambos em 8x8
