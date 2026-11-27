@@ -110,7 +110,7 @@ execução.
   `$01:A9E5/$01:A9F3`), o segundo através de um wrapper em `$2E:C000` que
   define `$44 = $29`, preserva o índice em A e volta para `$01:A9EC`.
   `translations/battle_en.json`
-  cobre 129 entradas (3213 bytes), incluindo ataque/dano/defesa/crítica,
+  cobre 129 entradas (3675 bytes), incluindo ataque/dano/defesa/crítica,
   comandos, ações dos demônios, status e aflições. As 15 entradas restantes
   são vazias ou só têm controles, então não há mais texto japonês no pool.
   `make battle-en` gera um BPS contra a ROM japonesa.
@@ -126,8 +126,8 @@ execução.
   código, o recomp precisa ser regerado de `full_names.sfc` com
   `tools/regen.sh --rom ... --no-verify`. O alvo `script-en` agora parte de
   `menu_en.sfc`, então o `full_names` inclui UI/menu + script + batalha. O
-  BPS `full_names.bps` contra a
-  ROM japonesa tem 17.912 bytes com o pool de batalha realocado.
+  BPS `full_names.bps` contra a ROM japonesa tem 17.912 bytes com o pool
+  de batalha realocado.
 - **Prefixos de raça traduzidos**: o controle `01 0C` chama `$02:BCFA`,
   que lê dois caracteres full-width de `$02:BC8E` (26 entradas de 4
   bytes). Como o slot é fixo em 2 caracteres, `translations/races_en.json`
