@@ -113,30 +113,30 @@
   {
     "index": 12,
     "runs": [
-      "INIMIGO SOFRE ",
-      " DE DANO. ",
+      "SOFRE ",
+      " DANO. ",
       " ATACA."
     ],
     "en": "Foe  /  dmg.  / 's blow",
-    "pt": "INIMIGO SOFRE  /  DE DANO.  /  ATACA."
+    "pt": "SOFRE  /  DANO.  /  ATACA."
   },
   {
     "index": 13,
     "runs": [
-      "CRIT! INIMIGO ",
-      " DE DANO"
+      "CRIT! ",
+      " DANO"
     ],
     "en": "CRIT! Foe takes  /  dmg",
-    "pt": "CRIT! INIMIGO  /  DE DANO"
+    "pt": "CRIT!  /  DANO"
   },
   {
     "index": 14,
     "runs": [
-      "MORTAL! INIMIGO ",
-      " DE DANO"
+      "MORTAL! ",
+      " DANO"
     ],
     "en": "KILL! Foe takes  /  dmg",
-    "pt": "MORTAL! INIMIGO  /  DE DANO"
+    "pt": "MORTAL!  /  DANO"
   },
   {
     "index": 15,
@@ -158,10 +158,10 @@
     "index": 17,
     "runs": [
       "INIMIGO ",
-      " DERROTADO"
+      " CAIU"
     ],
     "en": "Foe  /  defeated",
-    "pt": "INIMIGO  /  DERROTADO"
+    "pt": "INIMIGO  /  CAIU"
   },
   {
     "index": 18,
@@ -182,11 +182,11 @@
   {
     "index": 20,
     "runs": [
-      " SOFRE ",
-      " DE DANO"
+      " PERDE",
+      ""
     ],
     "en": " takes  /  dmg",
-    "pt": " SOFRE  /  DE DANO"
+    "pt": " PERDE / "
   },
   {
     "index": 21,
@@ -296,11 +296,11 @@
   {
     "index": 34,
     "runs": [
-      "RECEBEU ",
-      " JOIAS."
+      "GANHOU ",
+      " JOIAS"
     ],
     "en": "Got  /  jewels.",
-    "pt": "RECEBEU  /  JOIAS."
+    "pt": "GANHOU  /  JOIAS"
   },
   {
     "index": 35,
@@ -314,12 +314,12 @@
   {
     "index": 37,
     "runs": [
-      "SUBIU NIVEL:",
+      "NIVEL:",
       " ",
       "PONTOS"
     ],
     "en": "Level up: /   / Add stat bonus",
-    "pt": "SUBIU NIVEL: /   / PONTOS"
+    "pt": "NIVEL: /   / PONTOS"
   },
   {
     "index": 38,
@@ -372,18 +372,18 @@
   {
     "index": 44,
     "runs": [
-      " DEU UMA PANCADA."
+      "PANCADA!"
     ],
     "en": "'s body slam.",
-    "pt": " DEU UMA PANCADA."
+    "pt": "PANCADA!"
   },
   {
     "index": 45,
     "runs": [
-      " DEU UMA PANCADA."
+      "PANCADA!"
     ],
     "en": "'s body slam.",
-    "pt": " DEU UMA PANCADA."
+    "pt": "PANCADA!"
   },
   {
     "index": 46,
@@ -396,10 +396,10 @@
   {
     "index": 47,
     "runs": [
-      " DEU UMA MORDIDA."
+      "MORDIDA!"
     ],
     "en": "'s bite attack.",
-    "pt": " DEU UMA MORDIDA."
+    "pt": "MORDIDA!"
   },
   {
     "index": 48,
@@ -412,18 +412,18 @@
   {
     "index": 49,
     "runs": [
-      " ATAQUE SINISTRO."
+      "SINISTRO!"
     ],
     "en": "'s eerie attack.",
-    "pt": " ATAQUE SINISTRO."
+    "pt": "SINISTRO!"
   },
   {
     "index": 50,
     "runs": [
-      " FEZ ATAQUE FEROZ."
+      "ATAQUE FEROZ!"
     ],
     "en": "'s fierce attack.",
-    "pt": " FEZ ATAQUE FEROZ."
+    "pt": "ATAQUE FEROZ!"
   },
   {
     "index": 52,
@@ -476,20 +476,20 @@
   {
     "index": 58,
     "runs": [
-      "INIMIGO USA ",
+      "USA ",
       "."
     ],
     "en": "Foe cast  / .",
-    "pt": "INIMIGO USA  / ."
+    "pt": "USA  / ."
   },
   {
     "index": 59,
     "runs": [
-      "INIMIGO: ",
+      ": ",
       "."
     ],
     "en": "Foe's  /  attack",
-    "pt": "INIMIGO:  / ."
+    "pt": ":  / ."
   },
   {
     "index": 60,
@@ -518,10 +518,10 @@
   {
     "index": 63,
     "runs": [
-      " USOU O ITEM."
+      " USADO!"
     ],
     "en": " used it.",
-    "pt": " USOU O ITEM."
+    "pt": " USADO!"
   },
   {
     "index": 64,
@@ -574,10 +574,10 @@
   {
     "index": 70,
     "runs": [
-      "INIMIGO CHAMA ALIADO."
+      "CHAMA ALIADO!"
     ],
     "en": "Foe calls ally.",
-    "pt": "INIMIGO CHAMA ALIADO."
+    "pt": "CHAMA ALIADO!"
   },
   {
     "index": 71,
@@ -598,18 +598,18 @@
   {
     "index": 73,
     "runs": [
-      "INIMIGO EXPLODIU!"
+      "EXPLODIU!"
     ],
     "en": "Foe exploded!",
-    "pt": "INIMIGO EXPLODIU!"
+    "pt": "EXPLODIU!"
   },
   {
     "index": 74,
     "runs": [
-      "INIMIGO ARRANHOU."
+      "ARRANHOU!"
     ],
     "en": "Foe clawed.",
-    "pt": "INIMIGO ARRANHOU."
+    "pt": "ARRANHOU!"
   },
   {
     "index": 75,
@@ -622,10 +622,10 @@
   {
     "index": 76,
     "runs": [
-      "INIMIGO AMALDICOA."
+      "AMALDICOA!"
     ],
     "en": "Foe is cursing.",
-    "pt": "INIMIGO AMALDICOA."
+    "pt": "AMALDICOA!"
   },
   {
     "index": 77,
@@ -686,10 +686,10 @@
   {
     "index": 84,
     "runs": [
-      "INIMIGO SOLTOU GAS."
+      "SOLTOU GAS!"
     ],
     "en": "Foe spewed poison gas.",
-    "pt": "INIMIGO SOLTOU GAS."
+    "pt": "SOLTOU GAS!"
   },
   {
     "index": 85,
@@ -726,10 +726,10 @@
   {
     "index": 94,
     "runs": [
-      " ARRANHOU."
+      " ARRANHA"
     ],
     "en": " clawed.",
-    "pt": " ARRANHOU."
+    "pt": " ARRANHA"
   },
   {
     "index": 99,
@@ -758,42 +758,42 @@
   {
     "index": 102,
     "runs": [
-      " ENCAROU."
+      " ENCARA"
     ],
     "en": " glared.",
-    "pt": " ENCAROU."
+    "pt": " ENCARA"
   },
   {
     "index": 103,
     "runs": [
-      " AGULHA VENENOSA."
+      " VENENO"
     ],
     "en": "'s poison needle.",
-    "pt": " AGULHA VENENOSA."
+    "pt": " VENENO"
   },
   {
     "index": 104,
     "runs": [
-      " GAS VENENOSO."
+      " GAS"
     ],
     "en": "'s poison gas.",
-    "pt": " GAS VENENOSO."
+    "pt": " GAS"
   },
   {
     "index": 105,
     "runs": [
-      " SOPRO DE FOGO."
+      " FOGO!"
     ],
     "en": "'s flame breath.",
-    "pt": " SOPRO DE FOGO."
+    "pt": " FOGO!"
   },
   {
     "index": 106,
     "runs": [
-      " SOPRO DE GELO."
+      " GELO!"
     ],
     "en": "'s ice breath.",
-    "pt": " SOPRO DE GELO."
+    "pt": " GELO!"
   },
   {
     "index": 110,
@@ -870,26 +870,26 @@
   {
     "index": 119,
     "runs": [
-      " FOI AFETADO!"
+      " AFETADO"
     ],
     "en": " is affected!",
-    "pt": " FOI AFETADO!"
+    "pt": " AFETADO"
   },
   {
     "index": 120,
     "runs": [
-      " RECUPEROU."
+      " CURADO!"
     ],
     "en": " recovered.",
-    "pt": " RECUPEROU."
+    "pt": " CURADO!"
   },
   {
     "index": 121,
     "runs": [
-      " REVIVEU!"
+      " VOLTOU!"
     ],
     "en": " revived!",
-    "pt": " REVIVEU!"
+    "pt": " VOLTOU!"
   },
   {
     "index": 122,
@@ -910,10 +910,10 @@
   {
     "index": 124,
     "runs": [
-      "RAIO ATINGE GRUPO!"
+      "RAIO NO GRUPO!"
     ],
     "en": "Lightning hits party!",
-    "pt": "RAIO ATINGE GRUPO!"
+    "pt": "RAIO NO GRUPO!"
   },
   {
     "index": 126,
@@ -934,18 +934,18 @@
   {
     "index": 128,
     "runs": [
-      "DEMONIO ESTA FELIZ."
+      "DEMONIO FELIZ!"
     ],
     "en": "The demon is happy.",
-    "pt": "DEMONIO ESTA FELIZ."
+    "pt": "DEMONIO FELIZ!"
   },
   {
     "index": 129,
     "runs": [
-      " ESTA FELIZ."
+      " FELIZ!"
     ],
     "en": " is happy.",
-    "pt": " ESTA FELIZ."
+    "pt": " FELIZ!"
   },
   {
     "index": 130,
@@ -958,26 +958,26 @@
   {
     "index": 131,
     "runs": [
-      "BARREIRA BLOQUEOU."
+      "BARREIRA!"
     ],
     "en": "The wall blocked it.",
-    "pt": "BARREIRA BLOQUEOU."
+    "pt": "BARREIRA!"
   },
   {
     "index": 132,
     "runs": [
-      " PERDEU NIVEL."
+      " BAIXOU!"
     ],
     "en": " lost a level.",
-    "pt": " PERDEU NIVEL."
+    "pt": " BAIXOU!"
   },
   {
     "index": 133,
     "runs": [
-      "MAGIA DO INIMIGO SELADA."
+      "MAGIA SELADA!"
     ],
     "en": "Foe's magic is sealed.",
-    "pt": "MAGIA DO INIMIGO SELADA."
+    "pt": "MAGIA SELADA!"
   },
   {
     "index": 134,
@@ -990,18 +990,18 @@
   {
     "index": 135,
     "runs": [
-      "INIMIGO CONGELADO."
+      "CONGELADO!"
     ],
     "en": "Foe is frozen.",
-    "pt": "INIMIGO CONGELADO."
+    "pt": "CONGELADO!"
   },
   {
     "index": 136,
     "runs": [
-      "INIMIGO DORMINDO."
+      "DORMINDO!"
     ],
     "en": "Foe is asleep.",
-    "pt": "INIMIGO DORMINDO."
+    "pt": "DORMINDO!"
   },
   {
     "index": 137,
@@ -1022,26 +1022,26 @@
   {
     "index": 139,
     "runs": [
-      "INIMIGO PETRIFICADO."
+      "PETRIFICADO!"
     ],
     "en": "Foe is petrified.",
-    "pt": "INIMIGO PETRIFICADO."
+    "pt": "PETRIFICADO!"
   },
   {
     "index": 140,
     "runs": [
-      "INIMIGO PARALISADO."
+      "PARALISADO!"
     ],
     "en": "Foe is paralyzed.",
-    "pt": "INIMIGO PARALISADO."
+    "pt": "PARALISADO!"
   },
   {
     "index": 141,
     "runs": [
-      "NAO PODE INVOCAR."
+      "NAO INVOCA!"
     ],
     "en": "Can't summon.",
-    "pt": "NAO PODE INVOCAR."
+    "pt": "NAO INVOCA!"
   },
   {
     "index": 142,

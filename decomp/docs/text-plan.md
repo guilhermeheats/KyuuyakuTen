@@ -126,7 +126,7 @@ execução.
   dispatcher avança o ponteiro no caminho de 2 bytes e não avança no de
   1 byte, porque `$02:B01B` já consumiu o byte. O pool cai de 3675 para 2087
   bytes no EN e o `battle_pt.json` (129 entradas, PT-BR sem acentos por
-  enquanto) usa 2181/3744 bytes. Maiúsculas/minúsculas são dobradas para
+  enquanto) usa 1896/3744 bytes. Maiúsculas/minúsculas são dobradas para
   maiúsculas até a página 8x8 com minúsculas ser instalada. Como há patch
   de código, o AOT precisa ser regerado a partir do ROM de 1 byte. O codec
   fica no antigo pool `$11:A6C6-$B13D`, fora da fonte de diálogo; os tails
@@ -143,9 +143,9 @@ execução.
   salta direto para `$02:B037`, porque `$02:B01B` já consumiu o byte. O
   COMP/história voltou a renderizar (texto japonês do banco `$05` e
   mensagens de sistema) e a batalha PT mostra as palavras em ASCII. A
-  pontuação e os espaços da batalha saem corretos com o desenhista 8x8; o
-  limite de ~16-17 caracteres por linha ainda exige encurtar as entradas PT
-  mais longas.
+  pontuação e os espaços da batalha saem corretos com o desenhista 8x8; as
+  entradas PT foram encurtadas para caber no limite de ~16-17 caracteres
+  (pool em 1896/3744 bytes), faltando validar os templates com nome/dano.
 - **Nomes completos na mesma linha**: o alvo `make full-names` instala
   tabelas completas de raça/nome em `$2E`/`$2F` e rotinas 65816 em
   `$2E:BE90`/`$2E:BF00`. A introdução de batalha passa a mostrar, por
