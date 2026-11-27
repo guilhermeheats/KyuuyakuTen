@@ -111,7 +111,7 @@ full-pt: menu-pt
 		--out "$(BUILD)/rom/script_pt_ui.sfc" \
 		--report "$(BUILD)/rom/script_pt_ui_report.json"
 	$(PYTHON) tools/patch_races.py --rom "$(BUILD)/rom/script_pt_ui.sfc" \
-		--translations translations/races_en.json \
+		--translations translations/races_pt.json \
 		--out "$(BUILD)/rom/script_pt_races.sfc" \
 		--report "$(BUILD)/rom/pt_races_report.json"
 	$(PYTHON) tools/patch_names.py --rom "$(BUILD)/rom/script_pt_races.sfc" \
@@ -119,7 +119,7 @@ full-pt: menu-pt
 		--out "$(BUILD)/rom/script_pt_names.sfc" \
 		--report "$(BUILD)/rom/pt_names_report.json"
 	$(PYTHON) tools/patch_full_names.py --rom "$(BUILD)/rom/script_pt_names.sfc" \
-		$(BASE_ROM_ARG) --names translations/names_en.json --races translations/races_en.json \
+		$(BASE_ROM_ARG) --names translations/names_en.json --races translations/races_pt.json \
 		--out "$(BUILD)/rom/pt_full_names.sfc" \
 		--report "$(BUILD)/rom/pt_full_names_report.json"
 	$(PYTHON) tools/patch_battle.py --rom "$(BUILD)/rom/pt_full_names.sfc" \
@@ -147,7 +147,7 @@ full-en: races-en
 
 full-names: full-en
 	$(PYTHON) tools/patch_full_names.py --rom "$(BUILD)/rom/full_en.sfc" \
-		$(BASE_ROM_ARG) --names translations/names_en.json --races translations/races_en.json \
+		$(BASE_ROM_ARG) --names translations/names_en.json --races translations/races_pt.json \
 		--patch-name "Kyuuyaku Megami Tensei English full battle names" \
 		--out "$(BUILD)/rom/full_names.sfc" \
 		--patch "$(BUILD)/rom/full_names.bps" \

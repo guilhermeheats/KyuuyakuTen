@@ -177,10 +177,14 @@ execução.
   standalone e o `full-pt` usa esse script no lugar do EN. A validação
   cena a cena no recomp ainda está pendente; a renderização fullwidth é a
   mesma já validada no EN.
+- **Raças em PT-BR**: `translations/races_pt.json` mantém as letras de
+  prefixo e traduz os nomes completos (TIRANO, FERA, IMUNDO, ...). O
+  `full-pt` usa esse arquivo em `patch_races` e `patch_full_names`; os
+  nomes próprios dos demônios continuam em `names_en.json`.
 - O alvo `full-pt` parte de `menu_pt.sfc`, aplica o script PT, a batalha
-  PT de 1 byte e os nomes/raças EN, gerando `full_pt.sfc`/`full_pt.bps`
-  (16217 bytes). O menu e o script usam o motor de 2 bytes estável; a
-  batalha PT usa o codec 8x8 descrito acima.
+  PT de 1 byte, os nomes EN e as raças PT, gerando
+  `full_pt.sfc`/`full_pt.bps` (16227 bytes). O menu e o script usam o motor
+  de 2 bytes estável; a batalha PT usa o codec 8x8 descrito acima.
 - O fallback `names-inplace` não é necessário para o recomp agora.
 - **Página 8x8 não é ASCII puro na pontuação**: `0x1B` (seria `:`) renderiza
   um glifo parecido com "10"; o label de equipamento usa `EQ` + espaços.
