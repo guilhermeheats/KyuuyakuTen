@@ -556,5 +556,197 @@
     "length": 24,
     "text": "HP TEMP +",
     "encoding": "fullwidth"
+  },
+  {
+    "offset": "00A931",
+    "length": 6,
+    "text": "AUTO",
+    "encoding": "ascii"
+  },
+  {
+    "offset": "00A939",
+    "length": 6,
+    "text": "ATACAR",
+    "encoding": "ascii"
+  },
+  {
+    "offset": "00A940",
+    "length": 6,
+    "text": "COMP",
+    "encoding": "ascii"
+  },
+  {
+    "offset": "00A947",
+    "length": 6,
+    "text": "ITEM",
+    "encoding": "ascii"
+  },
+  {
+    "offset": "00A94E",
+    "length": 6,
+    "text": "GUARDA",
+    "encoding": "ascii"
+  },
+  {
+    "offset": "00A956",
+    "length": 6,
+    "text": "ATACAR",
+    "encoding": "ascii"
+  },
+  {
+    "offset": "00A95D",
+    "length": 6,
+    "text": "MAGIA",
+    "encoding": "ascii"
+  },
+  {
+    "offset": "00A964",
+    "length": 6,
+    "text": "ITEM",
+    "encoding": "ascii"
+  },
+  {
+    "offset": "00A96B",
+    "length": 6,
+    "text": "GUARDA",
+    "encoding": "ascii"
+  },
+  {
+    "offset": "00A973",
+    "length": 6,
+    "text": "ATACAR",
+    "encoding": "ascii"
+  },
+  {
+    "offset": "00A97A",
+    "length": 6,
+    "text": "MAGIA",
+    "encoding": "ascii"
+  },
+  {
+    "offset": "00A981",
+    "length": 6,
+    "text": "VOLTAR",
+    "encoding": "ascii"
+  },
+  {
+    "offset": "00A988",
+    "length": 6,
+    "text": "GUARDA",
+    "encoding": "ascii"
+  },
+  {
+    "offset": "00A990",
+    "length": 6,
+    "text": "ARMA",
+    "encoding": "ascii"
+  },
+  {
+    "offset": "00A997",
+    "length": 6,
+    "text": "ESPADA",
+    "encoding": "ascii"
+  },
+  {
+    "offset": "01A278",
+    "length": 6,
+    "text": "COMP",
+    "encoding": "ascii"
+  },
+  {
+    "offset": "01A27F",
+    "length": 6,
+    "text": "MAGIA",
+    "encoding": "ascii"
+  },
+  {
+    "offset": "01A286",
+    "length": 6,
+    "text": "ITEM",
+    "encoding": "ascii"
+  },
+  {
+    "offset": "01A28D",
+    "length": 6,
+    "text": "ESTADO",
+    "encoding": "ascii"
+  },
+  {
+    "offset": "01B2DA",
+    "length": 6,
+    "text": "COMP",
+    "encoding": "ascii"
+  },
+  {
+    "offset": "01B2E1",
+    "length": 6,
+    "text": "MAGIA",
+    "encoding": "ascii"
+  },
+  {
+    "offset": "01B2E8",
+    "length": 6,
+    "text": "ITEM",
+    "encoding": "ascii"
+  },
+  {
+    "offset": "01B2EF",
+    "length": 6,
+    "text": "ESTADO",
+    "encoding": "ascii"
+  },
+  {
+    "offset": "019308",
+    "length": 6,
+    "text": "ATACAR",
+    "encoding": "ascii"
+  },
+  {
+    "offset": "01930E",
+    "length": 6,
+    "text": "MAGIA",
+    "encoding": "ascii"
+  },
+  {
+    "offset": "019314",
+    "length": 6,
+    "text": "ITEM",
+    "encoding": "ascii"
+  },
+  {
+    "offset": "01931A",
+    "length": 6,
+    "text": "COMP",
+    "encoding": "ascii"
+  },
+  {
+    "offset": "019320",
+    "length": 6,
+    "text": "GUARDA",
+    "encoding": "ascii"
+  },
+  {
+    "offset": "019326",
+    "length": 6,
+    "text": "VOLTAR",
+    "encoding": "ascii"
+  },
+  {
+    "offset": "0200DD",
+    "length": 7,
+    "text": "ARMAS",
+    "encoding": "ascii"
+  },
+  {
+    "offset": "020126",
+    "length": 7,
+    "text": "ARMADUR",
+    "encoding": "ascii"
+  },
+  {
+    "offset": "020156",
+    "length": 8,
+    "text": "EMPRESA",
+    "encoding": "ascii"
   }
 ]
