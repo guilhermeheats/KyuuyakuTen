@@ -110,15 +110,15 @@ execução.
 - **Nomes completos na mesma linha**: o alvo `make full-names` instala
   tabelas completas de raça/nome em `$2E`/`$2F` e rotinas 65816 em
   `$2E:BE90`/`$2E:BF00`. A introdução de batalha passa a mostrar, por
-  exemplo, `Foul Green Slime` — raça completa e nome completo na mesma
-  linha: a raça completa em 8x8 maiúscula (`FOUL`) e o nome completo em
-  16x16 com caixa mista. A tentativa de title case com patch de fonte por
-  DMA travava no snes9x na exibição do nome e foi revertida; a raça em
-  title case fica pendente de uma instalação de fonte segura. A janela de
-  batalha tem uma linha só; duas linhas exigiriam redesenhar a janela e
-  ficam para depois. Como as rotinas são código, o recomp precisa ser
-  regerado de `full_names.sfc` com `tools/regen.sh --rom ... --no-verify`;
-  o BPS `full_names.bps` contra a ROM japonesa tem 15.194 bytes.
+  exemplo, `FOUL GREEN SLIME` — raça completa e nome completo na mesma
+  linha, ambos em 8x8 maiúsculo, com espaço entre os dois. É o mesmo
+  tamanho da fan translation; a fan translation tem minúsculas porque
+  substitui a página de fonte 8x8, e essa instalação em runtime ainda
+  trava no snes9x. A janela de batalha tem uma linha só; duas linhas
+  exigiriam redesenhar a janela e ficam para depois. Como as rotinas são
+  código, o recomp precisa ser regerado de `full_names.sfc` com
+  `tools/regen.sh --rom ... --no-verify`; o BPS `full_names.bps` contra a
+  ROM japonesa tem 15.177 bytes.
 - **Prefixos de raça traduzidos**: o controle `01 0C` chama `$02:BCFA`,
   que lê dois caracteres full-width de `$02:BC8E` (26 entradas de 4
   bytes). Como o slot é fixo em 2 caracteres, `translations/races_en.json`

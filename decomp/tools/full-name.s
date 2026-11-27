@@ -1,8 +1,5 @@
-; Full demon name for the battle intro: 16x16 dialogue font, mixed case.
+; Full demon name for the battle intro: 8x8 font, uppercase.
 ; Assembled at $2E:BF00; replaces the JSL $02C87B inside $02:BAD4.
-; The 8x8 name codes are mapped through a 256-entry Shift-JIS table at
-; $2E:DD08 and drawn with $01DFAD, so the dialogue font's lowercase Latin
-; block is used. The race prefix was already drawn in 8x8.
 .MEMORYMAP
   DEFAULTSLOT 0
   SLOTSIZE $8000
@@ -14,8 +11,8 @@
 
 .BANK 0 SLOT 0
 .ORG $3F00
-.SECTION "FullName" FORCE
-FullName:
+.SECTION "FullName8c" FORCE
+FullName8:
   php
   phb
   phk
@@ -27,14 +24,14 @@ FullName:
   sta $00
   sep #$20
   lda.l $7E1FF0
-  beq NotFull
+  beq NotFull8
   lda #$00
   sta.l $7E1FF0
   lda $00
   cmp #$FD
-  bcs NotFull
+  bcs NotFull8
   lda $0CE8
-  bne T2
+  bne T2_8
   rep #$20
   lda $00
   asl a
@@ -42,57 +39,47 @@ FullName:
   lda.l $2EBB38,x
   rep #$10
   tax
-  bra CopyFull
-T2:
+  bra Loop8
+T2_8:
   rep #$20
   lda $00
   asl a
   tax
   cpx #$011C
-  bcc T2ok
+  bcc T2ok8
   ldx #$011C
-T2ok:
+T2ok8:
   lda.l $2EBD32,x
   rep #$10
   tax
-CopyFull:
+Loop8:
   sep #$20
-NameLoop:
   lda.l $2F0000,x
-  beq NameDone
-  rep #$20
-  and #$00FF
-  asl a
-  tay
-  lda $DD08,y
-  beq NameSkip
-  xba
-  sta $00
+  beq Done8
   phx
-  jsl $01DFAD
+  jsl $01E311
   plx
   sep #$20
   lda $0289
-  beq NameNoWait
+  beq NoWait8
   and #$7F
   pha
-NameWait:
+Wait8:
   lda $022F
   ora #$10
   sta $022F
   jsl $009397
   pla
   dec a
-  bne NameWait
-NameNoWait:
-NameSkip:
+  bne Wait8
+NoWait8:
   inx
-  bra NameLoop
-NameDone:
+  bra Loop8
+Done8:
   lda #$00
   sta $0057
-  bra Epilogue
-NotFull:
+  bra Epilogue8
+NotFull8:
   rep #$30
   lda $00
   jsl $02C87B
@@ -104,7 +91,7 @@ Copy8:
   inx
   cpx #$0009
   bne Copy8
-Epilogue:
+Epilogue8:
   rep #$10
   ply
   plx

@@ -6,11 +6,10 @@ the 8-character T1/T2 name copy at ``$02:C87B``. This tool installs a
 battle-only path that reads full names from free space:
 
 * ``$2E:BB38`` / ``$2E:BD32`` - full T1/T2 name pointer tables;
-* ``$2F:B81F`` and ``$2F:F820`` - full name strings (mixed-case 8x8
-  codes, mapped to Shift-JIS before display);
+* ``$2F:B81F`` and ``$2F:F820`` - full name strings (uppercase 8x8 codes);
 * ``$2E:BE50`` - full race pointer table;
 * ``$2E:DF08`` - full race prefixes (8x8 uppercase font codes);
-* ``$2E:DD08`` - 8x8 code -> full-width Shift-JIS map;
+* ``$2E:DD08`` - legacy 8x8 -> full-width Shift-JIS map (unused);
 * ``$2E:BE90`` / ``$2E:BF00`` - 65816 race/name display routines.
 
 The routines are assembled from ``tools/full-race.s`` and
@@ -18,12 +17,12 @@ The routines are assembled from ``tools/full-race.s`` and
 uses the full table only when that flag is set, so ordinary ``<04>``
 messages keep the eight-character names used by menus and status screens.
 
-The full race prefix is drawn in 8x8 with ``$01E311``; the full name is mapped
-through ``$2E:DD08`` and drawn in 16x16 with ``$01DFAD``, which gives the
-dialogue font's lowercase Latin. The direct-page ``$57`` buffer and the
-``$02:BADE`` loop patch remain for ordinary ``<04>`` messages (attack
+The full race prefix and full name are both drawn in 8x8 with
+``$01E311``, with a space between them. The direct-page ``$57`` buffer and
+the ``$02:BADE`` loop patch remain for ordinary ``<04>`` messages (attack
 lines, player names), which keep the eight-character T1/T2 names. The
-result is e.g. ``FOUL Green Slime``.
+result is e.g. ``FOUL GREEN SLIME``; the fan translation's lowercase font
+needs a runtime page install that is still being investigated.
 
 This tool expects ``full_en.sfc`` (script + battle + races + names) as
 input. The BPS is diffed against the original Japanese ROM.
@@ -67,7 +66,7 @@ RACE_CODE_BYTES = bytes.fromhex(
     "088b4babe230ad8c042275bf0248a9018ff01f7e680aaac220bf50be2ec210aae220bf00002ef023da2211e301fae220ad8902f013297f48ad2f0209108d2f0222979300683ad0f0e880d5ab286b"
 )
 NAME_CODE_BYTES = bytes.fromhex(
-    "088b4babc230da5a29ff008500e220aff01f7ef075a9008ff01f7ea500c9fdb069ade80cd00fc220a5000aaabf38bb2ec210aa8015c220a5000aaae01c019003a21c01bf32bd2ec210aae220bf00002ff032c22029ff000aa8b908ddf023eb8500da22addf01fae220ad8902f013297f48ad2f0209108d2f0222979300683ad0f0e880c8a90085578017c230a500227bc802e220a20000b5229557e8e00900d0f6c2107afaab286b"
+    "088b4babc230da5a29ff008500e220aff01f7ef066a9008ff01f7ea500c9fdb05aade80cd00fc220a5000aaabf38bb2ec210aa8015c220a5000aaae01c019003a21c01bf32bd2ec210aae220bf00002ff023da2211e301fae220ad8902f013297f48ad2f0209108d2f0222979300683ad0f0e880d5a90085578017c230a500227bc802e220a20000b5229557e8e00900d0f6c2107afaab286b"
 )
 
 # (file offset, expected bytes, replacement)
@@ -126,7 +125,7 @@ def pack_names(entries: list[dict]) -> tuple[list[int], list[tuple[int, int, byt
             text = str(entry.get("en") or entry.get("name") or "").strip()
             if not text:
                 raise ValueError(f"{table}[{index}] has no English name")
-            encoded = encode_mixed(text) + b"\x00"
+            encoded = font_encode(text) + b"\x00"
             if len(encoded) > 16:
                 raise ValueError(f"{table}[{index}] {text!r} is {len(encoded)} bytes, max 16")
             bank, base, size = holes[hole_index]
