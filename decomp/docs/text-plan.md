@@ -143,6 +143,14 @@ execução.
   usa uma letra + espaço (`T `, `D `, ...), com legenda no README de
   traduções. `tools/patch_races.py` grava a tabela; é data-only e vale
   para o recomp. Validado ao vivo: `O GREENSLM came` e `B BASMU came`.
+
+- **UI/menu em PT-BR**: `translations/menu_pt.json` cobre as 93 entradas
+  de `menu_en.json` (lojas, arquivos, magia, item, COMP) dentro dos slots
+  fixos; `make menu-pt` gera `menu_pt.sfc`/`menu_pt.bps` (2171 bytes).
+  O alvo `full-pt` parte de `menu_pt.sfc`, aplica o script EN, a batalha
+  PT de 1 byte e os nomes/raças EN, gerando `full_pt.sfc`/`full_pt.bps`
+  (16713 bytes). O menu usa o motor de 2 bytes estável; a batalha PT
+  continua experimental por causa dos espaços/pontuação.
 - O fallback `names-inplace` não é necessário para o recomp agora.
 - **Página 8x8 não é ASCII puro na pontuação**: `0x1B` (seria `:`) renderiza
   um glifo parecido com "10"; o label de equipamento usa `EQ` + espaços.

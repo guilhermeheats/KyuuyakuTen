@@ -1,0 +1,560 @@
+[
+  {
+    "offset": "01B10F",
+    "length": 9,
+    "text": "USAR ITEM",
+    "encoding": "font"
+  },
+  {
+    "offset": "01B118",
+    "length": 9,
+    "text": "GUARDAR",
+    "encoding": "font"
+  },
+  {
+    "offset": "01B121",
+    "length": 9,
+    "text": "LARGAR",
+    "encoding": "font"
+  },
+  {
+    "offset": "01B12A",
+    "length": 9,
+    "text": "EQUIP",
+    "encoding": "font"
+  },
+  {
+    "offset": "01B133",
+    "length": 9,
+    "text": "EQUIP",
+    "encoding": "font"
+  },
+  {
+    "offset": "01F552",
+    "length": 8,
+    "text": "OK",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "01F5C4",
+    "length": 18,
+    "text": "SEM ITENS",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "01F5DB",
+    "length": 8,
+    "text": "VEND",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "01F5EE",
+    "length": 8,
+    "text": "VEND",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "01F68A",
+    "length": 14,
+    "text": "SEM DIN",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "01F722",
+    "length": 18,
+    "text": "BEM-VINDO",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "01F739",
+    "length": 8,
+    "text": "QUE?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "01F751",
+    "length": 12,
+    "text": "DEPOIS",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "01F7D6",
+    "length": 22,
+    "text": "ARMADURA",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "01F7ED",
+    "length": 30,
+    "text": "LOJA ARMADURA",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "01F80F",
+    "length": 18,
+    "text": "AJUDA?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "01F893",
+    "length": 16,
+    "text": "POSSO?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "03716E",
+    "length": 5,
+    "text": "JOIAS",
+    "encoding": "font"
+  },
+  {
+    "offset": "037174",
+    "length": 5,
+    "text": "CURA",
+    "encoding": "font"
+  },
+  {
+    "offset": "03717A",
+    "length": 5,
+    "text": "PARA",
+    "encoding": "font"
+  },
+  {
+    "offset": "037180",
+    "length": 5,
+    "text": "PETRA",
+    "encoding": "font"
+  },
+  {
+    "offset": "037216",
+    "length": 8,
+    "text": "FORCA",
+    "encoding": "font"
+  },
+  {
+    "offset": "03721F",
+    "length": 7,
+    "text": "MANA",
+    "encoding": "font"
+  },
+  {
+    "offset": "078F26",
+    "length": 10,
+    "text": "ELOS",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "078F31",
+    "length": 16,
+    "text": "PEITORAL",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "078F8A",
+    "length": 8,
+    "text": "ACO",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "078FDF",
+    "length": 18,
+    "text": "CAPACETE",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "082D34",
+    "length": 22,
+    "text": "OBRIGADO!",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "082D59",
+    "length": 24,
+    "text": "PEGUE ISTO",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "082D72",
+    "length": 30,
+    "text": "CHAVE DA TORRE",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "088FEB",
+    "length": 6,
+    "text": "BUY",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "088FF2",
+    "length": 8,
+    "text": "VEND",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "088FFB",
+    "length": 12,
+    "text": "STATUS",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "089008",
+    "length": 8,
+    "text": "SAIR",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "089846",
+    "length": 18,
+    "text": "SUBIR?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08985A",
+    "length": 18,
+    "text": "DESCER?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A023",
+    "length": 30,
+    "text": "QUAL ARQUIVO?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A046",
+    "length": 14,
+    "text": "SALVO",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A059",
+    "length": 22,
+    "text": "CANCELADO",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A072",
+    "length": 32,
+    "text": "SALVAR?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A0A6",
+    "length": 30,
+    "text": "CARREGAR?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A0DB",
+    "length": 32,
+    "text": "CARREGAR?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A10F",
+    "length": 30,
+    "text": "SEM SAVE",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A131",
+    "length": 22,
+    "text": "MAGIA QUEM?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A149",
+    "length": 22,
+    "text": "QUAL MAGIA?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A163",
+    "length": 18,
+    "text": "EM QUEM?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A177",
+    "length": 14,
+    "text": "O QUE?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A187",
+    "length": 26,
+    "text": "QUAL ITEM?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A1A3",
+    "length": 26,
+    "text": "LARGAR QUAL?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A1BF",
+    "length": 16,
+    "text": "EM QUEM?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A1D1",
+    "length": 22,
+    "text": "SEM MAGIAS",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A1EB",
+    "length": 18,
+    "text": "SEM MP!",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A201",
+    "length": 28,
+    "text": "A: TROCAR",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A21F",
+    "length": 26,
+    "text": "VOLTAR QUEM?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A23D",
+    "length": 14,
+    "text": "VOLTAR?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A24D",
+    "length": 20,
+    "text": "CHAMAR?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A265",
+    "length": 14,
+    "text": "CHAMAR?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A275",
+    "length": 18,
+    "text": "SEM MACCA",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A28B",
+    "length": 22,
+    "text": "ANALISANDO",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A2A3",
+    "length": 28,
+    "text": "REMOVER QUEM?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A2C3",
+    "length": 14,
+    "text": "REMOVER",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A2D5",
+    "length": 18,
+    "text": "EM QUEM?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A2E9",
+    "length": 20,
+    "text": "SEM EFEITO",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A2FF",
+    "length": 20,
+    "text": "COMP MORTO",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A317",
+    "length": 16,
+    "text": "COMP ON",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A329",
+    "length": 24,
+    "text": "APERTE A: OK",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A343",
+    "length": 22,
+    "text": "NAO AQUI",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A35D",
+    "length": 16,
+    "text": "COMP ON",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A36F",
+    "length": 24,
+    "text": "SEM DEMONIOS",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A38B",
+    "length": 20,
+    "text": "SEM VOLTA",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A3A3",
+    "length": 20,
+    "text": "NAO LIBERA",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A3BB",
+    "length": 26,
+    "text": "SEM ITENS",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A3D9",
+    "length": 30,
+    "text": "NADA P/ LARGAR",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A3FB",
+    "length": 24,
+    "text": "SEM ITENS",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A417",
+    "length": 24,
+    "text": "SEM PROGRAMA",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A43F",
+    "length": 10,
+    "text": "NAO",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A44D",
+    "length": 14,
+    "text": "LARGAR?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A45F",
+    "length": 12,
+    "text": "SUMIR",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A473",
+    "length": 22,
+    "text": "COMP CHEIO",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A4A3",
+    "length": 24,
+    "text": "SEM DADOS",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A4C3",
+    "length": 10,
+    "text": "CAIU",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A4CF",
+    "length": 16,
+    "text": "SEM MAG",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A4F5",
+    "length": 20,
+    "text": "CAIU CEDO",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A50B",
+    "length": 18,
+    "text": "AONDE?",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A520",
+    "length": 26,
+    "text": "ESCUDO SUMIU",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A53C",
+    "length": 26,
+    "text": "ELIXIR SUMIU",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A56C",
+    "length": 10,
+    "text": "CAIU",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A57A",
+    "length": 10,
+    "text": "FUGIR",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08A588",
+    "length": 24,
+    "text": "SEM MAGOS",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C20F",
+    "length": 14,
+    "text": "CURA",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C21F",
+    "length": 16,
+    "text": "CURA PAR",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C231",
+    "length": 14,
+    "text": "CURA",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C3DD",
+    "length": 24,
+    "text": "HP TEMP +",
+    "encoding": "fullwidth"
+  }
+]

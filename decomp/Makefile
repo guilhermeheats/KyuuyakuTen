@@ -6,7 +6,7 @@ BASE_ROM_ARG := $(if $(ROM),--base-rom "$(ROM)")
 WLA_BIN ?= $(CURDIR)/.toolchain/wla-dx/build/binaries
 export WLA_BIN
 
-.PHONY: all baseline symbols text text-extract messages names names-en names-inplace replace-test font-test fullwidth-test bps-test toolchain-test menu-en script-en battle-en battle-pt full-pt races-en full-en full-names clean
+.PHONY: all baseline symbols text text-extract messages names names-en names-inplace replace-test font-test fullwidth-test bps-test toolchain-test menu-en menu-pt script-en battle-en battle-pt full-pt races-en full-en full-names clean
 
 all: baseline symbols text text-extract messages names replace-test font-test fullwidth-test bps-test toolchain-test
 
@@ -51,6 +51,14 @@ menu-en:
 		--patch "$(BUILD)/rom/menu_en.bps" \
 		--report "$(BUILD)/rom/menu_en_report.json"
 
+menu-pt:
+	$(PYTHON) tools/replace_text.py --translations translations/menu_pt.json \
+		--raw-patches translations/raw_en.json \
+		--patch-name "Kyuuyaku Megami Tensei Portuguese UI" \
+		--out "$(BUILD)/rom/menu_pt.sfc" \
+		--patch "$(BUILD)/rom/menu_pt.bps" \
+		--report "$(BUILD)/rom/menu_pt_report.json"
+
 script-en: menu-en
 	$(PYTHON) tools/replace_text.py --rom "$(BUILD)/rom/menu_en.sfc" \
 		--translations translations/script_en.json \
@@ -89,8 +97,17 @@ battle-pt: script-en
 		--patch "$(BUILD)/rom/script_battle_pt.bps" \
 		--report "$(BUILD)/rom/script_battle_pt_report.json"
 
-full-pt: battle-pt
-	$(PYTHON) tools/patch_races.py --rom "$(BUILD)/rom/script_battle_pt.sfc" \
+full-pt: menu-pt
+	$(PYTHON) tools/replace_text.py --rom "$(BUILD)/rom/menu_pt.sfc" \
+		--translations translations/script_en.json \
+		--out "$(BUILD)/rom/script_pt_ui.sfc" \
+		--report "$(BUILD)/rom/script_pt_ui_report.json"
+	$(PYTHON) tools/patch_battle.py --rom "$(BUILD)/rom/script_pt_ui.sfc" \
+		--translations translations/battle_pt.json --encoding byte \
+		--patch-name "Kyuuyaku Megami Tensei Portuguese battle text" \
+		--out "$(BUILD)/rom/script_battle_pt_ui.sfc" \
+		--report "$(BUILD)/rom/script_battle_pt_ui_report.json"
+	$(PYTHON) tools/patch_races.py --rom "$(BUILD)/rom/script_battle_pt_ui.sfc" \
 		--translations translations/races_en.json \
 		--out "$(BUILD)/rom/script_battle_pt_races.sfc" \
 		--report "$(BUILD)/rom/pt_races_report.json"
