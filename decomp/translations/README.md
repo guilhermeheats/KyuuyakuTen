@@ -214,18 +214,19 @@ nome. O alvo `make full-names` instala um caminho **só para a batalha** que
 mostra a raça completa e o nome completo na mesma linha:
 
 ```text
-Foul Green Slime
+FOUL Green Slime
 ```
 
-A raça e o nome usam a fonte 8x8 (`$01E311`). A página da fonte de
-mensagem é descomprimida para a VRAM `$C000`; o wrapper em `$2D:F980`
-copia 26 tiles minúsculos da tabela `$2D:FA00` para a VRAM `$C410` antes
-de desenhar a raça, então `Tyrant `, `Foul ` etc. saem em title case e o
-nome mantém a caixa. Maiúsculas continuam em 0x22-0x3B, então menus e
-status não mudam. A janela de batalha só tem uma linha; a versão de duas
-linhas exigiria redesenhar a janela e não é usada. Os menus e o status
-continuam usando os nomes de oito caracteres em maiúsculas. A fonte
-minúscula em runtime ainda precisa de uma batalha ao vivo para confirmação.
+A raça completa é desenhada em 8x8, em maiúscula (`FOUL`, `TYRANT`), e o
+nome completo em 16x16, com caixa mista, usando a fonte de diálogo. A
+janela de batalha só tem uma linha; a versão de duas linhas exigiria
+redesenhar a janela e não é usada. Os menus e o status continuam usando
+os nomes de oito caracteres em maiúsculas.
+
+A tentativa de deixar a raça em title case usava um patch de fonte por DMA
+em runtime; essa rotina travava no snes9x na exibição do nome e foi
+revertida. Title case para a raça continua pendente de uma instalação de
+fonte segura.
 
 O patch instala:
 
@@ -235,15 +236,14 @@ O patch instala:
 - tabela e nomes completos de raça (8x8) em `$2E:BE50`/`$2E:DF08`;
 - rotinas 65816 em `$2E:BE90` (raça) e `$2E:BF00` (nome), montadas de
   `tools/full-race.s`/`tools/full-name.s`;
-- rotina de fonte em `$2D:F900`, wrapper em `$2D:F980` e tabela de
-  glifos minúsculos em `$2D:FA00` (DMA para a VRAM `$C410`);
-- tabela legada 8x8 -> Shift-JIS full-width em `$2E:DD08` (não usada);
+- tabela de conversão 8x8 -> Shift-JIS full-width em `$2E:DD08`, usada
+  pelo nome 16x16;
 - o buffer direto `$57` e o loop de exibição `$02:BADE` redirecionado;
 - a flag `$7E:1FF0`, que faz o copy de nome usar a tabela completa apenas
   depois do controle de raça `01 0C`.
 
 O BPS `full_names.bps` é diffado contra a ROM japonesa e inclui todos os
-passes anteriores. Como as rotinas novas são código 65816, o recomp deve
+passes anteriores (15.194 bytes). Como as rotinas novas são código 65816, o recomp deve
 ser gerado a partir de `full_names.sfc`:
 
 ```sh

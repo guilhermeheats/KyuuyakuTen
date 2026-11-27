@@ -73,11 +73,12 @@ dados lidos diretamente da ROM pelo recomp. Os alvos `battle-en` e
 código para texto é o das tabelas T1/T2 em `$2E`.
 
 O alvo `full-names` vai além: adiciona rotinas 65816 novas em `$2E` para
-mostrar a raça completa e o nome completo na mesma linha, ambos em 8x8, e
-um wrapper em `$2D:F980` que copia 26 tiles minúsculos da tabela
-`$2D:FA00` para a VRAM `$C410` antes de desenhar a raça. A janela de
-batalha tem uma linha só; a variante de duas linhas exigiria redesenhar a
-janela e não é usada. Nesse caso o
+mostrar a raça completa em 8x8 maiúscula e o nome completo em 16x16 com
+caixa mista na mesma linha. A tentativa de title case com patch de fonte
+por DMA travava no snes9x na exibição do nome e foi revertida; title case
+para a raça fica pendente. A janela de batalha tem uma linha só; a
+variante de duas linhas exigiria redesenhar a janela e não é usada. Nesse
+caso o
 `src/gen` deve ser gerado a partir de
 `decomp/build/rom/full_names.sfc`, que já contém o patch de código, usando
 `tools/regen.sh --rom ... --no-verify`. O baseline japonês continua sendo
