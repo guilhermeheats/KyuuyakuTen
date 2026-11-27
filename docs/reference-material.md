@@ -78,17 +78,18 @@ os dados em si continuam sendo lidos da ROM pelo recomp. Os prefixos de raça
 `full-names` encadeia tudo isso.
 
 Para o PT-BR, `tools/patch_battle.py --encoding byte` instala um codec no
-antigo pool `$11:A6C6` e uma tabela full-width em `$11:A740`, gravando 1 byte
-ASCII por caractere no pool. O dispatcher em `$11:A6E6` checa o ponteiro da
-mensagem (`$42/$43`) e o banco (`$44`): só os buracos repackados em `$29`
-(`B940-BFFF`/`F820-FFFF`) usam o codec; COMP/história/menus usam o caminho
-original de 2 bytes. O codec salva/restaura X, chama `$01DFAD` com `JSL` e segue para
-`$02:B037`, a continuação original depois da escrita do glifo. O
-interpretador é desviado em `$02:B027` com um `JML` (sem frame de retorno):
-o dispatcher avança o ponteiro no caminho de 2 bytes e não avança no de
-1 byte, porque `$02:B01B` já consumiu o byte. O `src/gen` precisa ser
-regerado a partir desse ROM; o codec em si é código 65816 e entra no AOT
-normalmente. O alvo `full-pt` aplica a batalha de 1 byte por último.
+antigo pool `$11:A6C6`, gravando 1 byte ASCII por caractere. O codec
+converte ASCII para o código 8x8 (`ASCII - $1F`) e chama `$01E311`, o mesmo
+desenhista usado por raça/nome; espaços avançam `$024E` diretamente. O
+dispatcher em `$11:A6E6` checa o ponteiro da mensagem (`$42/$43`) e o banco
+(`$44`): só os buracos repackados em `$29` (`B940-BFFF`/`F820-FFFF`) usam o
+codec; COMP/história/menus usam o caminho original de 2 bytes com
+`$01DFAD` 16x16. O interpretador é desviado em `$02:B027` com um `JML`
+(sem frame de retorno): o dispatcher avança o ponteiro no caminho de 2
+bytes e não avança no de 1 byte, porque `$02:B01B` já consumiu o byte. O
+`src/gen` precisa ser regerado a partir desse ROM; o codec em si é código
+65816 e entra no AOT normalmente. O alvo `full-pt` aplica a batalha de 1
+byte por último.
 
 O alvo `full-names` vai além: adiciona rotinas 65816 novas em `$2E` para
 mostrar a raça completa e o nome completo na mesma linha, ambos em 8x8

@@ -9,10 +9,13 @@
 ; ($B940-$BFFF and $F820-$FFFF) use the 1-byte codec; every other message
 ; (COMP, story, menus) takes the stock two-byte path.
 ;
-; Both paths finish the stock continuation at $02:B037: the original path
-; consumes the second byte, the 1-byte path only consumes the byte already
-; read at $02:B01B. Codec at $11:A6C6; dispatcher at $11:A6E6; full-width
-; table at $11:A740.
+; The battle path uses the stock 8x8 glyph drawer at $01E311 (the same
+; routine used by race/name text) instead of the 16x16 dialogue writer at
+; $01DFAD. This keeps the battle line small and allows more characters per
+; row. The codec converts ASCII to the 8x8 font code (ASCII - $1F), draws
+; one glyph, and resumes the stock continuation at $02:B037. The 1-byte path
+; skips the second-byte pointer advance because $02:B01B already consumed
+; its byte. Codec at $11:A6C6; dispatcher at $11:A6E6.
 .MEMORYMAP
   DEFAULTSLOT 0
   SLOTSIZE $8000
@@ -25,24 +28,31 @@
 .BANK 0 SLOT 0
 .ORG $26C6
 .SECTION "BattleByteCodec" FORCE
+.ACCU 8
+.INDEX 8
 BattleByteCodec:
   phx
+  cmp #$20
+  beq Space
   sec
-  sbc #$20
-  asl a
-  tax
-  lda.l $11A740,x
-  sta $01
-  lda.l $11A741,x
-  sta $00
+  sbc #$1F
+  jsl $01E311
   plx
-  jsl $01DFAD
+  jml $02B037
+Space:
+  php
+  rep #$20
+  inc $024E
+  plp
+  plx
   jml $02B037
 .ENDS
 
 .BANK 0 SLOT 0
 .ORG $26E6
 .SECTION "BattleByteDispatch" FORCE
+.ACCU 8
+.INDEX 8
 BattleByteDispatch:
   pha
   lda $44

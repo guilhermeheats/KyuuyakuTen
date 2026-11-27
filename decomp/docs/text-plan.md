@@ -114,35 +114,38 @@ execução.
   comandos, ações dos demônios, status e aflições. As 15 entradas restantes
   são vazias ou só têm controles, então não há mais texto japonês no pool.
   `make battle-en` gera um BPS contra a ROM japonesa.
-- **Codificação de 1 byte para batalha (funcional; glifos em ajuste)**: o modo
+- **Codificação de 1 byte para batalha (validada no recomp)**: o modo
   `patch_battle.py --encoding byte` grava 1 byte ASCII por caractere. O
-  codec em `$11:A6C6` expande cada byte pela tabela em `$11:A740` para um
-  par full-width e reusa o escritor `$01:DFAD`; `PHX`/`PLX` preservam o X
-  corrente. O escritor é chamado com `JSL` e o codec segue para `$02:B037`,
-  a continuação original, mantendo o contexto/X para o próximo caractere.
+  codec em `$11:A6C6` converte ASCII para o código da fonte 8x8
+  (`ASCII - $1F`) e chama `$01E311`, o mesmo desenhista usado por raça/nome;
+  o caminho de 2 bytes (COMP/história) continua usando `$01DFAD` 16x16. O
+  escritor 16x16 corrompe a linha a partir do 8º caractere, por isso a
+  batalha usa o 8x8; a linha 8x8 cabe cerca de 16-17 caracteres. Espaços
+  avançam `$024E` diretamente, porque `$01E311` ignora o código em branco.
   O interpretador é desviado em `$02:B027` com um `JML` sem frame: o
   dispatcher avança o ponteiro no caminho de 2 bytes e não avança no de
-  1 byte, porque `$02:B01B` já consumiu o byte. O pool cai de 3675 para 2087 bytes no EN e o
-  `battle_pt.json` (129 entradas, PT-BR sem acentos por enquanto) usa
-  2181/3744 bytes. Maiúsculas/minúsculas são dobradas para maiúsculas até
-  a página 8x8 com minúsculas ser instalada. Como há patch de código, o
-  AOT precisa ser regerado a partir do ROM de 1 byte. O codec fica em
-  `$11:A6C6`/`$11:A740`, no antigo pool de mensagens, fora da fonte de
-  diálogo; os tails `$29`/`$2F` ficam zerados. O dispatcher em `$11:A6E6`
-  olha o ponteiro corrente da mensagem (`$42/$43`) e o banco (`$44`): só
-  ponteiros dentro dos buracos repackados `$29:B940-$BFFF` e
-  `$29:F820-$FFFF` usam o codec; COMP, história e menus seguem o caminho
-  original de 2 bytes. Não há flag global nem wrapper de leitor. O
-  `full-pt` aplica a batalha de 1 byte **depois** de `full names`.
+  1 byte, porque `$02:B01B` já consumiu o byte. O pool cai de 3675 para 2087
+  bytes no EN e o `battle_pt.json` (129 entradas, PT-BR sem acentos por
+  enquanto) usa 2181/3744 bytes. Maiúsculas/minúsculas são dobradas para
+  maiúsculas até a página 8x8 com minúsculas ser instalada. Como há patch
+  de código, o AOT precisa ser regerado a partir do ROM de 1 byte. O codec
+  fica no antigo pool `$11:A6C6-$B13D`, fora da fonte de diálogo; os tails
+  `$29`/`$2F` ficam zerados. O dispatcher em `$11:A6E6` olha o ponteiro
+  corrente (`$42/$43`) e o banco (`$44`): só ponteiros nos buracos
+  repackados `$29:B940-$BFFF` e `$29:F820-$FFFF` usam o codec; COMP,
+  história e menus seguem o caminho original de 2 bytes. Não há flag global
+  nem wrapper de leitor. O `full-pt` aplica a batalha de 1 byte **depois**
+  de `full names`.
 - **Continuação do interpretador corrigida (validada)**: o desvio em
   `$02:B027` agora é um `JML` para o dispatcher, sem frame de retorno. O
   caminho de 2 bytes lê o segundo byte, chama `$01:DFAD`, incrementa o
-  ponteiro e salta para `$02:B037`; o caminho de 1 byte chama `$01:DFAD` e
+  ponteiro e salta para `$02:B037`; o caminho de 1 byte chama `$01E311` e
   salta direto para `$02:B037`, porque `$02:B01B` já consumiu o byte. O
   COMP/história voltou a renderizar (texto japonês do banco `$05` e
-  mensagens de sistema) e a batalha PT mostra as palavras em ASCII. Ainda
-  faltam a pontuação/espaço do codec de batalha (por exemplo `?`) e o
-  limite de colunas para mensagens PT longas.
+  mensagens de sistema) e a batalha PT mostra as palavras em ASCII. A
+  pontuação e os espaços da batalha saem corretos com o desenhista 8x8; o
+  limite de ~16-17 caracteres por linha ainda exige encurtar as entradas PT
+  mais longas.
 - **Nomes completos na mesma linha**: o alvo `make full-names` instala
   tabelas completas de raça/nome em `$2E`/`$2F` e rotinas 65816 em
   `$2E:BE90`/`$2E:BF00`. A introdução de batalha passa a mostrar, por
@@ -182,11 +185,10 @@ execução.
 
 ## Próximos passos
 
-1. Ajustar o codec de 1 byte na batalha: mapear espaços/pontuação para os
-   glifos corretos e respeitar o limite de colunas (mensagens PT longas
-   ainda estouram a linha). Depois, instalar a página 8x8 com minúsculas
-   para o codec não precisar dobrar caixa; o pool de 2 bytes/char do EN
-   continua em 3675/3744.
+1. Encurtar as entradas PT de batalha que passam de ~16 caracteres e
+   validar os templates com nome/dano. Depois, instalar a página 8x8 com
+   minúsculas e acentos para o codec não precisar dobrar caixa; o pool de
+   2 bytes/char do EN continua em 3675/3744.
 2. Continuar o script principal: cena inicial, restaurante e eventos do
    8F; validar cada novo texto em jogo.
 3. Interpretar os controles do banco `$05` (`0x89` + kanji inline) e
