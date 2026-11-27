@@ -124,7 +124,7 @@ full-pt: menu-pt
 		--report "$(BUILD)/rom/pt_full_names_report.json"
 	$(PYTHON) tools/patch_battle.py --rom "$(BUILD)/rom/pt_full_names.sfc" \
 		$(BASE_ROM_ARG) --translations translations/battle_pt.json --encoding byte \
-		--patch-name "Kyuuyaku Megami Tensei Portuguese battle text" \
+		--patch-name "Kyuuyaku Megami Tensei Portuguese translation" \
 		--out "$(BUILD)/rom/full_pt.sfc" \
 		--patch "$(BUILD)/rom/full_pt.bps" \
 		--report "$(BUILD)/rom/full_pt_report.json"
