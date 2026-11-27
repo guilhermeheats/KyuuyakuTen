@@ -217,22 +217,27 @@ mostra a raça completa e o nome completo na mesma linha:
 Foul Green Slime
 ```
 
-A raça é um prefixo compacto de **duas letras maiúsculas** em 8x8
-(`FO` para Foul, `TY` para Tyrant, ...), e o nome completo em 16x16 usa a
-fonte de diálogo, que já tem minúsculas. Uma tabela em `$2E:DD08` converte
-os códigos 8x8 do nome para Shift-JIS full-width antes de chamar o
-renderizador 16x16. Os menus e o status continuam usando os nomes de oito
-caracteres em maiúsculas. Validado ao vivo no recomp: `FO Pink Worm`.
+A raça e o nome usam a fonte 8x8 (`$01E311`). A página da fonte de
+mensagem é descomprimida para a VRAM `$C000`; o wrapper em `$2D:F980`
+copia 26 tiles minúsculos da tabela `$2D:FA00` para a VRAM `$C410` antes
+de desenhar a raça, então `Tyrant `, `Foul ` etc. saem em title case e o
+nome mantém a caixa. Maiúsculas continuam em 0x22-0x3B, então menus e
+status não mudam. A janela de batalha só tem uma linha; a versão de duas
+linhas exigiria redesenhar a janela e não é usada. Os menus e o status
+continuam usando os nomes de oito caracteres em maiúsculas. A fonte
+minúscula em runtime ainda precisa de uma batalha ao vivo para confirmação.
 
 O patch instala:
 
 - tabelas de ponteiros de nome completo em `$2E:BB38` (T1) e `$2E:BD32`
   (T2);
 - strings de nome completo nos espaços livres de `$2F`;
-- tabela e prefixos de raça (8x8, 2 letras) em `$2E:BE50`/`$2E:DF08`;
-- tabela de conversão 8x8 -> Shift-JIS full-width em `$2E:DD08`;
+- tabela e nomes completos de raça (8x8) em `$2E:BE50`/`$2E:DF08`;
 - rotinas 65816 em `$2E:BE90` (raça) e `$2E:BF00` (nome), montadas de
   `tools/full-race.s`/`tools/full-name.s`;
+- rotina de fonte em `$2D:F900`, wrapper em `$2D:F980` e tabela de
+  glifos minúsculos em `$2D:FA00` (DMA para a VRAM `$C410`);
+- tabela legada 8x8 -> Shift-JIS full-width em `$2E:DD08` (não usada);
 - o buffer direto `$57` e o loop de exibição `$02:BADE` redirecionado;
 - a flag `$7E:1FF0`, que faz o copy de nome usar a tabela completa apenas
   depois do controle de raça `01 0C`.

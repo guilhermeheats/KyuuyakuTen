@@ -108,14 +108,16 @@ execução.
   tradução usa 2674; novas mensagens exigem relocação/expansão.
   `make battle-en` gera um BPS contra a ROM japonesa.
 - **Nomes completos na mesma linha**: o alvo `make full-names` instala
-  tabelas completas de raça/nome em `$2E`/`$2F`, a tabela de conversão
-  `$2E:DD08` e rotinas 65816 em `$2E:BE90`/`$2E:BF00`. A introdução de
-  batalha passa a mostrar, por exemplo, `FO Pink Worm` — prefixo de raça
-  de 2 letras em 8x8 e nome completo em 16x16 pela fonte de diálogo. Os
-  menus continuam com os nomes de 8 caracteres. Como as
-  rotinas são código, o recomp precisa ser regerado de `full_names.sfc`
-  com `tools/regen.sh --rom ... --no-verify`; o BPS `full_names.bps`
-  contra a ROM japonesa tem ~15 KB.
+  tabelas completas de raça/nome em `$2E`/`$2F` e rotinas 65816 em
+  `$2E:BE90`/`$2E:BF00`. A introdução de batalha passa a mostrar, por
+  exemplo, `Foul Green Slime` — raça completa e nome completo na mesma
+  linha, ambos em 8x8. O wrapper em `$2D:F980` copia 26 tiles minúsculos
+  da tabela `$2D:FA00` para a VRAM `$C410` antes de desenhar a raça;
+  menus e status continuam com maiúsculas e nomes de 8 caracteres. A janela de
+  batalha tem uma linha só; duas linhas exigiriam redesenhar a janela e
+  ficam para depois. Como as rotinas são código, o recomp precisa ser
+  regerado de `full_names.sfc` com `tools/regen.sh --rom ... --no-verify`;
+  o BPS `full_names.bps` contra a ROM japonesa tem ~16 KB.
 - **Prefixos de raça traduzidos**: o controle `01 0C` chama `$02:BCFA`,
   que lê dois caracteres full-width de `$02:BC8E` (26 entradas de 4
   bytes). Como o slot é fixo em 2 caracteres, `translations/races_en.json`

@@ -1,29 +1,28 @@
 #!/usr/bin/env python3
-"""Add a compact race prefix and full demon name to the battle intro.
+"""Add the full race and full demon name to the battle intro.
 
 The stock battle intro uses the 2-character race table at ``$02:BC8E`` and
 the 8-character T1/T2 name copy at ``$02:C87B``. This tool installs a
 battle-only path that reads full names from free space:
 
 * ``$2E:BB38`` / ``$2E:BD32`` - full T1/T2 name pointer tables;
-* ``$2F:B81F`` and ``$2F:F820`` - full name strings (mixed-case 8x8
-  codes, mapped to Shift-JIS before display);
+* ``$2F:B81F`` and ``$2F:F820`` - full name strings (mixed-case 8x8 codes);
 * ``$2E:BE50`` - full race pointer table;
-* ``$2E:DF08`` - compact two-letter race prefixes (8x8 font codes);
-* ``$2E:DD08`` - 8x8 code -> full-width Shift-JIS map;
+* ``$2E:DF08`` - full race names (8x8 font codes);
+* ``$2D:F900`` / ``$2D:F980`` - lowercase font DMA patch and race wrapper;
+* ``$2D:FA00`` - 26 lowercase glyph tiles for the message font page;
 * ``$2E:BE90`` / ``$2E:BF00`` - 65816 race/name display routines.
 
-The routines are assembled from ``tools/full-race.s`` and
-``tools/full-name.s``. The race routine sets ``$7E:1FF0``; the name copy
-uses the full table only when that flag is set, so ordinary ``<04>``
-messages keep the eight-character names used by menus and status screens.
+The bank-$02 race call is retargeted to the wrapper, which copies the
+lowercase tiles into the message font page at VRAM ``$C410`` and then
+calls the race routine. The race and name are both drawn in 8x8 with
+``$01E311``; the result is e.g. ``Foul Green Slime``. The battle message
+window only has one line, so this stays on one line.
 
-The race prefix is drawn in 8x8 with ``$01E311``; the full name is mapped
-through ``$2E:DD08`` and drawn in 16x16 with ``$01DFAD``, which gives the
-dialogue font's lowercase Latin. The direct-page ``$57`` buffer and the
-``$02:BADE`` loop patch remain for ordinary ``<04>`` messages (attack
-lines, player names), which keep the eight-character T1/T2 names. The
-result is e.g. ``FO Green Slime``.
+The direct-page ``$57`` buffer and the ``$02:BADE`` loop patch remain for
+ordinary ``<04>`` messages (attack lines, player names), which keep the
+eight-character T1/T2 names. The legacy ``$2E:DD08`` full-width map is
+still written but no longer used.
 
 This tool expects ``full_en.sfc`` (script + battle + races + names) as
 input. The BPS is diffed against the original Japanese ROM.
@@ -67,15 +66,330 @@ RACE_CODE_BYTES = bytes.fromhex(
     "088b4babe230ad8c042275bf0248a9018ff01f7e680aaac220bf50be2ec210aae220bf00002ef023da2211e301fae220ad8902f013297f48ad2f0209108d2f0222979300683ad0f0e880d5ab286b"
 )
 NAME_CODE_BYTES = bytes.fromhex(
-    "088b4babc230da5a29ff008500e220aff01f7ef075a9008ff01f7ea500c9fdb069ade80cd00fc220a5000aaabf38bb2ec210aa8015c220a5000aaae01c019003a21c01bf32bd2ec210aae220bf00002ff032c22029ff000aa8b908ddf023eb8500da22addf01fae220ad8902f013297f48ad2f0209108d2f0222979300683ad0f0e880c8a90085578017c230a500227bc802e220a20000b5229557e8e00900d0f6c2107afaab286b"
+    "088b4babc230da5a29ff008500e220aff01f7ef066a9008ff01f7ea500c9fdb05aade80cd00fc220a5000aaabf38bb2ec210aa8015c220a5000aaae01c019003a21c01bf32bd2ec210aae220bf00002ff023da2211e301fae220ad8902f013297f48ad2f0209108d2f0222979300683ad0f0e880d5a90085578017c230a500227bc802e220a20000b5229557e8e00900d0f6c2107afaab286b"
 )
+
+FONT_PATCH = (0x2D, 0xF900)
+FONT_PATCH_WRAPPER = (0x2D, 0xF980)
+FONT_PATCH_TABLE = (0x2D, 0xFA00)
+
+FONT_PATCH_CODE_BYTES = bytes.fromhex(
+    "088b4babe220ad004248297f8d0042a9808d1521c220a910c48d1621a900fa8d7243a9a0018d7543e220a92d8d7443a9018d7043a9188d7143ad3f212980f0f9a9808d0b42688d0042ab286b"
+)
+FONT_PATCH_WRAPPER_BYTES = bytes.fromhex(
+    "088b4bab2200f92d2290be2eab286b"
+)
+
+LOWERCASE_GLYPHS = [
+    # a
+    [
+        '........',
+        '........',
+        '..###...',
+        '.#..#...',
+        '..###...',
+        '.##.#...',
+        '.#..#...',
+        '.####...',
+    ],
+    # b
+    [
+        '.#......',
+        '.#......',
+        '.####...',
+        '.##.##..',
+        '.#...#..',
+        '.#...#..',
+        '.#..##..',
+        '.####...',
+    ],
+    # c
+    [
+        '........',
+        '........',
+        '..###...',
+        '.##.##..',
+        '.#......',
+        '.#......',
+        '.##.##..',
+        '..###...',
+    ],
+    # d
+    [
+        '.....#..',
+        '.....#..',
+        '..####..',
+        '.##..#..',
+        '.#...#..',
+        '.#...#..',
+        '.##.##..',
+        '..####..',
+    ],
+    # e
+    [
+        '........',
+        '........',
+        '..###...',
+        '.#...#..',
+        '.#####..',
+        '.#......',
+        '.##..#..',
+        '..###...',
+    ],
+    # f
+    [
+        '...##...',
+        '...#....',
+        '..###...',
+        '...#....',
+        '...#....',
+        '...#....',
+        '...#....',
+        '...#....',
+    ],
+    # g
+    [
+        '........',
+        '........',
+        '..####..',
+        '.##..#..',
+        '.#...#..',
+        '.#...#..',
+        '.##.##..',
+        '.#####..',
+    ],
+    # h
+    [
+        '.#......',
+        '.#......',
+        '.#####..',
+        '.##..#..',
+        '.#...#..',
+        '.#...#..',
+        '.#...#..',
+        '.#...#..',
+    ],
+    # i
+    [
+        '....#...',
+        '........',
+        '....#...',
+        '....#...',
+        '....#...',
+        '....#...',
+        '....#...',
+        '....#...',
+    ],
+    # j
+    [
+        '....#...',
+        '........',
+        '....#...',
+        '....#...',
+        '....#...',
+        '....#...',
+        '....#...',
+        '...##...',
+    ],
+    # k
+    [
+        '.#......',
+        '.#......',
+        '.#..#...',
+        '.#.#....',
+        '.###....',
+        '.###....',
+        '.#.##...',
+        '.#..#...',
+    ],
+    # l
+    [
+        '...#....',
+        '...#....',
+        '...#....',
+        '...#....',
+        '...#....',
+        '...#....',
+        '...#....',
+        '...##...',
+    ],
+    # m
+    [
+        '........',
+        '........',
+        '#######.',
+        '#..#..#.',
+        '#..#..#.',
+        '#..#..#.',
+        '#..#..#.',
+        '#..#..#.',
+    ],
+    # n
+    [
+        '........',
+        '........',
+        '.#####..',
+        '.##..#..',
+        '.#...#..',
+        '.#...#..',
+        '.#...#..',
+        '.#...#..',
+    ],
+    # o
+    [
+        '........',
+        '........',
+        '..###...',
+        '.##.##..',
+        '.#...#..',
+        '.#...#..',
+        '.##.##..',
+        '..###...',
+    ],
+    # p
+    [
+        '........',
+        '........',
+        '.####...',
+        '.##.##..',
+        '.#...#..',
+        '.#...#..',
+        '.#..##..',
+        '.####...',
+    ],
+    # q
+    [
+        '........',
+        '........',
+        '..####..',
+        '.##..#..',
+        '.#...#..',
+        '.#...#..',
+        '.##.##..',
+        '..####..',
+    ],
+    # r
+    [
+        '........',
+        '........',
+        '..###...',
+        '..#.....',
+        '..#.....',
+        '..#.....',
+        '..#.....',
+        '..#.....',
+    ],
+    # s
+    [
+        '........',
+        '........',
+        '..###...',
+        '..#..#..',
+        '..##....',
+        '....##..',
+        '..#..#..',
+        '..####..',
+    ],
+    # t
+    [
+        '...#....',
+        '...#....',
+        '..###...',
+        '...#....',
+        '...#....',
+        '...#....',
+        '...#....',
+        '...##...',
+    ],
+    # u
+    [
+        '........',
+        '........',
+        '.#...#..',
+        '.#...#..',
+        '.#...#..',
+        '.#...#..',
+        '.#..##..',
+        '.#####..',
+    ],
+    # v
+    [
+        '........',
+        '........',
+        '.#...#..',
+        '.##..#..',
+        '..#.#...',
+        '..#.#...',
+        '..###...',
+        '...#....',
+    ],
+    # w
+    [
+        '........',
+        '........',
+        '#..##..#',
+        '##.##.##',
+        '.#.##.#.',
+        '.##.#.#.',
+        '.##..##.',
+        '.##..#..',
+    ],
+    # x
+    [
+        '........',
+        '........',
+        '.#..##..',
+        '..#.#...',
+        '..##....',
+        '..##....',
+        '..#.#...',
+        '.#..##..',
+    ],
+    # y
+    [
+        '........',
+        '........',
+        '.#...#..',
+        '.##.##..',
+        '..#.#...',
+        '..#.#...',
+        '..###...',
+        '..##....',
+    ],
+    # z
+    [
+        '........',
+        '........',
+        '.####...',
+        '...##...',
+        '...#....',
+        '..#.....',
+        '.##.....',
+        '.####...',
+    ],
+]
+
+def font_patch_table() -> bytes:
+    """Return 26 mixed-case tiles in the message font's 2bpp format."""
+    out = bytearray()
+    for rows in LOWERCASE_GLYPHS:
+        for row in rows:
+            mask = 0
+            for x, pixel in enumerate(row):
+                if pixel != ".":
+                    mask |= 1 << (7 - x)
+            out += bytes((0xFF, mask))
+    if len(out) != 416:
+        raise ValueError(f"font patch table is {len(out)} bytes, want 416")
+    return bytes(out)
+
 
 # (file offset, expected bytes, replacement)
 CODE_PATCHES = (
     (0x013ADA, bytes.fromhex("227bc802"), bytes.fromhex("2200bf2e")),
     (0x013AE3, bytes.fromhex("b522"), bytes.fromhex("b557")),
     (0x013AE7, bytes.fromhex("c901f021"), bytes.fromhex("eaeaeaea")),
-    (0x013231, bytes.fromhex("22f6bc02"), bytes.fromhex("2290be2e")),
+    (0x013231, bytes.fromhex("22f6bc02"), bytes.fromhex("2280f92d")),
     (0x0188AA, bytes.fromhex("22f6bc02"), bytes.fromhex("2290be2e")),
 )
 
@@ -163,8 +477,8 @@ def pack_races(entries: list[dict]) -> tuple[list[int], list[tuple[int, bytes]],
         entry = by_index.get(index)
         text = str(entry.get("en") or "") if entry else ""
         if text:
-            text = text[:2].upper() + " "  # compact 8x8 prefix + separator
-        encoded = font_encode(text) + b"\x00"
+            text += " "  # separator before the full demon name
+        encoded = encode_mixed(text) + b"\x00"
         if cursor + len(encoded) > end:
             raise ValueError("full race strings do not fit in $2E:DF08-$E000")
         pointers.append(cursor)
@@ -242,6 +556,7 @@ def main() -> int:
 
     # Verify free space before writing anything.
     check_zero(original, *FULL_T1_PTR, 0x4A0, "full-name tables/code")
+    check_zero(original, *FONT_PATCH, 0x2A0, "font patch code/table")
     check_zero(original, *FULLWIDTH_MAP, 512, "fullwidth map")
     check_zero(original, *RACE_STRINGS, 0xE000 - RACE_STRINGS[1], "full race strings")
     for bank, addr, size in HOLES:
@@ -273,6 +588,9 @@ def main() -> int:
         write(RACE_STRINGS[0], addr, data)
     write(*RACE_CODE, RACE_CODE_BYTES)
     write(*NAME_CODE, NAME_CODE_BYTES)
+    write(*FONT_PATCH, FONT_PATCH_CODE_BYTES)
+    write(*FONT_PATCH_WRAPPER, FONT_PATCH_WRAPPER_BYTES)
+    write(*FONT_PATCH_TABLE, font_patch_table())
 
     for offset, _, replacement in CODE_PATCHES:
         out[offset : offset + len(replacement)] = replacement
@@ -304,6 +622,13 @@ def main() -> int:
                         "bank": FULLWIDTH_MAP[0],
                         "addr": f"{FULLWIDTH_MAP[1]:04X}",
                         "bytes": 512,
+                    },
+                    "font_patch": {
+                        "code": f"{FONT_PATCH[0]:02X}:{FONT_PATCH[1]:04X}",
+                        "wrapper": f"{FONT_PATCH_WRAPPER[0]:02X}:{FONT_PATCH_WRAPPER[1]:04X}",
+                        "table": f"{FONT_PATCH_TABLE[0]:02X}:{FONT_PATCH_TABLE[1]:04X}",
+                        "count": len(LOWERCASE_GLYPHS),
+                        "bytes": 416,
                     },
                 },
                 indent=2,

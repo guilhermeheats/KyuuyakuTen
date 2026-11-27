@@ -73,13 +73,15 @@ dados lidos diretamente da ROM pelo recomp. Os alvos `battle-en` e
 código para texto é o das tabelas T1/T2 em `$2E`.
 
 O alvo `full-names` vai além: adiciona rotinas 65816 novas em `$2E` para
-mostrar um prefixo de raça de 2 letras em 8x8 e o nome completo em 16x16
-na mesma linha, com a tabela de conversão `$2E:DD08`. Nesse caso o
-`src/gen` deve
-ser gerado a partir de `decomp/build/rom/full_names.sfc`, que já contém o
-patch de código, usando `tools/regen.sh --rom ... --no-verify`. O baseline
-japonês continua sendo verificado separadamente; o BPS final é diffado
-contra a ROM original.
+mostrar a raça completa e o nome completo na mesma linha, ambos em 8x8, e
+um wrapper em `$2D:F980` que copia 26 tiles minúsculos da tabela
+`$2D:FA00` para a VRAM `$C410` antes de desenhar a raça. A janela de
+batalha tem uma linha só; a variante de duas linhas exigiria redesenhar a
+janela e não é usada. Nesse caso o
+`src/gen` deve ser gerado a partir de
+`decomp/build/rom/full_names.sfc`, que já contém o patch de código, usando
+`tools/regen.sh --rom ... --no-verify`. O baseline japonês continua sendo
+verificado separadamente; o BPS final é diffado contra a ROM original.
 
 ## Patches locais de submódulo
 

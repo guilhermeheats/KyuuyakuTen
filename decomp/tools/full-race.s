@@ -1,4 +1,4 @@
-; Full race prefix for the battle intro: 8x8 font, mixed case.
+; Full race name for the battle intro: 8x8 font, mixed case.
 ; Assembled at $2E:BE90; called from the text renderer's 01 0C handler.
 .MEMORYMAP
   DEFAULTSLOT 0
