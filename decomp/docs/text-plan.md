@@ -117,8 +117,10 @@ execução.
 - **Codificação de 1 byte para batalha (em validação)**: o modo
   `patch_battle.py --encoding byte` grava 1 byte ASCII por caractere. O
   codec em `$29:FF20` expande cada byte pela tabela em `$29:FF40` para um
-  par full-width e reusa o escritor `$01:DFAD`; o interpretador é desviado
-  em `$02:B027`. O pool cai de 3675 para 2087 bytes no EN e o
+  par full-width e reusa o escritor `$01:DFAD`; `PHX`/`PLX` preservam o X
+  corrente e o `JML` faz o escritor retornar direto ao interpretador em
+  `$02`, mantendo o contexto/X para o próximo caractere. O interpretador é
+  desviado em `$02:B027`. O pool cai de 3675 para 2087 bytes no EN e o
   `battle_pt.json` (129 entradas, PT-BR sem acentos por enquanto) usa
   2171/3520 bytes. Maiúsculas/minúsculas são dobradas para maiúsculas até
   a página 8x8 com minúsculas ser instalada. Como há patch de código, o

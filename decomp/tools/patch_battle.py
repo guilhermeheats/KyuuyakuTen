@@ -37,8 +37,10 @@ against ``--base-rom``, defaulting to the resolved Japanese ROM.
 With ``--encoding byte`` the text runs are written as one ASCII byte per
 character. A small codec at ``$29:FF20`` expands each byte through a
 full-width table at ``$29:FF40`` and reuses the stock glyph writer, so the
-pool can hold roughly twice as much text. This mode is intended for PT-BR
-and for future lowercase support; it patches ``$02:B027`` and must be
+pool can hold roughly twice as much text. The codec saves/restores X and
+tail-jumps to ``$01:DFAD``, so the glyph routine returns directly to the
+``$02`` interpreter with its running X intact. This mode is intended for
+PT-BR and for future lowercase support; it patches ``$02:B027`` and must be
 regenerated for the AOT build. Lowercase is folded to uppercase until a
 lowercase 8x8 page is installed.
 
@@ -109,7 +111,7 @@ BYTE_CODE_ADDR = 0xFF20
 BYTE_TABLE_ADDR = 0xFF40
 BYTE_TABLE_SIZE = 0x60 * 2
 BYTE_CODE_BYTES = bytes.fromhex(
-    "38e9200aaabf40ff298501bf41ff29850022addf016b"
+    "da38e9200aaabf40ff298501bf41ff298500fa5caddf01"
 )
 BYTE_PATCH_OFFSET = 0x013027
 BYTE_PATCH_EXPECTED = bytes.fromhex("8501a742850022addf01")

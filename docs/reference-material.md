@@ -79,10 +79,12 @@ os dados em si continuam sendo lidos da ROM pelo recomp. Os prefixos de raça
 
 Para o PT-BR, `tools/patch_battle.py --encoding byte` instala um codec em
 `$29:FF20` e uma tabela full-width em `$29:FF40`, gravando 1 byte ASCII por
-caractere no pool. Ele também desvia o interpretador em `$02:B027`, então o
-`src/gen` precisa ser regerado a partir desse ROM; o codec em si é código
-65816 e entra no AOT normalmente. Sem a página 8x8 com minúsculas, o codec
-dobra minúsculas para maiúsculas.
+caractere no pool. O codec salva/restaura X e faz `JML $01DFAD`, de modo que
+o escritor de glifos retorna direto ao interpretador em `$02` com o X/contexto
+corrido. Ele também desvia o interpretador em `$02:B027`, então o `src/gen`
+precisa ser regerado a partir desse ROM; o codec em si é código 65816 e entra
+no AOT normalmente. Sem a página 8x8 com minúsculas, o codec dobra minúsculas
+para maiúsculas.
 
 O alvo `full-names` vai além: adiciona rotinas 65816 novas em `$2E` para
 mostrar a raça completa e o nome completo na mesma linha, ambos em 8x8
