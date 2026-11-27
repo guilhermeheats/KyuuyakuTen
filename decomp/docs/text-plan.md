@@ -108,7 +108,8 @@ execução.
   livres `$29:B940-$BFFF` e `$29:F820-$FFFF` (3744 bytes). Dois leitores
   de tabela em `$01` são redirecionados (`$01:A9B0/$01:A9C0` e
   `$01:A9E5/$01:A9F3`), o segundo através de um wrapper em `$2E:C000` que
-  define `$44 = $29` e volta para `$01:A9EC`. `translations/battle_en.json`
+  define `$44 = $29`, preserva o índice em A e volta para `$01:A9EC`.
+  `translations/battle_en.json`
   cobre 129 entradas (3213 bytes), incluindo ataque/dano/defesa/crítica,
   comandos, ações dos demônios, status e aflições. As 15 entradas restantes
   são vazias ou só têm controles, então não há mais texto japonês no pool.
@@ -142,8 +143,10 @@ execução.
 
 ## Próximos passos
 
-1. Fechar a validação do pool de batalha realocado em `$29` no recomp e
-   no snes9x; o texto restante é PT-BR/qualidade, não extração.
+1. Validar o pool de batalha realocado em `$29` no recomp e no snes9x.
+   Para o PT-BR, estudar a codificação de 1 byte/char da fan translation
+   (a página 8x8 em `$C000` e o renderizador de batalha), que também libera
+   espaço e minúsculas; o pool atual de 2 bytes/char está em 3675/3744.
 2. Continuar o script principal: cena inicial, restaurante e eventos do
    8F; validar cada novo texto em jogo.
 3. Interpretar os controles do banco `$05` (`0x89` + kanji inline) e
