@@ -181,10 +181,15 @@ execução.
   prefixo e traduz os nomes completos (TIRANO, FERA, IMUNDO, ...). O
   `full-pt` usa esse arquivo em `patch_races` e `patch_full_names`; os
   nomes próprios dos demônios continuam em `names_en.json`.
-- O alvo `full-pt` parte de `menu_pt.sfc`, aplica o script PT, a batalha
-  PT de 1 byte, os nomes EN e as raças PT, gerando
-  `full_pt.sfc`/`full_pt.bps` (16227 bytes). O menu e o script usam o motor
-  de 2 bytes estável; a batalha PT usa o codec 8x8 descrito acima.
+- **Texto de inicialização em PT-BR**: `translations/startup_pt.json`
+  cobre os 9 prompts de nome dos dois protagonistas (banco `$05`) e as
+  duas cópias da instrução de distribuir atributos (banco `$03`) na tela
+  de criação de personagem. Os rótulos dos atributos (`ちりょく`,
+  `ちから`, ...) ainda estão no japonês.
+- O alvo `full-pt` parte de `menu_pt.sfc`, aplica o startup PT, o script
+  PT, a batalha PT de 1 byte, os nomes EN e as raças PT, gerando
+  `full_pt.sfc`/`full_pt.bps` (16557 bytes). O menu/script usam o motor de
+  2 bytes estável; a batalha PT usa o codec 8x8 descrito acima.
 - O fallback `names-inplace` não é necessário para o recomp agora.
 - **Página 8x8 não é ASCII puro na pontuação**: `0x1B` (seria `:`) renderiza
   um glifo parecido com "10"; o label de equipamento usa `EQ` + espaços.
