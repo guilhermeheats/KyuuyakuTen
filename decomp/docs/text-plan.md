@@ -114,6 +114,15 @@ execução.
   comandos, ações dos demônios, status e aflições. As 15 entradas restantes
   são vazias ou só têm controles, então não há mais texto japonês no pool.
   `make battle-en` gera um BPS contra a ROM japonesa.
+- **Codificação de 1 byte para batalha (em validação)**: o modo
+  `patch_battle.py --encoding byte` grava 1 byte ASCII por caractere. O
+  codec em `$29:FF20` expande cada byte pela tabela em `$29:FF40` para um
+  par full-width e reusa o escritor `$01:DFAD`; o interpretador é desviado
+  em `$02:B027`. O pool cai de 3675 para 2087 bytes no EN e o
+  `battle_pt.json` (129 entradas, PT-BR sem acentos por enquanto) usa
+  2171/3520 bytes. Maiúsculas/minúsculas são dobradas para maiúsculas até
+  a página 8x8 com minúsculas ser instalada. Como há patch de código, o
+  AOT precisa ser regerado a partir do ROM de 1 byte.
 - **Nomes completos na mesma linha**: o alvo `make full-names` instala
   tabelas completas de raça/nome em `$2E`/`$2F` e rotinas 65816 em
   `$2E:BE90`/`$2E:BF00`. A introdução de batalha passa a mostrar, por
@@ -145,10 +154,10 @@ execução.
 
 ## Próximos passos
 
-1. Validar o pool de batalha realocado em `$29` no recomp e no snes9x.
-   Para o PT-BR, estudar a codificação de 1 byte/char da fan translation
-   (a página 8x8 em `$C000` e o renderizador de batalha), que também libera
-   espaço e minúsculas; o pool atual de 2 bytes/char está em 3675/3744.
+1. Validar o codec de 1 byte/char no recomp (`battle_pt.json`, 2181/3520
+   bytes) e comparar com o snes9x. Depois, instalar a página 8x8 com
+   minúsculas para o codec não precisar dobrar caixa; o pool de 2 bytes/char
+   do EN continua em 3675/3744.
 2. Continuar o script principal: cena inicial, restaurante e eventos do
    8F; validar cada novo texto em jogo.
 3. Interpretar os controles do banco `$05` (`0x89` + kanji inline) e

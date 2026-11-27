@@ -77,6 +77,13 @@ os dados em si continuam sendo lidos da ROM pelo recomp. Os prefixos de raça
 (`$02:BC8E`) são data-only e não precisam de patch no C gerado. O alvo
 `full-names` encadeia tudo isso.
 
+Para o PT-BR, `tools/patch_battle.py --encoding byte` instala um codec em
+`$29:FF20` e uma tabela full-width em `$29:FF40`, gravando 1 byte ASCII por
+caractere no pool. Ele também desvia o interpretador em `$02:B027`, então o
+`src/gen` precisa ser regerado a partir desse ROM; o codec em si é código
+65816 e entra no AOT normalmente. Sem a página 8x8 com minúsculas, o codec
+dobra minúsculas para maiúsculas.
+
 O alvo `full-names` vai além: adiciona rotinas 65816 novas em `$2E` para
 mostrar a raça completa e o nome completo na mesma linha, ambos em 8x8
 maiúsculo, com um intervalo de uma célula (8 px) adicionado pela rotina do

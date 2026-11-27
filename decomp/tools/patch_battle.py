@@ -34,6 +34,14 @@ Apply this after ``script_en.json`` so the existing in-place battle
 translations are carried into the repacked pool. The output BPS is built
 against ``--base-rom``, defaulting to the resolved Japanese ROM.
 
+With ``--encoding byte`` the text runs are written as one ASCII byte per
+character. A small codec at ``$29:FF20`` expands each byte through a
+full-width table at ``$29:FF40`` and reuses the stock glyph writer, so the
+pool can hold roughly twice as much text. This mode is intended for PT-BR
+and for future lowercase support; it patches ``$02:B027`` and must be
+regenerated for the AOT build. Lowercase is folded to uppercase until a
+lowercase 8x8 page is installed.
+
 Outputs are ROM-derived and must stay under decomp/build/ unless the caller
 chooses another path.
 """
@@ -66,10 +74,16 @@ POOL_END = 0xB13D
 DST_BANK = 0x29
 DST_TABLE_ADDR = 0xB820
 DST_TABLE_SIZE = COUNT * 2
-DST_HOLES = (
+DST_HOLES_FULL = (
     (DST_TABLE_ADDR + DST_TABLE_SIZE, 0xC000),
     (0xF820, 0x10000),
 )
+# The 1-byte codec reserves the last 224 bytes of the second hole.
+DST_HOLES_BYTE = (
+    (DST_TABLE_ADDR + DST_TABLE_SIZE, 0xC000),
+    (0xF820, 0xFF20),
+)
+DST_HOLES = DST_HOLES_FULL
 
 # LLE wrapper at $2E:C000: the A9E5 entry does not set $44 itself, so the
 # wrapper sets the message bank to $29 before continuing at $01:A9EC. A is
@@ -86,6 +100,22 @@ CODE_PATCHES = (
     (0x00A9E5, bytes.fromhex("08e220c2"), bytes.fromhex("5c00c02e")),
     (0x00A9F3, bytes.fromhex("69a4a5"), bytes.fromhex("6920b8")),
 )
+
+# 1-byte text codec in the reserved tail of bank $29. The code maps ASCII
+# 0x20-0x7F to a full-width Shift-JIS pair in the table and reuses the stock
+# $01:DFAD glyph writer, so the message pool can store one byte per char.
+BYTE_BANK = 0x29
+BYTE_CODE_ADDR = 0xFF20
+BYTE_TABLE_ADDR = 0xFF40
+BYTE_TABLE_SIZE = 0x60 * 2
+BYTE_CODE_BYTES = bytes.fromhex(
+    "38e9200aaabf40ff298501bf41ff29850022addf016b"
+)
+BYTE_PATCH_OFFSET = 0x013027
+BYTE_PATCH_EXPECTED = bytes.fromhex("8501a742850022addf01")
+BYTE_PATCH_REPLACEMENT = bytes.fromhex("2220ff294c06b0eaea")
+
+TEXT_ENCODING = "fullwidth"
 
 
 def lorom_offset(bank: int, addr: int) -> int:
@@ -124,6 +154,17 @@ def decode_text(raw: bytes) -> str:
         raise ValueError(f"text run is not valid Shift-JIS: {raw.hex()}") from exc
 
 
+def encode_text(text: str) -> bytes:
+    if TEXT_ENCODING == "byte":
+        try:
+            return text.upper().encode("ascii")
+        except UnicodeEncodeError as exc:
+            raise ValueError(
+                f"1-byte battle text only supports ASCII: {text!r}"
+            ) from exc
+    return fullwidth.encode(text)
+
+
 def apply_entry(index: int, raw: bytes, entry: dict) -> bytes:
     runs = entry.get("runs")
     if not isinstance(runs, list):
@@ -142,7 +183,7 @@ def apply_entry(index: int, raw: bytes, entry: dict) -> bytes:
             out += data
             continue
         text = str(runs[text_index])
-        encoded = fullwidth.encode(text)
+        encoded = encode_text(text)
         out += encoded
         text_index += 1
     insert = entry.get("insert")
@@ -256,17 +297,73 @@ def build_pool(
     return new_pointers, blob_offsets, used, translated
 
 
+def build_byte_table() -> bytes:
+    """Return 96 full-width Shift-JIS pairs for ASCII 0x20-0x7F.
+
+    Lowercase input is folded to uppercase because the stock 8x8 page has no
+    lowercase glyphs. The table stores [first byte, second byte] per code.
+    """
+    table = bytearray()
+    for code in range(0x20, 0x80):
+        char = chr(code)
+        if "a" <= char <= "z":
+            char = char.upper()
+        if code == 0x7F:
+            char = " "
+        encoded = fullwidth.encode(char)
+        if len(encoded) != 2:
+            raise ValueError(
+                f"byte table code {code:#x} ({char!r}) is not 2 bytes"
+            )
+        table += encoded
+    if len(table) != BYTE_TABLE_SIZE:
+        raise ValueError(f"byte table is {len(table)} bytes, want {BYTE_TABLE_SIZE}")
+    return bytes(table)
+
+
+def install_byte_codec(out: bytearray, rom: bytes) -> None:
+    code_start = lorom_offset(BYTE_BANK, BYTE_CODE_ADDR)
+    table_start = lorom_offset(BYTE_BANK, BYTE_TABLE_ADDR)
+    end = table_start + BYTE_TABLE_SIZE
+    if any(rom[code_start:end]):
+        raise ValueError(
+            f"byte codec target ${BYTE_BANK:02X}:{BYTE_CODE_ADDR:04X}-"
+            f"${BYTE_TABLE_ADDR + BYTE_TABLE_SIZE:04X} is not zero"
+        )
+    if rom[BYTE_PATCH_OFFSET : BYTE_PATCH_OFFSET + len(BYTE_PATCH_EXPECTED)] != BYTE_PATCH_EXPECTED:
+        raise ValueError(
+            f"unexpected bytes at {BYTE_PATCH_OFFSET:#x}: "
+            f"{rom[BYTE_PATCH_OFFSET:BYTE_PATCH_OFFSET + len(BYTE_PATCH_EXPECTED)].hex()} "
+            f"(want {BYTE_PATCH_EXPECTED.hex()})"
+        )
+    out[code_start : code_start + len(BYTE_CODE_BYTES)] = BYTE_CODE_BYTES
+    out[table_start:end] = build_byte_table()
+    out[
+        BYTE_PATCH_OFFSET : BYTE_PATCH_OFFSET + len(BYTE_PATCH_REPLACEMENT)
+    ] = BYTE_PATCH_REPLACEMENT
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--rom", help="input ROM (normally script_en.sfc)")
     ap.add_argument("--base-rom", help="ROM for the BPS diff; defaults to --rom")
     ap.add_argument("--root", default=str(DEFAULT_ROOT))
     ap.add_argument("--translations", default="translations/battle_en.json")
+    ap.add_argument(
+        "--encoding",
+        choices=("fullwidth", "byte"),
+        default="fullwidth",
+        help="fullwidth: 2-byte Shift-JIS; byte: 1-byte ASCII via $2F codec",
+    )
     ap.add_argument("--out", help="output ROM (default: build/rom/script_battle_en.sfc)")
     ap.add_argument("--patch", help="optional BPS output path")
     ap.add_argument("--patch-name", default="Kyuuyaku Megami Tensei English battle text")
     ap.add_argument("--report", help="optional JSON report path")
     args = ap.parse_args()
+
+    global TEXT_ENCODING, DST_HOLES
+    TEXT_ENCODING = args.encoding
+    DST_HOLES = DST_HOLES_BYTE if TEXT_ENCODING == "byte" else DST_HOLES_FULL
 
     root = pathlib.Path(args.root)
     rom_path = pathlib.Path(args.rom) if args.rom else None
@@ -323,6 +420,13 @@ def main() -> int:
     for offset, _, replacement in CODE_PATCHES:
         out[offset : offset + len(replacement)] = replacement
 
+    if TEXT_ENCODING == "byte":
+        try:
+            install_byte_codec(out, rom)
+        except ValueError as exc:
+            print(f"error: {exc}", file=sys.stderr)
+            return 1
+
     out_path = pathlib.Path(args.out) if args.out else root / "decomp" / "build" / "rom" / "script_battle_en.sfc"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_bytes(out)
@@ -332,6 +436,7 @@ def main() -> int:
     report_payload = {
         "source": str(rom_path),
         "base": str(base_path),
+        "encoding": TEXT_ENCODING,
         "table_bank": f"{DST_BANK:02X}",
         "table_addr": f"{DST_TABLE_ADDR:04X}",
         "holes": [
