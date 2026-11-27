@@ -748,5 +748,71 @@
     "length": 8,
     "text": "EMPRESA",
     "encoding": "ascii"
+  },
+  {
+    "offset": "01BEB7",
+    "length": 9,
+    "text": "CHAMAR",
+    "encoding": "font"
+  },
+  {
+    "offset": "01BEC0",
+    "length": 9,
+    "text": "VOLTAR",
+    "encoding": "font"
+  },
+  {
+    "offset": "01BEC9",
+    "length": 9,
+    "text": "LIBERAR",
+    "encoding": "font"
+  },
+  {
+    "offset": "01BED2",
+    "length": 9,
+    "text": "TROCAR",
+    "encoding": "font"
+  },
+  {
+    "offset": "01BEDB",
+    "length": 9,
+    "text": "MAPA AUTO",
+    "encoding": "font"
+  },
+  {
+    "offset": "01BEE4",
+    "length": 9,
+    "text": "CONFIG",
+    "encoding": "font"
+  },
+  {
+    "offset": "01BEED",
+    "length": 9,
+    "text": "ANALISAR",
+    "encoding": "font"
+  },
+  {
+    "offset": "01BFFA",
+    "length": 9,
+    "text": "CHAMAR",
+    "encoding": "font"
+  },
+  {
+    "offset": "01C003",
+    "length": 9,
+    "text": "TROCAR",
+    "encoding": "font"
+  },
+  {
+    "offset": "01C00C",
+    "length": 9,
+    "text": "ANALISAR",
+    "encoding": "font"
+  },
+  {
+    "offset": "0152B5",
+    "length": 9,
+    "text": "ANALISAR",
+    "encoding": "font"
   }
 ]
