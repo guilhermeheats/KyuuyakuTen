@@ -35,14 +35,24 @@ translations are carried into the repacked pool. The output BPS is built
 against ``--base-rom``, defaulting to the resolved Japanese ROM.
 
 With ``--encoding byte`` the text runs are written as one ASCII byte per
-character. A small codec at ``$29:FF20`` expands each byte through a
-full-width table at ``$29:FF40`` and reuses the stock glyph writer, so the
-pool can hold roughly twice as much text. The codec saves/restores X and
-tail-jumps to ``$01:DFAD``, so the glyph routine returns directly to the
-``$02`` interpreter with its running X intact. This mode is intended for
-PT-BR and for future lowercase support; it patches ``$02:B027`` and must be
-regenerated for the AOT build. Lowercase is folded to uppercase until a
-lowercase 8x8 page is installed.
+character. A small codec at ``$11:A6C6`` expands each byte through a
+full-width table at ``$11:A740`` and reuses the stock glyph writer, so the
+pool can hold roughly twice as much text. A dispatcher at ``$11:A6E6``
+checks the current message pointer (``$42/$43``) and bank (``$44``): only
+pointers inside the repacked battle holes (``$29:B940-$BFFF`` and
+``$29:F820-$FFFF``) use the codec; COMP, story and menu text keep the stock
+two-byte path. All codec code/data lives in the old bank-$11 battle pool
+(``$A6C6-$B13D``), which was message data, not dialogue-font source. The
+codec saves and restores X, calls ``$01:DFAD``, and then resumes the stock
+``$02:B037`` continuation. The stock path is reproduced exactly: it reads
+the second byte, calls the glyph writer, increments the pointer, and jumps
+to ``$02:B037``. The 1-byte path only skips the extra second-byte increment
+because ``$02:B01B`` already consumed its byte. ``$02:B027`` is replaced by a
+``JML`` (not ``JSL``), so the dispatcher owns the continuation and no return
+frame leaks on the stack. This mode is intended for PT-BR and for future
+lowercase support; it patches ``$02:B027`` and must be regenerated for the
+AOT build. Lowercase is folded to uppercase until a lowercase 8x8 page is
+installed.
 
 Outputs are ROM-derived and must stay under decomp/build/ unless the caller
 chooses another path.
@@ -80,11 +90,9 @@ DST_HOLES_FULL = (
     (DST_TABLE_ADDR + DST_TABLE_SIZE, 0xC000),
     (0xF820, 0x10000),
 )
-# The 1-byte codec reserves the last 224 bytes of the second hole.
-DST_HOLES_BYTE = (
-    (DST_TABLE_ADDR + DST_TABLE_SIZE, 0xC000),
-    (0xF820, 0xFF20),
-)
+# The 1-byte codec uses the old bank-$11 message pool, so the battle text
+# still goes in the same bank-$29 holes.
+DST_HOLES_BYTE = DST_HOLES_FULL
 DST_HOLES = DST_HOLES_FULL
 
 # LLE wrapper at $2E:C000: the A9E5 entry does not set $44 itself, so the
@@ -103,19 +111,25 @@ CODE_PATCHES = (
     (0x00A9F3, bytes.fromhex("69a4a5"), bytes.fromhex("6920b8")),
 )
 
-# 1-byte text codec in the reserved tail of bank $29. The code maps ASCII
+# 1-byte text codec in the old bank-$11 battle pool. The code maps ASCII
 # 0x20-0x7F to a full-width Shift-JIS pair in the table and reuses the stock
-# $01:DFAD glyph writer, so the message pool can store one byte per char.
-BYTE_BANK = 0x29
-BYTE_CODE_ADDR = 0xFF20
-BYTE_TABLE_ADDR = 0xFF40
+# $01:DFAD glyph writer, so the pool stores one byte per char.
+BYTE_BANK = 0x11
+BYTE_CODE_ADDR = 0xA6C6
+BYTE_TABLE_ADDR = 0xA740
 BYTE_TABLE_SIZE = 0x60 * 2
 BYTE_CODE_BYTES = bytes.fromhex(
-    "da38e9200aaabf40ff298501bf41ff298500fa5caddf01"
+    "da38e9200aaabf40a7118501bf41a7118500fa22addf015c37b002"
+)
+BYTE_DISPATCH_ADDR = 0xA6E6
+BYTE_DISPATCH_BYTES = bytes.fromhex(
+    "48a544c929d00ea543c9b99004c9c09019c9f8b015688501a742850022addf01e642d002e6435c37b002685cc6a611"
 )
 BYTE_PATCH_OFFSET = 0x013027
 BYTE_PATCH_EXPECTED = bytes.fromhex("8501a742850022addf01")
-BYTE_PATCH_REPLACEMENT = bytes.fromhex("2220ff294c06b0eaea")
+BYTE_PATCH_REPLACEMENT = bytes.fromhex("5ce6a611eaeaeaeaeaea")
+if len(BYTE_PATCH_REPLACEMENT) != len(BYTE_PATCH_EXPECTED):
+    raise ValueError("byte codec patch must preserve the interpreter window")
 
 TEXT_ENCODING = "fullwidth"
 
@@ -327,7 +341,9 @@ def install_byte_codec(out: bytearray, rom: bytes) -> None:
     code_start = lorom_offset(BYTE_BANK, BYTE_CODE_ADDR)
     table_start = lorom_offset(BYTE_BANK, BYTE_TABLE_ADDR)
     end = table_start + BYTE_TABLE_SIZE
-    if any(rom[code_start:end]):
+    # Bank $11 is the old battle message pool, now unused; its bytes are
+    # the original messages, so no zero check here.
+    if BYTE_BANK != 0x11 and any(rom[code_start:end]):
         raise ValueError(
             f"byte codec target ${BYTE_BANK:02X}:{BYTE_CODE_ADDR:04X}-"
             f"${BYTE_TABLE_ADDR + BYTE_TABLE_SIZE:04X} is not zero"
@@ -339,6 +355,10 @@ def install_byte_codec(out: bytearray, rom: bytes) -> None:
             f"(want {BYTE_PATCH_EXPECTED.hex()})"
         )
     out[code_start : code_start + len(BYTE_CODE_BYTES)] = BYTE_CODE_BYTES
+    dispatch_start = lorom_offset(BYTE_BANK, BYTE_DISPATCH_ADDR)
+    out[dispatch_start : dispatch_start + len(BYTE_DISPATCH_BYTES)] = (
+        BYTE_DISPATCH_BYTES
+    )
     out[table_start:end] = build_byte_table()
     out[
         BYTE_PATCH_OFFSET : BYTE_PATCH_OFFSET + len(BYTE_PATCH_REPLACEMENT)
@@ -355,7 +375,7 @@ def main() -> int:
         "--encoding",
         choices=("fullwidth", "byte"),
         default="fullwidth",
-        help="fullwidth: 2-byte Shift-JIS; byte: 1-byte ASCII via $2F codec",
+        help="fullwidth: 2-byte Shift-JIS; byte: 1-byte ASCII via $11 codec",
     )
     ap.add_argument("--out", help="output ROM (default: build/rom/script_battle_en.sfc)")
     ap.add_argument("--patch", help="optional BPS output path")

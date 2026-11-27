@@ -102,21 +102,20 @@ full-pt: menu-pt
 		--translations translations/script_en.json \
 		--out "$(BUILD)/rom/script_pt_ui.sfc" \
 		--report "$(BUILD)/rom/script_pt_ui_report.json"
-	$(PYTHON) tools/patch_battle.py --rom "$(BUILD)/rom/script_pt_ui.sfc" \
-		--translations translations/battle_pt.json --encoding byte \
-		--patch-name "Kyuuyaku Megami Tensei Portuguese battle text" \
-		--out "$(BUILD)/rom/script_battle_pt_ui.sfc" \
-		--report "$(BUILD)/rom/script_battle_pt_ui_report.json"
-	$(PYTHON) tools/patch_races.py --rom "$(BUILD)/rom/script_battle_pt_ui.sfc" \
+	$(PYTHON) tools/patch_races.py --rom "$(BUILD)/rom/script_pt_ui.sfc" \
 		--translations translations/races_en.json \
-		--out "$(BUILD)/rom/script_battle_pt_races.sfc" \
+		--out "$(BUILD)/rom/script_pt_races.sfc" \
 		--report "$(BUILD)/rom/pt_races_report.json"
-	$(PYTHON) tools/patch_names.py --rom "$(BUILD)/rom/script_battle_pt_races.sfc" \
+	$(PYTHON) tools/patch_names.py --rom "$(BUILD)/rom/script_pt_races.sfc" \
 		$(BASE_ROM_ARG) --translations translations/names_en.json \
-		--out "$(BUILD)/rom/pt_names.sfc" \
+		--out "$(BUILD)/rom/script_pt_names.sfc" \
 		--report "$(BUILD)/rom/pt_names_report.json"
-	$(PYTHON) tools/patch_full_names.py --rom "$(BUILD)/rom/pt_names.sfc" \
+	$(PYTHON) tools/patch_full_names.py --rom "$(BUILD)/rom/script_pt_names.sfc" \
 		$(BASE_ROM_ARG) --names translations/names_en.json --races translations/races_en.json \
+		--out "$(BUILD)/rom/pt_full_names.sfc" \
+		--report "$(BUILD)/rom/pt_full_names_report.json"
+	$(PYTHON) tools/patch_battle.py --rom "$(BUILD)/rom/pt_full_names.sfc" \
+		$(BASE_ROM_ARG) --translations translations/battle_pt.json --encoding byte \
 		--patch-name "Kyuuyaku Megami Tensei Portuguese battle text" \
 		--out "$(BUILD)/rom/full_pt.sfc" \
 		--patch "$(BUILD)/rom/full_pt.bps" \
