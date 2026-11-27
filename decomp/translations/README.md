@@ -217,8 +217,8 @@ mostra a raça completa e o nome completo na mesma linha:
 FOUL GREEN SLIME
 ```
 
-A raça e o nome usam a fonte 8x8, em maiúsculas, com um espaço entre os
-dois. É o mesmo tamanho/espaçamento da fan translation; a fan translation
+A raça e o nome usam a fonte 8x8, em maiúsculas, com um intervalo de uma
+célula (8 px) adicionado pela rotina do nome. É o mesmo tamanho/espaçamento da fan translation; a fan translation
 tem minúsculas porque substitui a página de fonte 8x8, e essa instalação
 em runtime ainda é o ponto que trava no snes9x. A janela de batalha só tem
 uma linha; a versão de duas linhas exigiria redesenhar a janela e não é
@@ -239,7 +239,7 @@ O patch instala:
   depois do controle de raça `01 0C`.
 
 O BPS `full_names.bps` é diffado contra a ROM japonesa e inclui todos os
-passes anteriores (15.177 bytes). Como as rotinas novas são código 65816, o recomp deve
+passes anteriores (15.168 bytes). Como as rotinas novas são código 65816, o recomp deve
 ser gerado a partir de `full_names.sfc`:
 
 ```sh

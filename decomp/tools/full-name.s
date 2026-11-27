@@ -39,7 +39,7 @@ FullName8:
   lda.l $2EBB38,x
   rep #$10
   tax
-  bra Loop8
+  bra Gap8
 T2_8:
   rep #$20
   lda $00
@@ -52,6 +52,14 @@ T2ok8:
   lda.l $2EBD32,x
   rep #$10
   tax
+Gap8:
+  ; one 8x8 cell between the race name and the demon name
+  rep #$20
+  lda $024E
+  clc
+  adc #$0001
+  sta $024E
+  sep #$20
 Loop8:
   sep #$20
   lda.l $2F0000,x

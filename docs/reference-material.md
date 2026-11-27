@@ -74,7 +74,8 @@ código para texto é o das tabelas T1/T2 em `$2E`.
 
 O alvo `full-names` vai além: adiciona rotinas 65816 novas em `$2E` para
 mostrar a raça completa e o nome completo na mesma linha, ambos em 8x8
-maiúsculo, com espaço. É o mesmo tamanho da fan translation; a fan
+maiúsculo, com um intervalo de uma célula (8 px) adicionado pela rotina do
+nome. É o mesmo tamanho da fan translation; a fan
 translation tem minúsculas porque substitui a página de fonte 8x8, e essa
 instalação em runtime ainda trava no snes9x. A janela de batalha tem uma
 linha só; a variante de duas linhas exigiria redesenhar a janela e não é

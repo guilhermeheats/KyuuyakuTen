@@ -111,14 +111,14 @@ execução.
   tabelas completas de raça/nome em `$2E`/`$2F` e rotinas 65816 em
   `$2E:BE90`/`$2E:BF00`. A introdução de batalha passa a mostrar, por
   exemplo, `FOUL GREEN SLIME` — raça completa e nome completo na mesma
-  linha, ambos em 8x8 maiúsculo, com espaço entre os dois. É o mesmo
-  tamanho da fan translation; a fan translation tem minúsculas porque
+  linha, ambos em 8x8 maiúsculo, com um intervalo de uma célula (8 px)
+  adicionado pela rotina do nome. É o mesmo tamanho da fan translation; a fan translation tem minúsculas porque
   substitui a página de fonte 8x8, e essa instalação em runtime ainda
   trava no snes9x. A janela de batalha tem uma linha só; duas linhas
   exigiriam redesenhar a janela e ficam para depois. Como as rotinas são
   código, o recomp precisa ser regerado de `full_names.sfc` com
   `tools/regen.sh --rom ... --no-verify`; o BPS `full_names.bps` contra a
-  ROM japonesa tem 15.177 bytes.
+  ROM japonesa tem 15.168 bytes.
 - **Prefixos de raça traduzidos**: o controle `01 0C` chama `$02:BCFA`,
   que lê dois caracteres full-width de `$02:BC8E` (26 entradas de 4
   bytes). Como o slot é fixo em 2 caracteres, `translations/races_en.json`

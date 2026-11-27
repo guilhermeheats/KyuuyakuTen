@@ -18,7 +18,8 @@ uses the full table only when that flag is set, so ordinary ``<04>``
 messages keep the eight-character names used by menus and status screens.
 
 The full race prefix and full name are both drawn in 8x8 with
-``$01E311``, with a space between them. The direct-page ``$57`` buffer and
+``$01E311``; the name routine advances the cursor by one cell (8 px) before
+drawing the name. The direct-page ``$57`` buffer and
 the ``$02:BADE`` loop patch remain for ordinary ``<04>`` messages (attack
 lines, player names), which keep the eight-character T1/T2 names. The
 result is e.g. ``FOUL GREEN SLIME``; the fan translation's lowercase font
@@ -66,7 +67,7 @@ RACE_CODE_BYTES = bytes.fromhex(
     "088b4babe230ad8c042275bf0248a9018ff01f7e680aaac220bf50be2ec210aae220bf00002ef023da2211e301fae220ad8902f013297f48ad2f0209108d2f0222979300683ad0f0e880d5ab286b"
 )
 NAME_CODE_BYTES = bytes.fromhex(
-    "088b4babc230da5a29ff008500e220aff01f7ef066a9008ff01f7ea500c9fdb05aade80cd00fc220a5000aaabf38bb2ec210aa8015c220a5000aaae01c019003a21c01bf32bd2ec210aae220bf00002ff023da2211e301fae220ad8902f013297f48ad2f0209108d2f0222979300683ad0f0e880d5a90085578017c230a500227bc802e220a20000b5229557e8e00900d0f6c2107afaab286b"
+    "088b4babc230da5a29ff008500e220aff01f7ef074a9008ff01f7ea500c9fdb068ade80cd00fc220a5000aaabf38bb2ec210aa8015c220a5000aaae01c019003a21c01bf32bd2ec210aac220ad4e02186901008d4e02e220e220bf00002ff023da2211e301fae220ad8902f013297f48ad2f0209108d2f0222979300683ad0f0e880d5a90085578017c230a500227bc802e220a20000b5229557e8e00900d0f6c2107afaab286b"
 )
 
 # (file offset, expected bytes, replacement)
@@ -162,7 +163,7 @@ def pack_races(entries: list[dict]) -> tuple[list[int], list[tuple[int, bytes]],
         entry = by_index.get(index)
         text = str(entry.get("en") or "") if entry else ""
         if text:
-            text = text.upper() + " "  # full 8x8 race prefix + separator
+            text = text.upper()  # full 8x8 race prefix; gap is added by the name routine
         encoded = font_encode(text) + b"\x00"
         if cursor + len(encoded) > end:
             raise ValueError("full race strings do not fit in $2E:DF08-$E000")
