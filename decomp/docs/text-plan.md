@@ -124,8 +124,10 @@ execução.
   trava no snes9x. A janela de batalha tem uma linha só; duas linhas
   exigiriam redesenhar a janela e ficam para depois. Como as rotinas são
   código, o recomp precisa ser regerado de `full_names.sfc` com
-  `tools/regen.sh --rom ... --no-verify`; o BPS `full_names.bps` contra a
-  ROM japonesa tem 15.843 bytes com o pool de batalha realocado.
+  `tools/regen.sh --rom ... --no-verify`. O alvo `script-en` agora parte de
+  `menu_en.sfc`, então o `full_names` inclui UI/menu + script + batalha. O
+  BPS `full_names.bps` contra a
+  ROM japonesa tem 17.912 bytes com o pool de batalha realocado.
 - **Prefixos de raça traduzidos**: o controle `01 0C` chama `$02:BCFA`,
   que lê dois caracteres full-width de `$02:BC8E` (26 entradas de 4
   bytes). Como o slot é fixo em 2 caracteres, `translations/races_en.json`

@@ -51,8 +51,9 @@ menu-en:
 		--patch "$(BUILD)/rom/menu_en.bps" \
 		--report "$(BUILD)/rom/menu_en_report.json"
 
-script-en:
-	$(PYTHON) tools/replace_text.py --translations translations/script_en.json \
+script-en: menu-en
+	$(PYTHON) tools/replace_text.py --rom "$(BUILD)/rom/menu_en.sfc" \
+		--translations translations/script_en.json \
 		--patch-name "Kyuuyaku Megami Tensei English script" \
 		--out "$(BUILD)/rom/script_en.sfc" \
 		--patch "$(BUILD)/rom/script_en.bps" \
