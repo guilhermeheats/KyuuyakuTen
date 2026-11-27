@@ -1,0 +1,632 @@
+[
+  {
+    "offset": "080208",
+    "length": 26,
+    "text": "Entrar?",
+    "encoding": "fullwidth",
+    "note": "$10:8208"
+  },
+  {
+    "offset": "08024A",
+    "length": 30,
+    "text": "Sente sono",
+    "encoding": "fullwidth",
+    "note": "$10:824A"
+  },
+  {
+    "offset": "080269",
+    "length": 22,
+    "text": "Nao consigo",
+    "encoding": "fullwidth",
+    "note": "$10:8269"
+  },
+  {
+    "offset": "080286",
+    "length": 18,
+    "text": "Sono...",
+    "encoding": "fullwidth",
+    "note": "$10:8286"
+  },
+  {
+    "offset": "080299",
+    "length": 18,
+    "text": "Zzz...",
+    "encoding": "fullwidth",
+    "note": "$10:8299"
+  },
+  {
+    "offset": "0802B3",
+    "length": 10,
+    "text": "Eita!",
+    "encoding": "fullwidth",
+    "note": "$10:82B3"
+  },
+  {
+    "offset": "0802BE",
+    "length": 12,
+    "text": "Acordo",
+    "encoding": "fullwidth",
+    "note": "$10:82BE"
+  },
+  {
+    "offset": "0802CF",
+    "length": 26,
+    "text": "Sendo levado",
+    "encoding": "fullwidth",
+    "note": "$10:82CF"
+  },
+  {
+    "offset": "0802F1",
+    "length": 16,
+    "text": "Ha ha ha",
+    "encoding": "fullwidth",
+    "note": "$10:82F1"
+  },
+  {
+    "offset": "080302",
+    "length": 30,
+    "text": "Deveria dormir",
+    "encoding": "fullwidth",
+    "note": "$10:8302"
+  },
+  {
+    "offset": "080324",
+    "length": 28,
+    "text": "Nao vou seguir",
+    "encoding": "fullwidth",
+    "note": "$10:8324"
+  },
+  {
+    "offset": "080341",
+    "length": 10,
+    "text": "Nunca",
+    "encoding": "fullwidth",
+    "note": "$10:8341"
+  },
+  {
+    "offset": "08034F",
+    "length": 20,
+    "text": "Levo ela",
+    "encoding": "fullwidth",
+    "note": "$10:834F"
+  },
+  {
+    "offset": "080364",
+    "length": 10,
+    "text": "Adeus",
+    "encoding": "fullwidth",
+    "note": "$10:8364"
+  },
+  {
+    "offset": "08037F",
+    "length": 18,
+    "text": "Salvar...",
+    "encoding": "fullwidth",
+    "note": "$10:837F"
+  },
+  {
+    "offset": "080395",
+    "length": 28,
+    "text": "Astaroth",
+    "encoding": "fullwidth",
+    "note": "$10:8395"
+  },
+  {
+    "offset": "0803B7",
+    "length": 18,
+    "text": "Bem vindo",
+    "encoding": "fullwidth",
+    "note": "$10:83B7"
+  },
+  {
+    "offset": "0803CA",
+    "length": 30,
+    "text": "Bistro Angry!",
+    "encoding": "fullwidth",
+    "note": "$10:83CA"
+  },
+  {
+    "offset": "0803ED",
+    "length": 32,
+    "text": "Temos pratos!",
+    "encoding": "fullwidth",
+    "note": "$10:83ED"
+  },
+  {
+    "offset": "08040E",
+    "length": 32,
+    "text": "a satisfazer",
+    "encoding": "fullwidth",
+    "note": "$10:840E"
+  },
+  {
+    "offset": "080436",
+    "length": 24,
+    "text": "O menu!",
+    "encoding": "fullwidth",
+    "note": "$10:8436"
+  },
+  {
+    "offset": "082507",
+    "length": 8,
+    "text": "Bau!",
+    "encoding": "fullwidth",
+    "note": "$10:A507 chest"
+  },
+  {
+    "offset": "082512",
+    "length": 12,
+    "text": "Abrir?",
+    "encoding": "fullwidth",
+    "note": "$10:A512 chest prompt"
+  },
+  {
+    "offset": "088A1D",
+    "length": 8,
+    "text": "Bau!",
+    "encoding": "fullwidth",
+    "note": "$11:8A1D chest copy"
+  },
+  {
+    "offset": "088A28",
+    "length": 12,
+    "text": "Abrir?",
+    "encoding": "fullwidth",
+    "note": "$11:8A28 chest prompt copy"
+  },
+  {
+    "offset": "08A6CA",
+    "length": 10,
+    "text": " veio",
+    "encoding": "fullwidth",
+    "note": "battle: dynamic demon name + appeared"
+  },
+  {
+    "offset": "08A6D8",
+    "length": 14,
+    "text": "O que?",
+    "encoding": "fullwidth",
+    "note": "battle prompt"
+  },
+  {
+    "offset": "08A6EA",
+    "length": 16,
+    "text": " age?",
+    "encoding": "fullwidth",
+    "note": "battle: dynamic character name + what do"
+  },
+  {
+    "offset": "08A730",
+    "length": 10,
+    "text": " caiu",
+    "encoding": "fullwidth",
+    "note": "battle: dynamic name + defeated"
+  },
+  {
+    "offset": "08A951",
+    "length": 10,
+    "text": " caiu",
+    "encoding": "fullwidth",
+    "note": "battle: dynamic name + defeated (copy)"
+  },
+  {
+    "offset": "08ADED",
+    "length": 18,
+    "text": "Novo demo",
+    "encoding": "fullwidth",
+    "note": "battle: new demon appeared"
+  },
+  {
+    "offset": "09B5BE",
+    "length": 18,
+    "text": "Emboscada",
+    "encoding": "fullwidth",
+    "note": "fixed encounter"
+  },
+  {
+    "offset": "09B5E2",
+    "length": 26,
+    "text": "Olhei a volta",
+    "encoding": "fullwidth",
+    "note": "fixed encounter search"
+  },
+  {
+    "offset": "09B604",
+    "length": 16,
+    "text": "Nada",
+    "encoding": "fullwidth",
+    "note": "fixed encounter result"
+  },
+  {
+    "offset": "09B632",
+    "length": 18,
+    "text": "Emboscada",
+    "encoding": "fullwidth",
+    "note": "fixed encounter copy"
+  },
+  {
+    "offset": "09B653",
+    "length": 26,
+    "text": "Olhei a volta",
+    "encoding": "fullwidth",
+    "note": "fixed encounter search copy"
+  },
+  {
+    "offset": "09B675",
+    "length": 16,
+    "text": "Nada",
+    "encoding": "fullwidth",
+    "note": "fixed encounter result copy"
+  },
+  {
+    "offset": "09B689",
+    "length": 18,
+    "text": "Emboscada",
+    "encoding": "fullwidth",
+    "note": "fixed encounter copy"
+  },
+  {
+    "offset": "09B6AA",
+    "length": 26,
+    "text": "Olhei a volta",
+    "encoding": "fullwidth",
+    "note": "fixed encounter search copy"
+  },
+  {
+    "offset": "09B6CC",
+    "length": 16,
+    "text": "Nada",
+    "encoding": "fullwidth",
+    "note": "fixed encounter result copy"
+  },
+  {
+    "offset": "09F224",
+    "length": 20,
+    "text": "Sem chance",
+    "encoding": "fullwidth",
+    "note": "battle talk failure"
+  },
+  {
+    "offset": "081C82",
+    "length": 28,
+    "text": "Nasci do fogo",
+    "encoding": "fullwidth",
+    "note": "opening $10:9C82"
+  },
+  {
+    "offset": "081C9F",
+    "length": 24,
+    "text": "Pazuzu...",
+    "encoding": "fullwidth",
+    "note": "opening $10:9C9F"
+  },
+  {
+    "offset": "081CC4",
+    "length": 24,
+    "text": "Livre enfim",
+    "encoding": "fullwidth",
+    "note": "opening $10:9CC4"
+  },
+  {
+    "offset": "081CDD",
+    "length": 26,
+    "text": "Com a luz",
+    "encoding": "fullwidth",
+    "note": "opening $10:9CDD"
+  },
+  {
+    "offset": "081D0C",
+    "length": 22,
+    "text": "Salvador...",
+    "encoding": "fullwidth",
+    "note": "opening $10:9D0C"
+  },
+  {
+    "offset": "081D23",
+    "length": 24,
+    "text": "Sou Pazuzu",
+    "encoding": "fullwidth",
+    "note": "opening $10:9D23"
+  },
+  {
+    "offset": "081D3C",
+    "length": 28,
+    "text": "Missao de Deus",
+    "encoding": "fullwidth",
+    "note": "opening $10:9D3C"
+  },
+  {
+    "offset": "081D59",
+    "length": 20,
+    "text": "Eu a trago",
+    "encoding": "fullwidth",
+    "note": "opening $10:9D59"
+  },
+  {
+    "offset": "081D76",
+    "length": 30,
+    "text": "Guerra em 1999",
+    "encoding": "fullwidth",
+    "note": "opening $10:9D76"
+  },
+  {
+    "offset": "081D95",
+    "length": 28,
+    "text": "Fim do mundo",
+    "encoding": "fullwidth",
+    "note": "opening $10:9D95"
+  },
+  {
+    "offset": "081DB8",
+    "length": 30,
+    "text": "35 anos depois",
+    "encoding": "fullwidth",
+    "note": "opening $10:9DB8"
+  },
+  {
+    "offset": "081DD7",
+    "length": 28,
+    "text": "Inimigo feroz",
+    "encoding": "fullwidth",
+    "note": "opening $10:9DD7"
+  },
+  {
+    "offset": "081DFC",
+    "length": 24,
+    "text": "Fenda belica",
+    "encoding": "fullwidth",
+    "note": "opening $10:9DFC"
+  },
+  {
+    "offset": "081E15",
+    "length": 28,
+    "text": "Demonios vem",
+    "encoding": "fullwidth",
+    "note": "opening $10:9E15"
+  },
+  {
+    "offset": "081E32",
+    "length": 30,
+    "text": "Para este mundo",
+    "encoding": "fullwidth",
+    "note": "opening $10:9E32"
+  },
+  {
+    "offset": "081E57",
+    "length": 32,
+    "text": "A fenda: Toquio",
+    "encoding": "fullwidth",
+    "note": "opening $10:9E57"
+  },
+  {
+    "offset": "081E84",
+    "length": 32,
+    "text": "Enviado divino",
+    "encoding": "fullwidth",
+    "note": "opening $10:9E84"
+  },
+  {
+    "offset": "081EA5",
+    "length": 32,
+    "text": "Dono de Toquio",
+    "encoding": "fullwidth",
+    "note": "opening $10:9EA5"
+  },
+  {
+    "offset": "081EC6",
+    "length": 32,
+    "text": "Rei Demo Bael",
+    "encoding": "fullwidth",
+    "note": "opening $10:9EC6"
+  },
+  {
+    "offset": "081EE7",
+    "length": 32,
+    "text": "me prendeu",
+    "encoding": "fullwidth",
+    "note": "opening $10:9EE7"
+  },
+  {
+    "offset": "081F12",
+    "length": 32,
+    "text": "Voce me salvou",
+    "encoding": "fullwidth",
+    "note": "opening $10:9F12"
+  },
+  {
+    "offset": "081F33",
+    "length": 32,
+    "text": "Salvador, nao so",
+    "encoding": "fullwidth",
+    "note": "opening $10:9F33"
+  },
+  {
+    "offset": "081F54",
+    "length": 20,
+    "text": "nao e so",
+    "encoding": "fullwidth",
+    "note": "opening $10:9F54"
+  },
+  {
+    "offset": "081F6F",
+    "length": 32,
+    "text": "Sao a esperanca",
+    "encoding": "fullwidth",
+    "note": "opening $10:9F6F"
+  },
+  {
+    "offset": "081F90",
+    "length": 26,
+    "text": "Os escolhidos",
+    "encoding": "fullwidth",
+    "note": "opening $10:9F90"
+  },
+  {
+    "offset": "081FB1",
+    "length": 30,
+    "text": "Meu dever e",
+    "encoding": "fullwidth",
+    "note": "opening $10:9FB1"
+  },
+  {
+    "offset": "081FD0",
+    "length": 28,
+    "text": "guiar voces",
+    "encoding": "fullwidth",
+    "note": "opening $10:9FD0"
+  },
+  {
+    "offset": "081FED",
+    "length": 16,
+    "text": "Guiar",
+    "encoding": "fullwidth",
+    "note": "opening $10:9FED"
+  },
+  {
+    "offset": "08200B",
+    "length": 6,
+    "text": "tem",
+    "encoding": "fullwidth",
+    "note": "opening $10:A00B"
+  },
+  {
+    "offset": "082012",
+    "length": 32,
+    "text": "Programa demonio",
+    "encoding": "fullwidth",
+    "note": "opening $10:A012"
+  },
+  {
+    "offset": "082033",
+    "length": 32,
+    "text": "Use o computador",
+    "encoding": "fullwidth",
+    "note": "opening $10:A033"
+  },
+  {
+    "offset": "082054",
+    "length": 28,
+    "text": "chamar demos",
+    "encoding": "fullwidth",
+    "note": "opening $10:A054"
+  },
+  {
+    "offset": "082075",
+    "length": 32,
+    "text": "Demos domados",
+    "encoding": "fullwidth",
+    "note": "opening $10:A075"
+  },
+  {
+    "offset": "082096",
+    "length": 26,
+    "text": "Eu os guardo",
+    "encoding": "fullwidth",
+    "note": "opening $10:A096"
+  },
+  {
+    "offset": "0820B1",
+    "length": 8,
+    "text": "aqui",
+    "encoding": "fullwidth",
+    "note": "opening $10:A0B1"
+  },
+  {
+    "offset": "0820BD",
+    "length": 28,
+    "text": "Auto-mapa",
+    "encoding": "fullwidth",
+    "note": "opening $10:A0BD"
+  },
+  {
+    "offset": "0820DA",
+    "length": 16,
+    "text": "Concedo",
+    "encoding": "fullwidth",
+    "note": "opening $10:A0DA"
+  },
+  {
+    "offset": "0820EE",
+    "length": 26,
+    "text": "Ja andados",
+    "encoding": "fullwidth",
+    "note": "opening $10:A0EE"
+  },
+  {
+    "offset": "082109",
+    "length": 26,
+    "text": "sao mapeados",
+    "encoding": "fullwidth",
+    "note": "opening $10:A109"
+  },
+  {
+    "offset": "08212B",
+    "length": 6,
+    "text": "tem",
+    "encoding": "fullwidth",
+    "note": "opening $10:A12B"
+  },
+  {
+    "offset": "082132",
+    "length": 26,
+    "text": "D e Mapper",
+    "encoding": "fullwidth",
+    "note": "opening $10:A132"
+  },
+  {
+    "offset": "08214D",
+    "length": 18,
+    "text": "magias",
+    "encoding": "fullwidth",
+    "note": "opening $10:A14D"
+  },
+  {
+    "offset": "082165",
+    "length": 24,
+    "text": "Selo aberto",
+    "encoding": "fullwidth",
+    "note": "opening $10:A165"
+  },
+  {
+    "offset": "08217E",
+    "length": 30,
+    "text": "No abrigo",
+    "encoding": "fullwidth",
+    "note": "opening $10:A17E"
+  },
+  {
+    "offset": "08219D",
+    "length": 28,
+    "text": "demos invadem",
+    "encoding": "fullwidth",
+    "note": "opening $10:A19D"
+  },
+  {
+    "offset": "0821BA",
+    "length": 8,
+    "text": "ja",
+    "encoding": "fullwidth",
+    "note": "opening $10:A1BA"
+  },
+  {
+    "offset": "0821C7",
+    "length": 28,
+    "text": "Demo do B1F",
+    "encoding": "fullwidth",
+    "note": "opening $10:A1C7"
+  },
+  {
+    "offset": "0821E4",
+    "length": 32,
+    "text": "Derrote Nebiros",
+    "encoding": "fullwidth",
+    "note": "opening $10:A1E4"
+  },
+  {
+    "offset": "082209",
+    "length": 18,
+    "text": "Cuidado",
+    "encoding": "fullwidth",
+    "note": "opening $10:A209"
+  }
+]

@@ -6,7 +6,7 @@ BASE_ROM_ARG := $(if $(ROM),--base-rom "$(ROM)")
 WLA_BIN ?= $(CURDIR)/.toolchain/wla-dx/build/binaries
 export WLA_BIN
 
-.PHONY: all baseline symbols text text-extract messages names names-en names-inplace replace-test font-test fullwidth-test bps-test toolchain-test menu-en menu-pt script-en battle-en battle-pt full-pt races-en full-en full-names clean
+.PHONY: all baseline symbols text text-extract messages names names-en names-inplace replace-test font-test fullwidth-test bps-test toolchain-test menu-en menu-pt script-en script-pt battle-en battle-pt full-pt races-en full-en full-names clean
 
 all: baseline symbols text text-extract messages names replace-test font-test fullwidth-test bps-test toolchain-test
 
@@ -67,6 +67,14 @@ script-en: menu-en
 		--patch "$(BUILD)/rom/script_en.bps" \
 		--report "$(BUILD)/rom/script_en_report.json"
 
+script-pt: menu-pt
+	$(PYTHON) tools/replace_text.py --rom "$(BUILD)/rom/menu_pt.sfc" \
+		--translations translations/script_pt.json \
+		--patch-name "Kyuuyaku Megami Tensei Portuguese script" \
+		--out "$(BUILD)/rom/script_pt.sfc" \
+		--patch "$(BUILD)/rom/script_pt.bps" \
+		--report "$(BUILD)/rom/script_pt_report.json"
+
 names-en:
 	$(PYTHON) tools/patch_names.py --translations translations/names_en.json \
 		--patch-name "Kyuuyaku Megami Tensei English names" \
@@ -99,7 +107,7 @@ battle-pt: script-en
 
 full-pt: menu-pt
 	$(PYTHON) tools/replace_text.py --rom "$(BUILD)/rom/menu_pt.sfc" \
-		--translations translations/script_en.json \
+		--translations translations/script_pt.json \
 		--out "$(BUILD)/rom/script_pt_ui.sfc" \
 		--report "$(BUILD)/rom/script_pt_ui_report.json"
 	$(PYTHON) tools/patch_races.py --rom "$(BUILD)/rom/script_pt_ui.sfc" \

@@ -170,10 +170,17 @@ execução.
 - **UI/menu em PT-BR**: `translations/menu_pt.json` cobre as 93 entradas
   de `menu_en.json` (lojas, arquivos, magia, item, COMP) dentro dos slots
   fixos; `make menu-pt` gera `menu_pt.sfc`/`menu_pt.bps` (2171 bytes).
-  O alvo `full-pt` parte de `menu_pt.sfc`, aplica o script EN, a batalha
+- **Script PT-BR**: `translations/script_pt.json` cobre as 90 entradas de
+  `script_en.json` (abertura, restaurante, baú, batalha e a narração de
+  Pazuzu) em PT-BR sem acentos, dentro do slot fullwidth; os offsets e
+  controles são os mesmos do script EN. O alvo `script-pt` gera um BPS
+  standalone e o `full-pt` usa esse script no lugar do EN. A validação
+  cena a cena no recomp ainda está pendente; a renderização fullwidth é a
+  mesma já validada no EN.
+- O alvo `full-pt` parte de `menu_pt.sfc`, aplica o script PT, a batalha
   PT de 1 byte e os nomes/raças EN, gerando `full_pt.sfc`/`full_pt.bps`
-  (16713 bytes). O menu usa o motor de 2 bytes estável; a batalha PT
-  continua experimental por causa dos espaços/pontuação.
+  (16217 bytes). O menu e o script usam o motor de 2 bytes estável; a
+  batalha PT usa o codec 8x8 descrito acima.
 - O fallback `names-inplace` não é necessário para o recomp agora.
 - **Página 8x8 não é ASCII puro na pontuação**: `0x1B` (seria `:`) renderiza
   um glifo parecido com "10"; o label de equipamento usa `EQ` + espaços.
