@@ -64,6 +64,12 @@ O display-list em `$07:3ED29` contém os códigos do primeiro rótulo
 (`05 00 06 00 07 00 1E 00` = `たいりょく`), mas trocar esses bytes não
 alterou a tela de detalhe.
 
+A sequência `05 2C 06 2C 07 2C 1E 2C` existe na WRAM em `$7F:2686`
+somente até o frame 359020. No frame 359042 ela não está mais na WRAM;
+o executor das linhas 22-26 lê os códigos de um descritor cuja origem
+é ROM (ou um buffer já reciclado). É por isso que os hooks em
+`$7F:2100` não seguram o texto.
+
 ## Próximo passo
 
 1. Decodificar os descritores em `$7E:1800+` (source/dest/size) no
