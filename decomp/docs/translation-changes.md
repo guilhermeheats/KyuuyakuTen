@@ -83,13 +83,13 @@ resultados de validação. O estado consolidado fica em
 - O banco `$0F` em `$8AE7+` contém nomes de itens (`体力の香`,
   `知力の香`, `強さの香`, `速さの香`, `運の香`), que são itens, não os
   labels da tela.
-- O traço de VRAM do momento da criação mostrou o painel/valores sendo
-  escritos por `Coverage_00_84E8` em BG4 (`$F8B4-$FFFF`); os labels
-  parecem vir de um tilemap BG2 que não foi capturado como escrita de
-  CPU, provavelmente por DMA. `get_dma_state` no estado da criação mostra
-  os canais 5/7 com fontes `$00:D8E1`/`$00:0A20` e transfers de ~64 KB
-  (prováveis cópias em bloco/de boot). O próximo passo é rastrear a
-  origem exata do tilemap ou a rotina do renderizador da criação.
+- O bloco 5x5 dos labels foi localizado no tilemap BG4 `$7C00`
+  (linhas 10-14, colunas 24-28), com página de fonte `$1000`; o BG2 é o
+  teclado de nomes. O painel/valores é escrito por
+  `Coverage_00_84E8` em BG4 (`$F8B4-$FFFF`).
+- As fontes DMA 5/7 (`$00:D8E1`/`$00:0A20`) são dados/código, não a
+  tabela dos labels. O próximo passo é localizar o código que escreve as
+  entradas de `$7C00` ou a tabela que as gera.
 
 ## Hashes de referência
 
