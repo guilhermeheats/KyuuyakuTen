@@ -80,36 +80,39 @@ window de 2 KB em `$7E:F000`. O stream é fatiado em vários frames
 - frame 729/730: `$7E:3000`/`$7E:3800` → VRAM `$7800`/`$7C00`
   (tilemap auxiliar da moldura).
 
-## Plano de patch
+## Patch implementado
 
-Como o asset é comprimido e o decoder ainda não foi reproduzido com
-segurança byte a byte, o caminho escolhido é substituir os **buffers
-finais** por dados traduzidos e reenviá-los por DMA, sem depender do
-stream original.
+`tools/patch_legend.py` substitui o asset comprimido por dados próprios,
+sem depender do decoder:
 
-1. Extrair o bloco final de `$7F:0000-$5FFF` (fontes e gráficos) do
-   estado vivo no frame 900, usando a VRAM `$3000` para a primeira
-   página.
-2. Construir uma fonte 8x8 latina na página `$5000` (tiles 2bpp) e um
-   tilemap novo em `$6800` com as linhas EN/PT.
-3. Gravar tilemap (0x800 bytes) e tiles (0xD00 bytes) em espaço livre
-   do banco `$2E`:
-   - `0x173820` (2 KB, livre);
-   - `0x1751A0` (0xE60 bytes, livre).
-4. Hook 65816 no loader da lenda:
-   - dividir o DMA de 0x6000 bytes do frame 701 em três partes:
-     `$7F:0000` (0x4000), fonte nova (0xD00), `$7F:5000` (0x1000);
-   - trocar a origem do DMA do tilemap para o buffer novo;
-   - validar no recomp nativo antes de gerar o BPS.
-5. Atualizar hashes, gates SHA e este documento.
+- Tilemap 32x32 em 8x8, linhas 7-20 (`0x380` bytes), em `$2A:B820`
+  (file `0x153820`).
+- 32 tiles latinos 2bpp (A-Z, espaço e pontuação), em `$2A:F820`
+  (file `0x157820`).
+- Hook da fonte em `$2A:BBC0`: copia os 32 tiles para `$7F:5E00`
+  (tiles `0x1E0-0x1FF`) e dispara o DMA de `0x6000` bytes.
+- Hook do tilemap em `$2A:BC00`: copia as 14 linhas para `$7F:01D0` e
+  dispara o DMA de `0x800` bytes.
+
+Sites patcheados:
+
+| File offset | Original | Novo |
+|---|---|---|
+| `0x17665` | `A9 08 8D 0B 42` | `22 C0 BB 2A EA` |
+| `0x177C9` | `A9 08 8D 0B 42` | `22 00 BC 2A EA` |
+
+A cópia do tilemap cobre também a linha 20 para apagar o rodapé japonês
+que sobrava com 13 linhas. Validado no recomp nativo em PT-BR e EN no
+frame 1750.
 
 ## Espaço livre
 
-| File offset | Banco:endereço | Tamanho |
+| File offset | Banco:endereço | Uso |
 |---|---|---|
-| `0x173820` | `$2E:B820` | 0x800 |
-| `0x1751A0` | `$2E:D1A0` | 0xE60 |
+| `0x153820` | `$2A:B820` | tilemap (0x380) |
+| `0x153BC0` | `$2A:BBC0` | hook da fonte |
+| `0x153C00` | `$2A:BC00` | hook do tilemap |
+| `0x157820` | `$2A:F820` | tiles latinos (0x200) |
 
-O banco `$2E` é mapeado em LoROM como `$2E:8000-$FFFF`; os dois trechos
-são preenchidos com `0x00` e não aparecem em nenhuma tabela de assets
-conhecida.
+Os trechos estão zerados nos ROMs finais PT e EN; o banco `$2A` não é
+usado pelos patches de texto existentes.

@@ -194,12 +194,17 @@ resultados de validação. O estado consolidado fica em
 - PT-BR: *Uma antiga lenda conta / de um tempo em que / os alados se
   rebelaram / mas foram derrotados / perderam sua glória / suas asas
   brancas foram / arrancadas na escuridão.*
-- Não há string Shift-JIS simples; é um asset gráfico comprimido. O
-  caminho escolhido é gravar os buffers traduzidos em espaço livre do
-  banco `$2E` (file `0x173820`, 2 KB, e `0x1751A0`, 0xE60 bytes) e
-  fazer o upload por DMA com um pequeno hook 65816 antes dos frames
-  701/724.
-- Nenhum patch cego foi aplicado nessas duas telas.
+- Não há string Shift-JIS simples; é um asset gráfico comprimido.
+- Implementado: `tools/patch_legend.py` grava um tilemap 8x8 e 32 tiles
+  latinos no espaço livre do banco `$2A` (`0x153820`/`0x157820`) e
+  instala dois hooks de DMA:
+  - `0x17665` → `$2A:BB C0` (copia a fonte antes do bloco de 24 KB);
+  - `0x177C9` → `$2A:BC 00` (copia o tilemap antes do upload de `$6800`).
+- A cópia do tilemap cobre as linhas 7-20 (0x380 bytes) para apagar
+  também o rodapé japonês original.
+- Validado no recomp nativo: PT-BR e EN exibem as 7 linhas traduzidas
+  no frame 1750; o BPS continua aplicando contra a ROM japonesa.
+- A tela de status continua pendente (painel pré-renderizado).
 
 ## Investigação dos rótulos de atributos
 
@@ -217,15 +222,15 @@ resultados de validação. O estado consolidado fica em
 ## Hashes de referência
 
 - EN `full_names.sfc`:
-  - `dc3b9bd4941b6e7560cdba787b9fea672a28f1f42f46315cb734ca976ee442f9`
+  - `a71f6f0d8ed7ef39c5b1b8c87e009a790cdeb646208e77e877cd5ab8c1c4a776`
 - EN `full_names.bps`:
-  - 25.149 bytes
-  - `11c2a8e0486870d953d1187d8edc4f8db23dc2dfc7b9f3775cef72fd9c457c1d`
+  - 26.180 bytes
+  - `139d5a0a1ca9baf6b1389cc317c18adf751954bc2fce55d01ee463d5318d0300`
 - PT `pt_full.sfc`:
-  - `82f0003ea0a2e6653b93c44dccd7cde3e3e75b032fb36305e910be0ab251bbce`
+  - `370e92ea2f23be126028803d8c678556c7a7689eab312576f35a00a42f5e68fc`
 - PT `pt_full.bps`:
-  - 25.179 bytes
-  - `ef6af569507a5a1b56146a9054bc7814aa4c3d314782ad6cb0ca2fb39e6a34e7`
+  - 26.188 bytes
+  - `5fcc84346c21900e72009ac4e66743f308fc085808ff980966d4190aa3a304e1`
 - `menu_pt.bps`:
   - 2.517 bytes
   - `f16258388b94daddb944ce6acdda85c410cde3acfd345d306b290a3eba63714b`
@@ -251,6 +256,7 @@ resultados de validação. O estado consolidado fica em
 | `e1a6905` | página hiragana e nomes T3 completos |
 | `9863ed3` | descrição MP da loja (`MP TEMP +`) |
 | `da9fa18` | pool de descrições `$11:B4DC` (175 segmentos) |
+| `documento atual` | lenda inicial em 8x8 (PT/EN, hook de DMA) |
 | `documento atual` | changelog EN/PT para revisão |
 
 ## Como revisar
@@ -275,8 +281,8 @@ resultados de validação. O estado consolidado fica em
 
 ## Pendências para a próxima revisão
 
-- Tela de status e lenda inicial: painéis pré-renderizados, exigem
-  pipeline de edição gráfica.
+- Tela de status: painel pré-renderizado, exige pipeline de edição
+  gráfica. A lenda inicial já foi resolvida.
 - Nomes de itens/equipamentos T3: 298/299 traduzidos; resta apenas o
   placeholder vazio (índice 0).
 - Pool de descrições: 175/199 segmentos traduzidos; restam apenas

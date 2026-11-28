@@ -13,16 +13,16 @@ resumo de revisão; os detalhes de implementação ficam em
 
 Hashes do build PT atual:
 
-- ROM `82f0003ea0a2e6653b93c44dccd7cde3e3e75b032fb36305e910be0ab251bbce`
-- BPS `ef6af569507a5a1b56146a9054bc7814aa4c3d314782ad6cb0ca2fb39e6a34e7`
-  (25.179 bytes)
+- ROM `370e92ea2f23be126028803d8c678556c7a7689eab312576f35a00a42f5e68fc`
+- BPS `5fcc84346c21900e72009ac4e66743f308fc085808ff980966d4190aa3a304e1`
+  (26.188 bytes)
 - `menu_pt.bps` 2.517 bytes
 
 Hashes do build EN atual:
 
-- ROM `dc3b9bd4941b6e7560cdba787b9fea672a28f1f42f46315cb734ca976ee442f9`
-- BPS `02b8b5221ba9e348d0a2a4c8e3955a2e081ccd9bce18eb34683601f6f4f27449`
-  (25.149 bytes)
+- ROM `a71f6f0d8ed7ef39c5b1b8c87e009a790cdeb646208e77e877cd5ab8c1c4a776`
+- BPS `139d5a0a1ca9baf6b1389cc317c18adf751954bc2fce55d01ee463d5318d0300`
+  (26.180 bytes)
 
 O build PT usa:
 - UI/menu PT-BR (`menu_pt.json`, 146 entradas);
@@ -37,7 +37,9 @@ O build PT usa:
   `$11:B4DC`; 199 segmentos no total, os restantes são vazios/`?????`);
 - batalha PT-BR de 1 byte com codec 8x8 (`battle_pt.json`, 129 entradas);
 - raças PT-BR (`races_pt.json`, 24 descritores);
-- nomes próprios dos demônios em EN (`names_en.json`).
+- nomes próprios dos demônios em EN (`names_en.json`);
+- lenda inicial em 8x8 (`legend_pt.json`/`legend_en.json`, 7 linhas,
+  hook de DMA no banco `$2A`).
 
 ## Validação no recomp
 
@@ -63,6 +65,9 @@ O build PT usa:
   o ROM PT já tem `QUE?` em `$1F739` e o `DEPOIS` em PT aparece ao sair
   da loja. Ao reentrar, a tabela corrigida é relida.
 - Abertura do banco `$05`: linhas em PT-BR validadas no filme.
+- Lenda inicial: as 7 linhas em PT-BR e EN foram validadas no recomp
+  nativo (frame 1750), com fonte 8x8 e tilemap próprios. O rodapé
+  japonês residual foi removido ao estender a cópia até a linha 20.
 - Batalha: `COMANDO?`, `FAZ O QUE?`, `TUDO BEM?`, `SOFRE N DANO`,
   `PERDE N`, `SEM DANO!`, `ESQUIVOU!`.
 - COMP/história: texto de 2 bytes renderizando normalmente após a
@@ -79,7 +84,7 @@ O build PT usa:
    (um patch nessa tabela não alterou a tela). O painel parece
    pré-renderizado/cacheado; traduzir exige editar o tilemap/tiles do
    painel, não uma string.
-4. Lenda inicial: texto completo em 7 linhas, renderizado em BG3 com
+4. ~~Lenda inicial~~ (resolvido): texto completo em 7 linhas, renderizado em BG3 com
    tilemap em `$6800` (buffer `$7F:0010`, 2 KB, DMA no frame 724) e
    fonte 16x16 em `$5000` (buffer `$7F:4000`, 4 KB, parte do bloco de
    24 KB `$7F:0000-$5FFF`, DMA no frame 701 para a VRAM `$3000`).
@@ -104,10 +109,10 @@ O build PT usa:
    rebelaram / mas foram derrotados / perderam sua glória / suas asas
    brancas foram / arrancadas na escuridão.*
 
-   A tradução exige um novo asset gráfico: tiles 8x8 latinos na página
-   de fonte e um tilemap novo. O plano é gravar os dois buffers em
-   espaço livre do banco `$2E` e fazer o upload por DMA antes dos
-   frames 701/724 (hook de 65816), sem depender do stream comprimido.
+   A tradução usa tiles 8x8 latinos e um tilemap próprio, gravados no
+   espaço livre do banco `$2A` (`0x153820`, tilemap; `0x157820`,
+   fonte), com hooks de DMA em `0x153BC0`/`0x153C00`. Validado em PT-BR
+   e EN no recomp nativo.
 5. Validação cena a cena do script/raças PT no recomp.
 6. MT2 ainda não iniciado.
 
