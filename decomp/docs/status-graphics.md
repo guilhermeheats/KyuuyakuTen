@@ -70,6 +70,16 @@ o executor das linhas 22-26 lê os códigos de um descritor cuja origem
 é ROM (ou um buffer já reciclado). É por isso que os hooks em
 `$7F:2100` não seguram o texto.
 
+A página de fonte da VRAM `$3000` vem do asset `$07:E998`,
+descomprimido para `$7F:0000` e copiado por DMA (`$7F:0100` →
+VRAM `$3000`, `0x1973B`). Os tiles `0x05-0x11` dessa página são os
+glifos japoneses dos rótulos.
+
+Hooks testados sem sucesso: `0x19788` (DMA do tilemap), `0x0760`
+(executor), `0x1823B` (fonte `$7F:6000` → `$7000`) e `0x1973B`
+(fonte `$7F:0100` → `$3000`). A tabela `$07:3ED29` também não é a
+fonte do detalhe.
+
 ## Próximo passo
 
 1. Decodificar os descritores em `$7E:1800+` (source/dest/size) no
