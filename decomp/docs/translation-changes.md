@@ -24,6 +24,8 @@ resultados de validação. O estado consolidado fica em
 | `translations/stat_labels_pt.json` | PT-BR | 5 | raw | rótulos da criação (tilemap) |
 | `translations/items_en.json` | EN | 298 | font 8x8 | T3 itens/equipamentos |
 | `translations/items_pt.json` | PT-BR | 298 | font 8x8 | T3 itens/equipamentos |
+| `translations/descriptions_en.json` | EN | 175 | fullwidth | pool `$11:B4DC` |
+| `translations/descriptions_pt.json` | PT-BR | 175 | fullwidth | pool `$11:B4DC` |
 
 ## Mudanças recentes (MT1)
 
@@ -113,6 +115,23 @@ resultados de validação. O estado consolidado fica em
   (`何の用? / 買う / 売る / ステイタスを見る / 外に出る`), indicando
   outra cópia/tabela ou cache a investigar.
 
+### Pool de descrições de itens (`$11:B4DC`)
+
+- O pool tem **199 segmentos** Shift-JIS separados por `01 01`; os
+  299 ponteiros big-endian apontam para eles, com descrições
+  compartilhadas entre itens.
+- 175 segmentos foram traduzidos:
+  - linhas de ataque/defesa compactas (`A2 H1 MF`, `DEF3 F`);
+  - efeitos visíveis da loja (`CURA V`, `CURA PAR`, `CURA ST`,
+    `HP TEMP +`, `MP TEMP +`);
+  - efeitos especiais (`SEM DEM. FRACOS`, `P. ZAN`, `CURA TOTAL`,
+    `WARP ENTRADA`, ...).
+- Os 24 segmentos restantes são vazios ou placeholders `?????`.
+- Novo alvo `descriptions-pt`/`descriptions-en` no Makefile, aplicado
+  antes de `startup-pt`/`items-en`.
+- Validação na loja JUNKS: as cinco descrições visíveis apareceram em
+  PT-BR.
+
 ### Itens de efeito estatístico (banco `$0F`)
 
 - `MUSCLE` (マッスルドリンコ), `MANA` (魔力の素), `SOM` (ソーマ),
@@ -167,15 +186,15 @@ resultados de validação. O estado consolidado fica em
 ## Hashes de referência
 
 - EN `full_names.sfc`:
-  - `ddaec72e10e4aa70d2beeb72c83c209d3d34a248578cbe7476cdea645696388f`
+  - `dc3b9bd4941b6e7560cdba787b9fea672a28f1f42f46315cb734ca976ee442f9`
 - EN `full_names.bps`:
-  - 21.100 bytes
+  - 25.149 bytes
   - `11c2a8e0486870d953d1187d8edc4f8db23dc2dfc7b9f3775cef72fd9c457c1d`
 - PT `pt_full.sfc`:
-  - `0c5074b8726b090b4387b63b2ce8a7be193c6321d544d11b848f763d228a5307`
+  - `82f0003ea0a2e6653b93c44dccd7cde3e3e75b032fb36305e910be0ab251bbce`
 - PT `pt_full.bps`:
-  - 21.134 bytes
-  - `655148f1db6502fa7fa1c8a0c5ad15b740752ea113c49951beebb15065f3648e`
+  - 25.179 bytes
+  - `ef6af569507a5a1b56146a9054bc7814aa4c3d314782ad6cb0ca2fb39e6a34e7`
 - `menu_pt.bps`:
   - 2.517 bytes
   - `f16258388b94daddb944ce6acdda85c410cde3acfd345d306b290a3eba63714b`
@@ -200,6 +219,7 @@ resultados de validação. O estado consolidado fica em
 | `c818ee4` | repack e tradução parcial dos nomes T3 |
 | `e1a6905` | página hiragana e nomes T3 completos |
 | `9863ed3` | descrição MP da loja (`MP TEMP +`) |
+| `da9fa18` | pool de descrições `$11:B4DC` (175 segmentos) |
 | `documento atual` | changelog EN/PT para revisão |
 
 ## Como revisar
@@ -228,8 +248,8 @@ resultados de validação. O estado consolidado fica em
   pipeline de edição gráfica.
 - Nomes de itens/equipamentos T3: 298/299 traduzidos; resta apenas o
   placeholder vazio (índice 0).
-- Pool longo de descrições: tabela `$11:B4DC` (299 ponteiros) ainda
-  em japonês; as linhas curtas da loja já estão em PT-BR.
+- Pool de descrições: 175/199 segmentos traduzidos; restam apenas
+  vazios/placeholders.
 - Prompt da segunda loja: verificar cópia/tabela ou cache.
 - Nomes próprios dos demônios em EN/romaji.
 - Página 8x8 com minúsculas/acentos.

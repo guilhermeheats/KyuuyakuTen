@@ -13,16 +13,16 @@ resumo de revisão; os detalhes de implementação ficam em
 
 Hashes do build PT atual:
 
-- ROM `0c5074b8726b090b4387b63b2ce8a7be193c6321d544d11b848f763d228a5307`
-- BPS `655148f1db6502fa7fa1c8a0c5ad15b740752ea113c49951beebb15065f3648e`
-  (21.134 bytes)
+- ROM `82f0003ea0a2e6653b93c44dccd7cde3e3e75b032fb36305e910be0ab251bbce`
+- BPS `ef6af569507a5a1b56146a9054bc7814aa4c3d314782ad6cb0ca2fb39e6a34e7`
+  (25.179 bytes)
 - `menu_pt.bps` 2.517 bytes
 
 Hashes do build EN atual:
 
-- ROM `ddaec72e10e4aa70d2beeb72c83c209d3d34a248578cbe7476cdea645696388f`
-- BPS `c8bf313de1b0b4f058994d71fd4d757513cf24a2176303ec34e73c4b11834c40`
-  (21.100 bytes)
+- ROM `dc3b9bd4941b6e7560cdba787b9fea672a28f1f42f46315cb734ca976ee442f9`
+- BPS `02b8b5221ba9e348d0a2a4c8e3955a2e081ccd9bce18eb34683601f6f4f27449`
+  (25.149 bytes)
 
 O build PT usa:
 - UI/menu PT-BR (`menu_pt.json`, 146 entradas);
@@ -33,6 +33,8 @@ O build PT usa:
   5 patches de tilemap);
 - nomes de itens/equipamentos T3 (`items_pt.json`, 298 entradas;
   repack completo do pool `$06:$ED54+` e da tabela de 299 ponteiros);
+- descrições de itens (`descriptions_pt.json`, 175 segmentos do pool
+  `$11:B4DC`; 199 segmentos no total, os restantes são vazios/`?????`);
 - batalha PT-BR de 1 byte com codec 8x8 (`battle_pt.json`, 129 entradas);
 - raças PT-BR (`races_pt.json`, 24 descritores);
 - nomes próprios dos demônios em EN (`names_en.json`).
@@ -51,12 +53,12 @@ O build PT usa:
 - Loja JUNKS: a lista de compra mostrou `POISON / PARALYZE / PETRIFY /
   MUSCLE / ESSENCIA` em PT-BR; a compra de POISON descontou 400 MAG
   (1259 -> 859) e o fluxo YES/NO funcionou.
-- Descrições curtas da loja: `CURA`, `CURA PAR`, `CURA`,
-  `HP TEMP +` e `MP TEMP +` validadas para POISON, PARALYZE, PETRIFY,
-  MUSCLE e ESSENCIA. A descrição MP foi adicionada em `$11:C3F7`.
-  O pool longo de descrições em `$11:B4DC` (299 ponteiros
-  **big-endian**, strings Shift-JIS com `01 01`) ainda é uma tarefa
-  separada; a ordem não é necessariamente 1:1 com o T3.
+- Descrições de itens: as linhas visíveis da loja estão em PT-BR:
+  POISON `CURA V`, PARALYZE `CURA PAR`, PETRIFY `CURA ST`,
+  MUSCLE `HP TEMP +`, ESSENCIA `MP TEMP +`.
+- O pool `$11:B4DC` tem 199 segmentos; 175 foram traduzidos,
+  incluindo as linhas de ataque/defesa das armas e armaduras.
+  Os 24 restantes são vazios ou placeholders `?????`.
 - Uma segunda loja (save 8) ainda mostrou o prompt em japonês
   (`何の用? / 買う / 売る / ステイタスを見る / 外に出る`); verificar se é
   outra cópia/tabela ou cache.
@@ -69,22 +71,19 @@ O build PT usa:
 
 ## Ainda pendente
 
-1. Pool longo de descrições de itens/equipamentos (`$11:B4DC`, 299
-   ponteiros big-endian): as linhas curtas da loja já estão em PT-BR,
-   mas o texto longo ainda precisa ser traduzido e validado.
-2. Nomes próprios dos demônios: mantidos em EN/romaji.
-3. Página 8x8 com minúsculas/acentos para PT-BR completo.
-4. Tela de status (botão `X`): o painel fica em BG2 `$6C00` e a fonte
+1. Nomes próprios dos demônios: mantidos em EN/romaji.
+2. Página 8x8 com minúsculas/acentos para PT-BR completo.
+3. Tela de status (botão `X`): o painel fica em BG2 `$6C00` e a fonte
    8x8 em `$6000`; os rótulos (`たいりょく`, `ちりょく`, `つよさ`,
    `はやさ`, `うん`) não são lidos da tabela do banco `$06` em `$B22B`
    (um patch nessa tabela não alterou a tela). O painel parece
    pré-renderizado/cacheado; traduzir exige editar o tilemap/tiles do
    painel, não uma string.
-5. Lenda inicial em tela preta (`古き言い伝えに曰く…`): capturada por
+4. Lenda inicial em tela preta (`古き言い伝えに曰く…`): capturada por
    volta do frame 900; fica no tilemap BG1 `$7200`, linhas 4-15, com
    glifos 16x16 pré-renderizados. Também exige edição gráfica.
-6. Validação cena a cena do script/raças PT no recomp.
-7. MT2 ainda não iniciado.
+5. Validação cena a cena do script/raças PT no recomp.
+6. MT2 ainda não iniciado.
 
 ## Reprodução
 
