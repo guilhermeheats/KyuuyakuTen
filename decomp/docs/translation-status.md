@@ -44,7 +44,12 @@ O build PT usa:
 ## Ainda pendente
 
 1. Rótulos dos atributos na criação de personagem (`ちりょく`, `うん`,
-   `たいりょく`, `ちから`, `はやさ`): usam um tilemap/fonte separado.
+   `たいりょく`, `ちから`, `はやさ`): confirmados como um tilemap 8x8
+   separado, fora dos pools `$06/$10/$11`. O banco `$0F` em `$8AE7+`
+   contém nomes de itens (`体力の香`, `知力の香`, ...), não os labels.
+   O traço de VRAM da tela mostrou a escrita do painel/valores por
+   `Coverage_00_84E8` em BG4; falta localizar a origem DMA dos labels
+   em BG2.
 2. Lenda inicial em tela preta (`古き言い伝えに曰く…`): tilemap BG1
    pré-renderizado, exige edição gráfica.
 3. Nomes de itens/equipamentos da tabela T3 do banco `$06` (299 entradas):

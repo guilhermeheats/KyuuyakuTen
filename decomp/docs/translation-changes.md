@@ -69,6 +69,19 @@ resultados de validação. O estado consolidado fica em
 - 24 descritores em PT-BR (`TIRANO`, `FERA`, `IMUNDO`, `SELVAGEM`, ...),
   mantendo as letras de prefixo.
 
+## Investigação dos rótulos de atributos
+
+- Os labels da criação (`ちりょく`, `うん`, `たいりょく`, `ちから`,
+  `はやさ`) não estão nos pools de texto `$06`, `$10` ou `$11`.
+- O banco `$0F` em `$8AE7+` contém nomes de itens (`体力の香`,
+  `知力の香`, `強さの香`, `速さの香`, `運の香`), que são itens, não os
+  labels da tela.
+- O traço de VRAM do momento da criação mostrou o painel/valores sendo
+  escritos por `Coverage_00_84E8` em BG4 (`$F8B4-$FFFF`); os labels
+  parecem vir de um tilemap BG2 que não foi capturado como escrita de
+  CPU, provavelmente por DMA. O próximo passo é rastrear a origem DMA
+  ou a rotina do renderizador da criação.
+
 ## Hashes de referência
 
 - EN `full_names.sfc`:
