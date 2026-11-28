@@ -176,9 +176,11 @@ execução.
   (`COMP/MAGIA/ITEM/ESTADO`, `ATACAR/GUARDA/VOLTAR`,
   `ARMAS/ARMADUR/EMPRESA`) nas tabelas de `$01:A940`, `$03` e `$04`, e 11
   entradas de fonte 8x8 para o submenu COMP (`CHAMAR`, `VOLTAR`, `LIBERAR`,
-  `TROCAR`, `MAPA AUTO`, `CONFIG`, `ANALISAR`). O menu principal e o
-  submenu COMP já aparecem em PT; os rótulos de atributos continuam em
-  japonês. `make menu-pt` gera `menu_pt.sfc`/`menu_pt.bps` (2420 bytes).
+  `TROCAR`, `MAPA AUTO`, `CONFIG`, `ANALISAR`) e para o menu de configuração
+  (`BATALHA`, `MAGIAS`, `MAPA AUTO`, `SOM`; valores `RAP/LEN/NOR`, `AUT/FIX`,
+  `OFF/ON`, `STER`). O menu principal, o submenu COMP e a configuração já
+  aparecem em PT; os rótulos de atributos continuam em japonês.
+  `make menu-pt` gera `menu_pt.sfc`/`menu_pt.bps` (2488 bytes).
 - **Script PT-BR**: `translations/script_pt.json` cobre as 90 entradas de
   `script_en.json` (abertura, restaurante, baú, batalha e a narração de
   Pazuzu) em PT-BR sem acentos, dentro do slot fullwidth; os offsets e
@@ -197,7 +199,7 @@ execução.
   `ちから`, ...) ainda estão no japonês.
 - O alvo `full-pt` parte de `menu_pt.sfc`, aplica o startup PT, o script
   PT, a batalha PT de 1 byte, os nomes EN e as raças PT, gerando
-  `full_pt.sfc`/`full_pt.bps` (16801 bytes). O menu/script usam o motor de
+  `full_pt.sfc`/`full_pt.bps` (17809 bytes). O menu/script usam o motor de
   2 bytes estável; a batalha PT usa o codec 8x8 descrito acima.
 - O fallback `names-inplace` não é necessário para o recomp agora.
 - **Página 8x8 não é ASCII puro na pontuação**: `0x1B` (seria `:`) renderiza

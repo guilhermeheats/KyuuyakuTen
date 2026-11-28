@@ -814,5 +814,65 @@
     "length": 9,
     "text": "ANALISAR",
     "encoding": "font"
+  },
+  {
+    "offset": "01BC12",
+    "length": 3,
+    "text": "RAP",
+    "encoding": "font"
+  },
+  {
+    "offset": "01BC16",
+    "length": 3,
+    "text": "LEN",
+    "encoding": "font"
+  },
+  {
+    "offset": "01BC1A",
+    "length": 3,
+    "text": "NOR",
+    "encoding": "font"
+  },
+  {
+    "offset": "01BC26",
+    "length": 3,
+    "text": "AUT",
+    "encoding": "font"
+  },
+  {
+    "offset": "01BC2A",
+    "length": 3,
+    "text": "FIX",
+    "encoding": "font"
+  },
+  {
+    "offset": "01BC2D",
+    "length": 4,
+    "text": "STER",
+    "encoding": "font"
+  },
+  {
+    "offset": "01BAF9",
+    "length": 13,
+    "text": "BATALHA",
+    "encoding": "font"
+  },
+  {
+    "offset": "01BB06",
+    "length": 13,
+    "text": "MAGIAS",
+    "encoding": "font"
+  },
+  {
+    "offset": "01BB13",
+    "length": 13,
+    "text": "MAPA AUTO",
+    "encoding": "font"
+  },
+  {
+    "offset": "01BB20",
+    "length": 13,
+    "text": "SOM",
+    "encoding": "font"
   }
 ]
