@@ -556,5 +556,11 @@
     "length": 24,
     "text": "Temp HP up",
     "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C3F7",
+    "length": 24,
+    "text": "Temp MP up",
+    "encoding": "fullwidth"
   }
 ]

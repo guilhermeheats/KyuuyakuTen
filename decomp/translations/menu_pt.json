@@ -874,5 +874,11 @@
     "length": 13,
     "text": "SOM",
     "encoding": "font"
+  },
+  {
+    "offset": "08C3F7",
+    "length": 24,
+    "text": "MP TEMP +",
+    "encoding": "fullwidth"
   }
 ]
