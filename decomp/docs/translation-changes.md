@@ -96,6 +96,19 @@ resultados de validação. O estado consolidado fica em
 - Validação: screenshot do recomp nativo com a ROM PT final; as cinco
   linhas renderizam alinhadas antes das barras.
 
+### Tela de status e lenda inicial (investigação)
+
+- O botão `X` abre a tela de status; o painel inferior fica em BG2
+  `$6C00` e a fonte 8x8 em `$6000`.
+- Os rótulos do painel (`たいりょく`, `ちりょく`, `つよさ`, `はやさ`,
+  `うん`) não vêm da tabela de strings do banco `$06` em `$B22B`:
+  um patch dessa tabela não alterou a tela. O painel parece
+  pré-renderizado/cacheado e exige edição do tilemap/tiles.
+- A lenda inicial aparece por volta do frame 900, no tilemap BG1
+  `$7200` (linhas 4-15), com glifos 16x16 pré-renderizados; também exige
+  edição gráfica.
+- Nenhum patch cego foi aplicado nessas duas telas.
+
 ## Investigação dos rótulos de atributos
 
 - Resolvido: os rótulos da criação vêm do display-list em `$01:B383`,
@@ -166,7 +179,8 @@ resultados de validação. O estado consolidado fica em
 
 ## Pendências para a próxima revisão
 
-- Lenda inicial em BG1 pré-renderizado.
+- Tela de status e lenda inicial: painéis pré-renderizados, exigem
+  pipeline de edição gráfica.
 - Nomes de itens/equipamentos T3 (299 entradas).
 - Nomes próprios dos demônios em EN/romaji.
 - Página 8x8 com minúsculas/acentos.

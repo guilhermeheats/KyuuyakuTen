@@ -53,18 +53,22 @@ O build PT usa:
 
 ## Ainda pendente
 
-1. Lenda inicial em tela preta (`古き言い伝えに曰く…`): tilemap BG1
-   pré-renderizado, exige edição gráfica.
-2. Nomes de itens/equipamentos da tabela T3 do banco `$06` (299 entradas):
+1. Nomes de itens/equipamentos da tabela T3 do banco `$06` (299 entradas):
    a maioria continua em japonês; só os itens de menu mais visíveis foram
    traduzidos. As nove strings de efeito estatístico do banco `$0F`
    (`MUSCLE`, `MANA`, `SOM`, `VIT`, `INT`, `FOR`, `AGI`, `SOR`, `AMET`)
    já estão em PT-BR.
-3. Nomes próprios dos demônios: mantidos em EN/romaji.
-4. Página 8x8 com minúsculas/acentos para PT-BR completo.
-5. Tabela de strings do banco `$06` em `$B22B+` (mesmos rótulos com
-   sufixo `69 4E 41`): ainda não traduzida; confirmar se é usada pela
-   tela de status.
+2. Nomes próprios dos demônios: mantidos em EN/romaji.
+3. Página 8x8 com minúsculas/acentos para PT-BR completo.
+4. Tela de status (botão `X`): o painel fica em BG2 `$6C00` e a fonte
+   8x8 em `$6000`; os rótulos (`たいりょく`, `ちりょく`, `つよさ`,
+   `はやさ`, `うん`) não são lidos da tabela do banco `$06` em `$B22B`
+   (um patch nessa tabela não alterou a tela). O painel parece
+   pré-renderizado/cacheado; traduzir exige editar o tilemap/tiles do
+   painel, não uma string.
+5. Lenda inicial em tela preta (`古き言い伝えに曰く…`): capturada por
+   volta do frame 900; fica no tilemap BG1 `$7200`, linhas 4-15, com
+   glifos 16x16 pré-renderizados. Também exige edição gráfica.
 6. Validação cena a cena do script/raças PT no recomp.
 7. MT2 ainda não iniciado.
 
