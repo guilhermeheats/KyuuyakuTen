@@ -86,8 +86,10 @@ resultados de validação. O estado consolidado fica em
 - O traço de VRAM do momento da criação mostrou o painel/valores sendo
   escritos por `Coverage_00_84E8` em BG4 (`$F8B4-$FFFF`); os labels
   parecem vir de um tilemap BG2 que não foi capturado como escrita de
-  CPU, provavelmente por DMA. O próximo passo é rastrear a origem DMA
-  ou a rotina do renderizador da criação.
+  CPU, provavelmente por DMA. `get_dma_state` no estado da criação mostra
+  os canais 5/7 com fontes `$00:D8E1`/`$00:0A20` e transfers de ~64 KB
+  (prováveis cópias em bloco/de boot). O próximo passo é rastrear a
+  origem exata do tilemap ou a rotina do renderizador da criação.
 
 ## Hashes de referência
 

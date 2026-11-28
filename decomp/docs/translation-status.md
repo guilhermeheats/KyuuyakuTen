@@ -48,8 +48,11 @@ O build PT usa:
    separado, fora dos pools `$06/$10/$11`. O banco `$0F` em `$8AE7+`
    contém nomes de itens (`体力の香`, `知力の香`, ...), não os labels.
    O traço de VRAM da tela mostrou a escrita do painel/valores por
-   `Coverage_00_84E8` em BG4; falta localizar a origem DMA dos labels
-   em BG2.
+   `Coverage_00_84E8` em BG4; o BG2 não registrou escritas de CPU no
+   ring. `get_dma_state` no estado da criação mostra os canais 5/7 com
+   fontes `$00:D8E1`/`$00:0A20` e transfers de ~64 KB, provavelmente
+   cópias em bloco/de boot; ainda falta localizar a origem exata do
+   tilemap dos labels.
 2. Lenda inicial em tela preta (`古き言い伝えに曰く…`): tilemap BG1
    pré-renderizado, exige edição gráfica.
 3. Nomes de itens/equipamentos da tabela T3 do banco `$06` (299 entradas):
