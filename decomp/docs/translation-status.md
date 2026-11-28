@@ -59,9 +59,9 @@ O build PT usa:
 - O pool `$11:B4DC` tem 199 segmentos; 175 foram traduzidos,
   incluindo as linhas de ataque/defesa das armas e armaduras.
   Os 24 restantes são vazios ou placeholders `?????`.
-- Uma segunda loja (save 8) ainda mostrou o prompt em japonês
-  (`何の用? / 買う / 売る / ステイタスを見る / 外に出る`); verificar se é
-  outra cópia/tabela ou cache.
+- O prompt japonês da segunda loja (save 8) é **cache do save state**:
+  o ROM PT já tem `QUE?` em `$1F739` e o `DEPOIS` em PT aparece ao sair
+  da loja. Ao reentrar, a tabela corrigida é relida.
 - Abertura do banco `$05`: linhas em PT-BR validadas no filme.
 - Batalha: `COMANDO?`, `FAZ O QUE?`, `TUDO BEM?`, `SOFRE N DANO`,
   `PERDE N`, `SEM DANO!`, `ESQUIVOU!`.

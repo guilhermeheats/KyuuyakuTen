@@ -111,9 +111,9 @@ resultados de validação. O estado consolidado fica em
     `$11:B733-$11:C5xx`;
   - a descrição do MUSCLE fica em `$11:C3DD` e a de HP em `$11:C3F7`;
   - a ordem da tabela de descrições não é necessariamente 1:1 com o T3.
-- Uma segunda loja (save 8) ainda exibiu o prompt em japonês
-  (`何の用? / 買う / 売る / ステイタスを見る / 外に出る`), indicando
-  outra cópia/tabela ou cache a investigar.
+- O prompt japonês da segunda loja (save 8) é cache do save state:
+  o ROM PT contém `QUE?` em `$1F739` e o `DEPOIS` em PT aparece ao
+  sair. A tabela está aplicada; reentrar na loja redesenha o prompt.
 
 ### Pool de descrições de itens (`$11:B4DC`)
 
@@ -250,7 +250,8 @@ resultados de validação. O estado consolidado fica em
   placeholder vazio (índice 0).
 - Pool de descrições: 175/199 segmentos traduzidos; restam apenas
   vazios/placeholders.
-- Prompt da segunda loja: verificar cópia/tabela ou cache.
+- Prompt da segunda loja: cache do save state; sem pendência de
+  tradução.
 - Nomes próprios dos demônios em EN/romaji.
 - Página 8x8 com minúsculas/acentos.
 - Validação cena a cena do script/raças.
