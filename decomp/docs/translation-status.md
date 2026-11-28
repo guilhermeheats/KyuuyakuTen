@@ -78,12 +78,15 @@ O build PT usa:
 
 1. Nomes próprios dos demônios: mantidos em EN/romaji.
 2. Página 8x8 com minúsculas/acentos para PT-BR completo.
-3. Tela de status (botão `X`): o painel fica em BG2 `$6C00` e a fonte
-   8x8 em `$6000`; os rótulos (`たいりょく`, `ちりょく`, `つよさ`,
-   `はやさ`, `うん`) não são lidos da tabela do banco `$06` em `$B22B`
-   (um patch nessa tabela não alterou a tela). O painel parece
-   pré-renderizado/cacheado; traduzir exige editar o tilemap/tiles do
-   painel, não uma string.
+3. Tela de status (`ESTADO` no menu da dungeon): o painel é BG2
+   `$6C00`, char base `$3000` (4bpp), com os rótulos nas linhas 22-26,
+   colunas 3-7. A fonte vem de `$0F:AF6A` → VRAM `$6000` (frame
+   358996) e o tilemap de `$7F:2100` → VRAM `$6C00` (frame 359018).
+   O buffer `$7F:2100` é sobrescrito depois do DMA e os rótulos são
+   redesenhados dinamicamente; um hook no DMA não segura o texto.
+   Detalhes e bloqueio em [`status-graphics.md`](status-graphics.md).
+   Falta localizar o renderizador/display-list que redesenha os
+   rótulos depois do frame 359018.
 4. ~~Lenda inicial~~ (resolvido): texto completo em 7 linhas, renderizado em BG3 com
    tilemap em `$6800` (buffer `$7F:0010`, 2 KB, DMA no frame 724) e
    fonte 16x16 em `$5000` (buffer `$7F:4000`, 4 KB, parte do bloco de
