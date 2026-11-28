@@ -81,9 +81,12 @@ O build PT usa:
    painel, não uma string.
 4. Lenda inicial em tela preta (`古き言い伝えに曰く…`): o texto fica
    em BG2 `$7A00`, linhas 6-14, com a página de fonte `$B000`
-   (16x16). O BG1 `$7200` é a moldura/decoracão. A tela é copiada para
-   VRAM no frame 701 por `interp@$01D5EB`; a fonte/buffer de origem
-   ainda não foi identificada. Exige edição gráfica.
+   (16x16). O BG1 `$7200` é a moldura. Os buffers vivos são:
+   tilemap `$7E:3588` e página de fonte `$7F:50A0`, alimentada a partir
+   de `$7E:F0A0` por `$01D581`/`$01D5B3`; o tilemap é atualizado por
+   `$018E92`. Não há string Shift-JIS simples: o texto é montado pelo
+   renderizador 16x16 em runtime. Falta rastrear o ponteiro da string
+   de origem ou patchar a inicialização do buffer.
 5. Validação cena a cena do script/raças PT no recomp.
 6. MT2 ainda não iniciado.
 

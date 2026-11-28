@@ -169,9 +169,13 @@ resultados de validação. O estado consolidado fica em
   parece pré-renderizado/cacheado e exige edição do tilemap/tiles.
 - A lenda inicial aparece por volta do frame 900. O texto está em
   BG2 `$7A00` (linhas 6-14) com a página de fonte `$B000`; o BG1
-  `$7200` é a moldura. A tela é copiada para VRAM no frame 701 por
-  `interp@$01D5EB`; a fonte/buffer de origem ainda não foi
-  identificada. Exige edição gráfica.
+  `$7200` é a moldura.
+- Buffers vivos identificados: tilemap `$7E:3588`, página de fonte
+  `$7F:50A0` alimentada por `$7E:F0A0` via `$01D581`/`$01D5B3`, e
+  tilemap atualizado por `$018E92`.
+- Não há string Shift-JIS simples; o texto é montado pelo renderizador
+  16x16 em runtime. Falta rastrear o ponteiro da string de origem ou
+  patchar a inicialização do buffer.
 - Nenhum patch cego foi aplicado nessas duas telas.
 
 ## Investigação dos rótulos de atributos
