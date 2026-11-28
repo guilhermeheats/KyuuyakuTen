@@ -53,9 +53,9 @@ para a VRAM; a lista de descritores não é o buffer `$7F:2100`.
 
 ## Hooks testados
 
-- DMA em `0x19788` (fonte `$7F:2100`): grava os glifos latinos na VRAM,
-  mas os rótulos são sobrescritos pelo decompressor/pela passagem
-  seguinte.
+- DMA em `0x19788` (fonte `$7F:2100`): o ring de WRAM mostra que esse
+  hook **não dispara** no detalhe; o DMA das labels parte de outro
+  ponto. Só o decompressor escreve `$7F:2686` (frames 359016-359020).
 - Executor em `0x0760`: copia a tabela para `$7F:2100` antes do
   executor, mas os rótulos continuam ausentes — o descritor das linhas
   22-26 aponta para outro segmento.
