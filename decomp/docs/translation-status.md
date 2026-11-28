@@ -47,12 +47,12 @@ O build PT usa:
    `たいりょく`, `ちから`, `はやさ`): confirmados como um tilemap 8x8
    separado, fora dos pools `$06/$10/$11`. O banco `$0F` em `$8AE7+`
    contém nomes de itens (`体力の香`, `知力の香`, ...), não os labels.
-   O bloco 5x5 dos labels foi localizado no tilemap BG4 em `0x7C00`
-   (linhas 10-14, colunas 24-28), com página de fonte em `0x1000`; o BG2
-   é o teclado de nomes. O painel/valores é escrito por
-   `Coverage_00_84E8` em BG4. As fontes DMA 5/7 (`$00:D8E1`/`$00:0A20`)
-   são dados/código, não a tabela dos labels; falta localizar o código
-   que escreve as entradas `0x7C00` ou a tabela que as gera.
+   O bloco 5x5 em BG4 `0x7C00` que havíamos associado aos labels é, na
+   verdade, o menu/valores da direita: o trace em `0xFAB0` mostra códigos
+   ASCII de `ESTADO`. Os labels da criação continuam não localizados; o
+   BG2 é o teclado de nomes e não teve escritas de CPU capturadas. As
+   fontes DMA 5/7 (`$00:D8E1`/`$00:0A20`) são dados/código, não a tabela
+   dos labels.
 2. Lenda inicial em tela preta (`古き言い伝えに曰く…`): tilemap BG1
    pré-renderizado, exige edição gráfica.
 3. Nomes de itens/equipamentos da tabela T3 do banco `$06` (299 entradas):
