@@ -69,6 +69,13 @@ resultados de validação. O estado consolidado fica em
 - 24 descritores em PT-BR (`TIRANO`, `FERA`, `IMUNDO`, `SELVAGEM`, ...),
   mantendo as letras de prefixo.
 
+### Itens de efeito estatístico (banco `$0F`)
+
+- `MUSCLE` (マッスルドリンコ), `MANA` (魔力の素), `SOM` (ソーマ),
+  `VIT` (体力の香), `INT` (知力の香), `FOR` (強さの香),
+  `AGI` (速さの香), `SOR` (運の香), `AMET` (アメジスト).
+- Aplicado pelo novo alvo `bank0f-pt`, antes do script no `full-pt`.
+
 ## Investigação dos rótulos de atributos
 
 - Os labels da criação (`ちりょく`, `うん`, `たいりょく`, `ちから`,
@@ -87,10 +94,10 @@ resultados de validação. O estado consolidado fica em
 - EN `full_names.sfc`:
   - `749e2384ef44fb3eaa247a45b9505ac4e100d4aef0113096cb837a68a40736ea`
 - PT `pt_full.sfc`:
-  - `fa89c59f732a7777070ab80f5b89ac406e16c809bcfad8fe99e35cfea0767406`
+  - `2366b42ec705fd8ffac5538b831a03373c13a0110ea58205abba268e5c3deba9`
 - PT `pt_full.bps`:
-  - 17.814 bytes
-  - `7e410c464c4057b79d77b60fed5c3f7d53eb63af75fef556d0f8ab96d63a7f2c`
+  - 17.919 bytes
+  - `c4708a51fbd8cfe37a1e91d59964400bbc0a62fee6550aa31df0a6ef750d7cfe`
 - `menu_pt.bps`:
   - 2.488 bytes
 

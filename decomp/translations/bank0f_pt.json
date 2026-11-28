@@ -1,0 +1,56 @@
+[
+  {
+    "offset": "078AC6",
+    "length": 16,
+    "text": "MUSCLE",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "078AD7",
+    "length": 8,
+    "text": "MANA",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "078AE0",
+    "length": 6,
+    "text": "SOM",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "078AE7",
+    "length": 8,
+    "text": "VIT",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "078AF0",
+    "length": 8,
+    "text": "INT",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "078AF9",
+    "length": 8,
+    "text": "FOR",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "078B02",
+    "length": 8,
+    "text": "AGI",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "078B0B",
+    "length": 6,
+    "text": "SOR",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "078B20",
+    "length": 10,
+    "text": "AMET",
+    "encoding": "fullwidth"
+  }
+]

@@ -13,8 +13,8 @@ resumo de revisão; os detalhes de implementação ficam em
 
 Hashes do build PT atual:
 
-- ROM `fa89c59f732a7777070ab80f5b89ac406e16c809bcfad8fe99e35cfea0767406`
-- BPS `7e410c464c4057b79d77b60fed5c3f7d53eb63af75fef556d0f8ab96d63a7f2c`
+- ROM `2366b42ec705fd8ffac5538b831a03373c13a0110ea58205abba268e5c3deba9`
+- BPS `c4708a51fbd8cfe37a1e91d59964400bbc0a62fee6550aa31df0a6ef750d7cfe`
 - `menu_pt.bps` 2.488 bytes
 
 O build PT usa:
@@ -54,7 +54,9 @@ O build PT usa:
    pré-renderizado, exige edição gráfica.
 3. Nomes de itens/equipamentos da tabela T3 do banco `$06` (299 entradas):
    a maioria continua em japonês; só os itens de menu mais visíveis foram
-   traduzidos.
+   traduzidos. As nove strings de efeito estatístico do banco `$0F`
+   (`MUSCLE`, `MANA`, `SOM`, `VIT`, `INT`, `FOR`, `AGI`, `SOR`, `AMET`)
+   já estão em PT-BR.
 4. Nomes próprios dos demônios: mantidos em EN/romaji.
 5. Página 8x8 com minúsculas/acentos para PT-BR completo.
 6. Validação cena a cena do script/raças PT no recomp.
