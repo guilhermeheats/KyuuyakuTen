@@ -22,8 +22,8 @@ resultados de validação. O estado consolidado fica em
 | `translations/startup_raw.json` | PT-BR | 5 | raw | payloads `0x89` inline |
 | `translations/stat_labels_en.json` | EN | 5 | raw | rótulos da criação (tilemap) |
 | `translations/stat_labels_pt.json` | PT-BR | 5 | raw | rótulos da criação (tilemap) |
-| `translations/items_en.json` | EN | 146 | font 8x8 | T3 itens/equipamentos |
-| `translations/items_pt.json` | PT-BR | 146 | font 8x8 | T3 itens/equipamentos |
+| `translations/items_en.json` | EN | 298 | font 8x8 | T3 itens/equipamentos |
+| `translations/items_pt.json` | PT-BR | 298 | font 8x8 | T3 itens/equipamentos |
 
 ## Mudanças recentes (MT1)
 
@@ -80,14 +80,16 @@ resultados de validação. O estado consolidado fica em
 - O novo `tools/patch_items.py` relê os ponteiros/strings do ROM de
   entrada, reempacota o pool a partir de `$06:ED54` (com espaço livre
   até `$06:FFFF`) e atualiza os 299 ponteiros.
-- 146 entradas foram traduzidas nesta primeira passada: armas,
-  armaduras, capacetes, luvas e botas com katakana decodificado.
+- A página de hiragana/dakuten `$3F-$8B` da fonte `$0F:AF6B` foi
+  mapeada (incluindo の, つ, る, ぎ, け, ん); `dump_names.py` agora
+  decodifica T3 por completo.
+- As 298 entradas não vazias foram traduzidas. A entrada 0 é um
+  placeholder vazio.
 - EN e PT-BR usam códigos de fonte 8x8 (`ASCII - $1F`); nomes longos
   foram abreviados para caber no menu. Exemplos:
   `WALTHER`, `ESCOPETA`, `CANIVETE`, `CIMITARRA`, `NUNCHAKU`,
-  `MUSCLE`, `SOMA`, `AMETHYST`, `MACCA`.
-- As 153 entradas restantes são itens especiais com kanji ainda não
-  mapeado; permanecem em japonês.
+  `MUSCLE`, `SOMA`, `AMETHYST`, `MACCA`, `KUSANAGI`, `MURAMASA`,
+  `SOLOMON`, `HINOKAGU`.
 - Validação: pool e ponteiros relidos do ROM final; os nomes PT foram
   renderizados com os tiles reais da fonte `$0F:AF6B`; BPS aplicado
   contra a ROM japonesa e comparado byte a byte.
@@ -146,15 +148,15 @@ resultados de validação. O estado consolidado fica em
 ## Hashes de referência
 
 - EN `full_names.sfc`:
-  - `e4eb56ac691fe3e0d86ffef4019fe0c1370f96687c2123204876f5a0adc9f0e8`
+  - `4c7bb4d17c5ea07a2b19a1ee28a55b5060f60139196546d0a09e4390d1b4252a`
 - EN `full_names.bps`:
-  - 20.914 bytes
+  - 21.070 bytes
   - `11c2a8e0486870d953d1187d8edc4f8db23dc2dfc7b9f3775cef72fd9c457c1d`
 - PT `pt_full.sfc`:
-  - `3cc30f7274e2c8fdf9b25d94d9b657a409a7a9522975dd069a4251e55b92a588`
+  - `8a80f89f305173543e3ebafbcfddf5e4c1ac8644fd720dbb5bf8f8eaf10fb394`
 - PT `pt_full.bps`:
-  - 21.028 bytes
-  - `3b9f820bb8ae26ce1cbe922ea409bd547856a3264468e7a33784a0afa7ab517c`
+  - 21.104 bytes
+  - `374641706c40a97e8d8e8fe90fa8f43f80380df52759b3d35f1efc34bb8ee727`
 - `menu_pt.bps`:
   - 2.517 bytes
   - `f16258388b94daddb944ce6acdda85c410cde3acfd345d306b290a3eba63714b`
@@ -177,6 +179,7 @@ resultados de validação. O estado consolidado fica em
 | `8cce0a9` | documento de status/cobertura |
 | `b377b19` | rótulos de atributos da criação (EN/PT) |
 | `c818ee4` | repack e tradução parcial dos nomes T3 |
+| `e1a6905` | página hiragana e nomes T3 completos |
 | `documento atual` | changelog EN/PT para revisão |
 
 ## Como revisar
@@ -203,8 +206,8 @@ resultados de validação. O estado consolidado fica em
 
 - Tela de status e lenda inicial: painéis pré-renderizados, exigem
   pipeline de edição gráfica.
-- Nomes de itens/equipamentos T3: 146/299 traduzidos; restam 153 itens
-  especiais com kanji não mapeado.
+- Nomes de itens/equipamentos T3: 298/299 traduzidos; resta apenas o
+  placeholder vazio (índice 0).
 - Nomes próprios dos demônios em EN/romaji.
 - Página 8x8 com minúsculas/acentos.
 - Validação cena a cena do script/raças.
