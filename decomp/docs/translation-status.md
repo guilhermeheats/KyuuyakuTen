@@ -13,8 +13,8 @@ resumo de revisão; os detalhes de implementação ficam em
 
 Hashes do build PT atual:
 
-- ROM `5192df2ce287e4c3b7ddb506be830f4ff2f68188676fbae95e3269ecc4e869c3`
-- BPS `f6981d60991ab7a25a27d4260cf3ce32f76bd38970939047570a2d0a94beba99`
+- ROM `fa89c59f732a7777070ab80f5b89ac406e16c809bcfad8fe99e35cfea0767406`
+- BPS `7e410c464c4057b79d77b60fed5c3f7d53eb63af75fef556d0f8ab96d63a7f2c`
 - `menu_pt.bps` 2.488 bytes
 
 O build PT usa:

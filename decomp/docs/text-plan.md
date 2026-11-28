@@ -202,7 +202,7 @@ Este arquivo guarda o plano de execução.
   `ちから`, ...) ainda estão no japonês.
 - O alvo `full-pt` parte de `menu_pt.sfc`, aplica o startup PT, o script
   PT, a batalha PT de 1 byte, os nomes EN e as raças PT, gerando
-  `full_pt.sfc`/`full_pt.bps` (17810 bytes). O menu/script usam o motor de
+  `full_pt.sfc`/`full_pt.bps` (17814 bytes). O menu/script usam o motor de
   2 bytes estável; a batalha PT usa o codec 8x8 descrito acima.
 - O fallback `names-inplace` não é necessário para o recomp agora.
 - **Página 8x8 não é ASCII puro na pontuação**: `0x1B` (seria `:`) renderiza

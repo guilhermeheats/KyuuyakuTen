@@ -74,10 +74,10 @@ resultados de validação. O estado consolidado fica em
 - EN `full_names.sfc`:
   - `749e2384ef44fb3eaa247a45b9505ac4e100d4aef0113096cb837a68a40736ea`
 - PT `pt_full.sfc`:
-  - `5192df2ce287e4c3b7ddb506be830f4ff2f68188676fbae95e3269ecc4e869c3`
+  - `fa89c59f732a7777070ab80f5b89ac406e16c809bcfad8fe99e35cfea0767406`
 - PT `pt_full.bps`:
-  - 17.810 bytes
-  - `f6981d60991ab7a25a27d4260cf3ce32f76bd38970939047570a2d0a94beba99`
+  - 17.814 bytes
+  - `7e410c464c4057b79d77b60fed5c3f7d53eb63af75fef556d0f8ab96d63a7f2c`
 - `menu_pt.bps`:
   - 2.488 bytes
 
