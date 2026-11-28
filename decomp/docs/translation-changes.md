@@ -173,9 +173,11 @@ resultados de validação. O estado consolidado fica em
 - Buffers vivos identificados: tilemap `$7E:3588`, página de fonte
   `$7F:50A0` alimentada por `$7E:F0A0` via `$01D581`/`$01D5B3`, e
   tilemap atualizado por `$018E92`.
-- Não há string Shift-JIS simples; o texto é montado pelo renderizador
-  16x16 em runtime. Falta rastrear o ponteiro da string de origem ou
-  patchar a inicialização do buffer.
+- O trace de `$01D5B3` mostra a origem em `$37:8060+` (banco `$37`,
+  stream comprimido), com destinos em `$7F:0093+`.
+- Não há string Shift-JIS simples; é um asset gráfico comprimido.
+  Falta decodificar/recomprimir o stream ou usar o pipeline de
+  tilemap/fonte.
 - Nenhum patch cego foi aplicado nessas duas telas.
 
 ## Investigação dos rótulos de atributos

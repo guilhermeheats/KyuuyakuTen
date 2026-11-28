@@ -84,9 +84,11 @@ O build PT usa:
    (16x16). O BG1 `$7200` é a moldura. Os buffers vivos são:
    tilemap `$7E:3588` e página de fonte `$7F:50A0`, alimentada a partir
    de `$7E:F0A0` por `$01D581`/`$01D5B3`; o tilemap é atualizado por
-   `$018E92`. Não há string Shift-JIS simples: o texto é montado pelo
-   renderizador 16x16 em runtime. Falta rastrear o ponteiro da string
-   de origem ou patchar a inicialização do buffer.
+   `$018E92`. O trace de `$01D5B3` mostra a origem em `$37:8060+`
+   (banco `$37`, stream comprimido), com destinos em `$7F:0093+`.
+   Não há string Shift-JIS simples: é um asset gráfico comprimido.
+   Falta decodificar/recomprimir o stream ou usar o pipeline de
+   tilemap/fonte.
 5. Validação cena a cena do script/raças PT no recomp.
 6. MT2 ainda não iniciado.
 
