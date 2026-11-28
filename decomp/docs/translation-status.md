@@ -79,16 +79,35 @@ O build PT usa:
    (um patch nessa tabela não alterou a tela). O painel parece
    pré-renderizado/cacheado; traduzir exige editar o tilemap/tiles do
    painel, não uma string.
-4. Lenda inicial em tela preta (`古き言い伝えに曰く…`): o texto fica
-   em BG2 `$7A00`, linhas 6-14, com a página de fonte `$B000`
-   (16x16). O BG1 `$7200` é a moldura. Os buffers vivos são:
-   tilemap `$7E:3588` e página de fonte `$7F:50A0`, alimentada a partir
-   de `$7E:F0A0` por `$01D581`/`$01D5B3`; o tilemap é atualizado por
-   `$018E92`. O trace de `$01D5B3` mostra a origem em `$37:8060+`
-   (banco `$37`, stream comprimido), com destinos em `$7F:0093+`.
-   Não há string Shift-JIS simples: é um asset gráfico comprimido.
-   Falta decodificar/recomprimir o stream ou usar o pipeline de
-   tilemap/fonte.
+4. Lenda inicial: texto completo em 7 linhas, renderizado em BG3 com
+   tilemap em `$6800` (buffer `$7F:0010`, 2 KB, DMA no frame 724) e
+   fonte 16x16 em `$5000` (buffer `$7F:4000`, 4 KB, parte do bloco de
+   24 KB `$7F:0000-$5FFF`, DMA no frame 701 para a VRAM `$3000`).
+   O bloco vem de assets comprimidos do banco `$37` (tabela em
+   `$37:8000`; blocos em `$37:8012`, `$BD3A`, `$E896`, `$F48D`...).
+   Texto original:
+
+   ```
+   古き言い伝えに曰く
+   かつて
+   翼持つ者どもの反乱あり
+   けれど彼ら敗れたり
+   彼ら栄光を失い
+   白き翼もがかれ
+   暗き地の底へと堕されたり
+   ```
+
+   EN: *An ancient legend tells / of a time when / the winged ones
+   rebelled / but they were defeated / they lost their glory / their
+   white wings were torn / and they fell into darkness.*
+   PT-BR: *Uma antiga lenda conta / de um tempo em que / os alados se
+   rebelaram / mas foram derrotados / perderam sua glória / suas asas
+   brancas foram / arrancadas na escuridão.*
+
+   A tradução exige um novo asset gráfico: tiles 8x8 latinos na página
+   de fonte e um tilemap novo. O plano é gravar os dois buffers em
+   espaço livre do banco `$2E` e fazer o upload por DMA antes dos
+   frames 701/724 (hook de 65816), sem depender do stream comprimido.
 5. Validação cena a cena do script/raças PT no recomp.
 6. MT2 ainda não iniciado.
 

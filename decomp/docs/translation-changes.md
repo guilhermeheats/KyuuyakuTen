@@ -167,17 +167,38 @@ resultados de validação. O estado consolidado fica em
   últimas escritas na área dos labels em `$6C00` são `0x00` de
   `bank_05_817A_M1X0`; eles não estão no tilemap BG2 vivo. O painel
   parece pré-renderizado/cacheado e exige edição do tilemap/tiles.
-- A lenda inicial aparece por volta do frame 900. O texto está em
-  BG2 `$7A00` (linhas 6-14) com a página de fonte `$B000`; o BG1
-  `$7200` é a moldura.
-- Buffers vivos identificados: tilemap `$7E:3588`, página de fonte
-  `$7F:50A0` alimentada por `$7E:F0A0` via `$01D581`/`$01D5B3`, e
-  tilemap atualizado por `$018E92`.
-- O trace de `$01D5B3` mostra a origem em `$37:8060+` (banco `$37`,
-  stream comprimido), com destinos em `$7F:0093+`.
-- Não há string Shift-JIS simples; é um asset gráfico comprimido.
-  Falta decodificar/recomprimir o stream ou usar o pipeline de
-  tilemap/fonte.
+- A lenda inicial é um texto completo de 7 linhas. A camada é **BG3**;
+  o tilemap fica em `$6800` (buffer `$7F:0010`, 2 KB, upload por DMA no
+  frame 724) e a fonte 16x16 em `$5000` (buffer `$7F:4000`, 4 KB, parte
+  do bloco de 24 KB `$7F:0000-$5FFF` copiado para a VRAM `$3000` no
+  frame 701).
+- O bloco de 24 KB vem de assets comprimidos do banco `$37` (tabela em
+  `$37:8000`, blocos em `$37:8012`, `$BD3A`, `$E896`, `$F48D`, ...).
+  A decodificação é fatiada em vários frames (630-730) e o destino
+  avança de `$7F:0000` até `$7F:5B74`.
+- Texto original confirmado por render direto do tilemap/fonte:
+
+  ```
+  古き言い伝えに曰く
+  かつて
+  翼持つ者どもの反乱あり
+  けれど彼ら敗れたり
+  彼ら栄光を失い
+  白き翼もがかれ
+  暗き地の底へと堕されたり
+  ```
+
+- EN: *An ancient legend tells / of a time when / the winged ones
+  rebelled / but they were defeated / they lost their glory / their
+  white wings were torn / and they fell into darkness.*
+- PT-BR: *Uma antiga lenda conta / de um tempo em que / os alados se
+  rebelaram / mas foram derrotados / perderam sua glória / suas asas
+  brancas foram / arrancadas na escuridão.*
+- Não há string Shift-JIS simples; é um asset gráfico comprimido. O
+  caminho escolhido é gravar os buffers traduzidos em espaço livre do
+  banco `$2E` (file `0x173820`, 2 KB, e `0x1751A0`, 0xE60 bytes) e
+  fazer o upload por DMA com um pequeno hook 65816 antes dos frames
+  701/724.
 - Nenhum patch cego foi aplicado nessas duas telas.
 
 ## Investigação dos rótulos de atributos
