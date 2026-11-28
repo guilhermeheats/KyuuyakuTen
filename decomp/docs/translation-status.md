@@ -13,16 +13,16 @@ resumo de revisão; os detalhes de implementação ficam em
 
 Hashes do build PT atual:
 
-- ROM `4941873185f574c9485e186d650f501b2c349009d8db342ba3a2cfe3b2e6a4c1`
-- BPS `8e27de39192d02dbe9a2c600e14ce2ad8adbc9d20549910e2d6b7dadbca6b14d`
-  (17.948 bytes)
+- ROM `3cc30f7274e2c8fdf9b25d94d9b657a409a7a9522975dd069a4251e55b92a588`
+- BPS `3b9f820bb8ae26ce1cbe922ea409bd547856a3264468e7a33784a0afa7ab517c`
+  (21.028 bytes)
 - `menu_pt.bps` 2.517 bytes
 
 Hashes do build EN atual:
 
-- ROM `a18fd1c0ea0fa1e732dd56ba94d7fed9f324b5e29797b81e3cee54fd0874112b`
-- BPS `d5b7d46446da06f8cd95b8e45557631ab1650f676a06cd1a665df50f826f4eac`
-  (17.951 bytes)
+- ROM `e4eb56ac691fe3e0d86ffef4019fe0c1370f96687c2123204876f5a0adc9f0e8`
+- BPS `11c2a8e0486870d953d1187d8edc4f8db23dc2dfc7b9f3775cef72fd9c457c1d`
+  (20.914 bytes)
 
 O build PT usa:
 - UI/menu PT-BR (`menu_pt.json`, 146 entradas);
@@ -31,6 +31,8 @@ O build PT usa:
   (`startup_pt.json`, 42 entradas + `startup_raw.json`);
 - rótulos de atributos da criação em 8x8 (`stat_labels_pt.json`,
   5 patches de tilemap);
+- nomes de itens/equipamentos T3 (`items_pt.json`, 146 entradas;
+  repack do pool `$06:$ED54+` e da tabela de 299 ponteiros);
 - batalha PT-BR de 1 byte com codec 8x8 (`battle_pt.json`, 129 entradas);
 - raças PT-BR (`races_pt.json`, 24 descritores);
 - nomes próprios dos demônios em EN (`names_en.json`).
@@ -44,6 +46,8 @@ O build PT usa:
   `RAP / LEN / NOR / OFF / ON / AUT / FIX / STER`.
 - Criação de personagem: prompts de nome, `Distribua` e rótulos
   `VIT / INT / FOR / AGI / SOR`.
+- Itens T3: 146 nomes PT renderizados com a fonte 8x8; ponteiros e pool
+  relidos do ROM final e conferidos.
 - Abertura do banco `$05`: linhas em PT-BR validadas no filme.
 - Batalha: `COMANDO?`, `FAZ O QUE?`, `TUDO BEM?`, `SOFRE N DANO`,
   `PERDE N`, `SEM DANO!`, `ESQUIVOU!`.
@@ -54,10 +58,11 @@ O build PT usa:
 ## Ainda pendente
 
 1. Nomes de itens/equipamentos da tabela T3 do banco `$06` (299 entradas):
-   a maioria continua em japonês; só os itens de menu mais visíveis foram
-   traduzidos. As nove strings de efeito estatístico do banco `$0F`
-   (`MUSCLE`, `MANA`, `SOM`, `VIT`, `INT`, `FOR`, `AGI`, `SOR`, `AMET`)
-   já estão em PT-BR.
+   146 já estão em PT-BR (armas, armaduras, capacetes, luvas e botas
+   decodificados). Restam 153 itens especiais cujos códigos usam uma
+   página de kanji ainda não mapeada. As nove strings de efeito
+   estatístico do banco `$0F` (`MUSCLE`, `MANA`, `SOM`, `VIT`, `INT`,
+   `FOR`, `AGI`, `SOR`, `AMET`) já estão em PT-BR.
 2. Nomes próprios dos demônios: mantidos em EN/romaji.
 3. Página 8x8 com minúsculas/acentos para PT-BR completo.
 4. Tela de status (botão `X`): o painel fica em BG2 `$6C00` e a fonte
