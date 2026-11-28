@@ -53,7 +53,9 @@ O build PT usa:
   (1259 -> 859) e o fluxo YES/NO funcionou.
 - Descrições de itens: a linha inferior da loja continua em japonês
   (`一時的にＭＰを増幅させる`). A tabela é separada do T3: 299
-  ponteiros em `$11:B4DC`, strings Shift-JIS com separador `01 01`.
+  ponteiros **big-endian** em `$11:B4DC`, strings Shift-JIS com
+  separador `01 01`. A ordem não é necessariamente 1:1 com o T3;
+  a descrição do MUSCLE fica em `$11:C3DD` e a de HP em `$11:C3F7`.
 - Uma segunda loja (save 8) ainda mostrou o prompt em japonês
   (`何の用? / 買う / 売る / ステイタスを見る / 外に出る`); verificar se é
   outra cópia/tabela ou cache.

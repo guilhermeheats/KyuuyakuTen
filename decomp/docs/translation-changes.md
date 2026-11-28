@@ -102,10 +102,11 @@ resultados de validação. O estado consolidado fica em
   `YES/NO` e retorno à lista funcionando.
 - A linha de descrição da loja ainda está em japonês
   (`一時的にＭＰを増幅させる`). A tabela é separada do T3:
-  - 299 ponteiros de 16 bits em `$11:B4DC`;
+  - 299 ponteiros **big-endian** de 16 bits em `$11:B4DC`;
   - strings Shift-JIS separadas por `01 01`, por volta de
     `$11:B733-$11:C5xx`;
-  - a descrição do MUSCLE fica em `$11:C3DD`.
+  - a descrição do MUSCLE fica em `$11:C3DD` e a de HP em `$11:C3F7`;
+  - a ordem da tabela de descrições não é necessariamente 1:1 com o T3.
 - Uma segunda loja (save 8) ainda exibiu o prompt em japonês
   (`何の用? / 買う / 売る / ステイタスを見る / 外に出る`), indicando
   outra cópia/tabela ou cache a investigar.
