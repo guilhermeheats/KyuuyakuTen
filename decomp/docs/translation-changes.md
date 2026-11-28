@@ -221,18 +221,32 @@ resultados de validação. O estado consolidado fica em
   rótulos com sufixo `69 4E 41`; ainda não foi traduzida e falta
   confirmar se é usada pela tela de status.
 
+## Tela de status
+
+- O detalhe do personagem (`ESTADO` → `A`) desenha os rótulos a partir
+  do asset comprimido `$07:E998`, descomprimido para `$7F:0000`.
+- Os rótulos ficam em `$7F:2686` (linhas 22-26, colunas 3-7); a página
+  de fonte em `$7F:0100` (tiles `0x05-0x11`).
+- `tools/patch_status.py` substitui o `JSL $01D61B` do loader em
+  `0x19720` por um wrapper que:
+  1. chama o decompressor original;
+  2. grava 13 glifos latinos em `$7F:01A0` (4bpp, layout correto);
+  3. grava as 5 linhas de rótulos em `$7F:2686`.
+- EN: `VIT / INT / STR / AGI / LUK`; PT: `VIT / INT / FOR / AGI / SOR`.
+- Validado no recomp nativo para as duas builds.
+
 ## Hashes de referência
 
 - EN `full_names.sfc`:
-  - `a71f6f0d8ed7ef39c5b1b8c87e009a790cdeb646208e77e877cd5ab8c1c4a776`
+  - `d74f61278ada237a61fe8b37e7c9d0e450f8873d7a4ca667c515f9785e961894`
 - EN `full_names.bps`:
-  - 26.180 bytes
-  - `139d5a0a1ca9baf6b1389cc317c18adf751954bc2fce55d01ee463d5318d0300`
+  - 26.752 bytes
+  - `0dd8c866067f61c0312114b9b2be31752d00f702bdb8b01c82bacadee36aff14`
 - PT `pt_full.sfc`:
-  - `370e92ea2f23be126028803d8c678556c7a7689eab312576f35a00a42f5e68fc`
+  - `0ac724dce3d93ee2453f7641c2933814d5fded3d1c7291d15147205521d6bae5`
 - PT `pt_full.bps`:
-  - 26.188 bytes
-  - `5fcc84346c21900e72009ac4e66743f308fc085808ff980966d4190aa3a304e1`
+  - 26.760 bytes
+  - `ff27862459405631adba1fd8673aee67ac4ba9874d669127a15cfc4aa5740218`
 - `menu_pt.bps`:
   - 2.517 bytes
   - `f16258388b94daddb944ce6acdda85c410cde3acfd345d306b290a3eba63714b`

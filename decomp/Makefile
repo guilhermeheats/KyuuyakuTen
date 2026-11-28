@@ -6,7 +6,7 @@ BASE_ROM_ARG := $(if $(ROM),--base-rom "$(ROM)")
 WLA_BIN ?= $(CURDIR)/.toolchain/wla-dx/build/binaries
 export WLA_BIN
 
-.PHONY: all baseline symbols text text-extract messages names names-en names-inplace replace-test font-test fullwidth-test bps-test toolchain-test menu-en menu-pt descriptions-en descriptions-pt startup-pt bank0f-pt items-en items-pt script-en script-pt battle-en battle-pt full-pt races-en full-en full-names legend-en legend-pt clean
+.PHONY: all baseline symbols text text-extract messages names names-en names-inplace replace-test font-test fullwidth-test bps-test toolchain-test menu-en menu-pt descriptions-en descriptions-pt startup-pt bank0f-pt items-en items-pt script-en script-pt battle-en battle-pt full-pt races-en full-en full-names legend-en legend-pt status-en status-pt clean
 
 all: baseline symbols text text-extract messages names replace-test font-test fullwidth-test bps-test toolchain-test
 
@@ -165,7 +165,11 @@ full-pt: items-pt
 		--translations translations/legend_pt.json \
 		--out "$(BUILD)/rom/pt_legend.sfc" \
 		--report "$(BUILD)/rom/pt_legend_report.json"
-	$(PYTHON) tools/patch_battle.py --rom "$(BUILD)/rom/pt_legend.sfc" \
+	$(PYTHON) tools/patch_status.py --rom "$(BUILD)/rom/pt_legend.sfc" \
+		--labels translations/status_pt.json \
+		--out "$(BUILD)/rom/pt_status.sfc" \
+		--report "$(BUILD)/rom/pt_status_report.json"
+	$(PYTHON) tools/patch_battle.py --rom "$(BUILD)/rom/pt_status.sfc" \
 		$(BASE_ROM_ARG) --translations translations/battle_pt.json --encoding byte \
 		--patch-name "Kyuuyaku Megami Tensei Portuguese translation" \
 		--out "$(BUILD)/rom/full_pt.sfc" \
@@ -193,7 +197,11 @@ full-names: full-en
 		--translations translations/legend_en.json \
 		--out "$(BUILD)/rom/en_legend.sfc" \
 		--report "$(BUILD)/rom/en_legend_report.json"
-	$(PYTHON) tools/patch_full_names.py --rom "$(BUILD)/rom/en_legend.sfc" \
+	$(PYTHON) tools/patch_status.py --rom "$(BUILD)/rom/en_legend.sfc" \
+		--labels translations/status_en.json \
+		--out "$(BUILD)/rom/en_status.sfc" \
+		--report "$(BUILD)/rom/en_status_report.json"
+	$(PYTHON) tools/patch_full_names.py --rom "$(BUILD)/rom/en_status.sfc" \
 		$(BASE_ROM_ARG) --names translations/names_en.json --races translations/races_pt.json \
 		--patch-name "Kyuuyaku Megami Tensei English full battle names" \
 		--out "$(BUILD)/rom/full_names.sfc" \
@@ -211,6 +219,18 @@ legend-en:
 		--translations translations/legend_en.json \
 		--out "$(BUILD)/rom/en_legend.sfc" \
 		--report "$(BUILD)/rom/en_legend_report.json"
+
+status-pt:
+	$(PYTHON) tools/patch_status.py --rom "$(BUILD)/rom/pt_legend.sfc" \
+		--labels translations/status_pt.json \
+		--out "$(BUILD)/rom/pt_status.sfc" \
+		--report "$(BUILD)/rom/pt_status_report.json"
+
+status-en:
+	$(PYTHON) tools/patch_status.py --rom "$(BUILD)/rom/en_legend.sfc" \
+		--labels translations/status_en.json \
+		--out "$(BUILD)/rom/en_status.sfc" \
+		--report "$(BUILD)/rom/en_status_report.json"
 
 clean:
 	rm -rf "$(BUILD)"

@@ -51,40 +51,34 @@ O painel de detalhe, porém, é redesenhado pelo executor
 **359041/359042**. O executor lê descritores em `$7E:1800+` e copia
 para a VRAM; a lista de descritores não é o buffer `$7F:2100`.
 
-## Hooks testados
+## Solução implementada
 
-- DMA em `0x19788` (fonte `$7F:2100`): o ring de WRAM mostra que esse
-  hook **não dispara** no detalhe; o DMA das labels parte de outro
-  ponto. Só o decompressor escreve `$7F:2686` (frames 359016-359020).
-- Executor em `0x0760`: copia a tabela para `$7F:2100` antes do
-  executor, mas os rótulos continuam ausentes — o descritor das linhas
-  22-26 aponta para outro segmento.
+O asset do painel é **`$07:E998`**, descomprimido para `$7F:0000` pela
+chamada em **`0x19720`** (`JSL $01D61B`). Os rótulos ficam em
+`$7F:2686` (linhas 22-26) e a página de fonte em `$7F:0100` (tiles
+`0x05-0x11`).
 
-O display-list em `$07:3ED29` contém os códigos do primeiro rótulo
-(`05 00 06 00 07 00 1E 00` = `たいりょく`), mas trocar esses bytes não
-alterou a tela de detalhe.
+`tools/patch_status.py` substitui o `JSL` em `0x19720` por um wrapper
+no banco `$2C` que:
 
-A sequência `05 2C 06 2C 07 2C 1E 2C` existe na WRAM em `$7F:2686`
-somente até o frame 359020. No frame 359042 ela não está mais na WRAM;
-o executor das linhas 22-26 lê os códigos de um descritor cuja origem
-é ROM (ou um buffer já reciclado). É por isso que os hooks em
-`$7F:2100` não seguram o texto.
+1. chama o decompressor original;
+2. grava 13 glifos latinos (4bpp) em `$7F:01A0`;
+3. grava as cinco linhas de rótulos em `$7F:2686`.
 
-A página de fonte da VRAM `$3000` vem do asset `$07:E998`,
-descomprimido para `$7F:0000` e copiado por DMA (`$7F:0100` →
-VRAM `$3000`, `0x1973B`). Os tiles `0x05-0x11` dessa página são os
-glifos japoneses dos rótulos.
+O loader seguinte preenche os bytes altos do tilemap com `$2C` e faz
+os DMAs para a VRAM, então os rótulos traduzidos aparecem.
 
-Hooks testados sem sucesso: `0x19788` (DMA do tilemap), `0x0760`
-(executor), `0x1823B` (fonte `$7F:6000` → `$7000`) e `0x1973B`
-(fonte `$7F:0100` → `$3000`). A tabela `$07:3ED29` também não é a
-fonte do detalhe.
+| Item | Endereço |
+|---|---|
+| Tabela de rótulos | `$2C:BA00` (file `0x163A00`) |
+| Glifos 4bpp | `$2C:BA40` (file `0x163A40`) |
+| Wrapper | `$2C:BC00` (file `0x163C00`) |
+| `JSL` patcheado | `0x19720` |
 
-## Próximo passo
+EN: `VIT / INT / STR / AGI / LUK`.
+PT-BR: `VIT / INT / FOR / AGI / SOR`.
 
-1. Decodificar os descritores em `$7E:1800+` (source/dest/size) no
-   frame 359042 para achar o segmento que contém as linhas 22-26.
-2. Se o source for `$7F:2100`, hookar o ponto exato da cópia; se for
-   outro buffer/ROM, patchar a tabela de origem.
-3. Alternativa: hookar o executor no ponto em que ele lê o descritor
-   das linhas 22-26 e substituir os códigos ali.
+Validado no recomp nativo nas duas builds. O layout 4bpp correto é
+8 linhas de word0 (16 bytes) seguidas de 8 linhas de word1; o layout
+intercalado por linha produz glifos listrados.
+

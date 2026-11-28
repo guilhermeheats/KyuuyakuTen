@@ -13,16 +13,16 @@ resumo de revisão; os detalhes de implementação ficam em
 
 Hashes do build PT atual:
 
-- ROM `370e92ea2f23be126028803d8c678556c7a7689eab312576f35a00a42f5e68fc`
-- BPS `5fcc84346c21900e72009ac4e66743f308fc085808ff980966d4190aa3a304e1`
-  (26.188 bytes)
+- ROM `0ac724dce3d93ee2453f7641c2933814d5fded3d1c7291d15147205521d6bae5`
+- BPS `ff27862459405631adba1fd8673aee67ac4ba9874d669127a15cfc4aa5740218`
+  (26.760 bytes)
 - `menu_pt.bps` 2.517 bytes
 
 Hashes do build EN atual:
 
-- ROM `a71f6f0d8ed7ef39c5b1b8c87e009a790cdeb646208e77e877cd5ab8c1c4a776`
-- BPS `139d5a0a1ca9baf6b1389cc317c18adf751954bc2fce55d01ee463d5318d0300`
-  (26.180 bytes)
+- ROM `d74f61278ada237a61fe8b37e7c9d0e450f8873d7a4ca667c515f9785e961894`
+- BPS `0dd8c866067f61c0312114b9b2be31752d00f702bdb8b01c82bacadee36aff14`
+  (26.752 bytes)
 
 O build PT usa:
 - UI/menu PT-BR (`menu_pt.json`, 146 entradas);
@@ -68,6 +68,9 @@ O build PT usa:
 - Lenda inicial: as 7 linhas em PT-BR e EN foram validadas no recomp
   nativo (frame 1750), com fonte 8x8 e tilemap próprios. O rodapé
   japonês residual foi removido ao estender a cópia até a linha 20.
+- Tela de status: os cinco rótulos aparecem traduzidos no detalhe do
+  personagem (PT `VIT/INT/FOR/AGI/SOR`, EN `VIT/INT/STR/AGI/LUK`),
+  validados no recomp nativo.
 - Batalha: `COMANDO?`, `FAZ O QUE?`, `TUDO BEM?`, `SOFRE N DANO`,
   `PERDE N`, `SEM DANO!`, `ESQUIVOU!`.
 - COMP/história: texto de 2 bytes renderizando normalmente após a
@@ -78,15 +81,14 @@ O build PT usa:
 
 1. Nomes próprios dos demônios: mantidos em EN/romaji.
 2. Página 8x8 com minúsculas/acentos para PT-BR completo.
-3. Tela de status (`ESTADO` no menu da dungeon): o painel é BG2
-   `$6C00`, char base `$3000` (4bpp), com os rótulos nas linhas 22-26,
-   colunas 3-7. A fonte vem de `$0F:AF6A` → VRAM `$6000` (frame
-   358996) e o tilemap de `$7F:2100` → VRAM `$6C00` (frame 359018).
-   O buffer `$7F:2100` é sobrescrito depois do DMA e os rótulos são
-   redesenhados dinamicamente; um hook no DMA não segura o texto.
-   Detalhes e bloqueio em [`status-graphics.md`](status-graphics.md).
-   Falta localizar o renderizador/display-list que redesenha os
-   rótulos depois do frame 359018.
+3. ~~Tela de status~~ (resolvido): painel BG2 `$6C00`, char base
+   `$3000` (4bpp), rótulos nas linhas 22-26. O asset do painel é
+   `$07:E998`, descomprimido para `$7F:0000`; os rótulos ficam em
+   `$7F:2686` e os glifos em `$7F:01A0`. `patch_status.py` substitui
+   o `JSL $01D61B` do loader (`0x19720`) por um wrapper que
+   descomprime, grava os 13 glifos latinos e as 5 linhas traduzidas.
+   EN `VIT/INT/STR/AGI/LUK`; PT `VIT/INT/FOR/AGI/SOR`. Validado no
+   recomp nativo. Detalhes em [`status-graphics.md`](status-graphics.md).
 4. ~~Lenda inicial~~ (resolvido): texto completo em 7 linhas, renderizado em BG3 com
    tilemap em `$6800` (buffer `$7F:0010`, 2 KB, DMA no frame 724) e
    fonte 16x16 em `$5000` (buffer `$7F:4000`, 4 KB, parte do bloco de
