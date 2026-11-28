@@ -1,8 +1,10 @@
 # Texto e fonte — plano
 
 O detalhamento do que já foi decodificado está em
-[`text-encoding.md`](text-encoding.md). Este arquivo guarda o plano de
-execução.
+[`text-encoding.md`](text-encoding.md). O resumo de cobertura e pendências está em
+[`translation-status.md`](translation-status.md).
+
+Este arquivo guarda o plano de execução.
 
 ## Estado
 
