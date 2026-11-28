@@ -1,0 +1,27 @@
+[
+  {
+    "offset": "00B385",
+    "bytes": "37 2A 35 01 01",
+    "note": "creation stat 体力 -> VIT (5-byte tilemap chunk at $01:B385)"
+  },
+  {
+    "offset": "00B38C",
+    "bytes": "2A 2F 35 01 01",
+    "note": "creation stat 知力 -> INT"
+  },
+  {
+    "offset": "00B393",
+    "bytes": "34 35 33 01 01",
+    "note": "creation stat 力 -> STR"
+  },
+  {
+    "offset": "00B39A",
+    "bytes": "22 28 2A 01 01",
+    "note": "creation stat 速さ -> AGI"
+  },
+  {
+    "offset": "00B3A1",
+    "bytes": "2D 36 2C 01 01",
+    "note": "creation stat 運 -> LUK"
+  }
+]

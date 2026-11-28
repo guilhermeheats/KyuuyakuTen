@@ -247,7 +247,8 @@ def main() -> int:
     ap.add_argument("--rom", help="ROM path; defaults to SNESRECOMP_ROM/rom.cfg")
     ap.add_argument("--root", default=str(DEFAULT_ROOT))
     ap.add_argument("--translations", help="JSON file with replacement entries")
-    ap.add_argument("--raw-patches", help="JSON file with raw byte patches (pointers, terminators)")
+    ap.add_argument("--raw-patches", action="append",
+                    help="JSON file with raw byte patches (pointers, terminators); may be repeated")
     ap.add_argument("--out", help="output ROM (default: decomp/build/rom/translated.sfc)")
     ap.add_argument("--patch", help="optional BPS patch output path")
     ap.add_argument("--patch-name", default="Kyuuyaku Megami Tensei text test")
@@ -268,9 +269,9 @@ def main() -> int:
         print("no ROM found; pass --rom or set SNESRECOMP_ROM", file=sys.stderr)
         return 1
     entries = load_entries(pathlib.Path(args.translations))
-    raw_patches = (
-        load_raw_patches(pathlib.Path(args.raw_patches)) if args.raw_patches else []
-    )
+    raw_patches: list[dict] = []
+    for raw_path in args.raw_patches or []:
+        raw_patches.extend(load_raw_patches(pathlib.Path(raw_path)))
     original = rom_path.read_bytes()
     fill = int(args.fill, 16) if args.fill is not None else (0x01 if args.encoding in ("font", "fullwidth") else 0x20)
     try:
