@@ -6,7 +6,7 @@ BASE_ROM_ARG := $(if $(ROM),--base-rom "$(ROM)")
 WLA_BIN ?= $(CURDIR)/.toolchain/wla-dx/build/binaries
 export WLA_BIN
 
-.PHONY: all baseline symbols text text-extract messages names names-en names-inplace replace-test font-test fullwidth-test bps-test toolchain-test menu-en menu-pt startup-pt bank0f-pt script-en script-pt battle-en battle-pt full-pt races-en full-en full-names clean
+.PHONY: all baseline symbols text text-extract messages names names-en names-inplace replace-test font-test fullwidth-test bps-test toolchain-test menu-en menu-pt startup-pt bank0f-pt items-en items-pt script-en script-pt battle-en battle-pt full-pt races-en full-en full-names clean
 
 all: baseline symbols text text-extract messages names replace-test font-test fullwidth-test bps-test toolchain-test
 
@@ -74,8 +74,20 @@ bank0f-pt: startup-pt
 		--out "$(BUILD)/rom/bank0f_pt.sfc" \
 		--report "$(BUILD)/rom/bank0f_pt_report.json"
 
-script-en: menu-en
-	$(PYTHON) tools/replace_text.py --rom "$(BUILD)/rom/menu_en.sfc" \
+items-en: menu-en
+	$(PYTHON) tools/patch_items.py --rom "$(BUILD)/rom/menu_en.sfc" \
+		--translations translations/items_en.json \
+		--out "$(BUILD)/rom/items_en.sfc" \
+		--report "$(BUILD)/rom/items_en_report.json"
+
+items-pt: bank0f-pt
+	$(PYTHON) tools/patch_items.py --rom "$(BUILD)/rom/bank0f_pt.sfc" \
+		--translations translations/items_pt.json \
+		--out "$(BUILD)/rom/items_pt.sfc" \
+		--report "$(BUILD)/rom/items_pt_report.json"
+
+script-en: items-en
+	$(PYTHON) tools/replace_text.py --rom "$(BUILD)/rom/items_en.sfc" \
 		--translations translations/script_en.json \
 		--patch-name "Kyuuyaku Megami Tensei English script" \
 		--out "$(BUILD)/rom/script_en.sfc" \
@@ -120,8 +132,8 @@ battle-pt: script-en
 		--patch "$(BUILD)/rom/script_battle_pt.bps" \
 		--report "$(BUILD)/rom/script_battle_pt_report.json"
 
-full-pt: bank0f-pt
-	$(PYTHON) tools/replace_text.py --rom "$(BUILD)/rom/bank0f_pt.sfc" \
+full-pt: items-pt
+	$(PYTHON) tools/replace_text.py --rom "$(BUILD)/rom/items_pt.sfc" \
 		--translations translations/script_pt.json \
 		--out "$(BUILD)/rom/script_pt_ui.sfc" \
 		--report "$(BUILD)/rom/script_pt_ui_report.json"

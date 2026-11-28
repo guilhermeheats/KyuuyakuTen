@@ -1,0 +1,586 @@
+[
+  {
+    "index": 1,
+    "text": "WALTHER"
+  },
+  {
+    "index": 2,
+    "text": "M1911"
+  },
+  {
+    "index": 3,
+    "text": "UZI"
+  },
+  {
+    "index": 4,
+    "text": "D. EAGLE"
+  },
+  {
+    "index": 5,
+    "text": "SHOTGUN"
+  },
+  {
+    "index": 6,
+    "text": "RAYGUN"
+  },
+  {
+    "index": 7,
+    "text": "M60"
+  },
+  {
+    "index": 8,
+    "text": "RAILGUN"
+  },
+  {
+    "index": 9,
+    "text": "DRAG ATM"
+  },
+  {
+    "index": 10,
+    "text": "SUB VULC"
+  },
+  {
+    "index": 11,
+    "text": "BEAM RIF"
+  },
+  {
+    "index": 12,
+    "text": "SPIRAL"
+  },
+  {
+    "index": 14,
+    "text": "PLASMA"
+  },
+  {
+    "index": 15,
+    "text": "GIGA"
+  },
+  {
+    "index": 16,
+    "text": "MEGIDO"
+  },
+  {
+    "index": 17,
+    "text": "JACKKNIFE"
+  },
+  {
+    "index": 19,
+    "text": "NUNCHAKU"
+  },
+  {
+    "index": 20,
+    "text": "MORNSTAR"
+  },
+  {
+    "index": 21,
+    "text": "SCIMITAR"
+  },
+  {
+    "index": 24,
+    "text": "GLADIUS"
+  },
+  {
+    "index": 25,
+    "text": "BROADSWD"
+  },
+  {
+    "index": 27,
+    "text": "IXION"
+  },
+  {
+    "index": 30,
+    "text": "CRYSTAL"
+  },
+  {
+    "index": 31,
+    "text": "DRG MACE"
+  },
+  {
+    "index": 32,
+    "text": "HEATSWD"
+  },
+  {
+    "index": 33,
+    "text": "HAMMER"
+  },
+  {
+    "index": 36,
+    "text": "HECATON"
+  },
+  {
+    "index": 38,
+    "text": "D. SLAYER"
+  },
+  {
+    "index": 39,
+    "text": "D. BLADE"
+  },
+  {
+    "index": 40,
+    "text": "MEGATON"
+  },
+  {
+    "index": 45,
+    "text": "EXCALIBUR"
+  },
+  {
+    "index": 46,
+    "text": "VAJRA"
+  },
+  {
+    "index": 49,
+    "text": "BATTLE"
+  },
+  {
+    "index": 50,
+    "text": "HIGHLEG"
+  },
+  {
+    "index": 51,
+    "text": "BODYCON"
+  },
+  {
+    "index": 52,
+    "text": "KEVLAR"
+  },
+  {
+    "index": 53,
+    "text": "CONSERV"
+  },
+  {
+    "index": 54,
+    "text": "L. METAL"
+  },
+  {
+    "index": 55,
+    "text": "IRONMUSC"
+  },
+  {
+    "index": 57,
+    "text": "PWR SUIT"
+  },
+  {
+    "index": 58,
+    "text": "THUNDER"
+  },
+  {
+    "index": 59,
+    "text": "H. METAL"
+  },
+  {
+    "index": 60,
+    "text": "FIREGRD"
+  },
+  {
+    "index": 61,
+    "text": "FREEZE"
+  },
+  {
+    "index": 62,
+    "text": "HYPER"
+  },
+  {
+    "index": 63,
+    "text": "DRG MAIL"
+  },
+  {
+    "index": 64,
+    "text": "TETRA"
+  },
+  {
+    "index": 65,
+    "text": "PANZER"
+  },
+  {
+    "index": 66,
+    "text": "YAKUT"
+  },
+  {
+    "index": 67,
+    "text": "LUCIFER"
+  },
+  {
+    "index": 68,
+    "text": "JUNK HLM"
+  },
+  {
+    "index": 69,
+    "text": "STERLING"
+  },
+  {
+    "index": 70,
+    "text": "IRONHEAD"
+  },
+  {
+    "index": 71,
+    "text": "FRITZ"
+  },
+  {
+    "index": 72,
+    "text": "BRAIN"
+  },
+  {
+    "index": 74,
+    "text": "M. CROWN"
+  },
+  {
+    "index": 75,
+    "text": "DUMMY"
+  },
+  {
+    "index": 76,
+    "text": "DULLAHAN"
+  },
+  {
+    "index": 77,
+    "text": "RED CAP"
+  },
+  {
+    "index": 78,
+    "text": "DEVIL"
+  },
+  {
+    "index": 79,
+    "text": "PSYCHO"
+  },
+  {
+    "index": 81,
+    "text": "DRG HELM"
+  },
+  {
+    "index": 82,
+    "text": "PANZER"
+  },
+  {
+    "index": 83,
+    "text": "YAKUT"
+  },
+  {
+    "index": 85,
+    "text": "RIVET"
+  },
+  {
+    "index": 86,
+    "text": "KAISER"
+  },
+  {
+    "index": 87,
+    "text": "M. GLOVE"
+  },
+  {
+    "index": 88,
+    "text": "COOL"
+  },
+  {
+    "index": 89,
+    "text": "IRONCLAW"
+  },
+  {
+    "index": 90,
+    "text": "DIAMOND"
+  },
+  {
+    "index": 91,
+    "text": "ARM VULC"
+  },
+  {
+    "index": 92,
+    "text": "CRUSHER"
+  },
+  {
+    "index": 93,
+    "text": "CYBER"
+  },
+  {
+    "index": 94,
+    "text": "FIRE ARM"
+  },
+  {
+    "index": 95,
+    "text": "DRG CLAW"
+  },
+  {
+    "index": 96,
+    "text": "DEVIL"
+  },
+  {
+    "index": 97,
+    "text": "PANZER"
+  },
+  {
+    "index": 98,
+    "text": "YAKUT"
+  },
+  {
+    "index": 99,
+    "text": "GOD HAND"
+  },
+  {
+    "index": 100,
+    "text": "LUCIFER"
+  },
+  {
+    "index": 101,
+    "text": "RUBBER"
+  },
+  {
+    "index": 102,
+    "text": "WESTERN"
+  },
+  {
+    "index": 103,
+    "text": "LONDON"
+  },
+  {
+    "index": 104,
+    "text": "FLOWER"
+  },
+  {
+    "index": 105,
+    "text": "COMMUTER"
+  },
+  {
+    "index": 107,
+    "text": "BIGFOOT"
+  },
+  {
+    "index": 109,
+    "text": "JET BOOT"
+  },
+  {
+    "index": 110,
+    "text": "SKY BOOT"
+  },
+  {
+    "index": 111,
+    "text": "HVY BOOT"
+  },
+  {
+    "index": 112,
+    "text": "HYPER"
+  },
+  {
+    "index": 113,
+    "text": "DRG BOOT"
+  },
+  {
+    "index": 115,
+    "text": "PANZER"
+  },
+  {
+    "index": 116,
+    "text": "YAKUT"
+  },
+  {
+    "index": 117,
+    "text": "FALCON"
+  },
+  {
+    "index": 118,
+    "text": "BABYFACE"
+  },
+  {
+    "index": 119,
+    "text": "MIRROR"
+  },
+  {
+    "index": 120,
+    "text": "FRIDAY"
+  },
+  {
+    "index": 121,
+    "text": "GAS MASK"
+  },
+  {
+    "index": 122,
+    "text": "ULTRA"
+  },
+  {
+    "index": 123,
+    "text": "CARP"
+  },
+  {
+    "index": 124,
+    "text": "SWALLOW"
+  },
+  {
+    "index": 125,
+    "text": "PHANTOM"
+  },
+  {
+    "index": 129,
+    "text": "POISON"
+  },
+  {
+    "index": 130,
+    "text": "PARALYZE"
+  },
+  {
+    "index": 131,
+    "text": "PETRIFY"
+  },
+  {
+    "index": 132,
+    "text": "AGILA"
+  },
+  {
+    "index": 133,
+    "text": "ZIO"
+  },
+  {
+    "index": 134,
+    "text": "BUFU"
+  },
+  {
+    "index": 135,
+    "text": "MAHARAGI"
+  },
+  {
+    "index": 136,
+    "text": "MAHAZIO"
+  },
+  {
+    "index": 138,
+    "text": "MISSILE"
+  },
+  {
+    "index": 139,
+    "text": "HAMMER"
+  },
+  {
+    "index": 143,
+    "text": "P. DART"
+  },
+  {
+    "index": 148,
+    "text": "CORE"
+  },
+  {
+    "index": 150,
+    "text": "MUSCLE"
+  },
+  {
+    "index": 152,
+    "text": "SOMA"
+  },
+  {
+    "index": 158,
+    "text": "M. CARD"
+  },
+  {
+    "index": 159,
+    "text": "M. CARD"
+  },
+  {
+    "index": 160,
+    "text": "AMETHYST"
+  },
+  {
+    "index": 161,
+    "text": "AQUAMAR"
+  },
+  {
+    "index": 162,
+    "text": "EMERALD"
+  },
+  {
+    "index": 165,
+    "text": "ANAMIRAN"
+  },
+  {
+    "index": 166,
+    "text": "ANAMIRAN"
+  },
+  {
+    "index": 167,
+    "text": "ANAMIRAN"
+  },
+  {
+    "index": 168,
+    "text": "ANAMIRAN"
+  },
+  {
+    "index": 169,
+    "text": "ANAMIRAN"
+  },
+  {
+    "index": 177,
+    "text": "UMA"
+  },
+  {
+    "index": 178,
+    "text": "EUCALYST"
+  },
+  {
+    "index": 179,
+    "text": "GORGEOUS"
+  },
+  {
+    "index": 220,
+    "text": "MEM CARD"
+  },
+  {
+    "index": 221,
+    "text": "HAZEL"
+  },
+  {
+    "index": 222,
+    "text": "MACCA"
+  },
+  {
+    "index": 223,
+    "text": "MAGNETIT"
+  },
+  {
+    "index": 225,
+    "text": "SHELL"
+  },
+  {
+    "index": 236,
+    "text": "LONDON"
+  },
+  {
+    "index": 257,
+    "text": "JACKKNIFE"
+  },
+  {
+    "index": 258,
+    "text": "NUNCHAKU"
+  },
+  {
+    "index": 264,
+    "text": "MORNSTAR"
+  },
+  {
+    "index": 270,
+    "text": "SOUL KNT"
+  },
+  {
+    "index": 277,
+    "text": "COMBAT"
+  },
+  {
+    "index": 279,
+    "text": "BREASTPL"
+  },
+  {
+    "index": 280,
+    "text": "FIBER"
+  },
+  {
+    "index": 282,
+    "text": "ORICHALC"
+  },
+  {
+    "index": 292,
+    "text": "HELMET"
+  },
+  {
+    "index": 293,
+    "text": "KEVLAR"
+  },
+  {
+    "index": 295,
+    "text": "ANGEL"
+  }
+]
