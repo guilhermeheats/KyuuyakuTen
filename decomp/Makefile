@@ -62,6 +62,7 @@ menu-pt:
 startup-pt: menu-pt
 	$(PYTHON) tools/replace_text.py --rom "$(BUILD)/rom/menu_pt.sfc" \
 		--translations translations/startup_pt.json \
+		--raw-patches translations/startup_raw.json \
 		--out "$(BUILD)/rom/startup_pt.sfc" \
 		--report "$(BUILD)/rom/startup_pt_report.json"
 

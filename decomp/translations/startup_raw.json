@@ -1,0 +1,27 @@
+[
+  {
+    "offset": "02D973",
+    "bytes": "81 40",
+    "note": "inline し before run 4"
+  },
+  {
+    "offset": "02D9F8",
+    "bytes": "81 40",
+    "note": "inline space before run 7"
+  },
+  {
+    "offset": "02DACF",
+    "bytes": "81 40",
+    "note": "inline space before run 12"
+  },
+  {
+    "offset": "02DAFF",
+    "bytes": "81 40",
+    "note": "inline 美 before run 13"
+  },
+  {
+    "offset": "02DB64",
+    "bytes": "81 40 81 40",
+    "note": "inline 飛鳥 before run 16"
+  }
+]

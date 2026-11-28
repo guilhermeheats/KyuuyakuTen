@@ -75,11 +75,14 @@ execução.
   (`古き言い伝えに曰く…`) é um tilemap pré-renderizado (BG1 em VRAM
   `0x7000`, tiles `0x147F+`), não texto codificado; fica para uma passada
   gráfica.
-- **História de abertura no banco $05**: o bloco `$05:D917-$DCE5` tem a
-  introdução de Nakajima, Lucifer e Izanami. O extrator acha 28 runs, mas
-  alguns começam no meio de palavras porque há controles que inserem
-  kanji inline (ex.: `0x89 94 FC` insere 美 antes de `しい天使`). Traduzir
-  esse bloco exige interpretar esses controles; ainda não foi feito.
+- **História de abertura no banco $05 (PT-BR, validada)**: o bloco
+  `$05:D917-$DCE5` tem a introdução de Nakajima, Lucifer e Izanami. O
+  extrator acha 29 runs; alguns começam no meio de palavras porque há
+  controles `0x89` que inserem kanji inline (ex.: `0x89 94 FC` insere 美
+  antes de `しい天使`). `startup_pt.json` traduz os 29 runs e
+  `startup_raw.json` troca os payloads inline por espaços; as linhas PT
+  ficam em até 13 caracteres para caber na janela do filme. Validado no
+  recomp.
 - **Mensagens de batalha validadas ao vivo**: no 7F, os encontros
   mostraram `O GREENSLM came` e `B BASMU came` — prefixo de raça + nome
   T1/T2 em inglês + ` came` —, o prompt `What?`, `Is this okay?`,
@@ -213,8 +216,8 @@ execução.
    2 bytes/char do EN continua em 3675/3744.
 2. Continuar o script principal: cena inicial, restaurante e eventos do
    8F; validar cada novo texto em jogo.
-3. Interpretar os controles do banco `$05` (`0x89` + kanji inline) e
-   traduzir a história de abertura; o extrator atual fragmenta as linhas.
+3. Revisar a tradução do banco `$05` e os payloads inline cobertos por
+   `startup_raw.json`; a história de abertura já está em PT-BR.
 4. Traduzir a narração inicial em tela preta (`古き言い伝えに曰く…`).
    Ela é um tilemap pré-renderizado (BG1 em VRAM `0x7000`), então exige
    edição gráfica, não o pipeline de texto.
