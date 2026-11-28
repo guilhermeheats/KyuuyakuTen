@@ -13,16 +13,16 @@ resumo de revisão; os detalhes de implementação ficam em
 
 Hashes do build PT atual:
 
-- ROM `8a80f89f305173543e3ebafbcfddf5e4c1ac8644fd720dbb5bf8f8eaf10fb394`
-- BPS `374641706c40a97e8d8e8fe90fa8f43f80380df52759b3d35f1efc34bb8ee727`
-  (21.104 bytes)
+- ROM `0c5074b8726b090b4387b63b2ce8a7be193c6321d544d11b848f763d228a5307`
+- BPS `655148f1db6502fa7fa1c8a0c5ad15b740752ea113c49951beebb15065f3648e`
+  (21.134 bytes)
 - `menu_pt.bps` 2.517 bytes
 
 Hashes do build EN atual:
 
-- ROM `4c7bb4d17c5ea07a2b19a1ee28a55b5060f60139196546d0a09e4390d1b4252a`
-- BPS `d1e77aa599e24208f232958b3b576f28b3b2746556ad50aba0b4d6f03293b274`
-  (21.070 bytes)
+- ROM `ddaec72e10e4aa70d2beeb72c83c209d3d34a248578cbe7476cdea645696388f`
+- BPS `c8bf313de1b0b4f058994d71fd4d757513cf24a2176303ec34e73c4b11834c40`
+  (21.100 bytes)
 
 O build PT usa:
 - UI/menu PT-BR (`menu_pt.json`, 146 entradas);
@@ -51,11 +51,12 @@ O build PT usa:
 - Loja JUNKS: a lista de compra mostrou `POISON / PARALYZE / PETRIFY /
   MUSCLE / ESSENCIA` em PT-BR; a compra de POISON descontou 400 MAG
   (1259 -> 859) e o fluxo YES/NO funcionou.
-- Descrições de itens: a linha inferior da loja continua em japonês
-  (`一時的にＭＰを増幅させる`). A tabela é separada do T3: 299
-  ponteiros **big-endian** em `$11:B4DC`, strings Shift-JIS com
-  separador `01 01`. A ordem não é necessariamente 1:1 com o T3;
-  a descrição do MUSCLE fica em `$11:C3DD` e a de HP em `$11:C3F7`.
+- Descrições curtas da loja: `CURA`, `CURA PAR`, `CURA`,
+  `HP TEMP +` e `MP TEMP +` validadas para POISON, PARALYZE, PETRIFY,
+  MUSCLE e ESSENCIA. A descrição MP foi adicionada em `$11:C3F7`.
+  O pool longo de descrições em `$11:B4DC` (299 ponteiros
+  **big-endian**, strings Shift-JIS com `01 01`) ainda é uma tarefa
+  separada; a ordem não é necessariamente 1:1 com o T3.
 - Uma segunda loja (save 8) ainda mostrou o prompt em japonês
   (`何の用? / 買う / 売る / ステイタスを見る / 外に出る`); verificar se é
   outra cópia/tabela ou cache.
@@ -68,8 +69,9 @@ O build PT usa:
 
 ## Ainda pendente
 
-1. Descrições de itens/equipamentos: tabela `$11:B4DC` (299
-   ponteiros) ainda em japonês; traduzir e validar na loja.
+1. Pool longo de descrições de itens/equipamentos (`$11:B4DC`, 299
+   ponteiros big-endian): as linhas curtas da loja já estão em PT-BR,
+   mas o texto longo ainda precisa ser traduzido e validado.
 2. Nomes próprios dos demônios: mantidos em EN/romaji.
 3. Página 8x8 com minúsculas/acentos para PT-BR completo.
 4. Tela de status (botão `X`): o painel fica em BG2 `$6C00` e a fonte

@@ -100,8 +100,10 @@ resultados de validação. O estado consolidado fica em
   `POISON / PARALYZE / PETRIFY / MUSCLE / ESSENCIA` em PT-BR.
 - Compra de POISON: 400 MAG descontados (1259 -> 859), confirmação
   `YES/NO` e retorno à lista funcionando.
-- A linha de descrição da loja ainda está em japonês
-  (`一時的にＭＰを増幅させる`). A tabela é separada do T3:
+- A linha de descrição da loja foi validada para os itens visíveis:
+  `CURA`, `CURA PAR`, `CURA`, `HP TEMP +` e `MP TEMP +`.
+  A descrição MP foi adicionada em `$11:C3F7`.
+- O pool longo de descrições é separado do T3:
   - 299 ponteiros **big-endian** de 16 bits em `$11:B4DC`;
   - strings Shift-JIS separadas por `01 01`, por volta de
     `$11:B733-$11:C5xx`;
@@ -165,15 +167,15 @@ resultados de validação. O estado consolidado fica em
 ## Hashes de referência
 
 - EN `full_names.sfc`:
-  - `4c7bb4d17c5ea07a2b19a1ee28a55b5060f60139196546d0a09e4390d1b4252a`
+  - `ddaec72e10e4aa70d2beeb72c83c209d3d34a248578cbe7476cdea645696388f`
 - EN `full_names.bps`:
-  - 21.070 bytes
+  - 21.100 bytes
   - `11c2a8e0486870d953d1187d8edc4f8db23dc2dfc7b9f3775cef72fd9c457c1d`
 - PT `pt_full.sfc`:
-  - `8a80f89f305173543e3ebafbcfddf5e4c1ac8644fd720dbb5bf8f8eaf10fb394`
+  - `0c5074b8726b090b4387b63b2ce8a7be193c6321d544d11b848f763d228a5307`
 - PT `pt_full.bps`:
-  - 21.104 bytes
-  - `374641706c40a97e8d8e8fe90fa8f43f80380df52759b3d35f1efc34bb8ee727`
+  - 21.134 bytes
+  - `655148f1db6502fa7fa1c8a0c5ad15b740752ea113c49951beebb15065f3648e`
 - `menu_pt.bps`:
   - 2.517 bytes
   - `f16258388b94daddb944ce6acdda85c410cde3acfd345d306b290a3eba63714b`
@@ -197,6 +199,7 @@ resultados de validação. O estado consolidado fica em
 | `b377b19` | rótulos de atributos da criação (EN/PT) |
 | `c818ee4` | repack e tradução parcial dos nomes T3 |
 | `e1a6905` | página hiragana e nomes T3 completos |
+| `9863ed3` | descrição MP da loja (`MP TEMP +`) |
 | `documento atual` | changelog EN/PT para revisão |
 
 ## Como revisar
@@ -225,8 +228,8 @@ resultados de validação. O estado consolidado fica em
   pipeline de edição gráfica.
 - Nomes de itens/equipamentos T3: 298/299 traduzidos; resta apenas o
   placeholder vazio (índice 0).
-- Descrições de itens: tabela `$11:B4DC` (299 ponteiros) ainda em
-  japonês.
+- Pool longo de descrições: tabela `$11:B4DC` (299 ponteiros) ainda
+  em japonês; as linhas curtas da loja já estão em PT-BR.
 - Prompt da segunda loja: verificar cópia/tabela ou cache.
 - Nomes próprios dos demônios em EN/romaji.
 - Página 8x8 com minúsculas/acentos.
