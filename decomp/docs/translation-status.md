@@ -79,11 +79,11 @@ O build PT usa:
    (um patch nessa tabela não alterou a tela). O painel parece
    pré-renderizado/cacheado; traduzir exige editar o tilemap/tiles do
    painel, não uma string.
-4. Lenda inicial em tela preta (`古き言い伝えに曰く…`): capturada por
-   volta do frame 900; fica no tilemap BG1 `$7200`, linhas 4-15, com
-   glifos 16x16 pré-renderizados. O trace mostra a cópia para VRAM no
-   frame 701 por `interp@$01D5EB`; a fonte/buffer de origem ainda não
-   foi identificada. Exige edição gráfica.
+4. Lenda inicial em tela preta (`古き言い伝えに曰く…`): o texto fica
+   em BG2 `$7A00`, linhas 6-14, com a página de fonte `$B000`
+   (16x16). O BG1 `$7200` é a moldura/decoracão. A tela é copiada para
+   VRAM no frame 701 por `interp@$01D5EB`; a fonte/buffer de origem
+   ainda não foi identificada. Exige edição gráfica.
 5. Validação cena a cena do script/raças PT no recomp.
 6. MT2 ainda não iniciado.
 
