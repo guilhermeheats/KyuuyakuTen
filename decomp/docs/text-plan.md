@@ -2,7 +2,8 @@
 
 O detalhamento do que já foi decodificado está em
 [`text-encoding.md`](text-encoding.md). O resumo de cobertura e pendências está em
-[`translation-status.md`](translation-status.md).
+[`translation-status.md`](translation-status.md); o changelog de revisão
+EN/PT está em [`translation-changes.md`](translation-changes.md).
 
 Este arquivo guarda o plano de execução.
 
