@@ -48,6 +48,15 @@ O build PT usa:
   `VIT / INT / FOR / AGI / SOR`.
 - Itens T3: os 298 nomes não vazios estão em PT-BR; ponteiros e pool
   relidos do ROM final e conferidos. A entrada 0 é o placeholder vazio.
+- Loja JUNKS: a lista de compra mostrou `POISON / PARALYZE / PETRIFY /
+  MUSCLE / ESSENCIA` em PT-BR; a compra de POISON descontou 400 MAG
+  (1259 -> 859) e o fluxo YES/NO funcionou.
+- Descrições de itens: a linha inferior da loja continua em japonês
+  (`一時的にＭＰを増幅させる`). A tabela é separada do T3: 299
+  ponteiros em `$11:B4DC`, strings Shift-JIS com separador `01 01`.
+- Uma segunda loja (save 8) ainda mostrou o prompt em japonês
+  (`何の用? / 買う / 売る / ステイタスを見る / 外に出る`); verificar se é
+  outra cópia/tabela ou cache.
 - Abertura do banco `$05`: linhas em PT-BR validadas no filme.
 - Batalha: `COMANDO?`, `FAZ O QUE?`, `TUDO BEM?`, `SOFRE N DANO`,
   `PERDE N`, `SEM DANO!`, `ESQUIVOU!`.
@@ -57,19 +66,21 @@ O build PT usa:
 
 ## Ainda pendente
 
-1. Nomes próprios dos demônios: mantidos em EN/romaji.
-2. Página 8x8 com minúsculas/acentos para PT-BR completo.
-3. Tela de status (botão `X`): o painel fica em BG2 `$6C00` e a fonte
+1. Descrições de itens/equipamentos: tabela `$11:B4DC` (299
+   ponteiros) ainda em japonês; traduzir e validar na loja.
+2. Nomes próprios dos demônios: mantidos em EN/romaji.
+3. Página 8x8 com minúsculas/acentos para PT-BR completo.
+4. Tela de status (botão `X`): o painel fica em BG2 `$6C00` e a fonte
    8x8 em `$6000`; os rótulos (`たいりょく`, `ちりょく`, `つよさ`,
    `はやさ`, `うん`) não são lidos da tabela do banco `$06` em `$B22B`
    (um patch nessa tabela não alterou a tela). O painel parece
    pré-renderizado/cacheado; traduzir exige editar o tilemap/tiles do
    painel, não uma string.
-4. Lenda inicial em tela preta (`古き言い伝えに曰く…`): capturada por
+5. Lenda inicial em tela preta (`古き言い伝えに曰く…`): capturada por
    volta do frame 900; fica no tilemap BG1 `$7200`, linhas 4-15, com
    glifos 16x16 pré-renderizados. Também exige edição gráfica.
-5. Validação cena a cena do script/raças PT no recomp.
-6. MT2 ainda não iniciado.
+6. Validação cena a cena do script/raças PT no recomp.
+7. MT2 ainda não iniciado.
 
 ## Reprodução
 

@@ -94,6 +94,22 @@ resultados de validação. O estado consolidado fica em
   renderizados com os tiles reais da fonte `$0F:AF6B`; BPS aplicado
   contra a ROM japonesa e comparado byte a byte.
 
+### Validação da loja e descrições de itens
+
+- Loja JUNKS validada no recomp: a lista de compra mostrou
+  `POISON / PARALYZE / PETRIFY / MUSCLE / ESSENCIA` em PT-BR.
+- Compra de POISON: 400 MAG descontados (1259 -> 859), confirmação
+  `YES/NO` e retorno à lista funcionando.
+- A linha de descrição da loja ainda está em japonês
+  (`一時的にＭＰを増幅させる`). A tabela é separada do T3:
+  - 299 ponteiros de 16 bits em `$11:B4DC`;
+  - strings Shift-JIS separadas por `01 01`, por volta de
+    `$11:B733-$11:C5xx`;
+  - a descrição do MUSCLE fica em `$11:C3DD`.
+- Uma segunda loja (save 8) ainda exibiu o prompt em japonês
+  (`何の用? / 買う / 売る / ステイタスを見る / 外に出る`), indicando
+  outra cópia/tabela ou cache a investigar.
+
 ### Itens de efeito estatístico (banco `$0F`)
 
 - `MUSCLE` (マッスルドリンコ), `MANA` (魔力の素), `SOM` (ソーマ),
@@ -208,6 +224,9 @@ resultados de validação. O estado consolidado fica em
   pipeline de edição gráfica.
 - Nomes de itens/equipamentos T3: 298/299 traduzidos; resta apenas o
   placeholder vazio (índice 0).
+- Descrições de itens: tabela `$11:B4DC` (299 ponteiros) ainda em
+  japonês.
+- Prompt da segunda loja: verificar cópia/tabela ou cache.
 - Nomes próprios dos demônios em EN/romaji.
 - Página 8x8 com minúsculas/acentos.
 - Validação cena a cena do script/raças.
