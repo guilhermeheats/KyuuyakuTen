@@ -48,6 +48,10 @@
     "text": "SPIRAL"
   },
   {
+    "index": 13,
+    "text": "OURO"
+  },
+  {
     "index": 14,
     "text": "PLASMA"
   },
@@ -64,6 +68,10 @@
     "text": "CANIVETE"
   },
   {
+    "index": 18,
+    "text": "BRONZE"
+  },
+  {
     "index": 19,
     "text": "NUNCHAKU"
   },
@@ -76,6 +84,14 @@
     "text": "CIMITARRA"
   },
   {
+    "index": 22,
+    "text": "ROKUSHAKU"
+  },
+  {
+    "index": 23,
+    "text": "SASORI"
+  },
+  {
     "index": 24,
     "text": "GLADIO"
   },
@@ -84,8 +100,20 @@
     "text": "ESPADA"
   },
   {
+    "index": 26,
+    "text": "YAKOU"
+  },
+  {
     "index": 27,
     "text": "IXION"
+  },
+  {
+    "index": 28,
+    "text": "KUCHINAWA"
+  },
+  {
+    "index": 29,
+    "text": "KOTETSU"
   },
   {
     "index": 30,
@@ -104,8 +132,20 @@
     "text": "MARTELO"
   },
   {
+    "index": 34,
+    "text": "ONIGORO"
+  },
+  {
+    "index": 35,
+    "text": "NIHIL"
+  },
+  {
     "index": 36,
     "text": "MACHADO"
+  },
+  {
+    "index": 37,
+    "text": "FUJIN"
   },
   {
     "index": 38,
@@ -120,12 +160,36 @@
     "text": "MEGA"
   },
   {
+    "index": 41,
+    "text": "KUSANAGI"
+  },
+  {
+    "index": 42,
+    "text": "MURAMASA"
+  },
+  {
+    "index": 43,
+    "text": "RAIJIN"
+  },
+  {
+    "index": 44,
+    "text": "SOLOMON"
+  },
+  {
     "index": 45,
     "text": "EXCALIBUR"
   },
   {
     "index": 46,
     "text": "VAJRA"
+  },
+  {
+    "index": 47,
+    "text": "HINOKAGU"
+  },
+  {
+    "index": 48,
+    "text": "LUCIFER"
   },
   {
     "index": 49,
@@ -154,6 +218,10 @@
   {
     "index": 55,
     "text": "IRONMUSC"
+  },
+  {
+    "index": 56,
+    "text": "ESCAMA"
   },
   {
     "index": 57,
@@ -220,6 +288,10 @@
     "text": "BRAIN"
   },
   {
+    "index": 73,
+    "text": "CHAPEU"
+  },
+  {
     "index": 74,
     "text": "M. CROWN"
   },
@@ -244,6 +316,10 @@
     "text": "PSYCHO"
   },
   {
+    "index": 80,
+    "text": "SHISHI"
+  },
+  {
     "index": 81,
     "text": "DRG HELM"
   },
@@ -254,6 +330,10 @@
   {
     "index": 83,
     "text": "YAKUT"
+  },
+  {
+    "index": 84,
+    "text": "MASAKADO"
   },
   {
     "index": 85,
@@ -340,8 +420,16 @@
     "text": "COMMUTER"
   },
   {
+    "index": 106,
+    "text": "SAP. DEMO"
+  },
+  {
     "index": 107,
     "text": "BIGFOOT"
+  },
+  {
+    "index": 108,
+    "text": "SAND. HIM"
   },
   {
     "index": 109,
@@ -362,6 +450,10 @@
   {
     "index": 113,
     "text": "DRG BOOT"
+  },
+  {
+    "index": 114,
+    "text": "SAND. HER"
   },
   {
     "index": 115,
@@ -408,6 +500,18 @@
     "text": "PHANTOM"
   },
   {
+    "index": 126,
+    "text": "M. BAAL"
+  },
+  {
+    "index": 127,
+    "text": "ASAS ANJO"
+  },
+  {
+    "index": 128,
+    "text": "ESFERA"
+  },
+  {
     "index": 129,
     "text": "POISON"
   },
@@ -440,6 +544,10 @@
     "text": "MAHAZIO"
   },
   {
+    "index": 137,
+    "text": "GRANADA"
+  },
+  {
     "index": 138,
     "text": "MISSILE"
   },
@@ -448,20 +556,76 @@
     "text": "HAMMER"
   },
   {
+    "index": 140,
+    "text": "REMEDIO"
+  },
+  {
+    "index": 141,
+    "text": "BONECA"
+  },
+  {
+    "index": 142,
+    "text": "SINO"
+  },
+  {
     "index": 143,
     "text": "P. DART"
+  },
+  {
+    "index": 144,
+    "text": "SAIDA"
+  },
+  {
+    "index": 145,
+    "text": "SAIDA"
+  },
+  {
+    "index": 146,
+    "text": "OKOSHI"
+  },
+  {
+    "index": 147,
+    "text": "LATA DEMO"
   },
   {
     "index": 148,
     "text": "CORE"
   },
   {
+    "index": 149,
+    "text": "ELIXIR"
+  },
+  {
     "index": 150,
     "text": "MUSCLE"
   },
   {
+    "index": 151,
+    "text": "ESSENCIA"
+  },
+  {
     "index": 152,
     "text": "SOMA"
+  },
+  {
+    "index": 153,
+    "text": "INC. VIT"
+  },
+  {
+    "index": 154,
+    "text": "INC. INT"
+  },
+  {
+    "index": 155,
+    "text": "INC. FOR"
+  },
+  {
+    "index": 156,
+    "text": "INC. AGI"
+  },
+  {
+    "index": 157,
+    "text": "INC. SOR"
   },
   {
     "index": 158,
@@ -484,6 +648,14 @@
     "text": "EMERALD"
   },
   {
+    "index": 163,
+    "text": "ANEL MIRA"
+  },
+  {
+    "index": 164,
+    "text": "CAB. PAZU"
+  },
+  {
     "index": 165,
     "text": "ANAMIRAN"
   },
@@ -504,6 +676,34 @@
     "text": "ANAMIRAN"
   },
   {
+    "index": 170,
+    "text": "CARTAO"
+  },
+  {
+    "index": 171,
+    "text": "CARTAO"
+  },
+  {
+    "index": 172,
+    "text": "JANTAR"
+  },
+  {
+    "index": 173,
+    "text": "JANTAR"
+  },
+  {
+    "index": 174,
+    "text": "JANTAR"
+  },
+  {
+    "index": 175,
+    "text": "JANTAR"
+  },
+  {
+    "index": 176,
+    "text": "REFEICAO"
+  },
+  {
     "index": 177,
     "text": "UMA"
   },
@@ -514,6 +714,166 @@
   {
     "index": 179,
     "text": "GORGEOUS"
+  },
+  {
+    "index": 180,
+    "text": "CRUZ INV"
+  },
+  {
+    "index": 181,
+    "text": "SHIZU"
+  },
+  {
+    "index": 182,
+    "text": "SHIZU"
+  },
+  {
+    "index": 183,
+    "text": "SHIZU"
+  },
+  {
+    "index": 184,
+    "text": "SHIZU"
+  },
+  {
+    "index": 185,
+    "text": "SHIZU"
+  },
+  {
+    "index": 186,
+    "text": "SHIZU"
+  },
+  {
+    "index": 187,
+    "text": "SHIZU"
+  },
+  {
+    "index": 188,
+    "text": "SHIZU"
+  },
+  {
+    "index": 189,
+    "text": "SHIZU"
+  },
+  {
+    "index": 190,
+    "text": "SHIZU"
+  },
+  {
+    "index": 191,
+    "text": "SHIZU"
+  },
+  {
+    "index": 192,
+    "text": "SHIZU"
+  },
+  {
+    "index": 193,
+    "text": "TAL. FOGO"
+  },
+  {
+    "index": 194,
+    "text": "TAL. AGUA"
+  },
+  {
+    "index": 195,
+    "text": "TAL. VEN"
+  },
+  {
+    "index": 196,
+    "text": "TAL. TER"
+  },
+  {
+    "index": 197,
+    "text": "G. BAEL"
+  },
+  {
+    "index": 198,
+    "text": "PILAR SOL"
+  },
+  {
+    "index": 199,
+    "text": "PILAR LUA"
+  },
+  {
+    "index": 200,
+    "text": "PIL. MERC"
+  },
+  {
+    "index": 201,
+    "text": "PIL. VEN"
+  },
+  {
+    "index": 202,
+    "text": "PIL. MARS"
+  },
+  {
+    "index": 203,
+    "text": "PIL. JUP"
+  },
+  {
+    "index": 204,
+    "text": "PIL. SAT"
+  },
+  {
+    "index": 205,
+    "text": "MIDARIKI"
+  },
+  {
+    "index": 206,
+    "text": "ORBE LUTO"
+  },
+  {
+    "index": 207,
+    "text": "ORBE LOUC"
+  },
+  {
+    "index": 208,
+    "text": "ORBE IRA"
+  },
+  {
+    "index": 209,
+    "text": "ORBE DUV"
+  },
+  {
+    "index": 210,
+    "text": "ORBE MEDO"
+  },
+  {
+    "index": 211,
+    "text": "ORBE MAN"
+  },
+  {
+    "index": 212,
+    "text": "ORBE ESP"
+  },
+  {
+    "index": 213,
+    "text": "ANEL SOL"
+  },
+  {
+    "index": 214,
+    "text": "CH. TORRE"
+  },
+  {
+    "index": 215,
+    "text": "ANEL MIRA"
+  },
+  {
+    "index": 216,
+    "text": "P. MIRA"
+  },
+  {
+    "index": 217,
+    "text": "BALSAMO"
+  },
+  {
+    "index": 218,
+    "text": "JOIA SHIO"
+  },
+  {
+    "index": 219,
+    "text": "MANTO IZA"
   },
   {
     "index": 220,
@@ -532,12 +892,136 @@
     "text": "MAGNETIT"
   },
   {
+    "index": 224,
+    "text": "URSO"
+  },
+  {
     "index": 225,
     "text": "SHELL"
   },
   {
+    "index": 226,
+    "text": "ESC. GAL"
+  },
+  {
+    "index": 227,
+    "text": "EST. TABA"
+  },
+  {
+    "index": 228,
+    "text": "CH. TOURO"
+  },
+  {
+    "index": 229,
+    "text": "BILHETE"
+  },
+  {
+    "index": 230,
+    "text": "AMUL. ROL"
+  },
+  {
+    "index": 231,
+    "text": "COL. ARES"
+  },
+  {
+    "index": 232,
+    "text": "MAGATAMA"
+  },
+  {
+    "index": 233,
+    "text": "PUL. RICK"
+  },
+  {
+    "index": 234,
+    "text": "BIG. DRG"
+  },
+  {
+    "index": 235,
+    "text": "OKOSHI"
+  },
+  {
     "index": 236,
     "text": "LONDON"
+  },
+  {
+    "index": 237,
+    "text": "LATAMA"
+  },
+  {
+    "index": 238,
+    "text": "EST. RATO"
+  },
+  {
+    "index": 239,
+    "text": "RELEVO"
+  },
+  {
+    "index": 240,
+    "text": "MANTO IZA"
+  },
+  {
+    "index": 241,
+    "text": "RELINCHO"
+  },
+  {
+    "index": 242,
+    "text": "FRASCO"
+  },
+  {
+    "index": 243,
+    "text": "ORBE DRG"
+  },
+  {
+    "index": 244,
+    "text": "FURUTAMA"
+  },
+  {
+    "index": 245,
+    "text": "CHAVE"
+  },
+  {
+    "index": 246,
+    "text": "FIO SEDA"
+  },
+  {
+    "index": 247,
+    "text": "MISOOBI"
+  },
+  {
+    "index": 248,
+    "text": "MISOOBI"
+  },
+  {
+    "index": 249,
+    "text": "MISOOBI"
+  },
+  {
+    "index": 250,
+    "text": "MISOOBI"
+  },
+  {
+    "index": 251,
+    "text": "MISOOBI"
+  },
+  {
+    "index": 252,
+    "text": "MISOOBI"
+  },
+  {
+    "index": 253,
+    "text": "MISOOBI"
+  },
+  {
+    "index": 254,
+    "text": "MISOOBI"
+  },
+  {
+    "index": 255,
+    "text": "MISOOBI"
+  },
+  {
+    "index": 256,
+    "text": "MISOOBI"
   },
   {
     "index": 257,
@@ -548,16 +1032,84 @@
     "text": "NUNCHAKU"
   },
   {
+    "index": 259,
+    "text": "ADAGA"
+  },
+  {
+    "index": 260,
+    "text": "SASORI"
+  },
+  {
+    "index": 261,
+    "text": "FOICE"
+  },
+  {
+    "index": 262,
+    "text": "KATANA"
+  },
+  {
+    "index": 263,
+    "text": "AD. PLAT"
+  },
+  {
     "index": 264,
     "text": "MORNSTAR"
+  },
+  {
+    "index": 265,
+    "text": "KOTETSU"
+  },
+  {
+    "index": 266,
+    "text": "ESP. MIZU"
+  },
+  {
+    "index": 267,
+    "text": "KIKU"
+  },
+  {
+    "index": 268,
+    "text": "JUTTE"
+  },
+  {
+    "index": 269,
+    "text": "ESP. RAN"
   },
   {
     "index": 270,
     "text": "SOUL KNT"
   },
   {
+    "index": 271,
+    "text": "ESP. ORIC"
+  },
+  {
+    "index": 272,
+    "text": "ESP. VERM"
+  },
+  {
+    "index": 273,
+    "text": "FOICE"
+  },
+  {
+    "index": 274,
+    "text": "ESP. PER"
+  },
+  {
+    "index": 275,
+    "text": "ESP. AURA"
+  },
+  {
+    "index": 276,
+    "text": "HINOKAGU"
+  },
+  {
     "index": 277,
     "text": "COMBAT"
+  },
+  {
+    "index": 278,
+    "text": "MALHA"
   },
   {
     "index": 279,
@@ -568,8 +1120,48 @@
     "text": "FIBER"
   },
   {
+    "index": 281,
+    "text": "ARM.TOTAL"
+  },
+  {
     "index": 282,
     "text": "ORICHALC"
+  },
+  {
+    "index": 283,
+    "text": "ARM. AURA"
+  },
+  {
+    "index": 284,
+    "text": "ARM. NEB"
+  },
+  {
+    "index": 285,
+    "text": "ESC. CARV"
+  },
+  {
+    "index": 286,
+    "text": "ESC. ACO"
+  },
+  {
+    "index": 287,
+    "text": "ESC. CER"
+  },
+  {
+    "index": 288,
+    "text": "ESC. PLAT"
+  },
+  {
+    "index": 289,
+    "text": "ESC. ORIC"
+  },
+  {
+    "index": 290,
+    "text": "ESC. AURA"
+  },
+  {
+    "index": 291,
+    "text": "ESC. LEAO"
   },
   {
     "index": 292,
@@ -580,7 +1172,23 @@
     "text": "KEVLAR"
   },
   {
+    "index": 294,
+    "text": "ELMO AMUL"
+  },
+  {
     "index": 295,
     "text": "ANGEL"
+  },
+  {
+    "index": 296,
+    "text": "MASC. YAK"
+  },
+  {
+    "index": 297,
+    "text": "ELMO AURA"
+  },
+  {
+    "index": 298,
+    "text": "COROA DAF"
   }
 ]
