@@ -163,8 +163,10 @@ resultados de validação. O estado consolidado fica em
   `$6C00` e a fonte 8x8 em `$6000`.
 - Os rótulos do painel (`たいりょく`, `ちりょく`, `つよさ`, `はやさ`,
   `うん`) não vêm da tabela de strings do banco `$06` em `$B22B`:
-  um patch dessa tabela não alterou a tela. O painel parece
-  pré-renderizado/cacheado e exige edição do tilemap/tiles.
+  um patch dessa tabela não alterou a tela. O trace mostra que as
+  últimas escritas na área dos labels em `$6C00` são `0x00` de
+  `bank_05_817A_M1X0`; eles não estão no tilemap BG2 vivo. O painel
+  parece pré-renderizado/cacheado e exige edição do tilemap/tiles.
 - A lenda inicial aparece por volta do frame 900, no tilemap BG1
   `$7200` (linhas 4-15), com glifos 16x16 pré-renderizados. O trace
   mostra a cópia para VRAM no frame 701 por `interp@$01D5EB`; a
