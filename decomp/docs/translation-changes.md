@@ -20,6 +20,8 @@ resultados de validação. O estado consolidado fica em
 | `translations/races_pt.json` | PT-BR | 24 | font | raças |
 | `translations/startup_pt.json` | PT-BR | 42 | fullwidth | nomes/atributos + abertura `$05` |
 | `translations/startup_raw.json` | PT-BR | 5 | raw | payloads `0x89` inline |
+| `translations/stat_labels_en.json` | EN | 5 | raw | rótulos da criação (tilemap) |
+| `translations/stat_labels_pt.json` | PT-BR | 5 | raw | rótulos da criação (tilemap) |
 
 ## Mudanças recentes (MT1)
 
@@ -76,31 +78,52 @@ resultados de validação. O estado consolidado fica em
   `AGI` (速さの香), `SOR` (運の香), `AMET` (アメジスト).
 - Aplicado pelo novo alvo `bank0f-pt`, antes do script no `full-pt`.
 
+### Rótulos de atributos da criação (BG3)
+
+- A tela de criação desenha o painel em BG3 (`$7C00`) com a fonte 8x8
+  em `$C000` e scroll vertical 48.
+- Os cinco rótulos não são um tilemap estático: a rotina em `$01:B3C6`
+  lê um display-list em `$01:B383` e copia blocos de 5 bytes para
+  `$7E3800+offset`.
+- Cada bloco é `[offset word][5 glyph codes]`; os offsets
+  `0508/0548/0588/05C8/0608` correspondem às cinco linhas do painel.
+- Os bytes originais eram `5A 3F 85 82 4A` (たいりょく),
+  `5C 85 82 4A` (ちりょく), `5F 83 50` (ちから),
+  `6A 7F 50` (はやさ) e `41 8B` (うん), com `$01` de padding.
+- Foram trocados por códigos ASCII da fonte 8x8 (`ASCII - $1F`), com
+  `$01` como espaço: EN `VIT / INT / STR / AGI / LUK`; PT-BR
+  `VIT / INT / FOR / AGI / SOR`.
+- Validação: screenshot do recomp nativo com a ROM PT final; as cinco
+  linhas renderizam alinhadas antes das barras.
+
 ## Investigação dos rótulos de atributos
 
-- Os labels da criação (`ちりょく`, `うん`, `たいりょく`, `ちから`,
-  `はやさ`) não estão nos pools de texto `$06`, `$10` ou `$11`.
-- O banco `$0F` em `$8AE7+` contém nomes de itens (`体力の香`,
-  `知力の香`, `強さの香`, `速さの香`, `運の香`), que são itens, não os
-  labels da tela.
+- Resolvido: os rótulos da criação vêm do display-list em `$01:B383`,
+  não dos pools de texto `$06/$10/$11`.
 - O bloco 5x5 em BG4 `$7C00` que havíamos associado aos labels é o
   menu/valores da direita: em `$FAB0` o trace mostra os códigos ASCII de
-  `ESTADO`. O BG2 é o teclado de nomes e não teve escritas de CPU
-  capturadas. As fontes DMA 5/7 (`$00:D8E1`/`$00:0A20`) são
-  dados/código, não a tabela dos labels. Os labels da criação continuam
-  não localizados.
+  `ESTADO`. O BG2 é o teclado de nomes.
+- O banco `$0F` em `$8AE7+` contém nomes de itens (`体力の香`,
+  `知力の香`, ...), não os labels da tela.
+- A tabela de strings do banco `$06` em `$B22B+` contém os mesmos
+  rótulos com sufixo `69 4E 41`; ainda não foi traduzida e falta
+  confirmar se é usada pela tela de status.
 
 ## Hashes de referência
 
 - EN `full_names.sfc`:
-  - `749e2384ef44fb3eaa247a45b9505ac4e100d4aef0113096cb837a68a40736ea`
+  - `a18fd1c0ea0fa1e732dd56ba94d7fed9f324b5e29797b81e3cee54fd0874112b`
+- EN `full_names.bps`:
+  - 17.951 bytes
+  - `d5b7d46446da06f8cd95b8e45557631ab1650f676a06cd1a665df50f826f4eac`
 - PT `pt_full.sfc`:
-  - `2366b42ec705fd8ffac5538b831a03373c13a0110ea58205abba268e5c3deba9`
+  - `4941873185f574c9485e186d650f501b2c349009d8db342ba3a2cfe3b2e6a4c1`
 - PT `pt_full.bps`:
-  - 17.919 bytes
-  - `c4708a51fbd8cfe37a1e91d59964400bbc0a62fee6550aa31df0a6ef750d7cfe`
+  - 17.948 bytes
+  - `8e27de39192d02dbe9a2c600e14ce2ad8adbc9d20549910e2d6b7dadbca6b14d`
 - `menu_pt.bps`:
-  - 2.488 bytes
+  - 2.517 bytes
+  - `f16258388b94daddb944ce6acdda85c410cde3acfd345d306b290a3eba63714b`
 
 ## Commits desta fase
 
@@ -118,6 +141,7 @@ resultados de validação. O estado consolidado fica em
 | `439c863` | menu de configuração |
 | `a632785` | revisão da abertura |
 | `8cce0a9` | documento de status/cobertura |
+| `b377b19` | rótulos de atributos da criação (EN/PT) |
 | `documento atual` | changelog EN/PT para revisão |
 
 ## Como revisar
@@ -142,7 +166,6 @@ resultados de validação. O estado consolidado fica em
 
 ## Pendências para a próxima revisão
 
-- Rótulos de atributos na criação de personagem.
 - Lenda inicial em BG1 pré-renderizado.
 - Nomes de itens/equipamentos T3 (299 entradas).
 - Nomes próprios dos demônios em EN/romaji.

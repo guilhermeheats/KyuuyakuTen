@@ -13,15 +13,24 @@ resumo de revisão; os detalhes de implementação ficam em
 
 Hashes do build PT atual:
 
-- ROM `2366b42ec705fd8ffac5538b831a03373c13a0110ea58205abba268e5c3deba9`
-- BPS `c4708a51fbd8cfe37a1e91d59964400bbc0a62fee6550aa31df0a6ef750d7cfe`
-- `menu_pt.bps` 2.488 bytes
+- ROM `4941873185f574c9485e186d650f501b2c349009d8db342ba3a2cfe3b2e6a4c1`
+- BPS `8e27de39192d02dbe9a2c600e14ce2ad8adbc9d20549910e2d6b7dadbca6b14d`
+  (17.948 bytes)
+- `menu_pt.bps` 2.517 bytes
+
+Hashes do build EN atual:
+
+- ROM `a18fd1c0ea0fa1e732dd56ba94d7fed9f324b5e29797b81e3cee54fd0874112b`
+- BPS `d5b7d46446da06f8cd95b8e45557631ab1650f676a06cd1a665df50f826f4eac`
+  (17.951 bytes)
 
 O build PT usa:
 - UI/menu PT-BR (`menu_pt.json`, 146 entradas);
 - script PT-BR (`script_pt.json`, 90 entradas);
 - criação de personagem e abertura do banco `$05`
   (`startup_pt.json`, 42 entradas + `startup_raw.json`);
+- rótulos de atributos da criação em 8x8 (`stat_labels_pt.json`,
+  5 patches de tilemap);
 - batalha PT-BR de 1 byte com codec 8x8 (`battle_pt.json`, 129 entradas);
 - raças PT-BR (`races_pt.json`, 24 descritores);
 - nomes próprios dos demônios em EN (`names_en.json`).
@@ -33,7 +42,8 @@ O build PT usa:
   CONFIG / ANALISAR`.
 - Configuração: `BATALHA / MAGIAS / MAPA AUTO / SOM` e valores
   `RAP / LEN / NOR / OFF / ON / AUT / FIX / STER`.
-- Criação de personagem: prompts de nome e `Distribua`.
+- Criação de personagem: prompts de nome, `Distribua` e rótulos
+  `VIT / INT / FOR / AGI / SOR`.
 - Abertura do banco `$05`: linhas em PT-BR validadas no filme.
 - Batalha: `COMANDO?`, `FAZ O QUE?`, `TUDO BEM?`, `SOFRE N DANO`,
   `PERDE N`, `SEM DANO!`, `ESQUIVOU!`.
@@ -43,25 +53,18 @@ O build PT usa:
 
 ## Ainda pendente
 
-1. Rótulos dos atributos na criação de personagem (`ちりょく`, `うん`,
-   `たいりょく`, `ちから`, `はやさ`): confirmados como um tilemap 8x8
-   separado, fora dos pools `$06/$10/$11`. O banco `$0F` em `$8AE7+`
-   contém nomes de itens (`体力の香`, `知力の香`, ...), não os labels.
-   O bloco 5x5 em BG4 `0x7C00` que havíamos associado aos labels é, na
-   verdade, o menu/valores da direita: o trace em `0xFAB0` mostra códigos
-   ASCII de `ESTADO`. Os labels da criação continuam não localizados; o
-   BG2 é o teclado de nomes e não teve escritas de CPU capturadas. As
-   fontes DMA 5/7 (`$00:D8E1`/`$00:0A20`) são dados/código, não a tabela
-   dos labels.
-2. Lenda inicial em tela preta (`古き言い伝えに曰く…`): tilemap BG1
+1. Lenda inicial em tela preta (`古き言い伝えに曰く…`): tilemap BG1
    pré-renderizado, exige edição gráfica.
-3. Nomes de itens/equipamentos da tabela T3 do banco `$06` (299 entradas):
+2. Nomes de itens/equipamentos da tabela T3 do banco `$06` (299 entradas):
    a maioria continua em japonês; só os itens de menu mais visíveis foram
    traduzidos. As nove strings de efeito estatístico do banco `$0F`
    (`MUSCLE`, `MANA`, `SOM`, `VIT`, `INT`, `FOR`, `AGI`, `SOR`, `AMET`)
    já estão em PT-BR.
-4. Nomes próprios dos demônios: mantidos em EN/romaji.
-5. Página 8x8 com minúsculas/acentos para PT-BR completo.
+3. Nomes próprios dos demônios: mantidos em EN/romaji.
+4. Página 8x8 com minúsculas/acentos para PT-BR completo.
+5. Tabela de strings do banco `$06` em `$B22B+` (mesmos rótulos com
+   sufixo `69 4E 41`): ainda não traduzida; confirmar se é usada pela
+   tela de status.
 6. Validação cena a cena do script/raças PT no recomp.
 7. MT2 ainda não iniciado.
 
