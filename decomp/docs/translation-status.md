@@ -81,7 +81,9 @@ O build PT usa:
    painel, não uma string.
 4. Lenda inicial em tela preta (`古き言い伝えに曰く…`): capturada por
    volta do frame 900; fica no tilemap BG1 `$7200`, linhas 4-15, com
-   glifos 16x16 pré-renderizados. Também exige edição gráfica.
+   glifos 16x16 pré-renderizados. O trace mostra a cópia para VRAM no
+   frame 701 por `interp@$01D5EB`; a fonte/buffer de origem ainda não
+   foi identificada. Exige edição gráfica.
 5. Validação cena a cena do script/raças PT no recomp.
 6. MT2 ainda não iniciado.
 
