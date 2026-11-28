@@ -1,0 +1,1052 @@
+[
+  {
+    "offset": "08B735",
+    "length": 22,
+    "text": "A２ H１ MF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08B74D",
+    "length": 22,
+    "text": "A４ H１ MF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08B765",
+    "length": 26,
+    "text": "A３ H１-３ MF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08B781",
+    "length": 20,
+    "text": "A８ H１ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08B797",
+    "length": 26,
+    "text": "A６ H１-２ MF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08B7B3",
+    "length": 28,
+    "text": "A１０ H１-２ MF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08B7D1",
+    "length": 24,
+    "text": "A７ H２-３ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08B7EB",
+    "length": 24,
+    "text": "A２４ H１ MF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08B805",
+    "length": 26,
+    "text": "A１７ H１-ALL M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08B821",
+    "length": 26,
+    "text": "A１４ H２-ALL M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08B83D",
+    "length": 28,
+    "text": "A３３ H１-２ MF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08B85B",
+    "length": 28,
+    "text": "A２３ H２-４ MF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08B879",
+    "length": 26,
+    "text": "A２８ H１-８ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08B895",
+    "length": 28,
+    "text": "A５０ H１-３ MF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08B8B3",
+    "length": 26,
+    "text": "A４６ H２-４ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08B8CF",
+    "length": 22,
+    "text": "A５３ HALL M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08B8E7",
+    "length": 20,
+    "text": "A１ H１ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08B8FD",
+    "length": 20,
+    "text": "A１ H１ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08B913",
+    "length": 24,
+    "text": "A２ H１-２ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08B92D",
+    "length": 24,
+    "text": "A３ H１-２ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08B947",
+    "length": 22,
+    "text": "A４ H１ MF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08B95F",
+    "length": 24,
+    "text": "A５ H１-２ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08B979",
+    "length": 22,
+    "text": "A３ H２ MF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08B991",
+    "length": 26,
+    "text": "A５ H１-２ MF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08B9AD",
+    "length": 20,
+    "text": "A７ H１ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08B9C3",
+    "length": 20,
+    "text": "A８ H１ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08B9D9",
+    "length": 26,
+    "text": "A６ H１-２ MF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08B9F5",
+    "length": 26,
+    "text": "A６ H０-８ MF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BA11",
+    "length": 24,
+    "text": "A１３ H１ MF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BA2B",
+    "length": 20,
+    "text": "A５ HALL F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BA41",
+    "length": 22,
+    "text": "A３０ H１ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BA59",
+    "length": 24,
+    "text": "A２６ H１ MF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BA73",
+    "length": 22,
+    "text": "A５０ H１ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BA8B",
+    "length": 22,
+    "text": "A４６ H１ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BAA3",
+    "length": 32,
+    "text": "A３３ H０-８ ♂♀　●",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BAC5",
+    "length": 26,
+    "text": "A５５ H２-３ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BAE1",
+    "length": 28,
+    "text": "A２１ H１-２ MF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BAFF",
+    "length": 26,
+    "text": "A４２ H１-２ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BB1B",
+    "length": 32,
+    "text": "A６０ H０-８ ♂♀　●",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BB3D",
+    "length": 22,
+    "text": "A８５ H１ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BB55",
+    "length": 22,
+    "text": "A３２ HALL M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BB6D",
+    "length": 28,
+    "text": "A６３ H１-２ MF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BB8B",
+    "length": 26,
+    "text": "A４３ H２-ALL M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BBA7",
+    "length": 26,
+    "text": "A７０ H１-３ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BBC3",
+    "length": 32,
+    "text": "A６２ H２-３ ♂♀　◎",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BBE5",
+    "length": 28,
+    "text": "A５８ H１-８ MF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BC03",
+    "length": 22,
+    "text": "A９７ H２ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BC1B",
+    "length": 30,
+    "text": "A８０ H１-８ ♂　★",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BC3B",
+    "length": 16,
+    "text": "DEF１ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BC4D",
+    "length": 16,
+    "text": "DEF１ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BC5F",
+    "length": 16,
+    "text": "DEF２ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BC71",
+    "length": 16,
+    "text": "DEF２ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BC83",
+    "length": 16,
+    "text": "DEF３ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BC95",
+    "length": 16,
+    "text": "DEF３ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BCA7",
+    "length": 16,
+    "text": "DEF５ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BCB9",
+    "length": 16,
+    "text": "DEF６ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BCCB",
+    "length": 16,
+    "text": "DEF５ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BCDD",
+    "length": 16,
+    "text": "DEF８ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BCEF",
+    "length": 16,
+    "text": "DEF６ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BD01",
+    "length": 16,
+    "text": "DEF８ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BD13",
+    "length": 16,
+    "text": "DEF９ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BD25",
+    "length": 18,
+    "text": "DEF１０ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BD39",
+    "length": 18,
+    "text": "DEF１０ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BD4D",
+    "length": 18,
+    "text": "DEF１２ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BD61",
+    "length": 18,
+    "text": "DEF１２ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BD75",
+    "length": 18,
+    "text": "DEF１５ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BD89",
+    "length": 22,
+    "text": "DEF１９ ♂　★",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BDA1",
+    "length": 16,
+    "text": "DEF１ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BDB3",
+    "length": 16,
+    "text": "DEF１ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BDC5",
+    "length": 16,
+    "text": "DEF２ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BDD7",
+    "length": 16,
+    "text": "DEF２ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BDE9",
+    "length": 16,
+    "text": "DEF３ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BDFB",
+    "length": 16,
+    "text": "DEF３ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BE0D",
+    "length": 16,
+    "text": "DEF３ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BE1F",
+    "length": 16,
+    "text": "DEF３ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BE31",
+    "length": 16,
+    "text": "DEF４ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BE43",
+    "length": 16,
+    "text": "DEF３ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BE55",
+    "length": 16,
+    "text": "DEF４ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BE67",
+    "length": 16,
+    "text": "DEF４ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BE79",
+    "length": 16,
+    "text": "DEF４ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BE8B",
+    "length": 16,
+    "text": "DEF５ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BE9D",
+    "length": 16,
+    "text": "DEF５ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BEAF",
+    "length": 16,
+    "text": "DEF５ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BEC1",
+    "length": 16,
+    "text": "DEF５ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BED3",
+    "length": 16,
+    "text": "DEF１ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BEE5",
+    "length": 16,
+    "text": "DEF１ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BEF7",
+    "length": 16,
+    "text": "DEF２ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BF09",
+    "length": 16,
+    "text": "DEF２ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BF1B",
+    "length": 16,
+    "text": "DEF２ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BF2D",
+    "length": 16,
+    "text": "DEF３ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BF3F",
+    "length": 16,
+    "text": "DEF２ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BF51",
+    "length": 16,
+    "text": "DEF３ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BF63",
+    "length": 16,
+    "text": "DEF３ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BF75",
+    "length": 16,
+    "text": "DEF３ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BF87",
+    "length": 18,
+    "text": "DEF４ MF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BF9B",
+    "length": 16,
+    "text": "DEF３ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BFAD",
+    "length": 16,
+    "text": "DEF４ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BFBF",
+    "length": 16,
+    "text": "DEF３ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BFD1",
+    "length": 16,
+    "text": "DEF４ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BFE3",
+    "length": 16,
+    "text": "DEF４ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08BFF5",
+    "length": 16,
+    "text": "DEF１ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C007",
+    "length": 16,
+    "text": "DEF１ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C019",
+    "length": 16,
+    "text": "DEF１ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C02B",
+    "length": 16,
+    "text": "DEF１ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C03D",
+    "length": 16,
+    "text": "DEF１ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C04F",
+    "length": 16,
+    "text": "DEF２ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C061",
+    "length": 16,
+    "text": "DEF３ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C073",
+    "length": 16,
+    "text": "DEF１ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C085",
+    "length": 16,
+    "text": "DEF２ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C097",
+    "length": 16,
+    "text": "DEF３ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C0A9",
+    "length": 16,
+    "text": "DEF４ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C0BB",
+    "length": 16,
+    "text": "DEF３ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C0CD",
+    "length": 16,
+    "text": "DEF４ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C0DF",
+    "length": 16,
+    "text": "DEF３ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C0F1",
+    "length": 16,
+    "text": "DEF４ F",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C103",
+    "length": 16,
+    "text": "DEF３ M",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C115",
+    "length": 18,
+    "text": "DEF２ MF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C129",
+    "length": 18,
+    "text": "DEF３ MF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C13D",
+    "length": 18,
+    "text": "DEF４ MF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C151",
+    "length": 18,
+    "text": "DEF６ MF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C165",
+    "length": 18,
+    "text": "DEF５ MF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C179",
+    "length": 18,
+    "text": "DEF８ MF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C18D",
+    "length": 18,
+    "text": "DEF１ MF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C1A1",
+    "length": 18,
+    "text": "DEF２ MF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C1B5",
+    "length": 18,
+    "text": "DEF４ MF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C1C9",
+    "length": 18,
+    "text": "DEF６ MF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C1DD",
+    "length": 18,
+    "text": "DEF８ MF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C1F1",
+    "length": 28,
+    "text": "FULL CURE",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C20F",
+    "length": 14,
+    "text": "CURE P",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C21F",
+    "length": 16,
+    "text": "CURE PAR",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C231",
+    "length": 14,
+    "text": "CURE S",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C241",
+    "length": 26,
+    "text": "AGILA",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C25D",
+    "length": 24,
+    "text": "ZIO",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C277",
+    "length": 26,
+    "text": "BUFU",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C293",
+    "length": 28,
+    "text": "MAHARAGI",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C2B1",
+    "length": 28,
+    "text": "MAHAZIO",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C2CF",
+    "length": 14,
+    "text": "ZAN PWR",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C2DF",
+    "length": 16,
+    "text": "ZANMA PW",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C2F1",
+    "length": 20,
+    "text": "HANMA PWR",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C307",
+    "length": 18,
+    "text": "HAPIL PWR",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C31B",
+    "length": 18,
+    "text": "MUDO PWR",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C32F",
+    "length": 18,
+    "text": "REVIVE",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C343",
+    "length": 24,
+    "text": "DMG + POISON",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C35F",
+    "length": 26,
+    "text": "WARP ENTRANCE",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C387",
+    "length": 20,
+    "text": "DEM. HERE",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C39D",
+    "length": 30,
+    "text": "NO DAMAGE",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C3BD",
+    "length": 30,
+    "text": "NO WEAK DEM",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C3DD",
+    "length": 24,
+    "text": "HP TEMP +",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C3F7",
+    "length": 24,
+    "text": "MP TEMP +",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C411",
+    "length": 28,
+    "text": "FULL CURE",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C42F",
+    "length": 22,
+    "text": "VIT +1",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C447",
+    "length": 22,
+    "text": "INT +1",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C45F",
+    "length": 22,
+    "text": "STR +1",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C477",
+    "length": 22,
+    "text": "AGI +1",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C48F",
+    "length": 20,
+    "text": "LUK +1",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C4A7",
+    "length": 30,
+    "text": "NEEDS CODEBRK",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C4C7",
+    "length": 30,
+    "text": "TRADE AT LAG",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C4E7",
+    "length": 30,
+    "text": "TRADE AT LAG",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C507",
+    "length": 30,
+    "text": "TRADE AT LAG",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C533",
+    "length": 22,
+    "text": "PAZUZU PRF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C553",
+    "length": 16,
+    "text": "P. MAT",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C567",
+    "length": 24,
+    "text": "SUZUKI CARD",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C587",
+    "length": 24,
+    "text": "BISTRO ITEM",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C5A1",
+    "length": 24,
+    "text": "BISTRO ITEM",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C5BB",
+    "length": 24,
+    "text": "BISTRO ITEM",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C5D5",
+    "length": 24,
+    "text": "BISTRO ITEM",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C5EF",
+    "length": 24,
+    "text": "BISTRO ITEM",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C609",
+    "length": 22,
+    "text": "DEVA PROOF",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C643",
+    "length": 22,
+    "text": "SHOW MOLA",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C65B",
+    "length": 22,
+    "text": "SHOW MOLA",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C673",
+    "length": 22,
+    "text": "SHOW MOLA",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C68B",
+    "length": 22,
+    "text": "SHOW MOLA",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C6A3",
+    "length": 18,
+    "text": "BREAK BAR",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C6B7",
+    "length": 24,
+    "text": "PILLAR 1/7",
+    "encoding": "fullwidth"
+  },
+  {
+    "offset": "08C6D1",
+    "length": 24,
+    "text": "PILLAR 1/7",
+    "encoding": "fullwidth"
+  }
+]

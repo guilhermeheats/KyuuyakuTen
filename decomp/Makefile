@@ -6,7 +6,7 @@ BASE_ROM_ARG := $(if $(ROM),--base-rom "$(ROM)")
 WLA_BIN ?= $(CURDIR)/.toolchain/wla-dx/build/binaries
 export WLA_BIN
 
-.PHONY: all baseline symbols text text-extract messages names names-en names-inplace replace-test font-test fullwidth-test bps-test toolchain-test menu-en menu-pt startup-pt bank0f-pt items-en items-pt script-en script-pt battle-en battle-pt full-pt races-en full-en full-names clean
+.PHONY: all baseline symbols text text-extract messages names names-en names-inplace replace-test font-test fullwidth-test bps-test toolchain-test menu-en menu-pt descriptions-en descriptions-pt startup-pt bank0f-pt items-en items-pt script-en script-pt battle-en battle-pt full-pt races-en full-en full-names clean
 
 all: baseline symbols text text-extract messages names replace-test font-test fullwidth-test bps-test toolchain-test
 
@@ -61,8 +61,20 @@ menu-pt:
 		--patch "$(BUILD)/rom/menu_pt.bps" \
 		--report "$(BUILD)/rom/menu_pt_report.json"
 
-startup-pt: menu-pt
+descriptions-pt: menu-pt
 	$(PYTHON) tools/replace_text.py --rom "$(BUILD)/rom/menu_pt.sfc" \
+		--translations translations/descriptions_pt.json \
+		--out "$(BUILD)/rom/descriptions_pt.sfc" \
+		--report "$(BUILD)/rom/descriptions_pt_report.json"
+
+descriptions-en: menu-en
+	$(PYTHON) tools/replace_text.py --rom "$(BUILD)/rom/menu_en.sfc" \
+		--translations translations/descriptions_en.json \
+		--out "$(BUILD)/rom/descriptions_en.sfc" \
+		--report "$(BUILD)/rom/descriptions_en_report.json"
+
+startup-pt: descriptions-pt
+	$(PYTHON) tools/replace_text.py --rom "$(BUILD)/rom/descriptions_pt.sfc" \
 		--translations translations/startup_pt.json \
 		--raw-patches translations/startup_raw.json \
 		--out "$(BUILD)/rom/startup_pt.sfc" \
@@ -74,8 +86,8 @@ bank0f-pt: startup-pt
 		--out "$(BUILD)/rom/bank0f_pt.sfc" \
 		--report "$(BUILD)/rom/bank0f_pt_report.json"
 
-items-en: menu-en
-	$(PYTHON) tools/patch_items.py --rom "$(BUILD)/rom/menu_en.sfc" \
+items-en: descriptions-en
+	$(PYTHON) tools/patch_items.py --rom "$(BUILD)/rom/descriptions_en.sfc" \
 		--translations translations/items_en.json \
 		--out "$(BUILD)/rom/items_en.sfc" \
 		--report "$(BUILD)/rom/items_en_report.json"
