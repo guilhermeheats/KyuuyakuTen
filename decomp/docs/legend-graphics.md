@@ -105,6 +105,10 @@ A cópia do tilemap cobre também a linha 20 para apagar o rodapé japonês
 que sobrava com 13 linhas. Validado no recomp nativo em PT-BR e EN no
 frame 1750.
 
+A fonte de 32 tiles usa apenas ASCII maiúsculo. Acentos PT-BR (GLÓRIA,
+ESCURIDÃO) ficam para a página 8x8 acentuada, que é uma pendência
+separada; por enquanto o texto usa `GLORIA`/`ESCURIDAO`.
+
 ## Espaço livre
 
 | File offset | Banco:endereço | Uso |

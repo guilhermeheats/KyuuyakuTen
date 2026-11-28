@@ -204,6 +204,8 @@ resultados de validação. O estado consolidado fica em
   também o rodapé japonês original.
 - Validado no recomp nativo: PT-BR e EN exibem as 7 linhas traduzidas
   no frame 1750; o BPS continua aplicando contra a ROM japonesa.
+- A fonte tem 32 tiles ASCII maiúsculos; acentos PT-BR ficam para a
+  página 8x8 acentuada (`GLORIA`/`ESCURIDAO` por enquanto).
 - A tela de status continua pendente (painel pré-renderizado).
 
 ## Investigação dos rótulos de atributos
